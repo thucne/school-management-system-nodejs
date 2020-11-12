@@ -9991,26 +9991,6 @@
       "avatar": "https://robohash.org/estautet.bmp?size=50x50&set=set1"
     },
     {
-      "name": "Trời xanh mây trắng",
-      "first_name": "Trâm say nắng hay là say xe",
-      "gender": "Other",
-      "email": "cunhohontuithitranhxa@cumini.du.vl",
-      "id": "e70e715b-4117-4644-8cfd-32ccd9c70667",
-      "ip_address": "108.33.69.172",
-      "password": "LzlRArXqK",
-      "avatar": "uploads/3e3122065bec55a2ff6af58c27f92c0f"
-    },
-    {
-      "name": "Nguyen Duy",
-      "first_name": "Khang",
-      "gender": "Female",
-      "email": "khang@gmail.com",
-      "id": "d3908570-9950-47a3-8a02-f62d5daec29d",
-      "ip_address": "116.35.232.51",
-      "password": "j3gPuYvjd",
-      "avatar": "uploads/2193b49f658fd77b008e523353f111aa"
-    },
-    {
       "name": "sdsdfsdf",
       "first_name": "dsfsdfsdf",
       "gender": "Male",
@@ -10099,30 +10079,6 @@
       "ip_address": "49.102.116.169",
       "password": "s2VIS-uyL",
       "avatar": "uploads/251c90445c75b14fb3a3ea1258b3f20f"
-    },
-    {
-      "name": "Trúc xinh trúc mọc đầu đình",
-      "first_name": "Trâm xinh trâm đứng chình ình cũng xinh",
-      "gender": "Other",
-      "email": "tramu@mailtramtramtangtamthanngocnganay.com",
-      "id": "b7d5b6ae-7d3b-45c7-80c5-0ce44adf367b",
-      "ip_address": "105.87.75.181",
-      "password": "M3wliw8pL",
-      "avatar": "uploads/de0aa24aae9f120855032f915052b7fc",
-      "errs": [],
-      "warnings": [
-        "Avatar is kept unchanged."
-      ]
-    },
-    {
-      "name": "Tram",
-      "first_name": "Mu",
-      "gender": "Other",
-      "email": "ssss@mu.com",
-      "id": "b4e99e04-ed85-4681-8290-5a28063102e7",
-      "ip_address": "223.141.215.231",
-      "password": "HczjVna0_",
-      "avatar": "uploads/9ad99caf6224ee8503901f0b9bf8970b"
     }
   ],
   "sessions": [
