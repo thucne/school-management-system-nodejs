@@ -31,11 +31,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/katyperrycbt/ExpressJS.git"
+    "url": "git+https://github.com/katyperrycbt/sms.git"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/katyperrycbt/ExpressJS/issues"
+    "url": "https://github.com/katyperrycbt/sms/issues"
   },
-  "homepage": "https://github.com/katyperrycbt/ExpressJS#readme"
+  "homepage": "https://github.com/katyperrycbt/sms#readme"
 }
