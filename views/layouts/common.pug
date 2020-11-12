@@ -1,0 +1,51 @@
+html
+
+    head
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+        link(rel="icon", type="image/jpg", href="C:\\Users\\PC\\WebstormProjects\\LearningJS\\Expressjs\\images\\tabIcon.jpg")
+
+        script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js',
+            integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js',
+            integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js',
+            integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+        //link(href='/open-iconic/font/css/open-iconic-bootstrap.css', rel='stylesheet')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        //link(rel="icon", href="http://sstatic.net/stackoverflow/img/favicon.ico")
+    body
+        div
+            img.cropimg(src="/images/galaxy.jpg", alt='Navigation img', width="100%", height="20%")
+        nav.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top
+            a.navbar-brand(href='#') MySchool.io
+            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav',
+                aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarNav.collapse.navbar-collapse
+                ul.navbar-nav.mr-auto
+                    li.nav-item
+                        a.nav-link(href='/') Home
+                    li.nav-item
+                        a.nav-link(href='/users') Student list
+                    li.nav-item
+                        a.nav-link(href='/auth/login', class=userInfo.name === " " ? 'nav-link': 'nav-link disabled') Log in
+                    li.nav-item
+                        a.nav-link(href='/users/create') Sign up
+                    li.nav-item
+                        a.nav-link(href='/school/week') Week
+                    li.nav-item
+                        a.nav-link(href='/school/room') Room
+                span.form-inline.my-2.my-lg-0=  userInfo.name
+                span &nbsp;
+                button.btn.btn-outline-secondary.form-inline.my-2.my-lg-0(type='button', onclick='logout()') Log out
+                script(type='text/javascript').
+                  function logout() {
+                    document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                    // console.log(userInfo.name + "oops");
+                    location.reload();
+                    userInfo.name = " ";
+                  }
+        .container.pt-5
+            block content

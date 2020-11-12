@@ -1,0 +1,4 @@
+/node_modules
+.env
+stuffs/like_button.js
+stuffs/index.html

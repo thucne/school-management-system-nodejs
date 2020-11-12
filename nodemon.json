@@ -1,0 +1,3 @@
+{
+  "ignore": ["db.json", "avatar.json", "week.json", "room.json"]
+}

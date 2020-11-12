@@ -1,0 +1,41 @@
+{
+  "name": "expressjs",
+  "version": "1.0.0",
+  "description": "Hi there! \r Contact me: katyperrycbt@gmail.com",
+  "main": "stuffs/Expressjs1.js",
+  "scripts": {
+    "start": "nodemon --inspect sms.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@popperjs/core": "^2.5.3",
+    "aguid": "^2.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "ip-range-generator": "^1.0.1",
+    "lowdb": "^1.0.0",
+    "multer": "^1.4.2",
+    "path": "^0.12.7",
+    "pug": "^3.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "shortid": "^2.2.15"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katyperrycbt/ExpressJS.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/katyperrycbt/ExpressJS/issues"
+  },
+  "homepage": "https://github.com/katyperrycbt/ExpressJS#readme"
+}

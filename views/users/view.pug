@@ -1,0 +1,74 @@
+extends ../layouts/common
+
+block content
+    h1 Student's Information
+    hr(style="background-color: lightgray;")
+    .container-fluid.mt-5
+        .row
+            .col-sm-4.rounded-lg.shadow-none.p-3.mb-5.bg-light(style="height: 100%;")
+                p.px-5.mb-5
+                    if user.avatar
+                        img(src=(user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '../' + user.avatar : user.avatar , width="40", alt=!user.avatar ? 'Not Found' : '')
+                    else
+                        span Not Found
+                    span &nbsp;
+                    span(style="margin-left: 40;")
+                        b= user.name
+
+                a.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.PersonalInfo ? 'active' : '') : 'active'
+                , href='/users/' + user.id)
+                    span.ml-2 Personal info
+                a.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.Fee ? 'active' : '') : '')
+                    span.ml-2 Fee
+                a.btn.btn-light.border-0.rounded-0.d-sm-flex(href='/users', class=thisSession ? (thisSession.Back ? 'active' : '') : '')
+                    span.ml-2 Back
+            .col-sm-8
+                #reactState
+                    p
+                        h4 Student info
+                    if errs
+                        each err in errs
+                            .alert.alert-danger= err
+                    if warnings
+                        each warning in warnings
+                            .alert.alert-warning= warning
+                    form(action="/users/updateInfo/", method="POST", enctype="multipart/form-data")
+                        .form-group
+
+                            label(for="name") Last Name
+                            input#name.form-control(name="name", type="text", value=user ? user.name : '', placeholder="Katy",
+                                pattern="^[a-zA-Z]{1,15}\\s{0,1}[a-zA-Z]{1,15}\\s*$",
+                                title= "In word, less than 30 letters.")
+
+                            label(for="first_name") First Name
+                            input#first_name.form-control(name="first_name", type="text", value=user ? user.first_name: '', placeholder="Perry",
+                                pattern="^[a-zA-Z]{1,15}\\s{0,1}[a-zA-Z]{1,15}\\s*$",
+                                title="In word, less than 30 letters.")
+
+                            //label(for="gender") Gender
+                            //input#gender.form-control.input-group(name="gender", type="text", value=values ? values.gender : '', placeholder="Male")
+
+                            p.mb-1 Gender
+                            input#male.ml-3(type='radio', name='gender', value='Male', checked=user.gender === 'Male')
+                            label.ml-2(for='male') Male
+                            input#female.ml-3(type='radio', name='gender', value='Female', checked=user.gender === 'Female')
+                            label.ml-2(for='female') Female
+                            input#other.ml-3(type='radio', name='gender', value='Other', checked=user.gender === 'Other')
+                            label.ml-2(for='other') Other
+                            br
+                            label(for="email") Email
+                            input#email.form-control(name="email", type="text", value=user ? user.email : '', placeholder="katyperry@gmail.com",
+                                pattern="^\\w+@[a-zA-Z]+\\.com$",
+                                title="any@inWords.com")
+
+                            label(for="avatar") Avatar
+                            input#avatar.form-control-file(name="avatar", type="file")
+
+                            input(type="hidden", name="id", value=user.id)
+                        button.btn.btn-primary Update info
+
+            script(src="https://unpkg.com/react@17/umd/react.development.js" crossorigin)
+            script(src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin)
+            script(src="https://unpkg.com/babel-standalone@6/babel.min.js")
+
+    hr(style="background-color: lightgray;")
