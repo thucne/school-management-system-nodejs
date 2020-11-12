@@ -12,4 +12,6 @@ Make sure you have already installed [Nodejs](https://docs.npmjs.com/downloading
 ### In the cmd prompt, powershell
 Run this `npm install`, it may take time to finish.
 
+Create a file named `.env` with `cookie_secret=anything`
+
 Then `npm start`, then all done!
