@@ -8,7 +8,7 @@
       "ip_address": "162.186.26.22",
       "email": "chaselwood3@miibeian.com",
       "password": "qoi6pJclU",
-      "avatar": "../uploads/7040937c9ed2a2401082a952daad1640",
+      "avatar": "uploads/35413bd690220f8e8dc4ab2f32b98b60",
       "errs": [],
       "warnings": [
         "Avatar is kept unchanged."
@@ -22,7 +22,7 @@
       "ip_address": "199.229.25.247",
       "email": "mconkay4@google.com",
       "password": "ydg7be",
-      "avatar": "../../../../../uploads/de0b96e443dbeced926828a54ad2d110",
+      "avatar": "uploads/407084fcd318d51a5603bb4afd286977",
       "errs": [],
       "warnings": [
         "Avatar is kept unchanged."
@@ -36,7 +36,7 @@
       "ip_address": "37.211.101.164",
       "email": "hfoat5@usatoday.com",
       "password": "ugFUoY87Nhjo",
-      "avatar": "uploads/ec715f9501b7e7b21b40cfd62717aa89",
+      "avatar": "uploads/11a236b7e22ab51b95504ccc494dd961",
       "errs": [],
       "warnings": [
         "Avatar is kept unchanged."
@@ -10079,6 +10079,16 @@
       "ip_address": "49.102.116.169",
       "password": "s2VIS-uyL",
       "avatar": "uploads/251c90445c75b14fb3a3ea1258b3f20f"
+    },
+    {
+      "name": "Chillies",
+      "first_name": "Music Band",
+      "gender": "Male",
+      "email": "chillies@gmail.com",
+      "id": "74cfcec7-7a39-408e-8a82-698086d2ddd0",
+      "ip_address": "246.146.220.51",
+      "password": "OvfhkNLpS",
+      "avatar": "uploads/878c529917d4385e4397679e5746cd27"
     }
   ],
   "sessions": [
@@ -10093,6 +10103,18 @@
     },
     {
       "id": "Gi7-kPEYa"
+    },
+    {
+      "id": "nh3QdzTvm",
+      "list": {
+        "9e007f2b-c9ba-464f-a937-c01493f4a1a1": 1,
+        "a585b731-0527-4a30-941d-92d78bea7c43": 1,
+        "7869a2c6-033e-4274-8ac9-16fb29139823": 1,
+        "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3": 1
+      }
+    },
+    {
+      "id": "0VK_c-nPb"
     }
   ]
 }
