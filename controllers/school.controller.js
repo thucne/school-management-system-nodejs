@@ -21,9 +21,14 @@ module.exports.selectStudents = function (req, res, next) {
     return;
   }
 
+  var count = db.get('sessions')
+      .find({ id : sessionID})
+      .get('list.' + studentID, 0)
+      .value();
+
   db.get('sessions')
       .find({ id: sessionID})
-      .set('list.' + studentID, 1)
+      .set('list.' + studentID, count+1)
       .write();
 
   res.redirect('/users');
