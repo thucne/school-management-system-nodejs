@@ -5,6 +5,7 @@ const express = require('express');
 //đọc dữ liệu ng dùng post lên và chuyển nó thành dạng object
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+var csurf = require('csurf');
 
 var userRouter = require('./routes/user.route');
 var authRouter = require('./routes/auth.route');
@@ -26,6 +27,8 @@ app.use(bodyParser.json()); //for parsing application/json
 app.use(bodyParser.urlencoded({ extend: true})); //for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.cookie_secret));
 app.use(sessionMiddleware);
+
+var csrfProtection = csurf({ cookie: true });
 
 app.get('/', authMiddleware.default, authMiddleware.requireAuth, function (req, res) {
   res.render('index', {
