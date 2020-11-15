@@ -29,6 +29,7 @@ app.use(cookieParser(process.env.cookie_secret));
 app.use(sessionMiddleware);
 
 var csrfProtection = csurf({ cookie: true });
+// app.use(csrfProtection);
 
 app.get('/', authMiddleware.default, authMiddleware.requireAuth, function (req, res) {
   res.render('index', {
@@ -37,7 +38,7 @@ app.get('/', authMiddleware.default, authMiddleware.requireAuth, function (req, 
 });
 
 app.use('/users', authMiddleware.default, authMiddleware.requireAuth, userRouter);
-app.use('/auth', authMiddleware.default, authRouter);
+app.use('/auth', authMiddleware.default, csrfProtection, authRouter);
 app.use('/school', authMiddleware.default, authMiddleware.requireAuth, schoolRouter);
 
 app.listen(port, function () {
