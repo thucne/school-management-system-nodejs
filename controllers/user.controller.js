@@ -117,7 +117,10 @@ module.exports.updateInfo = function (req, res) {
 };
 
 module.exports.create = function (req, res) {
-  res.render('users/create');
+  res.render('users/create', {
+    errs: [],
+    // csrfToken: req.csrfToken()
+  });
   if (!req.cookies) {
     console.log(req.cookies);
   }
