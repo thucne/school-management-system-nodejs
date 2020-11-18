@@ -18,7 +18,11 @@ module.exports.index = function (req, res) {
   var start = (page - 1) * nPPage;
   var end = page * nPPage
 
+  var token = req.csrfToken();
+  console.log("index " + token);
+
   res.render('users/index', {
+    csrfToken: token,
     users: db.get('users').value().slice(start, end),
     page: {
       max: max,
@@ -70,8 +74,11 @@ module.exports.search = function (req, res) {
   var start = (page - 1) * nPPage;
   var end = page * nPPage;
 
+  var token = req.csrfToken();
+  console.log("search " + token);
 
   res.render('users/index', {
+    csrfToken: token,
     users: match.slice(start, end),
     page: {
       max: max,
@@ -108,7 +115,8 @@ module.exports.updateInfo = function (req, res) {
   if (req.body.warnings) {
     res.render('users/view', {
       user: req.body,
-      warnings: req.body.warnings
+      warnings: req.body.warnings,
+      csrfToken: req.csrfToken()
     });
   } else {
     res.redirect('/users/' + req.body.id);
@@ -117,9 +125,10 @@ module.exports.updateInfo = function (req, res) {
 };
 
 module.exports.create = function (req, res) {
+  var token = req.csrfToken();
+  console.log("create " + token);
   res.render('users/create', {
-    errs: [],
-    // csrfToken: req.csrfToken()
+    csrfToken: token
   });
   if (!req.cookies) {
     console.log(req.cookies);
@@ -128,10 +137,13 @@ module.exports.create = function (req, res) {
 
 module.exports.id = function (req, res) {
   var id = req.params.id;
+  var token = req.csrfToken();
+  console.log("id " + token);
 
   var user = db.get('users').find({id: id}).value();
 
   res.render('users/view', {
+    csrfToken: token,
     user: user
   })
 };

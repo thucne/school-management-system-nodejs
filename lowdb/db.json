@@ -22,11 +22,12 @@
       "ip_address": "199.229.25.247",
       "email": "mconkay4@google.com",
       "password": "ydg7be",
-      "avatar": "uploads/407084fcd318d51a5603bb4afd286977",
+      "avatar": "../uploads/407084fcd318d51a5603bb4afd286977",
       "errs": [],
       "warnings": [
         "Avatar is kept unchanged."
-      ]
+      ],
+      "_csrf": ""
     },
     {
       "id": "a585b731-0527-4a30-941d-92d78bea7c43",
@@ -50,11 +51,12 @@
       "ip_address": "89.86.155.214",
       "email": "dbradmore6@smugmug.com",
       "password": "P5mDZZ3OlR",
-      "avatar": "../../../uploads/e39004a0eacb34ecc10a5e283c1c87ad",
+      "avatar": "uploads/35dd809287b63c77d2e1bedc844011c1",
       "errs": [],
       "warnings": [
         "Avatar is kept unchanged."
-      ]
+      ],
+      "_csrf": "LVbKaWO3-TuxRxc6ZZ78bcx5W64rUV--BWlQ"
     },
     {
       "id": "ad01abac-4921-43c1-b17d-7f72140a91d4",
@@ -64,11 +66,12 @@
       "ip_address": "142.12.227.17",
       "email": "gcollings7@nps.com",
       "password": "EkGT9Bj8B",
-      "avatar": "uploads/a1fec03ce8459b7c6200e9530c1d2d4b",
+      "avatar": "uploads/e53cf1ccaefdd0b074fc1deedfb9dc54",
       "warnings": [
         "Avatar is kept unchanged."
       ],
-      "errs": []
+      "errs": [],
+      "_csrf": "kjRn5QOG-inUJXvFOFOuZYyv8YNVkEWA1oDE"
     },
     {
       "id": "0aa07faf-741e-45dc-995f-bac86ee7d32d",
@@ -10119,6 +10122,16 @@
       "ip_address": "136.251.187.86",
       "password": "abhkt7gVF",
       "avatar": "uploads/a20c1003a1e13764a523929585058aef"
+    },
+    {
+      "name": "BLACK",
+      "first_name": "PINK",
+      "gender": "Female",
+      "email": "blackpink@yg.com",
+      "id": "b9fd048a-9eec-4859-80b0-668131cbf5cc",
+      "ip_address": "108.176.130.114",
+      "password": "OiKyN2mbH",
+      "avatar": "uploads/ead18cc96bed4b90167ad0fb160c2e3c"
     }
   ],
   "sessions": [
@@ -10148,6 +10161,24 @@
     },
     {
       "id": "oE9kYUyTT"
+    },
+    {
+      "id": "oVw1-u96M",
+      "list": {
+        "98c77229-cd1e-4477-b9af-74d0de6c25e0": 1
+      }
+    },
+    {
+      "id": "fwK7LsyIb"
+    },
+    {
+      "id": "dNV_05gSk"
+    },
+    {
+      "id": "qHOAnTL42",
+      "list": {
+        "e9e2f73f-75ec-4ab6-8e5d-d50a0d0cf618": 1
+      }
     }
   ]
 }

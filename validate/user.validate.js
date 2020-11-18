@@ -1,7 +1,8 @@
 var db = require('../lowdb/db');
 
-module.exports.postCreate = function (req, res, next) {
+ module.exports.postCreate = function (req, res, next) {
   var errs = [];
+  console.log(req.csrfToken());
 
   if (!req.body.name) {
     errs.push('Last Name is required.');
@@ -22,12 +23,16 @@ module.exports.postCreate = function (req, res, next) {
   }
 
   if (errs.length) {
+    let token = req.csrfToken();
+    console.log("Error create " + token);
     res.render('users/create', {
+      csrfToken: token,
       errs: errs,
-      values: req.body,
+      values: req.body
     });
     return;
   }
+
   next();
 };
 
@@ -60,7 +65,10 @@ module.exports.postUpdate =  function (req, res, next) {
 
   if (errs.length) {
     user.avatar = (user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '../' + user.avatar: user.avatar;
+    let token = req.csrfToken();
+    console.log("Error update " + token);
     res.render('users/view', {
+      csrfToken: token,
       user: user,
       errs: errs,
       thisSession: {PersonalInfo: 'yes', Fee: '', Back: ''},
