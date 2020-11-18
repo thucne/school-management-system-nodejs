@@ -5,7 +5,14 @@ const express = require('express');
 //đọc dữ liệu ng dùng post lên và chuyển nó thành dạng object
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const open = require('open');
+
+//change this direction below to your appropriate one in your computer (any browser) 
+const edge = "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe";
+
+
 var csurf = require('csurf');
+
 
 var userRouter = require('./routes/user.route');
 var authRouter = require('./routes/auth.route');
@@ -17,6 +24,8 @@ var sessionMiddleware = require('./middleware/session.middleware');
 const app = express();
 
 var port = 6969;
+
+
 
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -43,4 +52,5 @@ app.use('/school', authMiddleware.default, authMiddleware.requireAuth, csrfProte
 
 app.listen(port, function () {
   console.log('Server at port '  + port + ' is running...!');
+  open('http://localhost:6969', { app: edge });
 });
