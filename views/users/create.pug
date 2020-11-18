@@ -9,7 +9,7 @@ block content
 
     form(action="/users/create", method="POST", enctype="multipart/form-data")
       .form-group
-        //input(type="hidden", name="_csrf1", value=csrfToken)
+        input(type="hidden", name="_csrf", value=csrfToken)
 
         label(for="name") Last Name
         input#name.form-control(name="name", type="text", value=values ? values.name : '', placeholder="Katy",
