@@ -52,6 +52,6 @@ app.use('/school', authMiddleware.default, authMiddleware.requireAuth, csrfProte
 
 app.listen(port, function () {
   console.log('Server at port '  + port + ' is running...!');
-
+  //cre
   open('http://localhost:6969', {app: edge});
 });
