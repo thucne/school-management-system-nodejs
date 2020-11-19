@@ -16,7 +16,7 @@ router.get('/', csrfProtection, controller.index);
 
 router.get('/cookie', controller.cookie);
 
-router.get('/search', controller.search);
+router.get('/search', csrfProtection, controller.search);
 
 router.get('/update', controller.update);
 
