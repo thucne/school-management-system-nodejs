@@ -104,12 +104,6 @@ app.use(function(err, req, res, next){
   });
 });
 
-/* istanbul ignore next */
-if (!module.parent) {
-  app.listen(3000);
-  console.log('Express started on port 3000');
-}
-
 app.listen(port, function () {
   console.log('Server at port '  + port + ' is running...!');
   open('http://localhost:6969/', {app: edge});
