@@ -25,7 +25,7 @@ const app = express();
 
 var port = 6969;
 
-
+// window.close();
 
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -50,12 +50,37 @@ app.use('/users', authMiddleware.default, authMiddleware.requireAuth, userRouter
 app.use('/auth', authMiddleware.default, csrfProtection, authRouter);
 app.use('/school', authMiddleware.default, authMiddleware.requireAuth, csrfProtection, schoolRouter);
 
+// const livereload = require("livereload");
+//
+// const liveReloadServer = livereload.createServer();
+// liveReloadServer.watch(path.join(__dirname, 'public'));
+// liveReloadServer.server.once("connection", () => {
+//   setTimeout(() => {
+//     liveReloadServer.refresh("/");
+//   }, 100);
+// });
+
+// function closeTab(){
+//   var server = app.listen(6969);
+//   if (server){
+//     server.close();
+//     console.log('Tab has opened');
+//
+//     return ;
+//   }
+//   console.log('No tabs');
+// }
+// (async () => {
+//   await closeTab();
+// })()
+
+// var isRestart = false;
+
 app.listen(port, function () {
+
   console.log('Server at port '  + port + ' is running...!');
-  console.log('Ji');
-  console.log('Ji');
-  console.log('Ji');
-  console.log('Ji');
-  console.log('Ji');
+  // isRestart = true;
+
   open('http://localhost:6969', {app: edge});
 });
+
