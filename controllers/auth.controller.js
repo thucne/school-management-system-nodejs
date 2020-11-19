@@ -47,6 +47,9 @@ module.exports.postLogin = function (req, res) {
   res.cookie('userID', user.id, {
     signed: true
   });
+  // res.cookie('isServerRS', 0 , {
+  //   signed: true
+  // })
   // res.cookie.delete('userID');
   res.redirect('../users');
 };
