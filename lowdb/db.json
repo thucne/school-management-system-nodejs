@@ -10132,6 +10132,17 @@
       "ip_address": "108.176.130.114",
       "password": "OiKyN2mbH",
       "avatar": "uploads/ead18cc96bed4b90167ad0fb160c2e3c"
+    },
+    {
+      "_csrf": "7CEoQBRE-qD4HbdFGVJ1uzgjxEUyXbzikJio",
+      "name": "Hoang Thuy",
+      "first_name": "Linh",
+      "gender": "Female",
+      "email": "htlinh@artist.com",
+      "id": "7f32af70-09a9-418a-88a5-d175b1182d3c",
+      "ip_address": "65.153.55.237",
+      "password": "qmg91IlUw",
+      "avatar": "uploads/1a9beaffa6810973f333cef16f804a23"
     }
   ],
   "sessions": [
@@ -10188,6 +10199,9 @@
     },
     {
       "id": "uOvYcUZMR"
+    },
+    {
+      "id": "9ogg4vi7K"
     }
   ]
 }
