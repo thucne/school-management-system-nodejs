@@ -56,5 +56,6 @@ app.listen(port, function () {
   console.log('Ji');
   console.log('Ji');
   console.log('Ji');
+  console.log('Ji');
   open('http://localhost:6969', {app: edge});
 });
