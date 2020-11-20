@@ -40,7 +40,6 @@ app.use(sessionMiddleware);
 var csrfProtection = csurf({ cookie: true });
 // app.use(csrfProtection);
 
-
 app.get('/', authMiddleware.default, authMiddleware.requireAuth, function (req, res) {
   res.render('index', {
     name: 'katyperrycbt'
@@ -100,12 +99,12 @@ app.use(function(err, req, res, next){
   var user = db.get('users').find({ id: req.signedCookies.userID }).value();
   res.status(err.status || 500);
   res.render('404', {
-    userInfo: {name: user.name}
+    userInfo: {name: "Hi " + user.name + "!"}
   });
 });
 
 app.listen(port, function () {
-  console.log('Server at port '  + port + ' is running...!');
-  open('http://localhost:6969/', {app: edge});
+  console.log('Server at port '  + port + ' is running...!!');
+  // open('http://localhost:6969/', {app: edge});
 });
 
