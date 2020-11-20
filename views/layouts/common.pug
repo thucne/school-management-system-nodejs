@@ -37,10 +37,14 @@ html
                         a.nav-link(href='/school/week') Week
                     li.nav-item
                         a.nav-link(href='/school/room') Room
+                    li.nav-item
+                        a.nav-link(href='/school/eliminate') Eliminate Duplicates
+                    li.nav-item
+                        a.nav-link(href='/school/assign') Assign Week > Room
 
                 span.form-inline.my-2.my-lg-0=  userInfo.name
                 span &nbsp;
-                button.btn.btn-outline-secondary.form-inline.my-2.my-lg-0(type='button', onclick='logout()') Log out
+                button.btn.btn-outline-secondary.form-inline.my-2.my-lg-0(type='button', onclick='logout()', hidden=userInfo.name === " ", disabled=userInfo.name === " ") Log out
                 script(type='text/javascript').
                   function logout() {
                     document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
