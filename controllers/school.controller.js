@@ -111,3 +111,7 @@ module.exports.generate = function (req, res) {
   }
   res.redirect('/users');
 }
+
+module.exports.createSubject = function (req, res) {
+  res.render('school/createSubject');
+}
