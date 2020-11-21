@@ -9,4 +9,5 @@ router.get('/room', controller.room);
 router.get('/select/:studentId', controller.selectStudents);
 router.get('/assign', controller.assign);
 router.get('/eliminate', controller.eliminate);
+router.get('/generate', controller.generate);
 module.exports = router;
