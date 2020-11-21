@@ -1,0 +1,8004 @@
+{
+  "subjects": [
+    {
+      "id_sub": 1,
+      "name_sub": "Machine Learning",
+      "start": "01/04/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 2,
+      "name_sub": "Machine Learning",
+      "start": "01/05/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 3,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 4,
+      "name_sub": "Internet of Things",
+      "start": "01/02/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 5,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 6,
+      "name_sub": "Machine Learning",
+      "start": "01/27/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 7,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/01/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 8,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/22/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 9,
+      "name_sub": "Thesis",
+      "start": "01/29/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 10,
+      "name_sub": "Machine Learning",
+      "start": "01/18/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 11,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 12,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 13,
+      "name_sub": "Computer Graphic",
+      "start": "01/09/2021",
+      "end": "06/25/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 14,
+      "name_sub": "Internet of Things",
+      "start": "01/24/2021",
+      "end": "06/08/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 15,
+      "name_sub": "Thesis",
+      "start": "01/04/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 16,
+      "name_sub": "Internet of Things",
+      "start": "01/09/2021",
+      "end": "06/28/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 17,
+      "name_sub": "Data Mining",
+      "start": "01/10/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 18,
+      "name_sub": "Internet of Things",
+      "start": "01/02/2021",
+      "end": "06/27/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 19,
+      "name_sub": "Thesis",
+      "start": "01/05/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 20,
+      "name_sub": "Machine Learning",
+      "start": "01/28/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 21,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 22,
+      "name_sub": "Computer Networks",
+      "start": "01/30/2021",
+      "end": "06/23/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 23,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 24,
+      "name_sub": "Computer Graphic",
+      "start": "01/05/2021",
+      "end": "06/11/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 25,
+      "name_sub": "Web Development",
+      "start": "01/13/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 26,
+      "name_sub": "Data Mining",
+      "start": "01/03/2021",
+      "end": "06/28/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 27,
+      "name_sub": "Machine Learning",
+      "start": "01/02/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 28,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/16/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 29,
+      "name_sub": "Machine Learning",
+      "start": "01/15/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 30,
+      "name_sub": "Internet of Things",
+      "start": "01/04/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 31,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/28/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 32,
+      "name_sub": "Machine Learning",
+      "start": "01/05/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 33,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 34,
+      "name_sub": "Machine Learning",
+      "start": "01/18/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 35,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 36,
+      "name_sub": "Machine Learning",
+      "start": "01/23/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 37,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/27/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 38,
+      "name_sub": "Computer Graphic",
+      "start": "01/03/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 39,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 40,
+      "name_sub": "Computer Graphic",
+      "start": "01/20/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 41,
+      "name_sub": "Machine Learning",
+      "start": "01/15/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 42,
+      "name_sub": "Thesis",
+      "start": "01/04/2021",
+      "end": "06/11/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 43,
+      "name_sub": "Internet of Things",
+      "start": "01/17/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 44,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 45,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 46,
+      "name_sub": "Computer Graphic",
+      "start": "01/29/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 47,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 48,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 49,
+      "name_sub": "Probability, Statistics and Random Variables",
+      "start": "01/03/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 50,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 51,
+      "name_sub": "Thesis",
+      "start": "01/06/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 52,
+      "name_sub": "Internet of Things",
+      "start": "01/05/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 53,
+      "name_sub": "Thesis",
+      "start": "01/24/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 54,
+      "name_sub": "Internet of Things",
+      "start": "01/05/2021",
+      "end": "06/14/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 55,
+      "name_sub": "Thesis",
+      "start": "01/09/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 56,
+      "name_sub": "Internet of Things",
+      "start": "01/04/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 57,
+      "name_sub": "Data Mining",
+      "start": "01/15/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 58,
+      "name_sub": "Internet of Things",
+      "start": "01/09/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 59,
+      "name_sub": "Computer Graphic",
+      "start": "01/29/2021",
+      "end": "06/08/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 60,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "06/27/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 61,
+      "name_sub": "Internet of Things",
+      "start": "01/24/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 62,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/27/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 63,
+      "name_sub": "Data Mining",
+      "start": "01/28/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 64,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 65,
+      "name_sub": "Thesis",
+      "start": "01/04/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 66,
+      "name_sub": "Machine Learning",
+      "start": "01/10/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 67,
+      "name_sub": "Machine Learning",
+      "start": "01/05/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 68,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/01/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 69,
+      "name_sub": "Machine Learning",
+      "start": "01/29/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 70,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/27/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 71,
+      "name_sub": "Thesis",
+      "start": "01/17/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 72,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 73,
+      "name_sub": "Machine Learning",
+      "start": "01/25/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 74,
+      "name_sub": "Machine Learning",
+      "start": "01/07/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 75,
+      "name_sub": "Internet of Things",
+      "start": "01/17/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 76,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 77,
+      "name_sub": "Internet of Things",
+      "start": "01/24/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 78,
+      "name_sub": "Object-oriented Analysis and Design",
+      "start": "01/26/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 79,
+      "name_sub": "Machine Learning",
+      "start": "01/24/2021",
+      "end": "06/09/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 80,
+      "name_sub": "Machine Learning",
+      "start": "01/04/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 81,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 82,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 83,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 84,
+      "name_sub": "Computer Graphic",
+      "start": "01/05/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 85,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 86,
+      "name_sub": "Thesis",
+      "start": "01/11/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 87,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 88,
+      "name_sub": "Machine Learning",
+      "start": "01/17/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 89,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 90,
+      "name_sub": "Machine Learning",
+      "start": "01/09/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 91,
+      "name_sub": "Computer Graphic",
+      "start": "01/16/2021",
+      "end": "06/16/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 92,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 93,
+      "name_sub": "Internet of Things",
+      "start": "01/17/2021",
+      "end": "06/07/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 94,
+      "name_sub": "Machine Learning",
+      "start": "01/02/2021",
+      "end": "06/27/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 95,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/07/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 96,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 97,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/28/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 98,
+      "name_sub": "Computer Graphic",
+      "start": "01/02/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 99,
+      "name_sub": "Data Mining",
+      "start": "01/29/2021",
+      "end": "06/25/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 100,
+      "name_sub": "Thesis",
+      "start": "01/02/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 101,
+      "name_sub": "Internet of Things",
+      "start": "01/06/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 102,
+      "name_sub": "Machine Learning",
+      "start": "01/30/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 103,
+      "name_sub": "Computer Graphic",
+      "start": "01/28/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 104,
+      "name_sub": "Thesis",
+      "start": "01/13/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 105,
+      "name_sub": "Internet of Things",
+      "start": "01/17/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 106,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/16/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 107,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 108,
+      "name_sub": "Machine Learning",
+      "start": "01/19/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 109,
+      "name_sub": "Machine Learning",
+      "start": "01/07/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 110,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/28/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 111,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 112,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 113,
+      "name_sub": "Thesis",
+      "start": "01/04/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 114,
+      "name_sub": "Internet of Things",
+      "start": "01/02/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 115,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 116,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 117,
+      "name_sub": "Machine Learning",
+      "start": "01/28/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 118,
+      "name_sub": "Internet of Things",
+      "start": "01/06/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 119,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 120,
+      "name_sub": "Machine Learning",
+      "start": "01/02/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 121,
+      "name_sub": "Computer Graphic",
+      "start": "01/12/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 122,
+      "name_sub": "Thesis",
+      "start": "01/22/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 123,
+      "name_sub": "Internet of Things",
+      "start": "01/03/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 124,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 125,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/23/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 126,
+      "name_sub": "Machine Learning",
+      "start": "01/30/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 127,
+      "name_sub": "Internet of Things",
+      "start": "01/06/2021",
+      "end": "06/27/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 128,
+      "name_sub": "Internet of Things",
+      "start": "01/04/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 129,
+      "name_sub": "Computer Graphic",
+      "start": "01/22/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 130,
+      "name_sub": "Thesis",
+      "start": "01/12/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 131,
+      "name_sub": "Internet of Things",
+      "start": "01/03/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 132,
+      "name_sub": "Thesis",
+      "start": "01/19/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 133,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 134,
+      "name_sub": "Object-oriented Analysis and Design",
+      "start": "01/17/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 135,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/27/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 136,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 137,
+      "name_sub": "Machine Learning",
+      "start": "01/12/2021",
+      "end": "06/22/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 138,
+      "name_sub": "Machine Learning",
+      "start": "01/22/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 139,
+      "name_sub": "Computer Graphic",
+      "start": "01/07/2021",
+      "end": "06/01/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 140,
+      "name_sub": "Thesis",
+      "start": "01/08/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 141,
+      "name_sub": "Machine Learning",
+      "start": "01/01/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 142,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 143,
+      "name_sub": "Internet of Things",
+      "start": "01/24/2021",
+      "end": "06/23/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 144,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 145,
+      "name_sub": "Thesis",
+      "start": "01/30/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 146,
+      "name_sub": "Machine Learning",
+      "start": "01/13/2021",
+      "end": "06/08/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 147,
+      "name_sub": "Object-oriented Analysis and Design",
+      "start": "01/06/2021",
+      "end": "06/28/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 148,
+      "name_sub": "Machine Learning",
+      "start": "01/13/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 149,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 150,
+      "name_sub": "Web Development",
+      "start": "01/21/2021",
+      "end": "06/25/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 151,
+      "name_sub": "Machine Learning",
+      "start": "01/29/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 152,
+      "name_sub": "Internet of Things",
+      "start": "01/25/2021",
+      "end": "06/08/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 153,
+      "name_sub": "Machine Learning",
+      "start": "01/30/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 154,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 155,
+      "name_sub": "Computer Graphic",
+      "start": "01/09/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 156,
+      "name_sub": "Machine Learning",
+      "start": "01/13/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 157,
+      "name_sub": "Internet of Things",
+      "start": "01/06/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 158,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 159,
+      "name_sub": "Machine Learning",
+      "start": "01/24/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 160,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 161,
+      "name_sub": "Internet of Things",
+      "start": "01/19/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 162,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 163,
+      "name_sub": "Internet of Things",
+      "start": "01/09/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 164,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 165,
+      "name_sub": "Computer Graphic",
+      "start": "01/16/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 166,
+      "name_sub": "Machine Learning",
+      "start": "01/10/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 167,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/04/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 168,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 169,
+      "name_sub": "Computer Networks",
+      "start": "01/05/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 170,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 171,
+      "name_sub": "Internet of Things",
+      "start": "01/03/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 172,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 173,
+      "name_sub": "Internet of Things",
+      "start": "01/24/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 174,
+      "name_sub": "Data Mining",
+      "start": "01/05/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 175,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 176,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 177,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 178,
+      "name_sub": "Object-oriented Analysis and Design",
+      "start": "01/05/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 179,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/22/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 180,
+      "name_sub": "Thesis",
+      "start": "01/04/2021",
+      "end": "06/09/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 181,
+      "name_sub": "Internet of Things",
+      "start": "01/25/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 182,
+      "name_sub": "Internet of Things",
+      "start": "01/19/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 183,
+      "name_sub": "Thesis",
+      "start": "01/27/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 184,
+      "name_sub": "Machine Learning",
+      "start": "01/03/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 185,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 186,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 187,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/11/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 188,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 189,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 190,
+      "name_sub": "Data Mining",
+      "start": "01/07/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 191,
+      "name_sub": "Computer Graphic",
+      "start": "01/09/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 192,
+      "name_sub": "Internet of Things",
+      "start": "01/04/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 193,
+      "name_sub": "Machine Learning",
+      "start": "01/09/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 194,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 195,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/04/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 196,
+      "name_sub": "Thesis",
+      "start": "01/30/2021",
+      "end": "06/28/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 197,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/23/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 198,
+      "name_sub": "Computer Graphic",
+      "start": "01/08/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 199,
+      "name_sub": "Data Mining",
+      "start": "01/26/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 200,
+      "name_sub": "Thesis",
+      "start": "01/09/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 201,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/08/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 202,
+      "name_sub": "Machine Learning",
+      "start": "01/03/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 203,
+      "name_sub": "Internet of Things",
+      "start": "01/02/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 204,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 205,
+      "name_sub": "Probability, Statistics and Random Variables",
+      "start": "01/27/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 206,
+      "name_sub": "Thesis",
+      "start": "01/02/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 207,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 208,
+      "name_sub": "Machine Learning",
+      "start": "01/01/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 209,
+      "name_sub": "Object-oriented Analysis and Design",
+      "start": "01/25/2021",
+      "end": "06/14/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 210,
+      "name_sub": "Thesis",
+      "start": "01/14/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 211,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 212,
+      "name_sub": "Internet of Things",
+      "start": "01/04/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 213,
+      "name_sub": "Machine Learning",
+      "start": "01/10/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 214,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 215,
+      "name_sub": "Thesis",
+      "start": "01/12/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 216,
+      "name_sub": "Machine Learning",
+      "start": "01/13/2021",
+      "end": "06/28/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 217,
+      "name_sub": "Internet of Things",
+      "start": "01/02/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 218,
+      "name_sub": "Computer Graphic",
+      "start": "01/12/2021",
+      "end": "06/25/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 219,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 220,
+      "name_sub": "Thesis",
+      "start": "01/09/2021",
+      "end": "06/25/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 221,
+      "name_sub": "Internet of Things",
+      "start": "01/17/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 222,
+      "name_sub": "Internet of Things",
+      "start": "01/05/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 223,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 224,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 225,
+      "name_sub": "Machine Learning",
+      "start": "01/05/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 226,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 227,
+      "name_sub": "Data Mining",
+      "start": "01/26/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 228,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 229,
+      "name_sub": "Internet of Things",
+      "start": "01/02/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 230,
+      "name_sub": "Machine Learning",
+      "start": "01/14/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 231,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 232,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 233,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/07/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 234,
+      "name_sub": "Thesis",
+      "start": "01/04/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 235,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/01/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 236,
+      "name_sub": "Machine Learning",
+      "start": "01/17/2021",
+      "end": "06/28/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 237,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 238,
+      "name_sub": "Thesis",
+      "start": "01/09/2021",
+      "end": "06/14/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 239,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/07/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 240,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 241,
+      "name_sub": "Web Development",
+      "start": "01/12/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 242,
+      "name_sub": "Machine Learning",
+      "start": "01/29/2021",
+      "end": "06/25/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 243,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 244,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/27/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 245,
+      "name_sub": "Data Mining",
+      "start": "01/15/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 246,
+      "name_sub": "Machine Learning",
+      "start": "01/17/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 247,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 248,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 249,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/08/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 250,
+      "name_sub": "Machine Learning",
+      "start": "01/22/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 251,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 252,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 253,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 254,
+      "name_sub": "Machine Learning",
+      "start": "01/22/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 255,
+      "name_sub": "Data Structures and Algorithms",
+      "start": "01/07/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 256,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 257,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/01/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 258,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/25/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 259,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 260,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 261,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 262,
+      "name_sub": "Machine Learning",
+      "start": "01/02/2021",
+      "end": "06/09/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 263,
+      "name_sub": "Computer Graphic",
+      "start": "01/17/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 264,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 265,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 266,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 267,
+      "name_sub": "Machine Learning",
+      "start": "01/15/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 268,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 269,
+      "name_sub": "Machine Learning",
+      "start": "01/30/2021",
+      "end": "06/28/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 270,
+      "name_sub": "Machine Learning",
+      "start": "01/15/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 271,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 272,
+      "name_sub": "Thesis",
+      "start": "01/19/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 273,
+      "name_sub": "Internet of Things",
+      "start": "01/05/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 274,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 275,
+      "name_sub": "Machine Learning",
+      "start": "01/13/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 276,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 277,
+      "name_sub": "Internet of Things",
+      "start": "01/02/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 278,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 279,
+      "name_sub": "Thesis",
+      "start": "01/12/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 280,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/07/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 281,
+      "name_sub": "Machine Learning",
+      "start": "01/05/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 282,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 283,
+      "name_sub": "Internet of Things",
+      "start": "01/02/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 284,
+      "name_sub": "Internet of Things",
+      "start": "01/06/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 285,
+      "name_sub": "Internet of Things",
+      "start": "01/19/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 286,
+      "name_sub": "Machine Learning",
+      "start": "01/13/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 287,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 288,
+      "name_sub": "Internet of Things",
+      "start": "01/03/2021",
+      "end": "06/25/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 289,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 290,
+      "name_sub": "Machine Learning",
+      "start": "01/11/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 291,
+      "name_sub": "Machine Learning",
+      "start": "01/18/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 292,
+      "name_sub": "Internet of Things",
+      "start": "01/05/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 293,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/09/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 294,
+      "name_sub": "Thesis",
+      "start": "01/08/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 295,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 296,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/23/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 297,
+      "name_sub": "Machine Learning",
+      "start": "01/15/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 298,
+      "name_sub": "Machine Learning",
+      "start": "01/01/2021",
+      "end": "06/23/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 299,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 300,
+      "name_sub": "Computer Graphic",
+      "start": "01/06/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 301,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 302,
+      "name_sub": "Thesis",
+      "start": "01/04/2021",
+      "end": "06/28/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 303,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 304,
+      "name_sub": "Computer Graphic",
+      "start": "01/16/2021",
+      "end": "06/04/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 305,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/08/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 306,
+      "name_sub": "Thesis",
+      "start": "01/28/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 307,
+      "name_sub": "Computer Networks",
+      "start": "01/04/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 308,
+      "name_sub": "Thesis",
+      "start": "01/30/2021",
+      "end": "06/22/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 309,
+      "name_sub": "Internet of Things",
+      "start": "01/05/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 310,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 311,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 312,
+      "name_sub": "Internet of Things",
+      "start": "01/03/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 313,
+      "name_sub": "Computer Graphic",
+      "start": "01/05/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 314,
+      "name_sub": "Internet of Things",
+      "start": "01/12/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 315,
+      "name_sub": "Thesis",
+      "start": "01/17/2021",
+      "end": "06/14/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 316,
+      "name_sub": "Machine Learning",
+      "start": "01/07/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 317,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 318,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 319,
+      "name_sub": "Computer Networks",
+      "start": "01/14/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 320,
+      "name_sub": "Machine Learning",
+      "start": "01/15/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 321,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 322,
+      "name_sub": "Thesis",
+      "start": "01/15/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 323,
+      "name_sub": "Machine Learning",
+      "start": "01/03/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 324,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 325,
+      "name_sub": "Internet of Things",
+      "start": "01/03/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 326,
+      "name_sub": "Machine Learning",
+      "start": "01/07/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 327,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 328,
+      "name_sub": "Thesis",
+      "start": "01/23/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 329,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/04/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 330,
+      "name_sub": "Computer Graphic",
+      "start": "01/19/2021",
+      "end": "06/16/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 331,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 332,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 333,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/22/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 334,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 335,
+      "name_sub": "Thesis",
+      "start": "01/15/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 336,
+      "name_sub": "Internet of Things",
+      "start": "01/19/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 337,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 338,
+      "name_sub": "Computer Graphic",
+      "start": "01/21/2021",
+      "end": "06/16/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 339,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 340,
+      "name_sub": "Machine Learning",
+      "start": "01/13/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 341,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/14/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 342,
+      "name_sub": "Web Development",
+      "start": "01/17/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 343,
+      "name_sub": "Machine Learning",
+      "start": "01/15/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 344,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 345,
+      "name_sub": "Machine Learning",
+      "start": "01/22/2021",
+      "end": "06/25/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 346,
+      "name_sub": "Thesis",
+      "start": "01/02/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 347,
+      "name_sub": "Data Mining",
+      "start": "01/03/2021",
+      "end": "06/28/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 348,
+      "name_sub": "Computer Graphic",
+      "start": "01/21/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 349,
+      "name_sub": "Web Development",
+      "start": "01/07/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 350,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 351,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 352,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 353,
+      "name_sub": "Computer Networks",
+      "start": "01/10/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 354,
+      "name_sub": "Thesis",
+      "start": "01/10/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 355,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 356,
+      "name_sub": "Thesis",
+      "start": "01/19/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 357,
+      "name_sub": "Thesis",
+      "start": "01/29/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 358,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 359,
+      "name_sub": "Machine Learning",
+      "start": "01/13/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 360,
+      "name_sub": "Machine Learning",
+      "start": "01/28/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 361,
+      "name_sub": "Thesis",
+      "start": "01/22/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 362,
+      "name_sub": "Thesis",
+      "start": "01/07/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 363,
+      "name_sub": "Machine Learning",
+      "start": "01/07/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 364,
+      "name_sub": "Data Mining",
+      "start": "01/03/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 365,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 366,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 367,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/27/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 368,
+      "name_sub": "Machine Learning",
+      "start": "01/02/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 369,
+      "name_sub": "Web Development",
+      "start": "01/05/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 370,
+      "name_sub": "Machine Learning",
+      "start": "01/24/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 371,
+      "name_sub": "Thesis",
+      "start": "01/17/2021",
+      "end": "06/14/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 372,
+      "name_sub": "Thesis",
+      "start": "01/26/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 373,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 374,
+      "name_sub": "Thesis",
+      "start": "01/13/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 375,
+      "name_sub": "Internet of Things",
+      "start": "01/19/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 376,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 377,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 378,
+      "name_sub": "Machine Learning",
+      "start": "01/10/2021",
+      "end": "06/08/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 379,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 380,
+      "name_sub": "Computer Graphic",
+      "start": "01/26/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 381,
+      "name_sub": "Machine Learning",
+      "start": "01/17/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 382,
+      "name_sub": "Machine Learning",
+      "start": "01/06/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 383,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 384,
+      "name_sub": "Machine Learning",
+      "start": "01/18/2021",
+      "end": "06/28/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 385,
+      "name_sub": "Computer Graphic",
+      "start": "01/05/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 386,
+      "name_sub": "Computer Graphic",
+      "start": "01/22/2021",
+      "end": "06/25/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 387,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 388,
+      "name_sub": "Machine Learning",
+      "start": "01/04/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 389,
+      "name_sub": "Internet of Things",
+      "start": "01/09/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 390,
+      "name_sub": "Internet of Things",
+      "start": "01/09/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 391,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/04/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 392,
+      "name_sub": "Thesis",
+      "start": "01/12/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 393,
+      "name_sub": "Machine Learning",
+      "start": "01/02/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 394,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 395,
+      "name_sub": "Machine Learning",
+      "start": "01/29/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 396,
+      "name_sub": "Machine Learning",
+      "start": "01/25/2021",
+      "end": "06/08/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 397,
+      "name_sub": "Machine Learning",
+      "start": "01/12/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 398,
+      "name_sub": "Computer Graphic",
+      "start": "01/02/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 399,
+      "name_sub": "Internet of Things",
+      "start": "01/09/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 400,
+      "name_sub": "Computer Graphic",
+      "start": "01/09/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 401,
+      "name_sub": "Machine Learning",
+      "start": "01/06/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 402,
+      "name_sub": "Internet of Things",
+      "start": "01/04/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 403,
+      "name_sub": "Machine Learning",
+      "start": "01/25/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 404,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 405,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 406,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 407,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 408,
+      "name_sub": "Machine Learning",
+      "start": "01/02/2021",
+      "end": "06/27/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 409,
+      "name_sub": "Computer Graphic",
+      "start": "01/13/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 410,
+      "name_sub": "Internet of Things",
+      "start": "01/12/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 411,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 412,
+      "name_sub": "Thesis",
+      "start": "01/17/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 413,
+      "name_sub": "Data Mining",
+      "start": "01/03/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 414,
+      "name_sub": "Thesis",
+      "start": "01/22/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 415,
+      "name_sub": "Machine Learning",
+      "start": "01/30/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 416,
+      "name_sub": "Data Mining",
+      "start": "01/01/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 417,
+      "name_sub": "Machine Learning",
+      "start": "01/15/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 418,
+      "name_sub": "Machine Learning",
+      "start": "01/03/2021",
+      "end": "06/07/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 419,
+      "name_sub": "Computer Graphic",
+      "start": "01/05/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 420,
+      "name_sub": "Thesis",
+      "start": "01/25/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 421,
+      "name_sub": "Internet of Things",
+      "start": "01/09/2021",
+      "end": "06/28/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 422,
+      "name_sub": "Computer Graphic",
+      "start": "01/15/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 423,
+      "name_sub": "Internet of Things",
+      "start": "01/24/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 424,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 425,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 426,
+      "name_sub": "Machine Learning",
+      "start": "01/29/2021",
+      "end": "06/16/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 427,
+      "name_sub": "Thesis",
+      "start": "01/16/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 428,
+      "name_sub": "Computer Graphic",
+      "start": "01/11/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 429,
+      "name_sub": "Computer Graphic",
+      "start": "01/11/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 430,
+      "name_sub": "Computer Graphic",
+      "start": "01/20/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 431,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 432,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 433,
+      "name_sub": "Machine Learning",
+      "start": "01/27/2021",
+      "end": "06/28/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 434,
+      "name_sub": "Internet of Things",
+      "start": "01/02/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 435,
+      "name_sub": "Thesis",
+      "start": "01/18/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 436,
+      "name_sub": "Thesis",
+      "start": "01/02/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 437,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 438,
+      "name_sub": "Machine Learning",
+      "start": "01/09/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 439,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/08/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 440,
+      "name_sub": "Thesis",
+      "start": "01/07/2021",
+      "end": "06/08/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 441,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 442,
+      "name_sub": "Internet of Things",
+      "start": "01/03/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 443,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/28/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 444,
+      "name_sub": "Internet of Things",
+      "start": "01/06/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 445,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 446,
+      "name_sub": "Internet of Things",
+      "start": "01/17/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 447,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 448,
+      "name_sub": "Machine Learning",
+      "start": "01/24/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 449,
+      "name_sub": "Thesis",
+      "start": "01/25/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 450,
+      "name_sub": "Computer Graphic",
+      "start": "01/05/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 451,
+      "name_sub": "Machine Learning",
+      "start": "01/03/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 452,
+      "name_sub": "Thesis",
+      "start": "01/05/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 453,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 454,
+      "name_sub": "Machine Learning",
+      "start": "01/12/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 455,
+      "name_sub": "Internet of Things",
+      "start": "01/02/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 456,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/08/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 457,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 458,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/07/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 459,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 460,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 461,
+      "name_sub": "Machine Learning",
+      "start": "01/16/2021",
+      "end": "06/25/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 462,
+      "name_sub": "Thesis",
+      "start": "01/11/2021",
+      "end": "06/22/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 463,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 464,
+      "name_sub": "Internet of Things",
+      "start": "01/19/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 465,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 466,
+      "name_sub": "Internet of Things",
+      "start": "01/06/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 467,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 468,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 469,
+      "name_sub": "Data Mining",
+      "start": "01/14/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 470,
+      "name_sub": "Thesis",
+      "start": "01/23/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 471,
+      "name_sub": "Machine Learning",
+      "start": "01/04/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 472,
+      "name_sub": "Thesis",
+      "start": "01/25/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 473,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 474,
+      "name_sub": "Machine Learning",
+      "start": "01/22/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 475,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 476,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 477,
+      "name_sub": "Machine Learning",
+      "start": "01/07/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 478,
+      "name_sub": "Machine Learning",
+      "start": "01/01/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 479,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/22/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 480,
+      "name_sub": "Probability, Statistics and Random Variables",
+      "start": "01/07/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 481,
+      "name_sub": "Computer Graphic",
+      "start": "01/05/2021",
+      "end": "06/09/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 482,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 483,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 484,
+      "name_sub": "Internet of Things",
+      "start": "01/06/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 485,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/25/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 486,
+      "name_sub": "Machine Learning",
+      "start": "01/02/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 487,
+      "name_sub": "Object-oriented Analysis and Design",
+      "start": "01/08/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 488,
+      "name_sub": "Machine Learning",
+      "start": "01/24/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 489,
+      "name_sub": "Thesis",
+      "start": "01/07/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 490,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 491,
+      "name_sub": "Data Mining",
+      "start": "01/02/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 492,
+      "name_sub": "Object-oriented Analysis and Design",
+      "start": "01/25/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 493,
+      "name_sub": "Thesis",
+      "start": "01/11/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 494,
+      "name_sub": "Internet of Things",
+      "start": "01/06/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 495,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 496,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 497,
+      "name_sub": "Internet of Things",
+      "start": "01/25/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 498,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 499,
+      "name_sub": "Computer Graphic",
+      "start": "01/07/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 500,
+      "name_sub": "Computer Graphic",
+      "start": "01/18/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 501,
+      "name_sub": "Thesis",
+      "start": "01/21/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 502,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 503,
+      "name_sub": "Internet of Things",
+      "start": "01/12/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 504,
+      "name_sub": "Machine Learning",
+      "start": "01/27/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 505,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/25/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 506,
+      "name_sub": "Thesis",
+      "start": "01/10/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 507,
+      "name_sub": "Machine Learning",
+      "start": "01/25/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 508,
+      "name_sub": "Thesis",
+      "start": "01/14/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 509,
+      "name_sub": "Data Mining",
+      "start": "01/29/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 510,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 511,
+      "name_sub": "Data Mining",
+      "start": "01/30/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 512,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 513,
+      "name_sub": "Thesis",
+      "start": "01/08/2021",
+      "end": "06/27/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 514,
+      "name_sub": "Data Mining",
+      "start": "01/29/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 515,
+      "name_sub": "Internet of Things",
+      "start": "01/05/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 516,
+      "name_sub": "Computer Graphic",
+      "start": "01/29/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 517,
+      "name_sub": "Internet of Things",
+      "start": "01/12/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 518,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 519,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 520,
+      "name_sub": "Machine Learning",
+      "start": "01/12/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 521,
+      "name_sub": "Computer Graphic",
+      "start": "01/09/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 522,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/07/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 523,
+      "name_sub": "Computer Graphic",
+      "start": "01/29/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 524,
+      "name_sub": "Machine Learning",
+      "start": "01/06/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 525,
+      "name_sub": "Internet of Things",
+      "start": "01/09/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 526,
+      "name_sub": "Computer Graphic",
+      "start": "01/27/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 527,
+      "name_sub": "Machine Learning",
+      "start": "01/24/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 528,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/16/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 529,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 530,
+      "name_sub": "Machine Learning",
+      "start": "01/18/2021",
+      "end": "06/28/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 531,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 532,
+      "name_sub": "Machine Learning",
+      "start": "01/27/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 533,
+      "name_sub": "Machine Learning",
+      "start": "01/18/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 534,
+      "name_sub": "Internet of Things",
+      "start": "01/09/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 535,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 536,
+      "name_sub": "Computer Graphic",
+      "start": "01/27/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 537,
+      "name_sub": "Machine Learning",
+      "start": "01/06/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 538,
+      "name_sub": "Thesis",
+      "start": "01/14/2021",
+      "end": "06/27/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 539,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 540,
+      "name_sub": "Machine Learning",
+      "start": "01/28/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 541,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 542,
+      "name_sub": "Thesis",
+      "start": "01/04/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 543,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 544,
+      "name_sub": "Machine Learning",
+      "start": "01/12/2021",
+      "end": "06/27/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 545,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 546,
+      "name_sub": "Machine Learning",
+      "start": "01/28/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 547,
+      "name_sub": "Internet of Things",
+      "start": "01/02/2021",
+      "end": "06/07/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 548,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 549,
+      "name_sub": "Internet of Things",
+      "start": "01/03/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 550,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/22/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 551,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 552,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 553,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/09/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 554,
+      "name_sub": "Thesis",
+      "start": "01/30/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 555,
+      "name_sub": "Machine Learning",
+      "start": "01/10/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 556,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/23/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 557,
+      "name_sub": "Computer Graphic",
+      "start": "01/21/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 558,
+      "name_sub": "Thesis",
+      "start": "01/25/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 559,
+      "name_sub": "Machine Learning",
+      "start": "01/19/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 560,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/01/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 561,
+      "name_sub": "Object-oriented Analysis and Design",
+      "start": "01/01/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 562,
+      "name_sub": "Machine Learning",
+      "start": "01/06/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 563,
+      "name_sub": "Internet of Things",
+      "start": "01/06/2021",
+      "end": "06/27/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 564,
+      "name_sub": "Computer Graphic",
+      "start": "01/27/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 565,
+      "name_sub": "Computer Graphic",
+      "start": "01/07/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 566,
+      "name_sub": "Internet of Things",
+      "start": "01/25/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 567,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/14/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 568,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 569,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/14/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 570,
+      "name_sub": "Machine Learning",
+      "start": "01/19/2021",
+      "end": "06/27/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 571,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 572,
+      "name_sub": "Machine Learning",
+      "start": "01/19/2021",
+      "end": "06/07/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 573,
+      "name_sub": "Internet of Things",
+      "start": "01/25/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 574,
+      "name_sub": "Machine Learning",
+      "start": "01/11/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 575,
+      "name_sub": "Computer Graphic",
+      "start": "01/02/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 576,
+      "name_sub": "Computer Graphic",
+      "start": "01/11/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 577,
+      "name_sub": "Internet of Things",
+      "start": "01/25/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 578,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 579,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 580,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/28/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 581,
+      "name_sub": "Thesis",
+      "start": "01/11/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 582,
+      "name_sub": "Thesis",
+      "start": "01/03/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 583,
+      "name_sub": "Computer Graphic",
+      "start": "01/18/2021",
+      "end": "06/28/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 584,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 585,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 586,
+      "name_sub": "Internet of Things",
+      "start": "01/24/2021",
+      "end": "06/25/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 587,
+      "name_sub": "Machine Learning",
+      "start": "01/23/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 588,
+      "name_sub": "Machine Learning",
+      "start": "01/06/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 589,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/27/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 590,
+      "name_sub": "Machine Learning",
+      "start": "01/03/2021",
+      "end": "06/23/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 591,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 592,
+      "name_sub": "Machine Learning",
+      "start": "01/05/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 593,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 594,
+      "name_sub": "Internet of Things",
+      "start": "01/09/2021",
+      "end": "06/01/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 595,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 596,
+      "name_sub": "Machine Learning",
+      "start": "01/06/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 597,
+      "name_sub": "Internet of Things",
+      "start": "01/19/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 598,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 599,
+      "name_sub": "Machine Learning",
+      "start": "01/09/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 600,
+      "name_sub": "Machine Learning",
+      "start": "01/20/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 601,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/14/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 602,
+      "name_sub": "Internet of Things",
+      "start": "01/17/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 603,
+      "name_sub": "Internet of Things",
+      "start": "01/25/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 604,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 605,
+      "name_sub": "Computer Graphic",
+      "start": "01/21/2021",
+      "end": "06/27/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 606,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 607,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 608,
+      "name_sub": "Internet of Things",
+      "start": "01/05/2021",
+      "end": "06/07/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 609,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/22/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 610,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 611,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 612,
+      "name_sub": "Internet of Things",
+      "start": "01/04/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 613,
+      "name_sub": "Machine Learning",
+      "start": "01/20/2021",
+      "end": "06/04/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 614,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 615,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 616,
+      "name_sub": "Machine Learning",
+      "start": "01/23/2021",
+      "end": "06/07/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 617,
+      "name_sub": "Internet of Things",
+      "start": "01/06/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 618,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/22/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 619,
+      "name_sub": "Machine Learning",
+      "start": "01/06/2021",
+      "end": "06/16/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 620,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 621,
+      "name_sub": "Machine Learning",
+      "start": "01/10/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 622,
+      "name_sub": "Machine Learning",
+      "start": "01/09/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 623,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 624,
+      "name_sub": "Machine Learning",
+      "start": "01/07/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 625,
+      "name_sub": "Internet of Things",
+      "start": "01/04/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 626,
+      "name_sub": "Internet of Things",
+      "start": "01/04/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 627,
+      "name_sub": "Machine Learning",
+      "start": "01/29/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 628,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 629,
+      "name_sub": "Machine Learning",
+      "start": "01/22/2021",
+      "end": "06/25/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 630,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "06/04/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 631,
+      "name_sub": "Internet of Things",
+      "start": "01/02/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 632,
+      "name_sub": "Machine Learning",
+      "start": "01/30/2021",
+      "end": "06/25/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 633,
+      "name_sub": "Internet of Things",
+      "start": "01/17/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 634,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 635,
+      "name_sub": "Thesis",
+      "start": "01/23/2021",
+      "end": "06/16/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 636,
+      "name_sub": "Computer Graphic",
+      "start": "01/18/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 637,
+      "name_sub": "Machine Learning",
+      "start": "01/14/2021",
+      "end": "06/07/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 638,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 639,
+      "name_sub": "Computer Graphic",
+      "start": "01/02/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 640,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 641,
+      "name_sub": "Machine Learning",
+      "start": "01/20/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 642,
+      "name_sub": "Machine Learning",
+      "start": "01/23/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 643,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 644,
+      "name_sub": "Machine Learning",
+      "start": "01/12/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 645,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 646,
+      "name_sub": "Internet of Things",
+      "start": "01/25/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 647,
+      "name_sub": "Thesis",
+      "start": "01/28/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 648,
+      "name_sub": "Computer Graphic",
+      "start": "01/21/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 649,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/27/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 650,
+      "name_sub": "Internet of Things",
+      "start": "01/24/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 651,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 652,
+      "name_sub": "Machine Learning",
+      "start": "01/23/2021",
+      "end": "06/16/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 653,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 654,
+      "name_sub": "Thesis",
+      "start": "01/16/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 655,
+      "name_sub": "Computer Graphic",
+      "start": "01/01/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 656,
+      "name_sub": "Computer Graphic",
+      "start": "01/17/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 657,
+      "name_sub": "Thesis",
+      "start": "01/02/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 658,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 659,
+      "name_sub": "Computer Graphic",
+      "start": "01/26/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 660,
+      "name_sub": "Thesis",
+      "start": "01/13/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 661,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/08/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 662,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 663,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 664,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 665,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/25/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 666,
+      "name_sub": "Internet of Things",
+      "start": "01/06/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 667,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 668,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 669,
+      "name_sub": "Internet of Things",
+      "start": "01/04/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 670,
+      "name_sub": "Machine Learning",
+      "start": "01/10/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 671,
+      "name_sub": "Thesis",
+      "start": "01/30/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 672,
+      "name_sub": "Machine Learning",
+      "start": "01/04/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 673,
+      "name_sub": "Machine Learning",
+      "start": "01/25/2021",
+      "end": "06/11/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 674,
+      "name_sub": "Machine Learning",
+      "start": "01/29/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 675,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 676,
+      "name_sub": "Internet of Things",
+      "start": "01/25/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 677,
+      "name_sub": "Web Development",
+      "start": "01/17/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 678,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/23/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 679,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 680,
+      "name_sub": "Computer Graphic",
+      "start": "01/22/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 681,
+      "name_sub": "Machine Learning",
+      "start": "01/05/2021",
+      "end": "06/27/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 682,
+      "name_sub": "Machine Learning",
+      "start": "01/13/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 683,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 684,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/11/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 685,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 686,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 687,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 688,
+      "name_sub": "Computer Networks",
+      "start": "01/28/2021",
+      "end": "06/22/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 689,
+      "name_sub": "Machine Learning",
+      "start": "01/16/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 690,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/07/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 691,
+      "name_sub": "Thesis",
+      "start": "01/04/2021",
+      "end": "06/14/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 692,
+      "name_sub": "Thesis",
+      "start": "01/17/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 693,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 694,
+      "name_sub": "Internet of Things",
+      "start": "01/25/2021",
+      "end": "06/01/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 695,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 696,
+      "name_sub": "Machine Learning",
+      "start": "01/23/2021",
+      "end": "06/11/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 697,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 698,
+      "name_sub": "Machine Learning",
+      "start": "01/05/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 699,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 700,
+      "name_sub": "Computer Graphic",
+      "start": "01/11/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 701,
+      "name_sub": "Computer Graphic",
+      "start": "01/06/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 702,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/09/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 703,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 704,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/07/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 705,
+      "name_sub": "Machine Learning",
+      "start": "01/14/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 706,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 707,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/11/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 708,
+      "name_sub": "Machine Learning",
+      "start": "01/30/2021",
+      "end": "06/27/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 709,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/22/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 710,
+      "name_sub": "Data Mining",
+      "start": "01/07/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 711,
+      "name_sub": "Thesis",
+      "start": "01/06/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 712,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 713,
+      "name_sub": "Machine Learning",
+      "start": "01/28/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 714,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 715,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 716,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 717,
+      "name_sub": "Thesis",
+      "start": "01/08/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 718,
+      "name_sub": "Thesis",
+      "start": "01/01/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 719,
+      "name_sub": "Internet of Things",
+      "start": "01/04/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 720,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/25/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 721,
+      "name_sub": "Machine Learning",
+      "start": "01/13/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 722,
+      "name_sub": "Thesis",
+      "start": "01/03/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 723,
+      "name_sub": "Internet of Things",
+      "start": "01/09/2021",
+      "end": "06/11/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 724,
+      "name_sub": "Thesis",
+      "start": "01/26/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 725,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "06/08/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 726,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 727,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 728,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 729,
+      "name_sub": "Thesis",
+      "start": "01/30/2021",
+      "end": "06/01/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 730,
+      "name_sub": "Internet of Things",
+      "start": "01/19/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 731,
+      "name_sub": "Computer Graphic",
+      "start": "01/11/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 732,
+      "name_sub": "Computer Graphic",
+      "start": "01/05/2021",
+      "end": "06/23/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 733,
+      "name_sub": "Thesis",
+      "start": "01/18/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 734,
+      "name_sub": "Machine Learning",
+      "start": "01/09/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 735,
+      "name_sub": "Thesis",
+      "start": "01/14/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 736,
+      "name_sub": "Machine Learning",
+      "start": "01/27/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 737,
+      "name_sub": "Computer Graphic",
+      "start": "01/18/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 738,
+      "name_sub": "Internet of Things",
+      "start": "01/04/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 739,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 740,
+      "name_sub": "Data Mining",
+      "start": "01/24/2021",
+      "end": "06/08/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 741,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/09/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 742,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 743,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 744,
+      "name_sub": "Internet of Things",
+      "start": "01/12/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 745,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 746,
+      "name_sub": "Thesis",
+      "start": "01/08/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 747,
+      "name_sub": "Internet of Things",
+      "start": "01/05/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 748,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 749,
+      "name_sub": "Computer Graphic",
+      "start": "01/16/2021",
+      "end": "06/14/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 750,
+      "name_sub": "Computer Graphic",
+      "start": "01/21/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 751,
+      "name_sub": "Internet of Things",
+      "start": "01/02/2021",
+      "end": "06/07/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 752,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 753,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 754,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 755,
+      "name_sub": "Internet of Things",
+      "start": "01/03/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 756,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 757,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 758,
+      "name_sub": "Machine Learning",
+      "start": "01/28/2021",
+      "end": "06/08/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 759,
+      "name_sub": "Machine Learning",
+      "start": "01/07/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 760,
+      "name_sub": "Computer Graphic",
+      "start": "01/29/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 761,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 762,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/07/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 763,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 764,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 765,
+      "name_sub": "Data Mining",
+      "start": "01/22/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 766,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 767,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/25/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 768,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 769,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/08/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 770,
+      "name_sub": "Thesis",
+      "start": "01/20/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 771,
+      "name_sub": "Machine Learning",
+      "start": "01/30/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 772,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/07/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 773,
+      "name_sub": "Computer Graphic",
+      "start": "01/26/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 774,
+      "name_sub": "Machine Learning",
+      "start": "01/16/2021",
+      "end": "06/09/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 775,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/02/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 776,
+      "name_sub": "Internet of Things",
+      "start": "01/05/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 777,
+      "name_sub": "Thesis",
+      "start": "01/02/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 778,
+      "name_sub": "Machine Learning",
+      "start": "01/28/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 779,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 780,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 781,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 782,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 783,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 784,
+      "name_sub": "Machine Learning",
+      "start": "01/02/2021",
+      "end": "06/04/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 785,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 786,
+      "name_sub": "Machine Learning",
+      "start": "01/10/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 787,
+      "name_sub": "Thesis",
+      "start": "01/30/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 788,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 789,
+      "name_sub": "Machine Learning",
+      "start": "01/01/2021",
+      "end": "06/25/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 790,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 791,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 792,
+      "name_sub": "Machine Learning",
+      "start": "01/20/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 793,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/14/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 794,
+      "name_sub": "Internet of Things",
+      "start": "01/14/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 795,
+      "name_sub": "Machine Learning",
+      "start": "01/06/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 796,
+      "name_sub": "Internet of Things",
+      "start": "01/25/2021",
+      "end": "06/08/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 797,
+      "name_sub": "Internet of Things",
+      "start": "01/03/2021",
+      "end": "06/28/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 798,
+      "name_sub": "Thesis",
+      "start": "01/24/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 799,
+      "name_sub": "Machine Learning",
+      "start": "01/20/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 800,
+      "name_sub": "Web Development",
+      "start": "01/30/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 801,
+      "name_sub": "Machine Learning",
+      "start": "01/02/2021",
+      "end": "06/08/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 802,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 803,
+      "name_sub": "Internet of Things",
+      "start": "01/17/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 804,
+      "name_sub": "Thesis",
+      "start": "01/09/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 805,
+      "name_sub": "Internet of Things",
+      "start": "01/12/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 806,
+      "name_sub": "Internet of Things",
+      "start": "01/05/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 807,
+      "name_sub": "Machine Learning",
+      "start": "01/15/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 808,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 809,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 810,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 811,
+      "name_sub": "Internet of Things",
+      "start": "01/12/2021",
+      "end": "06/28/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 812,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/07/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 813,
+      "name_sub": "Internet of Things",
+      "start": "01/06/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 814,
+      "name_sub": "Data Mining",
+      "start": "01/08/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 815,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 816,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 817,
+      "name_sub": "Machine Learning",
+      "start": "01/20/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 818,
+      "name_sub": "Machine Learning",
+      "start": "01/09/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 819,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 820,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 821,
+      "name_sub": "Internet of Things",
+      "start": "01/02/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 822,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 823,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 824,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 825,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 826,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/07/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 827,
+      "name_sub": "Machine Learning",
+      "start": "01/28/2021",
+      "end": "06/08/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 828,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 829,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 830,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 831,
+      "name_sub": "Thesis",
+      "start": "01/05/2021",
+      "end": "06/09/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 832,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 833,
+      "name_sub": "Machine Learning",
+      "start": "01/23/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 834,
+      "name_sub": "Machine Learning",
+      "start": "01/15/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 835,
+      "name_sub": "Thesis",
+      "start": "01/04/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 836,
+      "name_sub": "Internet of Things",
+      "start": "01/09/2021",
+      "end": "06/28/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 837,
+      "name_sub": "Thesis",
+      "start": "01/22/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 838,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 839,
+      "name_sub": "Machine Learning",
+      "start": "01/12/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 840,
+      "name_sub": "Thesis",
+      "start": "01/25/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 841,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 842,
+      "name_sub": "Machine Learning",
+      "start": "01/13/2021",
+      "end": "06/25/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 843,
+      "name_sub": "Machine Learning",
+      "start": "01/09/2021",
+      "end": "06/27/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 844,
+      "name_sub": "Machine Learning",
+      "start": "01/30/2021",
+      "end": "06/09/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 845,
+      "name_sub": "Machine Learning",
+      "start": "01/29/2021",
+      "end": "06/19/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 846,
+      "name_sub": "Machine Learning",
+      "start": "01/20/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 847,
+      "name_sub": "Object-oriented Analysis and Design",
+      "start": "01/19/2021",
+      "end": "06/25/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 848,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 849,
+      "name_sub": "Thesis",
+      "start": "01/13/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 850,
+      "name_sub": "Internet of Things",
+      "start": "01/12/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 851,
+      "name_sub": "Computer Graphic",
+      "start": "01/30/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 852,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 853,
+      "name_sub": "Internet of Things",
+      "start": "01/09/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 854,
+      "name_sub": "Machine Learning",
+      "start": "01/08/2021",
+      "end": "06/25/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 855,
+      "name_sub": "Machine Learning",
+      "start": "01/20/2021",
+      "end": "06/08/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 856,
+      "name_sub": "Internet of Things",
+      "start": "01/03/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 857,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 858,
+      "name_sub": "Machine Learning",
+      "start": "01/30/2021",
+      "end": "06/07/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 859,
+      "name_sub": "Computer Graphic",
+      "start": "01/13/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 860,
+      "name_sub": "Machine Learning",
+      "start": "01/02/2021",
+      "end": "06/16/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 861,
+      "name_sub": "Thesis",
+      "start": "01/28/2021",
+      "end": "05/31/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 862,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 863,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 864,
+      "name_sub": "Thesis",
+      "start": "01/12/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 865,
+      "name_sub": "Internet of Things",
+      "start": "01/03/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 866,
+      "name_sub": "Computer Graphic",
+      "start": "01/08/2021",
+      "end": "06/07/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 867,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 868,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 869,
+      "name_sub": "Machine Learning",
+      "start": "01/27/2021",
+      "end": "06/16/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 870,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 871,
+      "name_sub": "Machine Learning",
+      "start": "01/06/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 872,
+      "name_sub": "Computer Graphic",
+      "start": "01/18/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 873,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 874,
+      "name_sub": "Machine Learning",
+      "start": "01/23/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 875,
+      "name_sub": "Thesis",
+      "start": "01/03/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 876,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/23/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 877,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 878,
+      "name_sub": "Machine Learning",
+      "start": "01/17/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 879,
+      "name_sub": "Machine Learning",
+      "start": "01/17/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 880,
+      "name_sub": "Object-oriented Analysis and Design",
+      "start": "01/03/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 881,
+      "name_sub": "Internet of Things",
+      "start": "01/21/2021",
+      "end": "06/08/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 882,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 883,
+      "name_sub": "Internet of Things",
+      "start": "01/23/2021",
+      "end": "06/21/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 884,
+      "name_sub": "Thesis",
+      "start": "01/10/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 885,
+      "name_sub": "Machine Learning",
+      "start": "01/25/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 886,
+      "name_sub": "Thesis",
+      "start": "01/20/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 887,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "06/24/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 888,
+      "name_sub": "Web Development",
+      "start": "01/29/2021",
+      "end": "06/08/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 889,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 890,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/27/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 891,
+      "name_sub": "Machine Learning",
+      "start": "01/05/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 892,
+      "name_sub": "Thesis",
+      "start": "01/06/2021",
+      "end": "06/25/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 893,
+      "name_sub": "Machine Learning",
+      "start": "01/27/2021",
+      "end": "06/27/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 894,
+      "name_sub": "Computer Graphic",
+      "start": "01/23/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 895,
+      "name_sub": "Machine Learning",
+      "start": "01/19/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 896,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 897,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/07/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 898,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 899,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 900,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/25/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 901,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/14/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 902,
+      "name_sub": "Internet of Things",
+      "start": "01/25/2021",
+      "end": "06/09/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 903,
+      "name_sub": "Machine Learning",
+      "start": "01/23/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 904,
+      "name_sub": "Thesis",
+      "start": "01/27/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 905,
+      "name_sub": "Machine Learning",
+      "start": "01/30/2021",
+      "end": "06/08/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 906,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 907,
+      "name_sub": "Thesis",
+      "start": "01/22/2021",
+      "end": "06/27/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 908,
+      "name_sub": "Internet of Things",
+      "start": "01/19/2021",
+      "end": "06/06/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 909,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 910,
+      "name_sub": "Thesis",
+      "start": "01/22/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 911,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 912,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/28/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 913,
+      "name_sub": "Machine Learning",
+      "start": "01/18/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 914,
+      "name_sub": "Internet of Things",
+      "start": "01/06/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 915,
+      "name_sub": "Machine Learning",
+      "start": "01/03/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 916,
+      "name_sub": "Internet of Things",
+      "start": "01/04/2021",
+      "end": "06/23/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 917,
+      "name_sub": "Internet of Things",
+      "start": "01/09/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 918,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 919,
+      "name_sub": "Machine Learning",
+      "start": "01/21/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 920,
+      "name_sub": "Internet of Things",
+      "start": "01/12/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 921,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/08/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 922,
+      "name_sub": "Thesis",
+      "start": "01/29/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 923,
+      "name_sub": "Machine Learning",
+      "start": "01/16/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 924,
+      "name_sub": "Thesis",
+      "start": "01/21/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 925,
+      "name_sub": "Thesis",
+      "start": "01/29/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 926,
+      "name_sub": "Machine Learning",
+      "start": "01/17/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 927,
+      "name_sub": "Machine Learning",
+      "start": "01/09/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 928,
+      "name_sub": "Internet of Things",
+      "start": "01/15/2021",
+      "end": "06/27/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 929,
+      "name_sub": "Internet of Things",
+      "start": "01/25/2021",
+      "end": "06/22/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 930,
+      "name_sub": "Machine Learning",
+      "start": "01/15/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 931,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 932,
+      "name_sub": "Machine Learning",
+      "start": "01/06/2021",
+      "end": "06/26/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 933,
+      "name_sub": "Machine Learning",
+      "start": "01/14/2021",
+      "end": "06/12/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 934,
+      "name_sub": "Machine Learning",
+      "start": "01/22/2021",
+      "end": "06/25/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 935,
+      "name_sub": "Data Mining",
+      "start": "01/20/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 936,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/12/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 937,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 938,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/18/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 939,
+      "name_sub": "Internet of Things",
+      "start": "01/01/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 940,
+      "name_sub": "Machine Learning",
+      "start": "01/28/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 941,
+      "name_sub": "Machine Learning",
+      "start": "01/09/2021",
+      "end": "06/14/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 942,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/17/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 943,
+      "name_sub": "Machine Learning",
+      "start": "01/20/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 944,
+      "name_sub": "Thesis",
+      "start": "01/04/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 945,
+      "name_sub": "Machine Learning",
+      "start": "01/23/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 946,
+      "name_sub": "Thesis",
+      "start": "01/07/2021",
+      "end": "06/20/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 947,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 948,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/22/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 949,
+      "name_sub": "Internet of Things",
+      "start": "01/17/2021",
+      "end": "06/16/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 950,
+      "name_sub": "Computer Graphic",
+      "start": "01/19/2021",
+      "end": "06/01/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 951,
+      "name_sub": "Machine Learning",
+      "start": "01/13/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 952,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/08/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 953,
+      "name_sub": "Internet of Things",
+      "start": "01/20/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 954,
+      "name_sub": "Thesis",
+      "start": "01/25/2021",
+      "end": "06/07/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 955,
+      "name_sub": "Internet of Things",
+      "start": "01/25/2021",
+      "end": "06/11/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 956,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/05/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 957,
+      "name_sub": "Internet of Things",
+      "start": "01/04/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 958,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 959,
+      "name_sub": "Internet of Things",
+      "start": "01/28/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 960,
+      "name_sub": "Internet of Things",
+      "start": "01/26/2021",
+      "end": "06/29/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 961,
+      "name_sub": "Thesis",
+      "start": "01/06/2021",
+      "end": "06/20/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 962,
+      "name_sub": "Machine Learning",
+      "start": "01/25/2021",
+      "end": "06/21/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 963,
+      "name_sub": "Computer Graphic",
+      "start": "01/12/2021",
+      "end": "06/03/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 964,
+      "name_sub": "Internet of Things",
+      "start": "01/29/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 965,
+      "name_sub": "Data Mining",
+      "start": "01/10/2021",
+      "end": "06/10/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 966,
+      "name_sub": "Machine Learning",
+      "start": "01/07/2021",
+      "end": "06/04/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 967,
+      "name_sub": "Machine Learning",
+      "start": "01/02/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 968,
+      "name_sub": "Internet of Things",
+      "start": "01/08/2021",
+      "end": "06/28/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 969,
+      "name_sub": "Machine Learning",
+      "start": "01/16/2021",
+      "end": "06/14/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 970,
+      "name_sub": "Internet of Things",
+      "start": "01/11/2021",
+      "end": "06/16/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 971,
+      "name_sub": "Machine Learning",
+      "start": "01/02/2021",
+      "end": "06/10/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 972,
+      "name_sub": "Data Mining",
+      "start": "01/30/2021",
+      "end": "06/18/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 973,
+      "name_sub": "Machine Learning",
+      "start": "01/01/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 974,
+      "name_sub": "Internet of Things",
+      "start": "01/18/2021",
+      "end": "06/15/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 975,
+      "name_sub": "Machine Learning",
+      "start": "01/10/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 976,
+      "name_sub": "Thesis",
+      "start": "01/21/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 977,
+      "name_sub": "Computer Graphic",
+      "start": "01/10/2021",
+      "end": "06/28/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 978,
+      "name_sub": "Internet of Things",
+      "start": "01/16/2021",
+      "end": "06/02/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 979,
+      "name_sub": "Internet of Things",
+      "start": "01/07/2021",
+      "end": "06/04/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 980,
+      "name_sub": "Machine Learning",
+      "start": "01/12/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 981,
+      "name_sub": "Internet of Things",
+      "start": "01/05/2021",
+      "end": "06/04/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 982,
+      "name_sub": "Computer Graphic",
+      "start": "01/17/2021",
+      "end": "06/26/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 983,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/13/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 984,
+      "name_sub": "Thesis",
+      "start": "01/20/2021",
+      "end": "06/03/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 985,
+      "name_sub": "Internet of Things",
+      "start": "01/22/2021",
+      "end": "06/05/2021",
+      "type": "Laboratory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 986,
+      "name_sub": "Internet of Things",
+      "start": "01/27/2021",
+      "end": "06/13/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 987,
+      "name_sub": "Internet of Things",
+      "start": "01/12/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 988,
+      "name_sub": "Machine Learning",
+      "start": "01/26/2021",
+      "end": "06/09/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 989,
+      "name_sub": "Internet of Things",
+      "start": "01/13/2021",
+      "end": "06/15/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 990,
+      "name_sub": "Machine Learning",
+      "start": "01/09/2021",
+      "end": "06/06/2021",
+      "type": "Laboratory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 991,
+      "name_sub": "Internet of Things",
+      "start": "01/12/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 992,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/24/2021",
+      "type": "Laboratory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 993,
+      "name_sub": "Machine Learning",
+      "start": "01/07/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 994,
+      "name_sub": "Machine Learning",
+      "start": "01/20/2021",
+      "end": "06/04/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 995,
+      "name_sub": "Machine Learning",
+      "start": "01/09/2021",
+      "end": "06/17/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 996,
+      "name_sub": "Machine Learning",
+      "start": "01/18/2021",
+      "end": "06/19/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 997,
+      "name_sub": "Internet of Things",
+      "start": "01/19/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 998,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "05/31/2021",
+      "type": "Theory",
+      "credits": "2"
+    },
+    {
+      "id_sub": 999,
+      "name_sub": "Internet of Things",
+      "start": "01/30/2021",
+      "end": "06/29/2021",
+      "type": "Theory",
+      "credits": "4"
+    },
+    {
+      "id_sub": 1000,
+      "name_sub": "Internet of Things",
+      "start": "01/10/2021",
+      "end": "06/08/2021",
+      "type": "Theory",
+      "credits": "2"
+    }
+  ]
+}
