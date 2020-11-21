@@ -2,6 +2,7 @@ html
 
     head
         link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/styles/dropdown.css")
         link(rel="icon", type="image/jpg", href="/images/LetsChill.png")
 
         script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js',
@@ -16,6 +17,10 @@ html
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         //link(rel="icon", href="http://sstatic.net/stackoverflow/img/favicon.ico")
     body
+        script.
+          $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+          });
         div
             img.cropimg(src="/images/galaxy.jpg", alt='Navigation img', width="100%", height="20%")
         nav.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top
@@ -37,12 +42,13 @@ html
                         a.nav-link(href='/school/week') Week
                     li.nav-item
                         a.nav-link(href='/school/room') Room
-                    li.nav-item
-                        a.nav-link(href='/school/eliminate') Eliminate Duplicates
-                    li.nav-item
-                        a.nav-link(href='/school/assign') Assign
-                    li.nav-item
-                        a.nav-link(href='/school/generate') Subject Generating
+                    li.nav-item.dropdown
+                        button#dropdownMenuButton.btn.btn-outline-info.dropdown-toggle(type='button',
+                            data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Auto functions
+                        .dropdown-menu(aria-labelledby='dropdownMenuButton')
+                            a.dropdown-item(href='/school/eliminate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Eliminate Duplicates
+                            a.dropdown-item(href='/school/assign', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign
+                            a.dropdown-item(href='/school/generate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Subject Generating
 
                 span.form-inline.my-2.my-lg-0=  userInfo.name
                 span &nbsp;
