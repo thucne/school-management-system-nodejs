@@ -1,0 +1,31 @@
+extends ../layouts/common
+
+block content
+    h1 Assign Subjects To Rooms
+    hr(style="background-color: lightgray;")
+    .container-fluid.mt-5
+        .row
+            .col-sm-3(style='border-right: 1px solid gray;')
+                h2 Select subject
+                form(action="/users", method="GET")
+                    .form-group
+                        label(for='exampleFormControlSelect1') Available
+                        select#exampleFormControlSelect1.form-control
+                            option 1
+                            option 2
+                            option 3
+                            option 4
+                            option 5
+                    button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
+            .col-sm-2(style='border-right: 1px solid gray;')
+                h2 Room
+                form(action="/users", method="GET")
+                    .form-group
+                        label(for='exampleFormControlSelect2') Available
+                        select#exampleFormControlSelect2.form-control
+                            option 1
+                            option 2
+                            option 3
+                    button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
+            .col-sm-7
+                h2 Current status
