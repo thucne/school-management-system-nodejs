@@ -1,6 +1,7 @@
 var week = require('../lowdb/week');
 var room = require('../lowdb/room');
 var db = require('../lowdb/db');
+var subject = require('../lowdb/subject');
 
 module.exports.week = function (req, res) {
   console.log(week.get('weeks').nth(1).value());
@@ -88,4 +89,25 @@ module.exports.assign = function (req, res) {
 
   res.redirect('/users');
 
+}
+
+module.exports.generate = function (req, res) {
+  var subjects = subject.get('subjects').value();
+  // console.log(subject.get('subjects').nth(0).value().id_sub);
+  var randomSubject;
+  var subName;
+  var listOfSubject = ['Physics','Net-centric Programming','Software Architecture', 'Computer Architecture',
+    'Calculus', 'Critical Thinking', 'Physical', 'Academic English', 'Marxism', 'HCM\'s Thought',
+    'Object-oriented Programming', 'Digital Logic Design', 'Software Engineering', 'Principles of Database Management',
+    'Discrete Math', 'Data Structures and Algorithms', 'Computer Networks', 'Probability\, Statistics and Random Variables',
+    'Web Development', 'Object-oriented Analysis and Design', 'Data Mining', 'Computer Graphic', 'Thesis', 'Machine Learning']
+  let i;1
+  for (i = 0; i < subjects.length; i++) {
+    randomSubject = Math.floor(Math.random() * 24) + 1;
+    console.log('Subject at ' + i + ' is ' + randomSubject);
+    subName = listOfSubject[randomSubject];
+    console.log('Subject name is ' + subName);
+    subject.get('subjects').nth(i).assign({name_sub: subName}).write();
+  }
+  res.redirect('/users');
 }
