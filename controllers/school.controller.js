@@ -61,7 +61,7 @@ module.exports.eliminate = function (req, res) {
     let i;
     for (i = numOfRoom ; i < numOfWeek ; i++) {
       let selectedWeek = week.get('weeks').nth(numOfRoom).value();
-      console.log('Deleting week... ' + selectedWeek.id);
+      console.log('Deleting week... ' + selectedWeek.id_week);
 
       week.get('weeks').remove(selectedWeek).write();
     }
@@ -76,6 +76,16 @@ module.exports.eliminate = function (req, res) {
 module.exports.assign = function (req, res) {
   var rooms = room.get('class_room').value();
   var weeks = week.get('weeks').value();
+  // console.log(rooms.length);
+  // res.redirect('/users');
 
+  let i;
+  for (i = 0; i < rooms.length; i++ ){
+    let weekSelect = week.get('weeks').nth(i).value();
+    // console.log('Week Selected: ' + weekSelect.id_week);
+    room.get('class_room').nth(i).assign({id_week: weekSelect.id_week}).write();
+  }
+
+  res.redirect('/users');
 
 }

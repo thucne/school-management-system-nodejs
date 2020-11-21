@@ -2,403 +2,503 @@
   "class_room": [
     {
       "id": 1,
-      "room": "A2.619"
+      "room": "A2.619",
+      "id_week": 1
     },
     {
       "id": 2,
-      "room": "A1.709"
+      "room": "A1.709",
+      "id_week": 2
     },
     {
       "id": 3,
-      "room": "A2.719"
+      "room": "A2.719",
+      "id_week": 3
     },
     {
       "id": 4,
-      "room": "A1.718"
+      "room": "A1.718",
+      "id_week": 4
     },
     {
       "id": 7,
-      "room": "A1.219"
+      "room": "A1.219",
+      "id_week": 5
     },
     {
       "id": 9,
-      "room": "A1.109"
+      "room": "A1.109",
+      "id_week": 6
     },
     {
       "id": 11,
-      "room": "A1.619"
+      "room": "A1.619",
+      "id_week": 7
     },
     {
       "id": 12,
-      "room": "A2.718"
+      "room": "A2.718",
+      "id_week": 8
     },
     {
       "id": 14,
-      "room": "A2.509"
+      "room": "A2.509",
+      "id_week": 9
     },
     {
       "id": 16,
-      "room": "A1.707"
+      "room": "A1.707",
+      "id_week": 10
     },
     {
       "id": 17,
-      "room": "A1.108"
+      "room": "A1.108",
+      "id_week": 11
     },
     {
       "id": 18,
-      "room": "A1.615"
+      "room": "A1.615",
+      "id_week": 12
     },
     {
       "id": 19,
-      "room": "A1.719"
+      "room": "A1.719",
+      "id_week": 13
     },
     {
       "id": 21,
-      "room": "A1.708"
+      "room": "A1.708",
+      "id_week": 14
     },
     {
       "id": 23,
-      "room": "A2.309"
+      "room": "A2.309",
+      "id_week": 15
     },
     {
       "id": 24,
-      "room": "A2.709"
+      "room": "A2.709",
+      "id_week": 16
     },
     {
       "id": 25,
-      "room": "A2.118"
+      "room": "A2.118",
+      "id_week": 17
     },
     {
       "id": 26,
-      "room": "A1.508"
+      "room": "A1.508",
+      "id_week": 18
     },
     {
       "id": 27,
-      "room": "A2.518"
+      "room": "A2.518",
+      "id_week": 19
     },
     {
       "id": 29,
-      "room": "A2.608"
+      "room": "A2.608",
+      "id_week": 20
     },
     {
       "id": 31,
-      "room": "A2.519"
+      "room": "A2.519",
+      "id_week": 21
     },
     {
       "id": 34,
-      "room": "A1.305"
+      "room": "A1.305",
+      "id_week": 22
     },
     {
       "id": 35,
-      "room": "A2.716"
+      "room": "A2.716",
+      "id_week": 23
     },
     {
       "id": 37,
-      "room": "A2.609"
+      "room": "A2.609",
+      "id_week": 24
     },
     {
       "id": 38,
-      "room": "A2.318"
+      "room": "A2.318",
+      "id_week": 25
     },
     {
       "id": 43,
-      "room": "A1.318"
+      "room": "A1.318",
+      "id_week": 26
     },
     {
       "id": 44,
-      "room": "A1.706"
+      "room": "A1.706",
+      "id_week": 27
     },
     {
       "id": 46,
-      "room": "A1.703"
+      "room": "A1.703",
+      "id_week": 28
     },
     {
       "id": 47,
-      "room": "A2.707"
+      "room": "A2.707",
+      "id_week": 29
     },
     {
       "id": 51,
-      "room": "A1.607"
+      "room": "A1.607",
+      "id_week": 30
     },
     {
       "id": 60,
-      "room": "A1.509"
+      "room": "A1.509",
+      "id_week": 31
     },
     {
       "id": 62,
-      "room": "A1.407"
+      "room": "A1.407",
+      "id_week": 32
     },
     {
       "id": 63,
-      "room": "A2.717"
+      "room": "A2.717",
+      "id_week": 33
     },
     {
       "id": 66,
-      "room": "A1.609"
+      "room": "A1.609",
+      "id_week": 34
     },
     {
       "id": 70,
-      "room": "A2.419"
+      "room": "A2.419",
+      "id_week": 35
     },
     {
       "id": 71,
-      "room": "A2.618"
+      "room": "A2.618",
+      "id_week": 36
     },
     {
       "id": 74,
-      "room": "A1.617"
+      "room": "A1.617",
+      "id_week": 37
     },
     {
       "id": 75,
-      "room": "A2.119"
+      "room": "A2.119",
+      "id_week": 38
     },
     {
       "id": 79,
-      "room": "A2.708"
+      "room": "A2.708",
+      "id_week": 39
     },
     {
       "id": 81,
-      "room": "A2.317"
+      "room": "A2.317",
+      "id_week": 40
     },
     {
       "id": 90,
-      "room": "A1.716"
+      "room": "A1.716",
+      "id_week": 41
     },
     {
       "id": 96,
-      "room": "A1.519"
+      "room": "A1.519",
+      "id_week": 42
     },
     {
       "id": 99,
-      "room": "A2.614"
+      "room": "A2.614",
+      "id_week": 43
     },
     {
       "id": 101,
-      "room": "A2.418"
+      "room": "A2.418",
+      "id_week": 44
     },
     {
       "id": 102,
-      "room": "A2.704"
+      "room": "A2.704",
+      "id_week": 45
     },
     {
       "id": 103,
-      "room": "A1.518"
+      "room": "A1.518",
+      "id_week": 46
     },
     {
       "id": 105,
-      "room": "A2.617"
+      "room": "A2.617",
+      "id_week": 47
     },
     {
       "id": 106,
-      "room": "A1.409"
+      "room": "A1.409",
+      "id_week": 48
     },
     {
       "id": 108,
-      "room": "A2.308"
+      "room": "A2.308",
+      "id_week": 49
     },
     {
       "id": 109,
-      "room": "A2.615"
+      "room": "A2.615",
+      "id_week": 50
     },
     {
       "id": 111,
-      "room": "A1.419"
+      "room": "A1.419",
+      "id_week": 51
     },
     {
       "id": 113,
-      "room": "A1.711"
+      "room": "A1.711",
+      "id_week": 52
     },
     {
       "id": 120,
-      "room": "A2.517"
+      "room": "A2.517",
+      "id_week": 53
     },
     {
       "id": 121,
-      "room": "A1.116"
+      "room": "A1.116",
+      "id_week": 54
     },
     {
       "id": 126,
-      "room": "A1.516"
+      "room": "A1.516",
+      "id_week": 55
     },
     {
       "id": 128,
-      "room": "A2.606"
+      "room": "A2.606",
+      "id_week": 56
     },
     {
       "id": 132,
-      "room": "A1.507"
+      "room": "A1.507",
+      "id_week": 57
     },
     {
       "id": 137,
-      "room": "A1.605"
+      "room": "A1.605",
+      "id_week": 58
     },
     {
       "id": 142,
-      "room": "A2.713"
+      "room": "A2.713",
+      "id_week": 59
     },
     {
       "id": 149,
-      "room": "A2.616"
+      "room": "A2.616",
+      "id_week": 60
     },
     {
       "id": 154,
-      "room": "A1.408"
+      "room": "A1.408",
+      "id_week": 61
     },
     {
       "id": 155,
-      "room": "A1.319"
+      "room": "A1.319",
+      "id_week": 62
     },
     {
       "id": 156,
-      "room": "A2.319"
+      "room": "A2.319",
+      "id_week": 63
     },
     {
       "id": 165,
-      "room": "A1.618"
+      "room": "A1.618",
+      "id_week": 64
     },
     {
       "id": 182,
-      "room": "A2.715"
+      "room": "A2.715",
+      "id_week": 65
     },
     {
       "id": 185,
-      "room": "A1.713"
+      "room": "A1.713",
+      "id_week": 66
     },
     {
       "id": 187,
-      "room": "A2.611"
+      "room": "A2.611",
+      "id_week": 67
     },
     {
       "id": 188,
-      "room": "A1.616"
+      "room": "A1.616",
+      "id_week": 68
     },
     {
       "id": 194,
-      "room": "A1.309"
+      "room": "A1.309",
+      "id_week": 69
     },
     {
       "id": 198,
-      "room": "A2.306"
+      "room": "A2.306",
+      "id_week": 70
     },
     {
       "id": 220,
-      "room": "A1.517"
+      "room": "A1.517",
+      "id_week": 71
     },
     {
       "id": 225,
-      "room": "A1.214"
+      "room": "A1.214",
+      "id_week": 72
     },
     {
       "id": 227,
-      "room": "A1.406"
+      "room": "A1.406",
+      "id_week": 73
     },
     {
       "id": 228,
-      "room": "A1.606"
+      "room": "A1.606",
+      "id_week": 74
     },
     {
       "id": 236,
-      "room": "A1.614"
+      "room": "A1.614",
+      "id_week": 75
     },
     {
       "id": 237,
-      "room": "A1.717"
+      "room": "A1.717",
+      "id_week": 76
     },
     {
       "id": 241,
-      "room": "A1.608"
+      "room": "A1.608",
+      "id_week": 77
     },
     {
       "id": 247,
-      "room": "A2.607"
+      "room": "A2.607",
+      "id_week": 78
     },
     {
       "id": 261,
-      "room": "A2.604"
+      "room": "A2.604",
+      "id_week": 79
     },
     {
       "id": 263,
-      "room": "A1.209"
+      "room": "A1.209",
+      "id_week": 80
     },
     {
       "id": 266,
-      "room": "A1.418"
+      "room": "A1.418",
+      "id_week": 81
     },
     {
       "id": 276,
-      "room": "A2.219"
+      "room": "A2.219",
+      "id_week": 82
     },
     {
       "id": 278,
-      "room": "A2.315"
+      "room": "A2.315",
+      "id_week": 83
     },
     {
       "id": 279,
-      "room": "A1.704"
+      "room": "A1.704",
+      "id_week": 84
     },
     {
       "id": 280,
-      "room": "A1.208"
+      "room": "A1.208",
+      "id_week": 85
     },
     {
       "id": 292,
-      "room": "A2.505"
+      "room": "A2.505",
+      "id_week": 86
     },
     {
       "id": 293,
-      "room": "A2.217"
+      "room": "A2.217",
+      "id_week": 87
     },
     {
       "id": 302,
-      "room": "A1.712"
+      "room": "A1.712",
+      "id_week": 88
     },
     {
       "id": 323,
-      "room": "A1.317"
+      "room": "A1.317",
+      "id_week": 89
     },
     {
       "id": 329,
-      "room": "A1.306"
+      "room": "A1.306",
+      "id_week": 90
     },
     {
       "id": 369,
-      "room": "A1.308"
+      "room": "A1.308",
+      "id_week": 91
     },
     {
       "id": 381,
-      "room": "A1.416"
+      "room": "A1.416",
+      "id_week": 92
     },
     {
       "id": 382,
-      "room": "A1.603"
+      "room": "A1.603",
+      "id_week": 93
     },
     {
       "id": 388,
-      "room": "A1.315"
+      "room": "A1.315",
+      "id_week": 94
     },
     {
       "id": 390,
-      "room": "A2.409"
+      "room": "A2.409",
+      "id_week": 95
     },
     {
       "id": 404,
-      "room": "A1.503"
+      "room": "A1.503",
+      "id_week": 96
     },
     {
       "id": 405,
-      "room": "A1.705"
+      "room": "A1.705",
+      "id_week": 97
     },
     {
       "id": 409,
-      "room": "A2.117"
+      "room": "A2.117",
+      "id_week": 98
     },
     {
       "id": 429,
-      "room": "A2.108"
+      "room": "A2.108",
+      "id_week": 99
     },
     {
       "id": 459,
-      "room": "A2.408"
+      "room": "A2.408",
+      "id_week": 100
     }
   ]
 }
