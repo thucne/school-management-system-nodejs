@@ -1,20 +1,25 @@
 extends ../layouts/common
 
 block content
-    h1 Log in
+    .container-fluid
+        .row
+            .col-sm-4
+            .col-sm-4
+                h1 Log in
 
-    if errs
-      each err in errs
-          .alert.alert-danger= err
+                if errs
+                  each err in errs
+                      .alert.alert-danger= err
 
-    form(action="/auth/login", method="POST")
-        .form-group
-            input(type="hidden", name="_csrf", value=csrfToken)
+                form(action="/auth/login", method="POST")
+                    .form-group
+                        input(type="hidden", name="_csrf", value=csrfToken)
 
-            label(for="email") Email
-            input#email.form-control(name="email", type="text", value=values ? values.email : '')
+                        label(for="email") Email
+                        input#email.form-control(name="email", type="text", value=values ? values.email : '')
 
-            label(for="password") Password
-            input#password.form-control(name="password", type="password", value=values ? values.password: '')
+                        label(for="password") Password
+                        input#password.form-control(name="password", type="password", value=values ? values.password: '')
 
-        button.btn.btn-primary Log in
+                    button.btn.btn-primary Log in
+            .col-sm-4
