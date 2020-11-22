@@ -101,9 +101,9 @@ module.exports.generate = function (req, res) {
     'Object-oriented Programming', 'Digital Logic Design', 'Software Engineering', 'Principles of Database Management',
     'Discrete Math', 'Data Structures and Algorithms', 'Computer Networks', 'Probability\, Statistics and Random Variables',
     'Web Development', 'Object-oriented Analysis and Design', 'Data Mining', 'Computer Graphic', 'Thesis', 'Machine Learning']
-  let i;1
+  let i;
   for (i = 0; i < subjects.length; i++) {
-    randomSubject = Math.floor(Math.random() * 24) + 1;
+    randomSubject = Math.floor(Math.random() * 23) + 1;
     console.log('Subject at ' + i + ' is ' + randomSubject);
     subName = listOfSubject[randomSubject];
     console.log('Subject name is ' + subName);
@@ -113,5 +113,9 @@ module.exports.generate = function (req, res) {
 }
 
 module.exports.createSubject = function (req, res) {
-  res.render('school/createSubject');
+  var subjects = subject.get('subjects').value();
+
+  res.render('school/createSubject', {
+    subjects: subjects
+  });
 }
