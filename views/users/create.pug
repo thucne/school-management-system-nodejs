@@ -1,44 +1,54 @@
 extends ../layouts/common
 
 block content
-    h1 Sign up
+  .container-fluid.mt-5
+    .row
+      .col-sm-7
+        h1 Sign up
 
-    if errs
-      each err in errs
-        .alert.alert-danger= err
+        if errs
+          each err in errs
+            .alert.alert-danger= err
 
-    form(action="/users/create", method="POST", enctype="multipart/form-data")
-      .form-group
-        input(type="hidden", name="_csrf", value=csrfToken)
+        form(action="/users/create", method="POST", enctype="multipart/form-data")
+          .form-group
+            input(type="hidden", name="_csrf", value=csrfToken)
 
-        label(for="name") Last Name
-        input#name.form-control(name="name", type="text", value=values ? values.name : '', placeholder="Katy",
-          pattern="^[a-zA-Z]{1,15}\\s{0,1}[a-zA-Z]{1,15}\\s*$",
-          title="In word, less than 30 letters.")
+            label(for="name") Last Name
+            input#name.form-control(name="name", type="text", value=values ? values.name : '', placeholder="Katy",
+              pattern="^[a-zA-Z]{1,15}\\s{0,1}[a-zA-Z]{1,15}\\s*$",
+              title="In word, less than 30 letters.", class=values ? (values.name ? 'is-valid': 'is-invalid'): '')
+            .valid-feedback(class=values ? (values.name ? 'valid-feedback': 'invalid-feedback'): '')= values ? (values.name ? 'Looks good!': 'Please provide a valid last name!') : ''
 
-        label(for="first_name") First Name
-        input#first_name.form-control(name="first_name", type="text",
-            value=values ? values.first_name: '', placeholder="Perry",
-          pattern="^[a-zA-Z]{1,15}\\s{0,1}[a-zA-Z]{1,15}\\s*$",
-          title="In word, less than 30 letters.")
+            label(for="first_name") First Name
+            input#first_name.form-control(name="first_name", type="text",
+                value=values ? values.first_name: '', placeholder="Perry",
+              pattern="^[a-zA-Z]{1,15}\\s{0,1}[a-zA-Z]{1,15}\\s*$",
+              title="In word, less than 30 letters.", class=values ? (values.first_name ? 'is-valid': 'is-invalid'): '')
+            .valid-feedback(class=values ? (values.first_name ? 'valid-feedback': 'invalid-feedback'): '')= values ? (values.first_name ? 'Looks good!': 'Please provide a valid first name!') : ''
 
-        //label(for="gender") Gender
-        //input#gender.form-control.input-group(name="gender", type="text", value=values ? values.gender : '', placeholder="Male")
+            //label(for="gender") Gender
+            //input#gender.form-control.input-group(name="gender", type="text", value=values ? values.gender : '', placeholder="Male")
 
-        p.mb-1 Gender
-        input#male.ml-3(type='radio', name='gender', value='Male', checked=values ? (values.gender === 'Male'): 'false')
-        label.ml-2(for='male') Male
-        input#female.ml-3(type='radio', name='gender', value='Female', checked=values ? (values.gender === 'Female'): 'false')
-        label.ml-2(for='female') Female
-        input#other.ml-3(type='radio', name='gender', value='Other', checked=values ? (values.gender === 'Other'): 'false')
-        label.ml-2(for='other') Other
-        br
-        label(for="email") Email
-        input#email.form-control(name="email", type="text", value=values ? values.email : '', placeholder="katyperry@gmail.com",
-          pattern="^\\w+@[a-zA-Z]+\\.com$",
-          title="any@inWords.com")
+            p.mb-1 Gender
+            input#male.ml-3(type='radio', name='gender', value='Male', checked=values ? (values.gender === 'Male'): 'false')
+            label.ml-2(for='male') Male
+            input#female.ml-3(type='radio', name='gender', value='Female', checked=values ? (values.gender === 'Female'): 'false')
+            label.ml-2(for='female') Female
+            input#other.ml-3(type='radio', name='gender', value='Other', checked=values ? (values.gender === 'Other'): 'false')
+            label.ml-2(for='other') Other
 
-        label(for="avatar") Avatar
-        input#avatar.form-control-file(name="avatar", type="file")
+            br
 
-      button.btn.btn-primary Create
+            label(for="email") Email
+            input#email.form-control(name="email", type="text", value=values ? values.email : '', placeholder="katyperry@gmail.com",
+              pattern="^\\w+@[a-zA-Z]+\\.com$",
+              title="any@inWords.com", class=values ? (values.email ? 'is-valid': 'is-invalid'): '')
+            .valid-feedback(class=values ? (values.email ? 'valid-feedback': 'invalid-feedback'):'')= values ? (values.email ? 'Looks good!': 'Please provide a valid email!') : ''
+
+            label(for="avatar") Avatar
+            input#avatar.form-control-file(name="avatar", type="file")
+
+          button.btn.btn-primary Create
+      .col-sm-5
+        img.mb-5.p-2(src='/images/Create.png', alt='Create', style='box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);')
