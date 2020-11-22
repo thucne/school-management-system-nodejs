@@ -102,9 +102,9 @@ app.use(function(err, req, res, next){
     userInfo: {name: "Hi " + user.name + "!"}
   });
 });
-
+//Test Change
 app.listen(port, function () {
   console.log('Server at port '  + port + ' is running...!!');
-  // open('http://localhost:6969/', {app: edge});
+  open('http://localhost:6969/', {app: edge});
 });
 
