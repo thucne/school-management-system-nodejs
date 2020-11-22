@@ -10,7 +10,7 @@ block content
           each err in errs
             .alert.alert-danger= err
 
-        form(action="/users/create", method="POST", enctype="multipart/form-data")
+        form(action="/users/create", method="POST", enctype="multipart/form-data", name="Create")
           .form-group
             input(type="hidden", name="_csrf", value=csrfToken)
 
@@ -31,11 +31,11 @@ block content
             //input#gender.form-control.input-group(name="gender", type="text", value=values ? values.gender : '', placeholder="Male")
 
             p.mb-1 Gender
-            input#male.ml-3(type='radio', name='gender', value='Male', checked=values ? (values.gender === 'Male'): 'false')
+            input#male.ml-3(type='radio', name='gender', value='Male', checked=values ? (values.gender === 'Male'): 'false', onclick="document.Create.submit()")
             label.ml-2(for='male') Male
-            input#female.ml-3(type='radio', name='gender', value='Female', checked=values ? (values.gender === 'Female'): 'false')
+            input#female.ml-3(type='radio', name='gender', value='Female', checked=values ? (values.gender === 'Female'): 'false', onclick='document.Create.submit()')
             label.ml-2(for='female') Female
-            input#other.ml-3(type='radio', name='gender', value='Other', checked=values ? (values.gender === 'Other'): 'false')
+            input#other.ml-3(type='radio', name='gender', value='Other', checked=values ? (values.gender === 'Other'): 'false', onclick='document.Create.submit()')
             label.ml-2(for='other') Other
 
             br
@@ -49,6 +49,7 @@ block content
             label(for="avatar") Avatar
             input#avatar.form-control-file(name="avatar", type="file")
 
-          button.btn.btn-primary Create
+          button.btn.btn-primary= values ? (values.gender === 'Male' ? '👨‍🎓' : (values.gender === 'Female' ? '👩‍🎓' : '🏳️‍🌈')) : '👾'
+
       .col-sm-5
         img.mb-5.p-2(src='/images/Create.png', alt='Create', style='box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);')
