@@ -28,7 +28,8 @@ var db = require('../lowdb/db');
     res.render('users/create', {
       csrfToken: token,
       errs: errs,
-      values: req.body
+      values: req.body,
+      book_mark: '#here'
     });
     return;
   }

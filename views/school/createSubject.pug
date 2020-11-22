@@ -5,33 +5,28 @@ block content
     hr(style="background-color: lightgray;")
     .container-fluid.mt-5
         .row
-            .col-sm-3(style='border-right: 1px solid gray;')
+            .col-sm-4(style='border-right: 1px solid gray;')
                 h2 Select subject
                 form(action="/users", method="GET")
                     .form-group
                         label(for='exampleFormControlSelect1') Available
-                        select#exampleFormControlSelect1.form-control
-                            option 1
-                            option 2
-                            option 3
-                            option 4
-                            option 5
-                            option 5
-                            option 5
-                            option 5
-                            option 5
-                            option 5
-                            option 5
+                        select#exampleFormControlSelect1.form-control(size='5', style='overflow-x: scroll;')
+                            each subject in subjects
+                                option= 'ID: '+ subject.id_sub + '; Name: ' + subject.name_sub
                     button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
             .col-sm-2(style='border-right: 1px solid gray;')
                 h2 Room
-                form(action="/users", method="GET")
-                    .form-group
-                        label(for='exampleFormControlSelect2') Available
-                        select#exampleFormControlSelect2.form-control
-                            option 1
-                            option 2
-                            option 3
-                    button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
-            .col-sm-7
+                if rooms
+                    form(action="/users", method="GET")
+                        .form-group
+                            label(for='exampleFormControlSelect2') Available
+                            select#exampleFormControlSelect2.form-control(size='5', style='overflow-x: scroll;')
+                              each room in rooms
+                                option= 'ID: '+ room.id + '; Room: ' + room.room
+
+                        button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
+                else
+                    small(class='invalid-feedback') 'Select a subject first!'
+
+            .col-sm-6
                 h2 Current status
