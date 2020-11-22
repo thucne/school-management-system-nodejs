@@ -33,6 +33,7 @@ module.exports.index = function (req, res) {
       z: ++page
     }
   });
+
   // console.log('User is ' + db.get('users').value());
 };
 
