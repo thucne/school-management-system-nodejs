@@ -1,32 +1,40 @@
 extends ../layouts/common
 
 block content
+    script.
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
     h1 Assign Subjects To Rooms
     hr(style="background-color: lightgray;")
     .container-fluid.mt-5
         .row
             .col-sm-4(style='border-right: 1px solid gray;')
                 h2 Select subject
-                form(action="/users", method="GET")
+                form(action="/school/searchForRoom", method="POST")
                     .form-group
+                        input(type='hidden', name='_csrf', value=csrfToken)
                         label(for='exampleFormControlSelect1') Available
-                        select#exampleFormControlSelect1.form-control(size='5', style='overflow-x: scroll;')
+                        select#exampleFormControlSelect1.form-control(size='5', style='overflow-x: scroll;', name='sub')
                             each subject in subjects
-                                option= 'ID: '+ subject.id_sub + '; Name: ' + subject.name_sub
+                                option(value=subject, selected=selectedSubject ? (selectedSubject['id_sub'] === subject.id_sub): false )= 'ID: '+ subject.id_sub + '; Name: ' + subject.name_sub
                     button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
             .col-sm-2(style='border-right: 1px solid gray;')
                 h2 Room
                 if rooms
-                    form(action="/users", method="GET")
+                    form(action="/users", method="POST")
+
                         .form-group
-                            label(for='exampleFormControlSelect2') Available
+                            .text-success(data-toggle='tooltip', data-placement='right', title=rooms.length + ' rooms found!')
+                                label(for='exampleFormControlSelect2') Available #{rooms.length} rooms
+
                             select#exampleFormControlSelect2.form-control(size='5', style='overflow-x: scroll;')
                               each room in rooms
-                                option= 'ID: '+ room.id + '; Room: ' + room.room
-
+                                option= 'ID: '+ room.id + '; Room: ' + room['room']
+                            input(type='hidden', name='subject', value=selectedSubject ? selectedSubject : '')
                         button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
                 else
-                    small(class='invalid-feedback') 'Select a subject first!'
+                    .text-danger Select a subject first!
 
             .col-sm-6
                 h2 Current status

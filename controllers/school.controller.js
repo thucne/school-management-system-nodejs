@@ -116,6 +116,83 @@ module.exports.createSubject = function (req, res) {
   var subjects = subject.get('subjects').value();
 
   res.render('school/createSubject', {
-    subjects: subjects
+    subjects: subjects,
+    csrfToken: req.csrfToken()
   });
+}
+
+module.exports.searchRoom = function (req, res) {
+  var rooms = room.get('class_room').value();
+  var weeks = week.get('weeks').value();
+  var subjects = subject.get('subjects').value();
+
+
+  var selectedSubject = JSON.parse(req.body.sub);
+  // console.log('Selected Sub: ' + selectedSubject.name_sub);
+
+  var selectedSubjectCredit = selectedSubject['credits'];
+  // console.log('Credit: ' + selectedSubjectCredit);
+
+  var listOfWeek = [];
+
+  let i;
+  for ( i = 0; i < weeks.length; i++) {
+    let currentWeek = week.get('weeks').nth(i).value();
+    // console.log('Current week: ' + currentWeek.id_week);
+    let k;
+    let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+    for (k = 1; k <= 7; k++) {
+      let thisDay = days[k - 1];
+      // console.log('This day: ' + thisDay);
+      let thisDayValue = currentWeek[thisDay];
+      let l;
+      let count = selectedSubjectCredit;
+      for (l = 0 ; l < thisDayValue.length; l++) {
+        if (thisDayValue[l] === 0) {
+          count--;
+        } else {
+          if (count !== 0) {
+            count = selectedSubjectCredit;
+          }
+        }
+        if (count === 0) {
+          break;
+        }
+      }
+      if (count === 0 ){
+        listOfWeek.push(currentWeek);
+        break;
+      }
+    }
+  }
+  // for (i = 0; i < listOfWeek.length; i++) {
+  //   console.log('List of Week: ' + listOfWeek[i].id_week);
+  // }
+
+  var listOfRoom = [];
+
+  for (let j = 0 ; j < rooms.length; j++) {
+    let i;
+    let currentRoom = room.get('class_room').nth(j).value();
+    for (i = 0; i < listOfWeek.length ; i++) {
+      if (currentRoom['id_week'] === listOfWeek[i].id_week) {
+        listOfRoom.push(currentRoom);
+        break;
+      }
+    }
+  }
+
+  // for (i = 0; i < listOfWeek.length; i++) {
+  //   console.log('List of Room: ' + listOfRoom[i].room);
+  // }
+
+
+  res.render('school/createSubject', {
+    subjects: subjects,
+    rooms: listOfRoom,
+    selectedSubject: selectedSubject,
+    csrfToken: req.csrfToken()
+  })
+
+  // res.redirect('/school/createSubject');
 }
