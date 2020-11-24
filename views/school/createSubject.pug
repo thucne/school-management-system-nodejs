@@ -7,9 +7,9 @@ block content
       });
     h1 Assign Subjects To Rooms
     hr(style="background-color: lightgray;")
-    .container-fluid.mt-5
+    .container-fluid.my-5
         .row
-            .col-sm-4(style='border-right: 1px solid gray;')
+            .col-md-4(style='border-right: 1px solid gray;')
                 h2 Select subject
                 form(action="/school/searchForRoom", method="POST")
                     .form-group
@@ -19,7 +19,7 @@ block content
                             each subject in subjects
                                 option(value=subject, selected=selectedSubject ? (selectedSubject['id_sub'] === subject.id_sub): false )= 'ID: '+ subject.id_sub + '; Name: ' + subject.name_sub
                     button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
-            .col-sm-2(style='border-right: 1px solid gray;')
+            .col-md-2(style='border-right: 1px solid gray;')
                 h2 Room
                 if rooms
                     form(action="/users", method="POST")
@@ -36,5 +36,5 @@ block content
                 else
                     .text-danger Select a subject first!
 
-            .col-sm-6
+            .col-md-6
                 h2 Current status
