@@ -40,38 +40,38 @@ block content
     a.carousel-control-next(href='#mySchool', role='button', data-slide='next')
       span.carousel-control-next-icon(aria-hidden='true')
       span.sr-only Next
-
-  table.table.table-bordered.mt-3
-    tr.table-secondary
-      th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
-      th(data-toggle='tooltip', data-placement='top', title='First Name') First Name
-      th(data-toggle='tooltip', data-placement='top', title='Last Name') Last Name
-      th(data-toggle='tooltip', data-placement='top', title='Gender') Gender
-      th(data-toggle='tooltip', data-placement='top', title='Email') Email
-      th(data-toggle='tooltip', data-placement='top', title='Students IP Address') IP Address
-      th(data-toggle='tooltip', data-placement='top', title='Avatars') Avatar
-      th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Some functionalities') Actions
-      th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete a student') Delete
-      th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select a student') Select
-    each user in users
-      tr
-        td= users.indexOf(user) + (7 * (page.y - 1)) + 1
-        td= user.name
-        td= user.first_name
-        td= user.gender
-        td= user.email
-        td= user.ip_address
-        td
-          if user.avatar
-            img(src= (user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '/' + user.avatar: user.avatar, width="40", alt=!user.avatar ? 'Not Found': '')
-          else
-            span Not Found
-        td(style='text-align:center;')
-          a.btn.btn-info(href="/users/" + user.id, data-toggle='tooltip', data-placement='top', title='Click to see the student information') &#128194;
-        td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete this student from the database')
-          a.btn.btn-warning(href="/users/delete/" + user.id) &#10060;
-        td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select this student')
-          a.btn.btn-success(href="/school/select/" + user.id) &#10004;
+  .table-responsive
+    table(style='width: 100%;').table.mt-3.table-hover
+      tr.table-secondary
+        th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
+        th(data-toggle='tooltip', data-placement='top', title='First Name') First Name
+        th(data-toggle='tooltip', data-placement='top', title='Last Name') Last Name
+        th(data-toggle='tooltip', data-placement='top', title='Gender') Gender
+        th(data-toggle='tooltip', data-placement='top', title='Email') Email
+        th(data-toggle='tooltip', data-placement='top', title='Students IP Address') IP Address
+        th(data-toggle='tooltip', data-placement='top', title='Avatars') Avatar
+        th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Some functionalities') Actions
+        th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete a student') Delete
+        th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select a student') Select
+      each user in users
+        tr
+          td= users.indexOf(user) + (7 * (page.y - 1)) + 1
+          td= user.name
+          td= user.first_name
+          td= user.gender
+          td= user.email
+          td= user.ip_address
+          td
+            if user.avatar
+              img(src= (user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '/' + user.avatar: user.avatar, width="40", alt=!user.avatar ? 'Not Found': '')
+            else
+              span Not Found
+          td(style='text-align:center;')
+            a.btn.rounded-circle(href="/users/" + user.id, data-toggle='tooltip', data-placement='top', title='Click to see the student information') &#128194;
+          td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete this student from the database')
+            a.btn.rounded-circle(href="/users/delete/" + user.id) &#10060;
+          td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select this student')
+            a.btn.rounded-circle(href="/school/select/" + user.id) &#10004;
   ul.pagination.justify-content-center
     li.page-item
       a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&'): '?') + 'page=' + (page.y-3),

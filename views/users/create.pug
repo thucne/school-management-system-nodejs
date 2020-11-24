@@ -9,7 +9,7 @@ block content
       scroll();
   .container-fluid.mt-5
     .row
-      .col-sm-7
+      .col-md-7
         h1 Sign up
 
         if errs
@@ -61,5 +61,5 @@ block content
 
           button.btn.btn-primary= values ? (values.gender === 'Male' ? '👨‍🎓' : (values.gender === 'Female' ? '👩‍🎓' : '🏳️‍🌈')) : '👾'
 
-      .col-sm-5
-        img.mb-5.p-2(src='/images/Create.png', alt='Create', style='box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);')
+      .col-md-5
+        img.mb-5.p-2(src='/images/Create.png', alt='Create', width='100%', style='box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);')
