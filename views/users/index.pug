@@ -25,15 +25,15 @@ block content
       li(data-target='#mySchool', data-slide-to='4')
     .carousel-inner
       .carousel-item.active
-        img.d-block.w-100(src='/images/spotify.png', alt='First slide')
+        img.d-block.w-100(src='/images/carousel_5.jpg', alt='First slide')
       .carousel-item
-        img.d-block.w-100(src='/images/twitter.jpg', alt='Fifth slide')
+        img.d-block.w-100(src='/images/carousel_2.jpg', alt='Fifth slide')
       .carousel-item
-        img.d-block.w-100(src='/images/netflix.png', alt='Second slide')
+        img.d-block.w-100(src='/images/carousel_3.jpg', alt='Second slide')
       .carousel-item
-        img.d-block.w-100(src='/images/apple.png', alt='Third slide')
+        img.d-block.w-100(src='/images/carousel_6.jpg', alt='Third slide')
       .carousel-item
-        img.d-block.w-100(src='/images/google.png', alt='Fourth slide')
+        img.d-block.w-100(src='/images/carousel_1.jpg', alt='Fourth slide')
     a.carousel-control-prev(href='#mySchool', role='button', data-slide='prev')
       span.carousel-control-prev-icon(aria-hidden='true')
       span.sr-only Previous
@@ -70,8 +70,7 @@ block content
             a.btn.btn-outline-info.rounded-circle(href="/users/" + user.id, data-toggle='tooltip', data-placement='top', title='Click to see the student information') &#128194;
           td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete this student from the database')
             a.btn.btn-outline-danger.rounded-circle(href="/users/delete/" + user.id) &#10060;
-          td(style='text-align:center;', data
-          -toggle='tooltip', data-placement='top', title='Select this student')
+          td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select this student')
             a.btn.btn-outline-success.rounded-circle(href="/school/select/" + user.id) &#10004;
 
   ul.pagination.justify-content-center.pagination
