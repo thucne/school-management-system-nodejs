@@ -22,15 +22,18 @@ block content
             .col-md-2(style='border-right: 1px solid gray;')
                 h2 Room
                 if rooms
-                    form(action="/users", method="POST")
+                    form(action="/school/searchForRoom/searchForWeek", method="POST")
 
                         .form-group
+                            input(type='hidden', name='_csrf', value=csrfToken)
+                            input(type='hidden', name='sub', value=selectedSubject)
+                            input(type='hidden', name='list_room', value=rooms)
                             .text-success(data-toggle='tooltip', data-placement='right', title=rooms.length + ' rooms found!')
                                 label(for='exampleFormControlSelect2') Available #{rooms.length} rooms
 
-                            select#exampleFormControlSelect2.form-control(size='5', style='overflow-x: scroll;')
+                            select#exampleFormControlSelect2.form-control(size='5', style='overflow-x: scroll;', name='roo')
                               each room in rooms
-                                option= 'ID: '+ room.id + '; Room: ' + room['room']
+                                option(value=room, selected=selectedRoom ? (selectedRoom['id'] === room.id): false)= 'ID: '+ room.id + '; Room: ' + room['room']
                             input(type='hidden', name='subject', value=selectedSubject ? selectedSubject : '')
                         button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
                 else
@@ -38,3 +41,6 @@ block content
 
             .col-md-6
                 h2 Current status
+                if weekDetails
+                    each weekDay in weekDetails
+                      
