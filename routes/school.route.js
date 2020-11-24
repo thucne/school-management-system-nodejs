@@ -12,4 +12,5 @@ router.get('/eliminate', controller.eliminate);
 router.get('/generate', controller.generate);
 router.get('/createSubject', controller.createSubject);
 router.post('/searchForRoom', controller.searchRoom);
+router.post('/searchForRoom/searchForWeek', controller.searchWeek);
 module.exports = router;

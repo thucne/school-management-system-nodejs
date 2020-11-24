@@ -196,3 +196,102 @@ module.exports.searchRoom = function (req, res) {
 
   // res.redirect('/school/createSubject');
 }
+
+module.exports.searchWeek = function (req, res) {
+  var rooms = room.get('class_room').value();
+  var weeks = week.get('weeks').value();
+  var subjects = subject.get('subjects').value();
+
+
+  var selectedSubject = JSON.parse(req.body.sub);
+  console.log('Selected Sub: ' + selectedSubject.name_sub);
+  var selectedRoom = JSON.parse(req.body.roo);
+  console.log('Selected Room: ' + selectedRoom['room']);
+  var listRoom = JSON.parse(req.body.list_room);
+
+  var selectedSubjectCredit = selectedSubject['credits'];
+  console.log('Num of credit: ' + selectedSubjectCredit);
+  var selectedWeek = week.get('weeks').find({id_week: selectedRoom['id_week']}).value();
+
+  let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+  let result = {
+    mon: [],
+    tue: [],
+    wed: [],
+    thu: [],
+    fri: [],
+    sat: [],
+    sun: []
+  };
+
+  let k;
+  for (k = 1; k <= 7; k++) {
+    let thisDay = days[k - 1];
+    // console.log('This day: ' + thisDay);
+    let thisDayValue = selectedWeek[thisDay];
+    let l;
+    let count = selectedSubjectCredit;
+    let preCount = selectedSubjectCredit;
+    for (l = 0 ; l < thisDayValue.length; l++) {
+      if (thisDayValue[l] === 1) {
+        result[thisDay].push(1);
+        count = selectedSubjectCredit;
+      } else {
+        result[thisDay].push(0);
+        count--;
+      }
+
+      let checkValid = count - preCount;
+
+      if (0 < checkValid && checkValid < selectedSubjectCredit) {
+        for (let h = 0; h <= checkValid; h++) {
+          result[thisDay].pop();
+        }
+        for (let h = 0; h <= checkValid; h++) {
+          result[thisDay].push(1);
+        }
+        count = selectedSubjectCredit;
+      }
+
+      if (l === thisDayValue.length - 1) {
+        let checkTail = selectedSubjectCredit - count;
+        if (checkTail !== 0 && checkTail !== selectedSubjectCredit) {
+          for (let h = 0; h <= checkTail; h++) {
+            result[thisDay].pop();
+          }
+          for (let h = 0; h <= checkTail; h++) {
+            result[thisDay].push(1);
+          }
+        }
+      }
+      preCount = count;
+
+    }
+  }
+  console.log('Selected Week ' + selectedWeek.mon);
+  console.log('Result: ' + result.mon);
+  console.log('Selected Week ' + selectedWeek.tue);
+  console.log('Result: ' + result.tue);
+  console.log('Selected Week ' + selectedWeek.wed);
+  console.log('Result: ' + result.wed);
+  console.log('Selected Week ' + selectedWeek.thu);
+  console.log('Result: ' + result.thu);
+  console.log('Selected Week ' + selectedWeek.fri);
+  console.log('Result: ' + result.fri);
+  console.log('Selected Week ' + selectedWeek.sat);
+  console.log('Result: ' + result.sat);
+  console.log('Selected Week ' + selectedWeek.sun);
+  console.log('Result: ' + result.sun);
+
+  res.render('school/createSubject', {
+    subjects: subjects,
+    rooms: listRoom,
+    selectedSubject: selectedSubject,
+    selectedRoom: selectedRoom,
+    csrfToken: req.csrfToken()
+  })
+
+
+  // res.redirect('/school.createSubject');
+}
