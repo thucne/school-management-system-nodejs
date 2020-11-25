@@ -27,13 +27,13 @@ block content
       .carousel-item.active
         img.d-block.w-100(src='/images/carousel_5.jpg', alt='First slide')
       .carousel-item
-        img.d-block.w-100(src='/images/carousel_2.jpg', alt='Fifth slide')
+        img.d-block.w-100(src='/images/cr1.jpg', alt='Fifth slide')
       .carousel-item
-        img.d-block.w-100(src='/images/carousel_3.jpg', alt='Second slide')
+        img.d-block.w-100(src='/images/cr2.jpg', alt='Second slide')
       .carousel-item
-        img.d-block.w-100(src='/images/carousel_6.jpg', alt='Third slide')
+        img.d-block.w-100(src='/images/cr3.jpg', alt='Third slide')
       .carousel-item
-        img.d-block.w-100(src='/images/carousel_1.jpg', alt='Fourth slide')
+        img.d-block.w-100(src='/images/cr4.jpg', alt='Fourth slide')
     a.carousel-control-prev(href='#mySchool', role='button', data-slide='prev')
       span.carousel-control-prev-icon(aria-hidden='true')
       span.sr-only Previous
@@ -63,7 +63,7 @@ block content
           td= user.ip_address
           td
             if user.avatar
-              img(src= (user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '/' + user.avatar : user.avatar, width="40", alt=!user.avatar ? 'Not Found' : '')
+              img(src= (user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '/' + user.avatar: user.avatar, width="40", alt=!user.avatar ? 'Not Found': '')
             else
               span Not Found
           td(style='text-align:center;')

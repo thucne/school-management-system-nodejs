@@ -54,10 +54,12 @@ block content
                                 th Sun
                             each weekDay in weekDetails
                               tr
-                                  td= weekDay['0']
-                                  td= weekDay['1']
-                                  td= weekDay['2']
-                                  td= weekDay['3']
-                                  td= weekDay['4']
-                                  td= weekDay['5']
-                                  td= weekDay['6']
+                                  td= weekDay['0'] === 1 ? '⛔' : '✅'
+                                  td= weekDay['1'] === 1 ? '⛔' : '✅'
+                                  td= weekDay['2'] === 1 ? '⛔' : '✅'
+                                  td= weekDay['3'] === 1 ? '⛔' : '✅'
+                                  td= weekDay['4'] === 1 ? '⛔' : '✅'
+                                  td= weekDay['5'] === 1 ? '⛔' : '✅'
+                                  td= weekDay['6'] === 1 ? '⛔' : '✅'
+
+
