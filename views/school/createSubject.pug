@@ -42,5 +42,22 @@ block content
             .col-md-6
                 h2 Current status
                 if weekDetails
-                    each weekDay in weekDetails
-                      
+                    .table-responsive
+                        table.table.mt-3.table-hover(style='text-align: center;')
+                            tr.table-secondary
+                                th Mon
+                                th Tue
+                                th Wed
+                                th Thu
+                                th Fri
+                                th Sat
+                                th Sun
+                            each weekDay in weekDetails
+                              tr
+                                  td= weekDay['0']
+                                  td= weekDay['1']
+                                  td= weekDay['2']
+                                  td= weekDay['3']
+                                  td= weekDay['4']
+                                  td= weekDay['5']
+                                  td= weekDay['6']
