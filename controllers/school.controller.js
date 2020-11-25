@@ -224,7 +224,7 @@ module.exports.searchWeek = function (req, res) {
     sat: [],
     sun: []
   };
-
+  console.log('Credir: ' + selectedSubjectCredit);
   let k;
   for (k = 1; k <= 7; k++) {
     let thisDay = days[k - 1];
@@ -253,10 +253,11 @@ module.exports.searchWeek = function (req, res) {
         }
         count = selectedSubjectCredit;
       }
-
       if (l === thisDayValue.length - 1) {
         let checkTail = selectedSubjectCredit - count;
-        if (checkTail !== 0 && checkTail !== selectedSubjectCredit) {
+        // console.log('Check 12', + checkTail);
+        // console.log('Check !== credit? ', + checkTail !== selectedSubjectCredit);
+        if ((checkTail !== 0) && checkTail !== parseInt(selectedSubjectCredit)) {
           for (let h = 0; h <= checkTail; h++) {
             result[thisDay].pop();
           }
@@ -270,25 +271,54 @@ module.exports.searchWeek = function (req, res) {
     }
   }
   console.log('Selected Week ' + selectedWeek.mon);
-  console.log('Result: ' + result.mon);
   console.log('Selected Week ' + selectedWeek.tue);
-  console.log('Result: ' + result.tue);
   console.log('Selected Week ' + selectedWeek.wed);
-  console.log('Result: ' + result.wed);
   console.log('Selected Week ' + selectedWeek.thu);
-  console.log('Result: ' + result.thu);
   console.log('Selected Week ' + selectedWeek.fri);
-  console.log('Result: ' + result.fri);
   console.log('Selected Week ' + selectedWeek.sat);
-  console.log('Result: ' + result.sat);
   console.log('Selected Week ' + selectedWeek.sun);
+  console.log('');
+  console.log('Result: ' + result.mon);
+  console.log('Result: ' + result.tue);
+  console.log('Result: ' + result.wed);
+  console.log('Result: ' + result.thu);
+  console.log('Result: ' + result.fri);
+  console.log('Result: ' + result.sat);
   console.log('Result: ' + result.sun);
+
+  var displayedResult = {
+    '1': [],
+    '2': [],
+    '3': [],
+    '4': [],
+    '5': [],
+    '6': [],
+    '7': [],
+    '8': [],
+    '9': [],
+    '10': [],
+    '11': [],
+    '12': []
+  }
+
+  for (let a = 0 ; a < 12; a++) {
+    let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+    let periods = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+
+    for (let b = 0; b < days.length; b++) {
+      // console.log(result[days[b]][a - 1]);
+      displayedResult[periods[a]].push(result[days[b]][a]);
+    }
+    // console.log(displayedResult["1"]);
+
+  }
 
   res.render('school/createSubject', {
     subjects: subjects,
     rooms: listRoom,
     selectedSubject: selectedSubject,
     selectedRoom: selectedRoom,
+    weekDetails: displayedResult,
     csrfToken: req.csrfToken()
   })
 
