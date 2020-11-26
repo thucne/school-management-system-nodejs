@@ -23,7 +23,7 @@ block content
                     span
                         small.text-success.font-weight-bold(style='font-size: large;') #{selectedSubject.name_sub}.
                             //button.btn-sm
-                        button(type='button', onclick='document.location.reload(true)', data-toggle='tooltip', data-placement='right', title='Reset', style='float: right;') 🔄
+                        a(type='button', href='/school/createSubject', data-toggle='tooltip', data-placement='right', title='Reset', style='float: right; text-decoration: none;') 🔄
                     br
                     small.text-danger(style='font-size: medium') ID: #{selectedSubject.id_sub}
                     br
@@ -62,7 +62,7 @@ block content
                             .col-md-6
                                 .text-success(data-toggle='tooltip', data-placement='right', title='Room slots are found in green!')
                                     label Results for #{selectedSubject.credits} credits needed
-                if weekDetails
+                if (weekDetails && where)
                     .table-responsive
                         table.table.table-hover#schedule(style='text-align: center;')
                             tr.table-secondary
@@ -73,14 +73,21 @@ block content
                                 th Fri
                                 th Sat
                                 th Sun
+                            - var count = 0
                             each weekDay in weekDetails
                               tr
-                                  td= weekDay['0'] === 1 ? '⛔' : '✅'
-                                  td= weekDay['1'] === 1 ? '⛔' : '✅'
-                                  td= weekDay['2'] === 1 ? '⛔' : '✅'
-                                  td= weekDay['3'] === 1 ? '⛔' : '✅'
-                                  td= weekDay['4'] === 1 ? '⛔' : '✅'
-                                  td= weekDay['5'] === 1 ? '⛔' : '✅'
-                                  td= weekDay['6'] === 1 ? '⛔' : '✅'
-
-
+                                if (weekDay['0'] !== undefined)
+                                  td(rowspan=weekDay['0'] === 0 ? where[count].toString(): '1')= weekDay['0'] === 1 ? '⛔': (weekDay['0'] === 0 ? '✅': '')
+                                if (weekDay['1'] !== undefined)
+                                  td(rowspan=weekDay['1'] === 0 ? where[(1 + count)].toString(): '1')= weekDay['1'] === 1 ? '⛔': (weekDay['1'] === 0 ? '✅': '')
+                                if (weekDay['2'] !== undefined)
+                                  td(rowspan=weekDay['2'] === 0 ? where[(2 + count)].toString(): '1')= weekDay['2'] === 1 ? '⛔': (weekDay['2'] === 0 ? '✅': '')
+                                if (weekDay['3'] !== undefined)
+                                  td(rowspan=weekDay['3'] === 0 ? where[(3 + count)].toString(): '1')= weekDay['3'] === 1 ? '⛔': (weekDay['3'] === 0 ? '✅': '')
+                                if (weekDay['4'] !== undefined)
+                                  td(rowspan=weekDay['4'] === 0 ? where[(4 + count)].toString(): '1')= weekDay['4'] === 1 ? '⛔': (weekDay['4'] === 0 ? '✅': '')
+                                if (weekDay['5'] !== undefined)
+                                  td(rowspan=weekDay['5'] === 0 ? where[(5 + count)].toString(): '1')= weekDay['5'] === 1 ? '⛔': (weekDay['5'] === 0 ? '✅': '')
+                                if (weekDay['6'] !== undefined)
+                                  td(colspan=weekDay['6'] === 0 ? where[(6 + count)].toString(): '1')= weekDay['6'] === 1 ? '⛔': (weekDay['6'] === 0 ? '✅': '')
+                              - count = count + weekDay.length
