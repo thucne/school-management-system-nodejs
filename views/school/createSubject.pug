@@ -1,6 +1,7 @@
 extends ../layouts/common
 
 block content
+    link(rel="stylesheet", href="/styles/cellHover.css")
     script.
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
@@ -62,9 +63,9 @@ block content
                             .col-md-6
                                 .text-success(data-toggle='tooltip', data-placement='right', title='Room slots are found in green!')
                                     label Results for #{selectedSubject.credits} credits needed
-                if (weekDetails && where)
-                    .table-responsive
-                        table.table.table-hover#schedule(style='text-align: center;')
+                if (weekDetails && (where.length!== 0))
+                    .table-responsive.px-3
+                        table.table#schedule(style='text-align: center;')
                             tr.table-secondary
                                 th Mon
                                 th Tue
@@ -77,17 +78,17 @@ block content
                             each weekDay in weekDetails
                               tr
                                 if (weekDay['0'] !== undefined)
-                                  td(rowspan=weekDay['0'] === 0 ? where[count].toString(): '1')= weekDay['0'] === 1 ? '⛔': (weekDay['0'] === 0 ? '✅': '')
+                                  td.myCell(rowspan=weekDay['0'] === 0 ? where[count].toString(): '1')= weekDay['0'] === 1 ? '⛔': (weekDay['0'] === 0 ? '✅': '')
                                 if (weekDay['1'] !== undefined)
-                                  td(rowspan=weekDay['1'] === 0 ? where[(1 + count)].toString(): '1')= weekDay['1'] === 1 ? '⛔': (weekDay['1'] === 0 ? '✅': '')
+                                  td.myCell(rowspan=weekDay['1'] === 0 ? where[(1 + count)].toString(): '1')= weekDay['1'] === 1 ? '⛔': (weekDay['1'] === 0 ? '✅': '')
                                 if (weekDay['2'] !== undefined)
-                                  td(rowspan=weekDay['2'] === 0 ? where[(2 + count)].toString(): '1')= weekDay['2'] === 1 ? '⛔': (weekDay['2'] === 0 ? '✅': '')
+                                  td.myCell(rowspan=weekDay['2'] === 0 ? where[(2 + count)].toString(): '1')= weekDay['2'] === 1 ? '⛔': (weekDay['2'] === 0 ? '✅': '')
                                 if (weekDay['3'] !== undefined)
-                                  td(rowspan=weekDay['3'] === 0 ? where[(3 + count)].toString(): '1')= weekDay['3'] === 1 ? '⛔': (weekDay['3'] === 0 ? '✅': '')
+                                  td.myCell(rowspan=weekDay['3'] === 0 ? where[(3 + count)].toString(): '1')= weekDay['3'] === 1 ? '⛔': (weekDay['3'] === 0 ? '✅': '')
                                 if (weekDay['4'] !== undefined)
-                                  td(rowspan=weekDay['4'] === 0 ? where[(4 + count)].toString(): '1')= weekDay['4'] === 1 ? '⛔': (weekDay['4'] === 0 ? '✅': '')
+                                  td.myCell(rowspan=weekDay['4'] === 0 ? where[(4 + count)].toString(): '1')= weekDay['4'] === 1 ? '⛔': (weekDay['4'] === 0 ? '✅': '')
                                 if (weekDay['5'] !== undefined)
-                                  td(rowspan=weekDay['5'] === 0 ? where[(5 + count)].toString(): '1')= weekDay['5'] === 1 ? '⛔': (weekDay['5'] === 0 ? '✅': '')
+                                  td.myCell(rowspan=weekDay['5'] === 0 ? where[(5 + count)].toString(): '1')= weekDay['5'] === 1 ? '⛔': (weekDay['5'] === 0 ? '✅': '')
                                 if (weekDay['6'] !== undefined)
-                                  td(colspan=weekDay['6'] === 0 ? where[(6 + count)].toString(): '1')= weekDay['6'] === 1 ? '⛔': (weekDay['6'] === 0 ? '✅': '')
+                                  td.myCell(colspan=weekDay['6'] === 0 ? where[(6 + count)].toString(): '1')= weekDay['6'] === 1 ? '⛔': (weekDay['6'] === 0 ? '✅': '')
                               - count = count + weekDay.length
