@@ -285,6 +285,7 @@ module.exports.searchWeek = function (req, res) {
   console.log('Result: ' + result.fri);
   console.log('Result: ' + result.sat);
   console.log('Result: ' + result.sun);
+  console.log('');
 
   var displayedResult = {
     '1': [],
@@ -301,6 +302,36 @@ module.exports.searchWeek = function (req, res) {
     '12': []
   }
 
+  // var displayedResult = {
+  //   '1': [1,1,0,3,0,3,1,1,1],
+  //   '2': [1,0,2,1,1,1],
+  //   '3': [0,4,1,1,1],
+  //   '4': [1,1,1,1,0,3,1],
+  //   '5': [1,1,1,0,2,1],
+  //   '6': [1,1,0,2,1],
+  //   '7': [1,1,1,1,1,1],
+  //   '8': [1,1,1,1,1,1,1],
+  //   '9': [1,1,1,1,1,1,1],
+  //   '10': [1,1,1,1,1,1,1],
+  //   '11': [0,2,1,1,1,1,1,1],
+  //   '12': [1,1,1,1,1,1]
+  // }
+  //
+  // var index = {
+  //   '1': [1,1,3,3,1,1,1],
+  //   '2': [1,2,1,1,1],
+  //   '3': [4,1,1,1],
+  //   '4': [1,1,1,1,3,1],
+  //   '5': [1,1,1,2,1],
+  //   '6': [1,1,2,1],
+  //   '7': [1,1,1,1,1,1],
+  //   '8': [1,1,1,1,1,1,1],
+  //   '9': [1,1,1,1,1,1,1],
+  //   '10': [1,1,1,1,1,1,1],
+  //   '11': [2,1,1,1,1,1,1],
+  //   '12': [1,1,1,1,1,1]
+  // }
+
   for (let a = 0 ; a < 12; a++) {
     let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
     let periods = ['1','2','3','4','5','6','7','8','9','10','11','12'];
@@ -309,9 +340,10 @@ module.exports.searchWeek = function (req, res) {
       // console.log(result[days[b]][a - 1]);
       displayedResult[periods[a]].push(result[days[b]][a]);
     }
-    // console.log(displayedResult["1"]);
+    console.log('Period : ' + displayedResult[(a + 1).toString()]);
 
   }
+
 
   res.render('school/createSubject', {
     subjects: subjects,
