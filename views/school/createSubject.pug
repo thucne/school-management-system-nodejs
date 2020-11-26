@@ -11,14 +11,29 @@ block content
         .row
             .col-md-4(style='border-right: 1px solid gray;')
                 h2 Select subject
-                form(action="/school/searchForRoom", method="POST")
+                form(action="/school/searchForRoom", method="POST", hidden=!!selectedSubject)
                     .form-group
                         input(type='hidden', name='_csrf', value=csrfToken)
-                        label(for='exampleFormControlSelect1') Available
+                        label.text-success(for='exampleFormControlSelect1', data-toggle='tooltip', data-placement='right', title=subjects.length + ' subjects found!') Available: #{subjects.length}
                         select#exampleFormControlSelect1.form-control(size='5', style='overflow-x: scroll;', name='sub')
                             each subject in subjects
                                 option(value=subject, selected=selectedSubject ? (selectedSubject['id_sub'] === subject.id_sub): false )= 'ID: '+ subject.id_sub + '; Name: ' + subject.name_sub
                     button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
+                if selectedSubject
+                    span
+                        small.text-success.font-weight-bold(style='font-size: large;') #{selectedSubject.name_sub}.
+                            //button.btn-sm
+                        button(type='button', onclick='document.location.reload(true)', data-toggle='tooltip', data-placement='right', title='Reset', style='float: right;') 🔄
+                    br
+                    small.text-danger(style='font-size: medium') ID: #{selectedSubject.id_sub}
+                    br
+                    small.text-danger(style='font-size: medium') Type: #{selectedSubject.type}
+                    br
+                    small.text-danger(style='font-size: medium') Credits: #{selectedSubject.credits}
+                    br
+                    small.text-danger(style='font-size: medium') Start: #{selectedSubject.start}
+                    br
+                    small.text-danger(style='font-size: medium') End: #{selectedSubject.end}
             .col-md-2(style='border-right: 1px solid gray;')
                 h2 Room
                 if rooms
@@ -29,7 +44,7 @@ block content
                             input(type='hidden', name='sub', value=selectedSubject)
                             input(type='hidden', name='list_room', value=rooms)
                             .text-success(data-toggle='tooltip', data-placement='right', title=rooms.length + ' rooms found!')
-                                label(for='exampleFormControlSelect2') Available #{rooms.length} rooms
+                                label(for='exampleFormControlSelect2') Available: #{rooms.length}
 
                             select#exampleFormControlSelect2.form-control(size='5', style='overflow-x: scroll;', name='roo')
                               each room in rooms
@@ -41,9 +56,15 @@ block content
 
             .col-md-6
                 h2 Current status
+                if selectedRoom
+                    .container-fluid.mb-0
+                        .row
+                            .col-md-6
+                                .text-success(data-toggle='tooltip', data-placement='right', title='Room slots are found in green!')
+                                    label Results for #{selectedSubject.credits} credits needed
                 if weekDetails
                     .table-responsive
-                        table.table.mt-3.table-hover(style='text-align: center;')
+                        table.table.table-hover#schedule(style='text-align: center;')
                             tr.table-secondary
                                 th Mon
                                 th Tue
