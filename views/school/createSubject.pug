@@ -78,17 +78,17 @@ block content
                             each weekDay in weekDetails
                               tr
                                 if (weekDay['0'] !== undefined)
-                                  td.myCell(rowspan=weekDay['0'] === 0 ? where[count].toString(): '1')= weekDay['0'] === 1 ? '⛔': (weekDay['0'] === 0 ? '✅': '')
+                                  td.myCell(rowspan=weekDay['0'] === 0 ? where[count].toString(): '1')= weekDay['0'] === 1 ? '⛔': '✅'
                                 if (weekDay['1'] !== undefined)
-                                  td.myCell(rowspan=weekDay['1'] === 0 ? where[(1 + count)].toString(): '1')= weekDay['1'] === 1 ? '⛔': (weekDay['1'] === 0 ? '✅': '')
+                                  td.myCell(rowspan=weekDay['1'] === 0 ? where[(1 + count)].toString(): '1')= weekDay['1'] === 1 ? '⛔': '✅'
                                 if (weekDay['2'] !== undefined)
-                                  td.myCell(rowspan=weekDay['2'] === 0 ? where[(2 + count)].toString(): '1')= weekDay['2'] === 1 ? '⛔': (weekDay['2'] === 0 ? '✅': '')
+                                  td.myCell(rowspan=weekDay['2'] === 0 ? where[(2 + count)].toString(): '1')= weekDay['2'] === 1 ? '⛔': '✅'
                                 if (weekDay['3'] !== undefined)
-                                  td.myCell(rowspan=weekDay['3'] === 0 ? where[(3 + count)].toString(): '1')= weekDay['3'] === 1 ? '⛔': (weekDay['3'] === 0 ? '✅': '')
+                                  td.myCell(rowspan=weekDay['3'] === 0 ? where[(3 + count)].toString(): '1')= weekDay['3'] === 1 ? '⛔': '✅'
                                 if (weekDay['4'] !== undefined)
-                                  td.myCell(rowspan=weekDay['4'] === 0 ? where[(4 + count)].toString(): '1')= weekDay['4'] === 1 ? '⛔': (weekDay['4'] === 0 ? '✅': '')
+                                  td.myCell(rowspan=weekDay['4'] === 0 ? where[(4 + count)].toString(): '1')= weekDay['4'] === 1 ? '⛔': '✅'
                                 if (weekDay['5'] !== undefined)
-                                  td.myCell(rowspan=weekDay['5'] === 0 ? where[(5 + count)].toString(): '1')= weekDay['5'] === 1 ? '⛔': (weekDay['5'] === 0 ? '✅': '')
+                                  td.myCell(rowspan=weekDay['5'] === 0 ? where[(5 + count)].toString(): '1')= weekDay['5'] === 1 ? '⛔': '✅'
                                 if (weekDay['6'] !== undefined)
-                                  td.myCell(colspan=weekDay['6'] === 0 ? where[(6 + count)].toString(): '1')= weekDay['6'] === 1 ? '⛔': (weekDay['6'] === 0 ? '✅': '')
+                                  td.myCell(colspan=weekDay['6'] === 0 ? where[(6 + count)].toString(): '1')= weekDay['6'] === 1 ? '⛔': '✅'
                               - count = count + weekDay.length
