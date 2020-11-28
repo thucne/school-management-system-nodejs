@@ -62,33 +62,77 @@ block content
                         .row
                             .col-md-6
                                 .text-success(data-toggle='tooltip', data-placement='right', title='Room slots are found in green!')
-                                    label Results for #{selectedSubject.credits} credits needed
+                                    label Results for #{selectedSubject.credits} needed credits
                 if (weekDetails && (where.length!== 0))
-                    .table-responsive.px-3
-                        table.table#schedule(style='text-align: center;')
-                            tr.table-secondary
-                                th Mon
-                                th Tue
-                                th Wed
-                                th Thu
-                                th Fri
-                                th Sat
-                                th Sun
-                            - var count = 0
-                            each weekDay in weekDetails
-                              tr
-                                if (weekDay['0'] !== undefined)
-                                  td.myCell(rowspan=weekDay['0'] === 0 ? where[count].toString(): '1')= weekDay['0'] === 1 ? '⛔': '✅'
-                                if (weekDay['1'] !== undefined)
-                                  td.myCell(rowspan=weekDay['1'] === 0 ? where[(1 + count)].toString(): '1')= weekDay['1'] === 1 ? '⛔': '✅'
-                                if (weekDay['2'] !== undefined)
-                                  td.myCell(rowspan=weekDay['2'] === 0 ? where[(2 + count)].toString(): '1')= weekDay['2'] === 1 ? '⛔': '✅'
-                                if (weekDay['3'] !== undefined)
-                                  td.myCell(rowspan=weekDay['3'] === 0 ? where[(3 + count)].toString(): '1')= weekDay['3'] === 1 ? '⛔': '✅'
-                                if (weekDay['4'] !== undefined)
-                                  td.myCell(rowspan=weekDay['4'] === 0 ? where[(4 + count)].toString(): '1')= weekDay['4'] === 1 ? '⛔': '✅'
-                                if (weekDay['5'] !== undefined)
-                                  td.myCell(rowspan=weekDay['5'] === 0 ? where[(5 + count)].toString(): '1')= weekDay['5'] === 1 ? '⛔': '✅'
-                                if (weekDay['6'] !== undefined)
-                                  td.myCell(rowspan=weekDay['6'] === 0 ? where[(6 + count)].toString(): '1')= weekDay['6'] === 1 ? '⛔': '✅'
-                              - count = count + weekDay.length
+                    form(action='/', method='POST')
+                        .form-group
+                            .table-responsive.px-3
+                                table.table#schedule(style='text-align: center;')
+                                    tr.table-secondary
+                                        th Mon
+                                        th Tue
+                                        th Wed
+                                        th Thu
+                                        th Fri
+                                        th Sat
+                                        th Sun
+                                    - var count = 0
+                                    each weekDay in weekDetails
+                                      tr
+                                        if (weekDay['0'] !== undefined)
+                                          td.myCell(rowspan=weekDay['0'] === 0 ? where[count].toString(): '1')
+                                            if (weekDay['0'] === 1)
+                                                div ⛔
+                                            else
+                                                .custom-control.custom-radio.custom-control-inline
+                                                    input#mon.custom-control-input(type='radio', name='selectThis')
+                                                    label.custom-control-label(for='mon') ✅
+                                        if (weekDay['1'] !== undefined)
+                                          td.myCell(rowspan=weekDay['1'] === 0 ? where[(1 + count)].toString(): '1')
+                                              if (weekDay['1'] === 1)
+                                                  div ⛔
+                                              else
+                                                  .custom-control.custom-radio.custom-control-inline
+                                                      input#tue.custom-control-input(type='radio', name='selectThis')
+                                                      label.custom-control-label(for='tue') ✅
+                                        if (weekDay['2'] !== undefined)
+                                          td.myCell(rowspan=weekDay['2'] === 0 ? where[(2 + count)].toString(): '1')
+                                              if (weekDay['1'] === 1)
+                                                  div ⛔
+                                              else
+                                                  .custom-control.custom-radio.custom-control-inline
+                                                      input#wed.custom-control-input(type='radio', name='selectThis')
+                                                      label.custom-control-label(for='wed') ✅
+                                        if (weekDay['3'] !== undefined)
+                                          td.myCell(rowspan=weekDay['3'] === 0 ? where[(3 + count)].toString(): '1')
+                                              if (weekDay['3'] === 1)
+                                                  div ⛔
+                                              else
+                                                  .custom-control.custom-radio.custom-control-inline
+                                                      input#thu.custom-control-input(type='radio', name='selectThis')
+                                                      label.custom-control-label(for='thu') ✅
+                                        if (weekDay['4'] !== undefined)
+                                          td.myCell(rowspan=weekDay['4'] === 0 ? where[(4 + count)].toString(): '1')
+                                              if (weekDay['4'] === 1)
+                                                  div ⛔
+                                              else
+                                                  .custom-control.custom-radio.custom-control-inline
+                                                      input#fri.custom-control-input(type='radio', name='selectThis')
+                                                      label.custom-control-label(for='fri') ✅
+                                        if (weekDay['5'] !== undefined)
+                                          td.myCell(rowspan=weekDay['5'] === 0 ? where[(5 + count)].toString(): '1')
+                                              if (weekDay['5'] === 1)
+                                                  div ⛔
+                                              else
+                                                  .custom-control.custom-radio.custom-control-inline
+                                                      input#sat.custom-control-input(type='radio', name='selectThis')
+                                                      label.custom-control-label(for='sat') ✅
+                                        if (weekDay['6'] !== undefined)
+                                          td.myCell(rowspan=weekDay['6'] === 0 ? where[(6 + count)].toString(): '1')
+                                              if (weekDay['6'] === 1)
+                                                  div ⛔
+                                              else
+                                                  .custom-control.custom-radio.custom-control-inline
+                                                      input#sun.custom-control-input(type='radio', name='selectThis')
+                                                      label.custom-control-label(for='sun') ✅
+                                      - count = count + weekDay.length
