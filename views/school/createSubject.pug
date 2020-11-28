@@ -90,5 +90,5 @@ block content
                                 if (weekDay['5'] !== undefined)
                                   td.myCell(rowspan=weekDay['5'] === 0 ? where[(5 + count)].toString(): '1')= weekDay['5'] === 1 ? '⛔': '✅'
                                 if (weekDay['6'] !== undefined)
-                                  td.myCell(colspan=weekDay['6'] === 0 ? where[(6 + count)].toString(): '1')= weekDay['6'] === 1 ? '⛔': '✅'
+                                  td.myCell(rowspan=weekDay['6'] === 0 ? where[(6 + count)].toString(): '1')= weekDay['6'] === 1 ? '⛔': '✅'
                               - count = count + weekDay.length

@@ -10,3 +10,10 @@
     /*border-right-style:dotted;*/
 
 }
+
+td[rowspan]:not([rowspan="1"]) {
+    text-align: center;
+    align-items: center;
+    vertical-align : middle;
+    justify-content: center;
+}
