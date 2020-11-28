@@ -6,9 +6,20 @@ Hi there!
 # Prerequisite Knowledge
 HTML, CSS, JavaScript, Bootstrap and ofc Expressjs (Nodejs)
 
-#How to clone and stay updated
+# How to clone and stay updated
 
+**Clone:**
+```bash
+git clone https://github.com/katyperrycbt/sms.git
+cd sms
+npm install
+```
+*See: [Before you run]*
 
+**Stay updated:**
+```bash
+git pull origin main
+```
 
 # Before you run
 
