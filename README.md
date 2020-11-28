@@ -1,4 +1,4 @@
-# ExpressJS
+# ExpressJS [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/katyperrycbt/sms/releases/tag/v1.0.0) [![Version](https://img.shields.io/badge/version-1.0.1-green.svg)](https://github.com/katyperrycbt/sms/releases/tag/v1.0.1) 
 Hi there! 
 
 [For a better instruction README.md, please let me know: *katyperrycbt@gmail.com*]
