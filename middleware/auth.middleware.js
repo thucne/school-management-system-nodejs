@@ -32,6 +32,7 @@ module.exports.requireAuth = function (req, res, next) {
   if (user) {
     res.locals.userInfo.name =  "Hi " + user.name + "!"
     // res.locals.isServerRS = { count: res.locals.count + 1 }
+    req.body.username = user.name + ' ' + user.first_name;
   }
   next();
 }

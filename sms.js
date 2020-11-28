@@ -42,7 +42,7 @@ var csrfProtection = csurf({ cookie: true });
 
 app.get('/', authMiddleware.default, authMiddleware.requireAuth, function (req, res) {
   res.render('index', {
-    name: 'katyperrycbt'
+    name: req.body.username
   });
   // res.render('404');
 });
