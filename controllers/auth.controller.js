@@ -51,5 +51,5 @@ module.exports.postLogin = function (req, res) {
   //   signed: true
   // })
   // res.cookie.delete('userID');
-  res.redirect('../users');
+  res.redirect('../');
 };
