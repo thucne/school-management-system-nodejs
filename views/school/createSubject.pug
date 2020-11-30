@@ -10,7 +10,7 @@ block content
     hr(style="background-color: lightgray;")
     .container-fluid.my-5
         .row
-            .col-md-4(style='border-right: 1px solid gray;')
+            .col-md-3(style='border-right: 1px solid gray;')
                 h2 Select subject
                 form(action="/school/searchForRoom", method="POST", hidden=!!selectedSubject)
                     .form-group
@@ -55,18 +55,18 @@ block content
                 else
                     .text-danger Select a subject first!
 
-            .col-md-6
+            .col-md-7
                 h2 Current status
                 if selectedRoom
                     .container-fluid.mb-0
                         .row
                             .col-md-6
-                                .text-success(data-toggle='tooltip', data-placement='right', title='Room slots are found in green!')
+                                .text-success(data-toggle='tooltip', data-placement='right', title='Choose colored area!')
                                     label Results for #{selectedSubject.credits} needed credits
                 if (weekDetails && (where.length!== 0))
                     form(action='/', method='POST')
                         .form-group
-                            .table-responsive.px-3
+                            .table-responsive.px-3.table-hover
                                 table.table#schedule(style='text-align: center;')
                                     tr.table-secondary
                                         th Mon
@@ -78,70 +78,116 @@ block content
                                         th Sun
                                     - var count = 0
                                     - var idGenerate = 0
+                                    - var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';';
+                                    - var whatPeriod = 1
                                     each weekDay in weekDetails
-                                      tr
+                                      tr(style='color: white; text-shadow: 0 0 3px #000000, 0 0 5px #FFFF00;')
                                         if (weekDay['0'] !== undefined)
-                                          td.myCell(rowspan=weekDay['0'] === 0 ? where[count].toString(): '1')
+                                          td.myCell(rowspan=weekDay['0'] === 0 ? where[count].toString(): '1', style=weekDay['0'] === 0 ? ('background-color: ' + randomColor): 'cursor: not-allowed;')
                                             if (weekDay['0'] === 1)
-                                                div ⛔
+                                                div
                                             else
+
                                                 .custom-control.custom-radio.custom-control-inline
                                                     input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
-                                                    label.custom-control-label(for=idGenerate.toString()) ✅
+                                                    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
                                                 - idGenerate++
+                                                if (where[count] > selectedSubject.credits)
+                                                    .custom-control.custom-radio.custom-control-inline
+                                                        input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                        label.custom-control-label(for=idGenerate.toString()) #{whatPeriod + where[count] - selectedSubject.credits}-#{whatPeriod + where[count] - 1}
+                                                - idGenerate++
+                                                - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
                                         if (weekDay['1'] !== undefined)
-                                          td.myCell(rowspan=weekDay['1'] === 0 ? where[(1 + count)].toString(): '1')
+                                          td.myCell(rowspan=weekDay['1'] === 0 ? where[(1 + count)].toString(): '1', style=weekDay['1'] === 0 ? ('background-color: ' + randomColor): 'cursor: not-allowed;')
                                               if (weekDay['1'] === 1)
-                                                  div ⛔
+                                                  div
                                               else
                                                   .custom-control.custom-radio.custom-control-inline
                                                       input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
-                                                      label.custom-control-label(for=idGenerate.toString()) ✅
+                                                      label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
                                                   - idGenerate++
+                                                  if (where[count + 1] > selectedSubject.credits)
+                                                      .custom-control.custom-radio.custom-control-inline
+                                                          input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                          label.custom-control-label(for=idGenerate.toString()) #{whatPeriod + where[count + 1] - selectedSubject.credits}-#{whatPeriod + where[count + 1] - 1}
+                                                  - idGenerate++
+                                                  - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
                                         if (weekDay['2'] !== undefined)
-                                          td.myCell(rowspan=weekDay['2'] === 0 ? where[(2 + count)].toString(): '1')
+                                          td.myCell(rowspan=weekDay['2'] === 0 ? where[(2 + count)].toString(): '1', style=weekDay['2'] === 0 ? ('background-color: ' + randomColor): 'cursor: not-allowed;')
                                               if (weekDay['2'] === 1)
-                                                  div ⛔
+                                                  div
                                               else
                                                   .custom-control.custom-radio.custom-control-inline
                                                       input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
-                                                      label.custom-control-label(for=idGenerate.toString()) ✅
+                                                      label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
                                                   - idGenerate++
+                                                  if (where[count + 2] > selectedSubject.credits)
+                                                      .custom-control.custom-radio.custom-control-inline
+                                                          input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                          label.custom-control-label(for=idGenerate.toString()) #{whatPeriod + where[count + 2] - selectedSubject.credits}-#{whatPeriod + where[count + 2] - 1}
+                                                  - idGenerate++
+                                                  - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
                                         if (weekDay['3'] !== undefined)
-                                          td.myCell(rowspan=weekDay['3'] === 0 ? where[(3 + count)].toString(): '1')
+                                          td.myCell(rowspan=weekDay['3'] === 0 ? where[(3 + count)].toString(): '1', style=weekDay['3'] === 0 ? ('background-color: ' + randomColor): 'cursor: not-allowed;')
                                               if (weekDay['3'] === 1)
-                                                  div ⛔
+                                                  div
                                               else
                                                   .custom-control.custom-radio.custom-control-inline
                                                       input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
-                                                      label.custom-control-label(for=idGenerate.toString()) ✅
+                                                      label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
                                                   - idGenerate++
+                                                  if (where[count + 3] > selectedSubject.credits)
+                                                      .custom-control.custom-radio.custom-control-inline
+                                                          input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                          label.custom-control-label(for=idGenerate.toString()) #{whatPeriod + where[count + 3] - selectedSubject.credits}-#{whatPeriod + where[count + 3] - 1}
+                                                  - idGenerate++
+                                                  - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
                                         if (weekDay['4'] !== undefined)
-                                          td.myCell(rowspan=weekDay['4'] === 0 ? where[(4 + count)].toString(): '1')
+                                          td.myCell(rowspan=weekDay['4'] === 0 ? where[(4 + count)].toString(): '1', style=weekDay['4'] === 0 ? ('background-color: ' + randomColor): 'cursor: not-allowed;')
                                               if (weekDay['4'] === 1)
-                                                  div ⛔
+                                                  div
                                               else
                                                   .custom-control.custom-radio.custom-control-inline
                                                       input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
-                                                      label.custom-control-label(for=idGenerate.toString()) ✅
+                                                      label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
                                                   - idGenerate++
+                                                  if (where[count + 4] > selectedSubject.credits)
+                                                      .custom-control.custom-radio.custom-control-inline
+                                                          input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                          label.custom-control-label(for=idGenerate.toString()) #{whatPeriod + where[count + 4] - selectedSubject.credits}-#{whatPeriod + where[count + 4] - 1}
+                                                  - idGenerate++
+                                                  - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
                                         if (weekDay['5'] !== undefined)
-                                          td.myCell(rowspan=weekDay['5'] === 0 ? where[(5 + count)].toString(): '1')
+                                          td.myCell(rowspan=weekDay['5'] === 0 ? where[(5 + count)].toString(): '1', style=weekDay['5'] === 0 ? ('background-color: ' + randomColor): 'cursor: not-allowed;')
                                               if (weekDay['5'] === 1)
-                                                  div ⛔
+                                                  div
                                               else
                                                   .custom-control.custom-radio.custom-control-inline
                                                       input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
-                                                      label.custom-control-label(for=idGenerate.toString()) ✅
+                                                      label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
                                                   - idGenerate++
+                                                  if (where[count + 5] > selectedSubject.credits)
+                                                    .custom-control.custom-radio.custom-control-inline
+                                                        input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                        label.custom-control-label(for=idGenerate.toString()) #{whatPeriod + where[count + 5] - selectedSubject.credits}-#{whatPeriod + where[count + 5] - 1}
+                                                  - idGenerate++
+                                                  - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
                                         if (weekDay['6'] !== undefined)
-                                          td.myCell(rowspan=weekDay['6'] === 0 ? where[(6 + count)].toString(): '1')
+                                          td.myCell(rowspan=weekDay['6'] === 0 ? where[(6 + count)].toString(): '1', style=weekDay['6'] === 0 ? ('background-color: ' + randomColor): 'cursor: not-allowed;')
                                               if (weekDay['6'] === 1)
-                                                  div ⛔
+                                                  div
                                               else
                                                   .custom-control.custom-radio.custom-control-inline
                                                       input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
-                                                      label.custom-control-label(for=idGenerate.toString()) ✅
+                                                      label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
                                                   - idGenerate++
+                                                  if (where[count + 6] > selectedSubject.credits)
+                                                    .custom-control.custom-radio.custom-control-inline
+                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                      label.custom-control-label(for=idGenerate.toString()) #{whatPeriod + where[count + 6] - selectedSubject.credits}-#{whatPeriod + where[count + 6] - 1}
+                                                  - idGenerate++
+                                                  - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
 
                                       - count = count + weekDay.length
+                                      - whatPeriod++
