@@ -334,14 +334,67 @@ module.exports.searchWeek = function (req, res) {
       }
     }
   }
+  var checkArray = [];
 
   for (let c = 0; c < 12; c++) {
     for (let g = 0; g < days.length; g++) {
       if (result2[days[g]][c] !== 0) {
         where.push(result2[days[g]][c]);
+        checkArray.push(result2[days[g]][c]);
       }
     }
   }
+
+  var count = 7;
+  var compareString = checkArray.slice(0, count);
+  console.log('Check Array String: '  + checkArray);
+  console.log('Length of Check Array String: '  + checkArray.length);
+  // console.log('Compare String: '  + compareString);
+  // console.log('Type of Compare String: '  + compareString[0]);
+  var currentString;
+  var whereDay = [];
+
+  for (let x = 0; x < compareString.length; x++) {
+    whereDay.push(days[x]);
+  }
+
+  for (let y = 1; y < 12; y++) {
+    console.log('Compare String: '  + compareString);
+
+    let f = 7;
+    for (let v = 0;  v < compareString.length; v++) {
+      if (compareString[v] !== 1 && compareString[v] !== 9) {
+        f--;
+      }
+    }
+    console.log('Count: ' + count + ' f: ' + f);
+    currentString = checkArray.slice(count, count + f);
+    count = count + f;
+    console.log('pre Current String: '  + currentString);
+    for (let r = 0; r < 7; r++) {
+      // let currentIdx = currentString[r];
+      let compareIdx = compareString[r];
+
+      if (compareIdx > 1 && compareIdx < 9) {
+        if (compareIdx !== 2) {
+          currentString.splice(r, 0, compareIdx - 1);
+        } else {
+          currentString.splice(r, 0, 9);
+        }
+      } else {
+        whereDay.push(days[r]);
+        console.log('Push ' + days[r]);
+      }
+    }
+    console.log('Current String: ' + currentString);
+
+    compareString = currentString;
+    // console.log('Compare String: '  + compareString);
+
+  }
+
+  console.log('Length of List of Days: ' + whereDay.length);
+  console.log('List of Days: ' + whereDay);
 
   res.render('school/createSubject', {
     subjects: subjects,
@@ -350,6 +403,7 @@ module.exports.searchWeek = function (req, res) {
     selectedRoom: selectedRoom,
     weekDetails: displayedResult,
     where: where,
+    whereDay: whereDay,
     csrfToken: req.csrfToken()
   })
 }

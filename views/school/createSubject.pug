@@ -63,7 +63,7 @@ block content
                             .col-md-6
                                 .text-success(data-toggle='tooltip', data-placement='right', title='Choose colored area!')
                                     label Results for #{selectedSubject.credits} needed credits
-                if (weekDetails && (where.length!== 0))
+                if (weekDetails && (where.length!== 0) && (whereDay.length!==0))
                     form(action='/', method='POST')
                         .form-group
                             .table-responsive.px-3.table-hover
@@ -87,7 +87,7 @@ block content
                                             if (weekDay['0'] === 1)
                                                 div
                                             else
-
+                                                h2 #{whereDay[count]}
                                                 .custom-control.custom-radio.custom-control-inline
                                                     input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
                                                     label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
@@ -103,6 +103,7 @@ block content
                                               if (weekDay['1'] === 1)
                                                   div
                                               else
+                                                  h2 #{whereDay[count + 1]}
                                                   .custom-control.custom-radio.custom-control-inline
                                                       input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
                                                       label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
@@ -118,6 +119,7 @@ block content
                                               if (weekDay['2'] === 1)
                                                   div
                                               else
+                                                  h2 #{whereDay[count + 2]}
                                                   .custom-control.custom-radio.custom-control-inline
                                                       input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
                                                       label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
@@ -133,6 +135,7 @@ block content
                                               if (weekDay['3'] === 1)
                                                   div
                                               else
+                                                  h2 #{whereDay[count + 3]}
                                                   .custom-control.custom-radio.custom-control-inline
                                                       input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
                                                       label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
@@ -148,6 +151,7 @@ block content
                                               if (weekDay['4'] === 1)
                                                   div
                                               else
+                                                  h2 #{whereDay[count + 4]}
                                                   .custom-control.custom-radio.custom-control-inline
                                                       input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
                                                       label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
@@ -163,6 +167,7 @@ block content
                                               if (weekDay['5'] === 1)
                                                   div
                                               else
+                                                  h2 #{whereDay[count + 5]}
                                                   .custom-control.custom-radio.custom-control-inline
                                                       input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
                                                       label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
@@ -178,6 +183,7 @@ block content
                                               if (weekDay['6'] === 1)
                                                   div
                                               else
+                                                  h2 #{whereDay[count + 6]}
                                                   .custom-control.custom-radio.custom-control-inline
                                                       input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
                                                       label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
