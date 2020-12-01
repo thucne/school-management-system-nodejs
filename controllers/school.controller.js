@@ -347,8 +347,8 @@ module.exports.searchWeek = function (req, res) {
 
   var count = 7;
   var compareString = checkArray.slice(0, count);
-  console.log('Check Array String: '  + checkArray);
-  console.log('Length of Check Array String: '  + checkArray.length);
+  // console.log('Check Array String: '  + checkArray);
+  // console.log('Length of Check Array String: '  + checkArray.length);
   // console.log('Compare String: '  + compareString);
   // console.log('Type of Compare String: '  + compareString[0]);
   var currentString;
@@ -359,7 +359,7 @@ module.exports.searchWeek = function (req, res) {
   }
 
   for (let y = 1; y < 12; y++) {
-    console.log('Compare String: '  + compareString);
+    // console.log('Compare String: '  + compareString);
 
     let f = 7;
     for (let v = 0;  v < compareString.length; v++) {
@@ -367,10 +367,10 @@ module.exports.searchWeek = function (req, res) {
         f--;
       }
     }
-    console.log('Count: ' + count + ' f: ' + f);
+    // console.log('Count: ' + count + ' f: ' + f);
     currentString = checkArray.slice(count, count + f);
     count = count + f;
-    console.log('pre Current String: '  + currentString);
+    // console.log('pre Current String: '  + currentString);
     for (let r = 0; r < 7; r++) {
       // let currentIdx = currentString[r];
       let compareIdx = compareString[r];
@@ -383,18 +383,18 @@ module.exports.searchWeek = function (req, res) {
         }
       } else {
         whereDay.push(days[r]);
-        console.log('Push ' + days[r]);
+        // console.log('Push ' + days[r]);
       }
     }
-    console.log('Current String: ' + currentString);
+    // console.log('Current String: ' + currentString);
 
     compareString = currentString;
     // console.log('Compare String: '  + compareString);
 
   }
 
-  console.log('Length of List of Days: ' + whereDay.length);
-  console.log('List of Days: ' + whereDay);
+  // console.log('Length of List of Days: ' + whereDay.length);
+  // console.log('List of Days: ' + whereDay);
 
   res.render('school/createSubject', {
     subjects: subjects,
@@ -406,4 +406,70 @@ module.exports.searchWeek = function (req, res) {
     whereDay: whereDay,
     csrfToken: req.csrfToken()
   })
+}
+
+module.exports.assignWhenAndWhereToSubject = function (req, res) {
+  var subjects = subject.get('subjects').value();
+  var selectedSubject = subject.get('subjects').find({id_sub: parseInt(req.body.chooseThisSubjectID)}).value();
+  var selectThis = JSON.parse(req.body.selectThis);
+
+  console.log('Select This: ' + selectThis);
+  console.log('Type of Select This: ' + typeof selectedSubject);
+  console.log('Day of Select This: ' + selectThis[0]);
+  console.log('Period of Select This: ' + selectThis[1]);
+  var whichPeriod = [];
+  for (let t = 0; t < req.body.chooseThisCredit; t++) {
+    whichPeriod.push(selectThis[1]++);
+  }
+  console.log('Room: ' + req.body.chooseThisRoomName + ' whichday: ' + selectThis[0] + ' whichperiod ' + whichPeriod);
+
+  subject.get('subjects')
+      .find({id_sub: parseInt(req.body.chooseThisSubjectID)})
+      .assign({room: req.body.chooseThisRoomName, whichDay: selectThis[0], whichPeriod: whichPeriod})
+      .write();
+
+  var selectedRoom = room.get('class_room').find({id: parseInt(req.body.chooseThisRoomID)}).value();
+  var selectWeekID = selectedRoom['id_week'];
+
+  var selectedWeek = week.get('weeks').find({id_week: selectWeekID}).value();
+  // console.log('Week ISSSS ' + selectedWeek.id_week);
+
+  var whatDayInSelectedWeek = selectThis[0];
+  var oo = selectedWeek[whatDayInSelectedWeek];
+
+  // console.log('Type of day ' + typeof whatDayInSelectedWeek);
+  // console.log('day ' + whatDayInSelectedWeek);
+
+  var to = (selectThis[1] - 1);
+  console.log('COntent in What Day In Week BEFORE ' + oo);
+  for (let b = selectThis[1] - req.body.chooseThisCredit - 1; b < to; b++) {
+    oo.splice(b, 1, 1);
+  }
+
+  if (whatDayInSelectedWeek === 'mon') {
+    week.get('weeks').find({id_week: selectWeekID}).assign({mon: oo}).write();
+  } else if (whatDayInSelectedWeek === 'tue') {
+    week.get('weeks').find({id_week: selectWeekID}).assign({tue: oo}).write();
+  } else if (whatDayInSelectedWeek === 'wed') {
+    week.get('weeks').find({id_week: selectWeekID}).assign({wed: oo}).write();
+  } else if (whatDayInSelectedWeek === 'thu') {
+    week.get('weeks').find({id_week: selectWeekID}).assign({thu: oo}).write();
+  } else if (whatDayInSelectedWeek === 'fri') {
+    week.get('weeks').find({id_week: selectWeekID}).assign({fri: oo}).write();
+  } else if (whatDayInSelectedWeek === 'sat') {
+    week.get('weeks').find({id_week: selectWeekID}).assign({sat: oo}).write();
+  } else if (whatDayInSelectedWeek === 'sun') {
+    week.get('weeks').find({id_week: selectWeekID}).assign({sun: oo}).write();
+  }
+
+
+  console.log('COntent in What Day In Week ' + oo);
+  res.render('school/createSubject', {
+    subjects: subjects,
+    selectedSubject: selectedSubject,
+    rooms: JSON.parse(req.body.chooseTheseRooms),
+    csrfToken: req.csrfToken()
+  });
+
+  // res.redirect('/users');
 }

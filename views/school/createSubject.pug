@@ -35,6 +35,14 @@ block content
                     small.text-danger(style='font-size: medium') Start: #{selectedSubject.start}
                     br
                     small.text-danger(style='font-size: medium') End: #{selectedSubject.end}
+                    br
+                    if (selectedSubject.room && selectedSubject.whichDay && selectedSubject.whichPeriod)
+
+                        small.text-danger(style='font-size: medium') Room: #{selectedSubject.room}
+                        br
+                        small.text-danger(style='font-size: medium') Day: #{selectedSubject.whichDay.charAt(0).toUpperCase() + selectedSubject.whichDay.slice(1)}
+                        br
+                        small.text-danger(style='font-size: medium') Period: #{selectedSubject.whichPeriod}
             .col-md-2(style='border-right: 1px solid gray;')
                 h2 Room
                 if rooms
@@ -64,8 +72,14 @@ block content
                                 .text-success(data-toggle='tooltip', data-placement='right', title='Choose colored area!')
                                     label Results for #{selectedSubject.credits} needed credits
                 if (weekDetails && (where.length!== 0) && (whereDay.length!==0))
-                    form(action='/', method='POST')
+                    form(action='/school/searchForRoom/searchForWeek/assign', method='POST')
                         .form-group
+                            input(type='hidden', name='_csrf', value=csrfToken)
+                            input(type='hidden', name='chooseThisSubjectID', value=parseInt(selectedSubject['id_sub']))
+                            input(type='hidden', name='chooseThisRoomID', value=parseInt(selectedRoom['id']))
+                            input(type='hidden', name='chooseThisRoomName', value=selectedRoom['room'])
+                            input(type='hidden', name='chooseThisCredit', value=parseInt(selectedSubject['credits']))
+                            input(type='hidden', name='chooseTheseRooms', value=rooms)
                             .table-responsive.px-3.table-hover
                                 table.table#schedule(style='text-align: center;')
                                     tr.table-secondary
@@ -76,10 +90,12 @@ block content
                                         th Fri
                                         th Sat
                                         th Sun
+
                                     - var count = 0
                                     - var idGenerate = 0
                                     - var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';';
                                     - var whatPeriod = 1
+
                                     each weekDay in weekDetails
                                       tr(style='color: white; text-shadow: 0 0 3px #000000, 0 0 5px #FFFF00;')
                                         if (weekDay['0'] !== undefined)
@@ -89,12 +105,12 @@ block content
                                             else
                                                 h2 #{whereDay[count]}
                                                 .custom-control.custom-radio.custom-control-inline
-                                                    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[whereDay[count], whatPeriod], checked=idGenerate === 0)
                                                     label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
                                                 - idGenerate++
                                                 if (where[count] > selectedSubject.credits)
                                                     .custom-control.custom-radio.custom-control-inline
-                                                        input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                        input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[whereDay[count], whatPeriod + where[count] - selectedSubject.credits])
                                                         label.custom-control-label(for=idGenerate.toString()) #{whatPeriod + where[count] - selectedSubject.credits}-#{whatPeriod + where[count] - 1}
                                                 - idGenerate++
                                                 - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
@@ -105,12 +121,12 @@ block content
                                               else
                                                   h2 #{whereDay[count + 1]}
                                                   .custom-control.custom-radio.custom-control-inline
-                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[whereDay[count + 1], whatPeriod], checked=idGenerate === 0)
                                                       label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
                                                   - idGenerate++
                                                   if (where[count + 1] > selectedSubject.credits)
                                                       .custom-control.custom-radio.custom-control-inline
-                                                          input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                          input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[whereDay[count + 1], whatPeriod + where[count + 1] - selectedSubject.credits])
                                                           label.custom-control-label(for=idGenerate.toString()) #{whatPeriod + where[count + 1] - selectedSubject.credits}-#{whatPeriod + where[count + 1] - 1}
                                                   - idGenerate++
                                                   - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
@@ -121,12 +137,12 @@ block content
                                               else
                                                   h2 #{whereDay[count + 2]}
                                                   .custom-control.custom-radio.custom-control-inline
-                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[whereDay[count + 2], whatPeriod], checked=idGenerate === 0)
                                                       label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
                                                   - idGenerate++
                                                   if (where[count + 2] > selectedSubject.credits)
                                                       .custom-control.custom-radio.custom-control-inline
-                                                          input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                          input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[whereDay[count + 2], whatPeriod + where[count + 2] - selectedSubject.credits])
                                                           label.custom-control-label(for=idGenerate.toString()) #{whatPeriod + where[count + 2] - selectedSubject.credits}-#{whatPeriod + where[count + 2] - 1}
                                                   - idGenerate++
                                                   - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
@@ -137,12 +153,12 @@ block content
                                               else
                                                   h2 #{whereDay[count + 3]}
                                                   .custom-control.custom-radio.custom-control-inline
-                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[whereDay[count + 3], whatPeriod], checked=idGenerate === 0)
                                                       label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
                                                   - idGenerate++
                                                   if (where[count + 3] > selectedSubject.credits)
                                                       .custom-control.custom-radio.custom-control-inline
-                                                          input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                          input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[whereDay[count + 3], whatPeriod + where[count + 3] - selectedSubject.credits])
                                                           label.custom-control-label(for=idGenerate.toString()) #{whatPeriod + where[count + 3] - selectedSubject.credits}-#{whatPeriod + where[count + 3] - 1}
                                                   - idGenerate++
                                                   - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
@@ -153,12 +169,12 @@ block content
                                               else
                                                   h2 #{whereDay[count + 4]}
                                                   .custom-control.custom-radio.custom-control-inline
-                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[whereDay[count + 4], whatPeriod], checked=idGenerate === 0)
                                                       label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
                                                   - idGenerate++
                                                   if (where[count + 4] > selectedSubject.credits)
                                                       .custom-control.custom-radio.custom-control-inline
-                                                          input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                          input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[whereDay[count + 4], whatPeriod + where[count + 4] - selectedSubject.credits])
                                                           label.custom-control-label(for=idGenerate.toString()) #{whatPeriod + where[count + 4] - selectedSubject.credits}-#{whatPeriod + where[count + 4] - 1}
                                                   - idGenerate++
                                                   - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
@@ -169,12 +185,12 @@ block content
                                               else
                                                   h2 #{whereDay[count + 5]}
                                                   .custom-control.custom-radio.custom-control-inline
-                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[whereDay[count + 5], whatPeriod], checked=idGenerate === 0)
                                                       label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
                                                   - idGenerate++
                                                   if (where[count + 5] > selectedSubject.credits)
                                                     .custom-control.custom-radio.custom-control-inline
-                                                        input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                        input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[whereDay[count + 5], whatPeriod + where[count + 5] - selectedSubject.credits])
                                                         label.custom-control-label(for=idGenerate.toString()) #{whatPeriod + where[count + 5] - selectedSubject.credits}-#{whatPeriod + where[count + 5] - 1}
                                                   - idGenerate++
                                                   - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
@@ -185,15 +201,16 @@ block content
                                               else
                                                   h2 #{whereDay[count + 6]}
                                                   .custom-control.custom-radio.custom-control-inline
-                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[whereDay[count + 6], whatPeriod], checked=idGenerate === 0)
                                                       label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
                                                   - idGenerate++
                                                   if (where[count + 6] > selectedSubject.credits)
                                                     .custom-control.custom-radio.custom-control-inline
-                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString())
+                                                      input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[whereDay[count + 6], whatPeriod + where[count + 6] - selectedSubject.credits])
                                                       label.custom-control-label(for=idGenerate.toString()) #{whatPeriod + where[count + 6] - selectedSubject.credits}-#{whatPeriod + where[count + 6] - 1}
                                                   - idGenerate++
                                                   - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
 
                                       - count = count + weekDay.length
                                       - whatPeriod++
+                        button.btn.btn-danger.form-inline(type='submit', style='float: right;', data-toggle='tooltip', data-placement='left', title='Submit request.') ➤
