@@ -31,13 +31,13 @@
       "end": "06/03/2021",
       "type": "Laboratory",
       "credits": "4",
-      "room": "A2.509",
-      "whichDay": "mon",
+      "room": "A1.709",
+      "whichDay": "sat",
       "whichPeriod": [
+        1,
+        2,
         3,
-        4,
-        5,
-        6
+        4
       ]
     },
     {
@@ -54,7 +54,13 @@
       "start": "01/13/2021",
       "end": "06/02/2021",
       "type": "Laboratory",
-      "credits": "2"
+      "credits": "2",
+      "room": "A2.408",
+      "whichDay": "thu",
+      "whichPeriod": [
+        6,
+        7
+      ]
     },
     {
       "id_sub": 6,
