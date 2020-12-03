@@ -1,4 +1,4 @@
-# ExpressJS [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/katyperrycbt/sms/releases/tag/v1.0.0) [![Version](https://img.shields.io/badge/version-1.0.1-green.svg)](https://github.com/katyperrycbt/sms/releases/tag/v1.0.1) [![Version](https://img.shields.io/badge/version-2.0.0-yellow.svg)](https://github.com/katyperrycbt/sms/releases/tag/v2.0.0)
+# School Management System [ExpressJS] [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/katyperrycbt/sms/releases/tag/v1.0.0) [![Version](https://img.shields.io/badge/version-1.0.1-green.svg)](https://github.com/katyperrycbt/sms/releases/tag/v1.0.1) [![Version](https://img.shields.io/badge/version-2.0.0-yellow.svg)](https://github.com/katyperrycbt/sms/releases/tag/v2.0.0)
 
 Hi there! 
 
