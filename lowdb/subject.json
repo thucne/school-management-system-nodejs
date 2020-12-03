@@ -22,7 +22,13 @@
       "start": "01/05/2021",
       "end": "06/19/2021",
       "type": "Laboratory",
-      "credits": "2"
+      "credits": "2",
+      "room": "A1.718",
+      "whichDay": "tue",
+      "whichPeriod": [
+        10,
+        11
+      ]
     },
     {
       "id_sub": 3,
