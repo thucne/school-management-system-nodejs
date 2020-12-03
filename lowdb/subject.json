@@ -153,7 +153,15 @@
       "start": "01/04/2021",
       "end": "06/18/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+      "room": "A1.315",
+      "whichDay": "wed",
+      "whichPeriod": [
+        4,
+        5,
+        6,
+        7
+      ]
     },
     {
       "id_sub": 16,

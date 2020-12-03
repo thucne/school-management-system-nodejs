@@ -484,19 +484,19 @@ module.exports.assignWhenAndWhereToSubject = function (req, res) {
     console.log('req.body.existedPeriod - 1: ' + (req.body.existedPeriod - 1) + ' tops: ' + tops);
     console.log('COntent in What Day In EXISTED Week ' + oops);
 
-    if (whatDayInSelectedWeek === 'mon') {
+    if (whatDayInExistedWeek === 'mon') {
       week.get('weeks').find({id_week: existedWeekID}).assign({mon: oops}).write();
-    } else if (whatDayInSelectedWeek === 'tue') {
+    } else if (whatDayInExistedWeek === 'tue') {
       week.get('weeks').find({id_week: existedWeekID}).assign({tue: oops}).write();
-    } else if (whatDayInSelectedWeek === 'wed') {
+    } else if (whatDayInExistedWeek === 'wed') {
       week.get('weeks').find({id_week: existedWeekID}).assign({wed: oops}).write();
-    } else if (whatDayInSelectedWeek === 'thu') {
+    } else if (whatDayInExistedWeek === 'thu') {
       week.get('weeks').find({id_week: existedWeekID}).assign({thu: oops}).write();
-    } else if (whatDayInSelectedWeek === 'fri') {
+    } else if (whatDayInExistedWeek === 'fri') {
       week.get('weeks').find({id_week: existedWeekID}).assign({fri: oops}).write();
-    } else if (whatDayInSelectedWeek === 'sat') {
+    } else if (whatDayInExistedWeek === 'sat') {
       week.get('weeks').find({id_week: existedWeekID}).assign({sat: oops}).write();
-    } else if (whatDayInSelectedWeek === 'sun') {
+    } else if (whatDayInExistedWeek === 'sun') {
       week.get('weeks').find({id_week: existedWeekID}).assign({sun: oops}).write();
     }
   }
