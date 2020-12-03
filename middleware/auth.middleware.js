@@ -2,7 +2,8 @@ const db = require('../lowdb/db');
 
 module.exports.default = function (req, res, next) {
   res.locals.userInfo = {
-    name: " "
+    name: " ",
+    loginId: " ",
   };
   // console.log('auth ' + req.signedCookies.isServerRS ? 1 : 0)
   // res.locals.isServerRS = {
@@ -31,6 +32,7 @@ module.exports.requireAuth = function (req, res, next) {
 
   if (user) {
     res.locals.userInfo.name =  "Hi " + user.name + "!"
+    res.locals.userInfo.loginId = user.id;
     // res.locals.isServerRS = { count: res.locals.count + 1 }
     req.body.username = user.name + ' ' + user.first_name;
   }
