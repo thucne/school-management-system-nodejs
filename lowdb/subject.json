@@ -82,7 +82,14 @@
       "end": "06/01/2021",
       "type": "Laboratory",
       "credits": "3",
-      "name_sub": "Probability, Statistics and Random Variables"
+      "name_sub": "Probability, Statistics and Random Variables",
+      "room": "A2.718",
+      "whichDay": "sat",
+      "whichPeriod": [
+        9,
+        10,
+        11
+      ]
     },
     {
       "id_sub": 8,

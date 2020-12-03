@@ -1,0 +1,11 @@
+extends ../layouts/common
+
+block content
+    link(rel="stylesheet", href="/styles/cellHover.css")
+    script.
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    .px-3.pt-3
+        h1 Course Registration
+        hr(style="background-color: lightgray;")

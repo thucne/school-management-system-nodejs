@@ -191,3 +191,11 @@ module.exports.postCreate = function (req, res) {
   res.redirect('/users');
 };
 
+module.exports.registrationMenuDisplaying = function (req, res) {
+  var token = req.csrfToken();
+  console.log('register ' + token);
+  res.render('users/courseRegistration', {
+    csrfToken: token
+  });
+  // res.redirect('/users');
+}
