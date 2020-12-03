@@ -24,6 +24,8 @@ router.post('/updateInfo', upload.single('avatar'), csrfProtection, validate.pos
 
 router.get('/create', csrfProtection, controller.create);
 
+router.get('/register', csrfProtection, controller.registrationMenuDisplaying);
+
 router.post('/create', upload.single('avatar'), csrfProtection, validate.postCreate, controller.postCreate);
 
 router.get('/delete/:id', csrfProtection, controller.deleteUser);
