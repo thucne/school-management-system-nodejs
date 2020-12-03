@@ -10,4 +10,26 @@ block content
         h1 Course Registration
         hr(style="background-color: lightgray;")
         if (loginUser)
-          h5 Hi #{loginUser.name}
+          h5 Hi #{loginUser.name}, you are now in course registration page!
+        hr
+        .container-fluid.pb-5
+            .row
+                .col-md-3
+                    img(src='/images/registration.jpeg' alt='Registration' width='100%' height='auto')
+                .col-md-4
+                    label(for='searchByName') Filter by Subject Name:
+                    br
+                    br
+                    label Filter by Department:
+                .con-md-5
+                    form.ml-auto(action="/users", method="GET", class="d-flex")
+                        input(type="text", name="q", class="form-control", placeholder="Any", id='searchByName')
+                        button.btn.btn-primary.ml-2(type='submit', data-toggle='tooltip', data-placement='top', title='Search by the input keyword') &#128270;
+                    .dropdown
+                        button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button',
+                            data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Department
+                        .dropdown-menu(aria-labelledby='dropdownMenuButton')
+                            a.dropdown-item(href='/', data-toggle='tooltip', data-placement='right', title='Information Technology') Information Technology
+                            a.dropdown-item(href='/', data-toggle='tooltip', data-placement='right', title='Business Administration') Business Administration
+                            a.dropdown-item(href='/', data-toggle='tooltip', data-placement='right', title='English Linguistics') English Linguistics
+                            a.dropdown-item(href='/', data-toggle='tooltip', data-placement='right', title='Electrical Electricity') Electrical Electricity
