@@ -3,6 +3,8 @@ var room = require('../lowdb/room');
 var db = require('../lowdb/db');
 var subject = require('../lowdb/subject');
 var department = require('../lowdb/department');
+var studentSchedule = require('../lowdb/studentStandardSchedule');
+var teacherSchedule = require('../lowdb/teacherStandardSchedule');
 
 module.exports.week = function (req, res) {
   console.log(week.get('weeks').nth(1).value());
@@ -670,4 +672,63 @@ module.exports.assignSubjectToDepartment = function (req, res) {
   }
   demo().then(res.redirect('/users'));
   // for (let v = 0; )
+}
+
+module.exports.assignStandardSchedule = function (req, res) {
+  var studentSchedules = studentSchedule.get('studentSchedule').value();
+  var teacherSchedules = teacherSchedule.get('teacherSchedule').value();
+  var users = db.get('users').value();
+
+  console.log(studentSchedules[1]);
+  console.log(teacherSchedules[1]);
+  console.log(users[1]);
+
+  function assignRole() {
+    for(let i = 0; i < users.length; i++) {
+      if (i % 5 === 0) {
+        db.get('users').nth(i).assign({role: 1}).write();
+      } else {
+        db.get('users').nth(i).assign({role: 0}).write();
+      }
+    }
+  }
+
+  async function assignRoleNow() {
+    await assignRole();
+  }
+
+  assignRoleNow().then(nowAssignSchedule);
+
+  function nowAssignSchedule() {
+    var students = db.get('users').value().filter(function (user) {
+      return user.role === 0;
+    })
+    var teachers = db.get('users').value().filter(function (user) {
+      return user.role === 1;
+    })
+
+    console.log('Number of student: ' + students.length);
+    console.log('Number of teacher: ' + teachers.length);
+
+    function assignSchedule() {
+      let a = 1;
+      let b = 1;
+      for (let m = 0; m < users.length; m++) {
+        if (users[m].role === 1) {
+          db.get('users').nth(m).assign({teacherSchedule: a}).write();
+          a++;
+        } else if (users[m].role === 0) {
+          db.get('users').nth(m).assign({studentSchedule: b}).write();
+          b++;
+        }
+      }
+    }
+
+    async function assignScheduleNow() {
+      await assignSchedule();
+    }
+
+    assignScheduleNow().then(res.redirect('/users'));
+  }
+  // res.redirect('/users');
 }

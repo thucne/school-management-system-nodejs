@@ -49,12 +49,13 @@ html
                             button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button',
                                 data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Auto functions
                             .dropdown-menu(aria-labelledby='dropdownMenuButton')
-                                a.dropdown-item(href='/school/eliminate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Eliminate Duplicates
-                                a.dropdown-item(href='/school/assign', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign
-                                a.dropdown-item(href='/school/generate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Subject Generating
+                                a.dropdown-item.disabled(href='/school/eliminate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Eliminate Duplicates
+                                a.dropdown-item.disabled(href='/school/assign', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign
+                                a.dropdown-item.disabled(href='/school/generate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Subject Generating
                                 a.dropdown-item(href='/school/createSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create Subject
-                                a.dropdown-item(href='/school/createDepartment', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create Department
-                                a.dropdown-item(href='/school/createDepartment/assignSubjectToDepartment', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign Subject to Department
+                                a.dropdown-item.disabled(href='/school/createDepartment', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create Department
+                                a.dropdown-item.disabled(href='/school/createDepartment/assignSubjectToDepartment', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign Subject to Department
+                                a.dropdown-item(href='/school/assignStandardSchedule', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign Standard Table
 
                     span.form-inline.my-2.my-lg-0=  userInfo.name
                     span &nbsp;

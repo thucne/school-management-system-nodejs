@@ -1,3 +1,4 @@
 {
-  "ignore": ["db.json", "avatar.json", "week.json", "room.json", "subject.json", "department.json"]
+  "ignore": ["db.json", "avatar.json", "week.json", "room.json", "subject.json"
+  , "department.json", "studentStandardSchedule.json", "teacherStandardSchedule.json"]
 }
