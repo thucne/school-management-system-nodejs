@@ -3,6 +3,7 @@ var room = require('../lowdb/room');
 var db = require('../lowdb/db');
 var subject = require('../lowdb/subject');
 var department = require('../lowdb/department');
+var standardSchedule = require('../lowdb/standardSchedule');
 
 module.exports.week = function (req, res) {
   console.log(week.get('weeks').nth(1).value());
@@ -363,7 +364,7 @@ module.exports.searchWeek = function (req, res) {
     // console.log('Compare String: '  + compareString);
 
     let f = 7;
-    for (let v = 0;  v < compareString.length; v++) {
+    for (let v = 0; v < compareString.length; v++) {
       if (compareString[v] !== 1 && compareString[v] !== 9) {
         f--;
       }
@@ -527,7 +528,7 @@ module.exports.createDepartment = function (req, res) {
 module.exports.assignSubjectToDepartment = function (req, res) {
   var listOfSubject = subject.get('subjects').value();
 
-  console.log( 'Here type of ' + typeof listOfSubject);
+  console.log('Here type of ' + typeof listOfSubject);
 
   var belongToDepartmentID = ['Physics', 'Net-centric Programming', 'Software Architecture', 'Computer Architecture',
     'Calculus', 'Critical Thinking', 'Physical', 'Academic English', 'Marxism', 'HCM\'s Thought',
@@ -665,9 +666,42 @@ module.exports.assignSubjectToDepartment = function (req, res) {
   }
 
   async function demo() {
-
     await runAllSubjects();
   }
+
   demo().then(res.redirect('/users'));
   // for (let v = 0; )
+}
+
+module.exports.assignStandardSchedule = function (req, res) {
+  var users = db.get('users').value();
+  var standardSchedules = standardSchedule.get('standardSchedule').value();
+
+  // function load() {
+  //   standardSchedules = standardSchedule.get('standardSchedule').value();
+  // }
+  //
+  // async function loadNow() {
+  //   await load();
+  // }
+  //
+  // loadNow().then(run);
+
+  // function run () {
+  //   console.log(standardSchedule.mon);
+  // }
+
+  function assign() {
+    for (let i = 0; i < users.length; i++) {
+      db.get('users').nth(i).set('schedule', standardSchedules).write();
+    }
+  }
+
+  async function runAssign() {
+    await assign();
+  }
+
+  runAssign().then(res.redirect('/users'));
+
+  // res.redirect('/users');
 }

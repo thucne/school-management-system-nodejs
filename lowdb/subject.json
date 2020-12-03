@@ -46,7 +46,15 @@
       "start": "01/02/2021",
       "end": "06/01/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+      "room": "A1.606",
+      "whichDay": "fri",
+      "whichPeriod": [
+        5,
+        6,
+        7,
+        8
+      ]
     },
     {
       "id_sub": 5,
@@ -212,7 +220,14 @@
       "end": "06/11/2021",
       "type": "Theory",
       "credits": "3",
-      "name_sub": "Data Mining"
+      "name_sub": "Data Mining",
+      "room": "A2.719",
+      "whichDay": "thu",
+      "whichPeriod": [
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 25,
