@@ -535,26 +535,148 @@ module.exports.assignSubjectToDepartment = function (req, res) {
     'Discrete Math', 'Data Structures and Algorithms', 'Computer Networks', 'Probability\, Statistics and Random Variables',
     'Web Development', 'Object-oriented Analysis and Design', 'Data Mining', 'Computer Graphic', 'Thesis', 'Machine Learning'];
 
+  // async function demo() {
+  //   for (let i = 0; i < 999; i++) {
+  //     if (i === 0) {
+  //       department.get('department').nth(0).set('subjects', []).write();
+  //       department.get('department').nth(1).set('subjects', []).write();
+  //       department.get('department').nth(2).set('subjects', []).write();
+  //       department.get('department').nth(3).set('subjects', []).write();
+  //       department.get('department').nth(4).set('subjects', []).write();
+  //       department.get('department').nth(5).set('subjects', []).write();
+  //       department.get('department').nth(6).set('subjects', []).write();
+  //       department.get('department').nth(7).set('subjects', []).write();
+  //       department.get('department').nth(8).set('subjects', []).write();
+  //       department.get('department').nth(9).set('subjects', []).write();
+  //       department.get('department').nth(10).set('subjects', []).write();
+  //     }
+  //     for (let j = 0; j < belongToDepartmentID.length; j++) {
+  //       if (listOfSubject[i].name_sub === belongToDepartmentID[j]) {
+  //         if (j <= 1) {
+  //           let listSubjectOfThisDepartment = [];
+  //           if (department.get('department').nth(0).value().subjects) {
+  //             listSubjectOfThisDepartment = department.get('department').nth(0).value().subjects;
+  //           }
+  //           listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
+  //           console.log('This list1: ' + listSubjectOfThisDepartment);
+  //           department.get('department').nth(0).assign({subjects: listSubjectOfThisDepartment}).write();
+  //         } else if (j <= 3) {
+  //           let listSubjectOfThisDepartment = [];
+  //           if (department.get('department').nth(1).value().subjects) {
+  //             listSubjectOfThisDepartment = department.get('department').nth(1).value().subjects;
+  //           }
+  //           listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
+  //           console.log('This list2: ' + listSubjectOfThisDepartment);
+  //
+  //           department.get('department').nth(1).assign({subjects: listSubjectOfThisDepartment}).write();
+  //         } else if (j <= 5) {
+  //           let listSubjectOfThisDepartment = [];
+  //           if (department.get('department').nth(2).value().subjects) {
+  //             listSubjectOfThisDepartment = department.get('department').nth(2).value().subjects;
+  //           }
+  //           listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
+  //           console.log('This list3: ' + listSubjectOfThisDepartment);
+  //
+  //           department.get('department').nth(2).assign({subjects: listSubjectOfThisDepartment}).write();
+  //         } else if (j <= 7) {
+  //           let listSubjectOfThisDepartment = [];
+  //           if (department.get('department').nth(3).value().subjects) {
+  //             listSubjectOfThisDepartment = department.get('department').nth(3).value().subjects;
+  //           }
+  //           listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
+  //           console.log('This list4: ' + listSubjectOfThisDepartment);
+  //
+  //           department.get('department').nth(3).assign({subjects: listSubjectOfThisDepartment}).write();
+  //         }else if (j <= 9) {
+  //           let listSubjectOfThisDepartment = [];
+  //           if (department.get('department').nth(4).value().subjects) {
+  //             listSubjectOfThisDepartment = department.get('department').nth(4).value().subjects;
+  //           }
+  //           listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
+  //           console.log('This list5: ' + listSubjectOfThisDepartment);
+  //
+  //           department.get('department').nth(4).assign({subjects: listSubjectOfThisDepartment}).write();
+  //         }else if (j <= 11) {
+  //           let listSubjectOfThisDepartment = [];
+  //           if (department.get('department').nth(5).value().subjects) {
+  //             listSubjectOfThisDepartment = department.get('department').nth(5).value().subjects;
+  //           }
+  //           listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
+  //           console.log('This list6: ' + listSubjectOfThisDepartment);
+  //
+  //           department.get('department').nth(5).assign({subjects: listSubjectOfThisDepartment}).write();
+  //         }else if (j <= 13) {
+  //           let listSubjectOfThisDepartment = [];
+  //           if (department.get('department').nth(6).value().subjects) {
+  //             listSubjectOfThisDepartment = department.get('department').nth(6).value().subjects;
+  //           }
+  //           listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
+  //           console.log('This list7: ' + listSubjectOfThisDepartment);
+  //
+  //           department.get('department').nth(6).assign({subjects: listSubjectOfThisDepartment}).write();
+  //         }else if (j <= 15) {
+  //           let listSubjectOfThisDepartment = [];
+  //           if (department.get('department').nth(7).value().subjects) {
+  //             listSubjectOfThisDepartment = department.get('department').nth(7).value().subjects;
+  //           }
+  //           listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
+  //           console.log('This list8: ' + listSubjectOfThisDepartment);
+  //
+  //           department.get('department').nth(7).assign({subjects: listSubjectOfThisDepartment}).write();
+  //         }else if (j <= 17) {
+  //           let listSubjectOfThisDepartment = [];
+  //           if (department.get('department').nth(8).value().subjects) {
+  //             listSubjectOfThisDepartment = department.get('department').nth(8).value().subjects;
+  //           }
+  //           listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
+  //           console.log('This list9: ' + listSubjectOfThisDepartment);
+  //
+  //           department.get('department').nth(8).assign({subjects: listSubjectOfThisDepartment}).write();
+  //         }else if (j <= 19) {
+  //           let listSubjectOfThisDepartment = [];
+  //           if (department.get('department').nth(9).value().subjects) {
+  //             listSubjectOfThisDepartment = department.get('department').nth(9).value().subjects;
+  //           }
+  //           listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
+  //           console.log('This list10: ' + listSubjectOfThisDepartment);
+  //
+  //           department.get('department').nth(9).assign({subjects: listSubjectOfThisDepartment}).write();
+  //         } else {
+  //           let listSubjectOfThisDepartment = [];
+  //           if (department.get('department').nth(10).value().subjects) {
+  //             listSubjectOfThisDepartment = department.get('department').nth(10).value().subjects;
+  //           }
+  //           listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
+  //           console.log('This list11: ' + listSubjectOfThisDepartment);
+  //
+  //           department.get('department').nth(10).assign({subjects: listSubjectOfThisDepartment}).write();
+  //         }
+  //       }
+  //     }
+  //   }
+  //
+  // }
+
   async function demo() {
-    for (let i = 0; i < 999; i++) {
-      if (i === 0) {
-        department.get('department').nth(0).set('subjects', []).write();
-        department.get('department').nth(1).set('subjects', []).write();
-        department.get('department').nth(2).set('subjects', []).write();
-        department.get('department').nth(3).set('subjects', []).write();
-        department.get('department').nth(4).set('subjects', []).write();
-        department.get('department').nth(5).set('subjects', []).write();
-        department.get('department').nth(6).set('subjects', []).write();
-        department.get('department').nth(7).set('subjects', []).write();
-        department.get('department').nth(8).set('subjects', []).write();
-        department.get('department').nth(9).set('subjects', []).write();
-        department.get('department').nth(10).set('subjects', []).write();
-      }
+    for (let i = 0; i < 500; i++) {
+      // if (i === 0) {
+      //   department.get('department').nth(0).set('subjects', []).write();
+      //   department.get('department').nth(1).set('subjects', []).write();
+      //   department.get('department').nth(2).set('subjects', []).write();
+      //   department.get('department').nth(3).set('subjects', []).write();
+      //   department.get('department').nth(4).set('subjects', []).write();
+      //   department.get('department').nth(5).set('subjects', []).write();
+      //   department.get('department').nth(6).set('subjects', []).write();
+      //   department.get('department').nth(7).set('subjects', []).write();
+      //   department.get('department').nth(8).set('subjects', []).write();
+      //   department.get('department').nth(9).set('subjects', []).write();
+      //   department.get('department').nth(10).set('subjects', []).write();
+      // }
       for (let j = 0; j < belongToDepartmentID.length; j++) {
         if (listOfSubject[i].name_sub === belongToDepartmentID[j]) {
           if (j <= 1) {
             let listSubjectOfThisDepartment = [];
-            if (department.get('department').nth(0).value().subjects !== undefined) {
+            if (department.get('department').nth(0).value().subjects) {
               listSubjectOfThisDepartment = department.get('department').nth(0).value().subjects;
             }
             listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
@@ -562,7 +684,7 @@ module.exports.assignSubjectToDepartment = function (req, res) {
             department.get('department').nth(0).assign({subjects: listSubjectOfThisDepartment}).write();
           } else if (j <= 3) {
             let listSubjectOfThisDepartment = [];
-            if (department.get('department').nth(1).value().subjects !== undefined) {
+            if (department.get('department').nth(1).value().subjects) {
               listSubjectOfThisDepartment = department.get('department').nth(1).value().subjects;
             }
             listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
@@ -571,7 +693,7 @@ module.exports.assignSubjectToDepartment = function (req, res) {
             department.get('department').nth(1).assign({subjects: listSubjectOfThisDepartment}).write();
           } else if (j <= 5) {
             let listSubjectOfThisDepartment = [];
-            if (department.get('department').nth(2).value().subjects !== undefined) {
+            if (department.get('department').nth(2).value().subjects) {
               listSubjectOfThisDepartment = department.get('department').nth(2).value().subjects;
             }
             listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
@@ -580,7 +702,7 @@ module.exports.assignSubjectToDepartment = function (req, res) {
             department.get('department').nth(2).assign({subjects: listSubjectOfThisDepartment}).write();
           } else if (j <= 7) {
             let listSubjectOfThisDepartment = [];
-            if (department.get('department').nth(3).value().subjects !== undefined) {
+            if (department.get('department').nth(3).value().subjects) {
               listSubjectOfThisDepartment = department.get('department').nth(3).value().subjects;
             }
             listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
@@ -589,7 +711,7 @@ module.exports.assignSubjectToDepartment = function (req, res) {
             department.get('department').nth(3).assign({subjects: listSubjectOfThisDepartment}).write();
           }else if (j <= 9) {
             let listSubjectOfThisDepartment = [];
-            if (department.get('department').nth(4).value().subjects !== undefined) {
+            if (department.get('department').nth(4).value().subjects) {
               listSubjectOfThisDepartment = department.get('department').nth(4).value().subjects;
             }
             listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
@@ -598,7 +720,7 @@ module.exports.assignSubjectToDepartment = function (req, res) {
             department.get('department').nth(4).assign({subjects: listSubjectOfThisDepartment}).write();
           }else if (j <= 11) {
             let listSubjectOfThisDepartment = [];
-            if (department.get('department').nth(5).value().subjects !== undefined) {
+            if (department.get('department').nth(5).value().subjects) {
               listSubjectOfThisDepartment = department.get('department').nth(5).value().subjects;
             }
             listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
@@ -607,7 +729,7 @@ module.exports.assignSubjectToDepartment = function (req, res) {
             department.get('department').nth(5).assign({subjects: listSubjectOfThisDepartment}).write();
           }else if (j <= 13) {
             let listSubjectOfThisDepartment = [];
-            if (department.get('department').nth(6).value().subjects !== undefined) {
+            if (department.get('department').nth(6).value().subjects) {
               listSubjectOfThisDepartment = department.get('department').nth(6).value().subjects;
             }
             listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
@@ -616,7 +738,7 @@ module.exports.assignSubjectToDepartment = function (req, res) {
             department.get('department').nth(6).assign({subjects: listSubjectOfThisDepartment}).write();
           }else if (j <= 15) {
             let listSubjectOfThisDepartment = [];
-            if (department.get('department').nth(7).value().subjects !== undefined) {
+            if (department.get('department').nth(7).value().subjects) {
               listSubjectOfThisDepartment = department.get('department').nth(7).value().subjects;
             }
             listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
@@ -625,7 +747,7 @@ module.exports.assignSubjectToDepartment = function (req, res) {
             department.get('department').nth(7).assign({subjects: listSubjectOfThisDepartment}).write();
           }else if (j <= 17) {
             let listSubjectOfThisDepartment = [];
-            if (department.get('department').nth(8).value().subjects !== undefined) {
+            if (department.get('department').nth(8).value().subjects) {
               listSubjectOfThisDepartment = department.get('department').nth(8).value().subjects;
             }
             listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
@@ -634,7 +756,7 @@ module.exports.assignSubjectToDepartment = function (req, res) {
             department.get('department').nth(8).assign({subjects: listSubjectOfThisDepartment}).write();
           }else if (j <= 19) {
             let listSubjectOfThisDepartment = [];
-            if (department.get('department').nth(9).value().subjects !== undefined) {
+            if (department.get('department').nth(9).value().subjects) {
               listSubjectOfThisDepartment = department.get('department').nth(9).value().subjects;
             }
             listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
@@ -643,7 +765,7 @@ module.exports.assignSubjectToDepartment = function (req, res) {
             department.get('department').nth(9).assign({subjects: listSubjectOfThisDepartment}).write();
           } else {
             let listSubjectOfThisDepartment = [];
-            if (department.get('department').nth(10).value().subjects !== undefined) {
+            if (department.get('department').nth(10).value().subjects) {
               listSubjectOfThisDepartment = department.get('department').nth(10).value().subjects;
             }
             listSubjectOfThisDepartment.push(listOfSubject[i].id_sub);
@@ -656,8 +778,8 @@ module.exports.assignSubjectToDepartment = function (req, res) {
     }
 
   }
-  demo();
+  demo().then(res.redirect('/users'));
   // for (let v = 0; )
 
-  res.redirect('/users');
+  // res.redirect('/users');
 }
