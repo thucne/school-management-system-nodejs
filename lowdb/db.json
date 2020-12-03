@@ -92,9 +92,11 @@
       "first_name": "Davide",
       "gender": "Male",
       "ip_address": "74.3.51.195",
-      "email": "dcoche9@so-net.ne.jp",
+      "email": "dcoche9@sonet.com",
       "password": "Qx7TyWh3",
-      "avatar": "https://robohash.org/voluptasrerumqui.png?size=50x50&set=set1"
+      "avatar": "uploads/71284ca6bd8ac09a050c7d6c9e5b14c2",
+      "_csrf": "l1MBIrB9-ws-EblC44h6SpfNiEWn6KhL5ANA",
+      "errs": []
     },
     {
       "id": "c6cc1643-1e9e-48e4-96bc-578a02a832d0",
@@ -10275,6 +10277,9 @@
     },
     {
       "id": "MXsKngiFz"
+    },
+    {
+      "id": "oNHp5Lo3L"
     }
   ]
 }

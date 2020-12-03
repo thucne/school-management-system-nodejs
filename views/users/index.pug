@@ -1,98 +1,99 @@
 extends ../layouts/common
 
 block content
-  h1
-    span.mr-3 Students
-    a.btn.btn-primary(href="/users/create", , data-toggle='tooltip', data-placement='right', title='Create a new student') New
-  script.
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip();
-    });
-  .d-flex.align-items-center
-    button.btn.btn-success(type='button', data-toggle='tooltip', data-placement='right', title=page.num + ' students found!') Result: &nbsp;
-      span.badge.badge-light #{page.num}
-      span.sr-only unread messages
-    form.ml-auto(action="/users/search", method="GET", class="d-flex")
-      input(type="text", name="q", class="form-control", value=page.searchString, placeholder="Any")
-      button.btn.btn-primary.ml-2(type='submit', data-toggle='tooltip', data-placement='top', title='Search by the input keyword') &#128270;
+  .px-3.pt-4
+    h1
+      span.mr-3 Students
+      a.btn.btn-primary(href="/users/create", , data-toggle='tooltip', data-placement='right', title='Create a new student') New
+    script.
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    .d-flex.align-items-center
+      button.btn.btn-success(type='button', data-toggle='tooltip', data-placement='right', title=page.num + ' students found!') Result: &nbsp;
+        span.badge.badge-light #{page.num}
+        span.sr-only unread messages
+      form.ml-auto(action="/users/search", method="GET", class="d-flex")
+        input(type="text", name="q", class="form-control", value=page.searchString, placeholder="Any")
+        button.btn.btn-primary.ml-2(type='submit', data-toggle='tooltip', data-placement='top', title='Search by the input keyword') &#128270;
 
-  #mySchool.carousel.slide(data-ride='carousel')
-    ol.carousel-indicators
-      li.active(data-target='#mySchool', data-slide-to='0')
-      li(data-target='#mySchool', data-slide-to='1')
-      li(data-target='#mySchool', data-slide-to='2')
-      li(data-target='#mySchool', data-slide-to='3')
-      li(data-target='#mySchool', data-slide-to='4')
-    .carousel-inner
-      .carousel-item.active
-        img.d-block.w-100(src='/images/carousel_5.jpg', alt='First slide')
-      .carousel-item
-        img.d-block.w-100(src='/images/cr1.jpg', alt='Fifth slide')
-      .carousel-item
-        img.d-block.w-100(src='/images/cr2.jpg', alt='Second slide')
-      .carousel-item
-        img.d-block.w-100(src='/images/cr3.jpg', alt='Third slide')
-      .carousel-item
-        img.d-block.w-100(src='/images/cr4.jpg', alt='Fourth slide')
-    a.carousel-control-prev(href='#mySchool', role='button', data-slide='prev')
-      span.carousel-control-prev-icon(aria-hidden='true')
-      span.sr-only Previous
-    a.carousel-control-next(href='#mySchool', role='button', data-slide='next')
-      span.carousel-control-next-icon(aria-hidden='true')
-      span.sr-only Next
-  .table-responsive
-    table.table.mt-3.table-hover
-      tr.table-secondary
-        th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
-        th(data-toggle='tooltip', data-placement='top', title='First Name') First Name
-        th(data-toggle='tooltip', data-placement='top', title='Last Name') Last Name
-        th(data-toggle='tooltip', data-placement='top', title='Gender') Gender
-        th(data-toggle='tooltip', data-placement='top', title='Email') Email
-        th(data-toggle='tooltip', data-placement='top', title='Students IP Address') IP Address
-        th(data-toggle='tooltip', data-placement='top', title='Avatars') Avatar
-        th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Some functionalities') Edit
-        th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete a student') Delete
-        th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select a student') Select
-      each user in users
-        tr
-          td= users.indexOf(user) + (7 * (page.y - 1)) + 1
-          td= user.name
-          td= user.first_name
-          td= user.gender
-          td= user.email
-          td= user.ip_address
-          td
-            if user.avatar
-              img(src= (user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '/' + user.avatar: user.avatar, width="40", alt=!user.avatar ? 'Not Found': '')
-            else
-              span Not Found
-          td(style='text-align:center;')
-            a.btn.btn-outline-info.rounded-circle(href="/users/" + user.id, data-toggle='tooltip', data-placement='top', title='Click to see the student information') &#128194;
-          td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete this student from the database')
-            a.btn.btn-outline-danger.rounded-circle(href="/users/delete/" + user.id) &#10060;
-          td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select this student')
-            a.btn.btn-outline-success.rounded-circle(href="/school/select/" + user.id) &#10004;
+    #mySchool.carousel.slide(data-ride='carousel')
+      ol.carousel-indicators
+        li.active(data-target='#mySchool', data-slide-to='0')
+        li(data-target='#mySchool', data-slide-to='1')
+        li(data-target='#mySchool', data-slide-to='2')
+        li(data-target='#mySchool', data-slide-to='3')
+        li(data-target='#mySchool', data-slide-to='4')
+      .carousel-inner
+        .carousel-item.active
+          img.d-block.w-100(src='/images/carousel_5.jpg', alt='First slide')
+        .carousel-item
+          img.d-block.w-100(src='/images/cr1.jpg', alt='Fifth slide')
+        .carousel-item
+          img.d-block.w-100(src='/images/cr2.jpg', alt='Second slide')
+        .carousel-item
+          img.d-block.w-100(src='/images/cr3.jpg', alt='Third slide')
+        .carousel-item
+          img.d-block.w-100(src='/images/cr4.jpg', alt='Fourth slide')
+      a.carousel-control-prev(href='#mySchool', role='button', data-slide='prev')
+        span.carousel-control-prev-icon(aria-hidden='true')
+        span.sr-only Previous
+      a.carousel-control-next(href='#mySchool', role='button', data-slide='next')
+        span.carousel-control-next-icon(aria-hidden='true')
+        span.sr-only Next
+    .table-responsive
+      table.table.mt-3.table-hover
+        tr.table-secondary
+          th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
+          th(data-toggle='tooltip', data-placement='top', title='First Name') First Name
+          th(data-toggle='tooltip', data-placement='top', title='Last Name') Last Name
+          th(data-toggle='tooltip', data-placement='top', title='Gender') Gender
+          th(data-toggle='tooltip', data-placement='top', title='Email') Email
+          th(data-toggle='tooltip', data-placement='top', title='Students IP Address') IP Address
+          th(data-toggle='tooltip', data-placement='top', title='Avatars') Avatar
+          th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Some functionalities') Edit
+          th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete a student') Delete
+          th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select a student') Select
+        each user in users
+          tr
+            td= users.indexOf(user) + (7 * (page.y - 1)) + 1
+            td= user.name
+            td= user.first_name
+            td= user.gender
+            td= user.email
+            td= user.ip_address
+            td
+              if user.avatar
+                img(src= (user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '/' + user.avatar: user.avatar, width="40", alt=!user.avatar ? 'Not Found': '')
+              else
+                span Not Found
+            td(style='text-align:center;')
+              a.btn.btn-outline-info.rounded-circle(href="/users/" + user.id, data-toggle='tooltip', data-placement='top', title='Click to see the student information') &#128194;
+            td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete this student from the database')
+              a.btn.btn-outline-danger.rounded-circle(href="/users/delete/" + user.id) &#10060;
+            td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select this student')
+              a.btn.btn-outline-success.rounded-circle(href="/school/select/" + user.id) &#10004;
 
-  ul.pagination.justify-content-center.pagination
-    li.page-item
-      a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + (page.y - 3),
-        data-toggle='tooltip', data-placement='left', title='Previous 3 pages') Previous
-    li.page-item.ml-2
-      a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + page.x) #{page.x}
-    li.page-item.active(data-toggle='tooltip', data-placement='top', title='Current page')
-      span.page-link #{page.y}
-        span.sr-only
-    li.page-item
-      a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + page.z) #{page.z}
-    //li.page-item
-    //  a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&'): '?') + 'page=' + (page.y+3)) Next
-    li.page-item
-      form.ml-auto(action="/users" + (page.searchString ? '/search' : '') , method="GET", class="d-flex")
-        input.ml-2(type="number", name="page", class="form-control", placeholder="0..." + page.max, min="0", max=page.max)
-        input(type="hidden", name="q", class="form-control", value=page.searchString)
-        input.btn.btn-primary.mx-2(type="submit", value="Page", data-toggle='tooltip', data-placement='top', title='Move to the input page')
-    li.page-item
-      a.btn.btn-outline-success.mr-2(hidden=true, href='/users/update', data-toggle='tooltip', data-placement='top', title='Update students avatar') Update Avatar
-    li.page-item
-      a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + (page.y + 3),
-        data-toggle='tooltip', data-placement='right', title='Next 3 pages') Next
+    ul.pagination.justify-content-center.pagination
+      li.page-item
+        a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + (page.y - 3),
+          data-toggle='tooltip', data-placement='left', title='Previous 3 pages') Previous
+      li.page-item.ml-2
+        a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + page.x) #{page.x}
+      li.page-item.active(data-toggle='tooltip', data-placement='top', title='Current page')
+        span.page-link #{page.y}
+          span.sr-only
+      li.page-item
+        a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + page.z) #{page.z}
+      //li.page-item
+      //  a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&'): '?') + 'page=' + (page.y+3)) Next
+      li.page-item
+        form.ml-auto(action="/users" + (page.searchString ? '/search' : '') , method="GET", class="d-flex")
+          input.ml-2(type="number", name="page", class="form-control", placeholder="0..." + page.max, min="0", max=page.max)
+          input(type="hidden", name="q", class="form-control", value=page.searchString)
+          input.btn.btn-primary.mx-2(type="submit", value="Page", data-toggle='tooltip', data-placement='top', title='Move to the input page')
+      li.page-item
+        a.btn.btn-outline-success.mr-2(hidden=true, href='/users/update', data-toggle='tooltip', data-placement='top', title='Update students avatar') Update Avatar
+      li.page-item
+        a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + (page.y + 3),
+          data-toggle='tooltip', data-placement='right', title='Next 3 pages') Next
