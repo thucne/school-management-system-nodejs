@@ -9,3 +9,5 @@ block content
     .px-3.pt-3
         h1 Course Registration
         hr(style="background-color: lightgray;")
+        if (loginUser)
+          h5 Hi #{loginUser.name}

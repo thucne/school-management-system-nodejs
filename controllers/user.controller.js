@@ -192,9 +192,15 @@ module.exports.postCreate = function (req, res) {
 };
 
 module.exports.registrationMenuDisplaying = function (req, res) {
+  var id = req.params.loginId;
   var token = req.csrfToken();
-  console.log('register ' + token);
+  console.log("register " + token);
+
+  var user = db.get('users').find({id: id}).value();
+
+  console.log(user.name);
   res.render('users/courseRegistration', {
+    loginUser: user,
     csrfToken: token
   });
   // res.redirect('/users');
