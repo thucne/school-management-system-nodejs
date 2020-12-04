@@ -1,6 +1,7 @@
 var db = require('../lowdb/db');
 var avatar = require('../lowdb/avatar');
 var department = require('../lowdb/department');
+var subject = require('../lowdb/subject');
 
 const shortid = require('shortid');
 var aguid = require('aguid');
@@ -195,15 +196,41 @@ module.exports.registrationMenuDisplaying = function (req, res) {
   var id = req.params.loginId;
   var token = req.csrfToken();
   var departments = department.get('department').value();
-  console.log("register " + token);
+  // console.log("register " + token);
 
-  var user = db.get('users').find({id: id}).value();
+  var subjects = subject.get('subjects').value();
+  var correspondingDepartmentOfSubject = [];
 
-  console.log(user.name);
-  res.render('users/courseRegistration', {
-    loginUser: user,
-    departments: departments,
-    csrfToken: token
-  });
+  function assignCorresponding() {
+    for (let i = 0; i < subjects.length; i++) {
+      for (let j = 0; j < departments.length; j++) {
+        for (let k = 0; k < departments[j]['subjects'].length; k++) {
+          if (departments[j]['subjects'][k] === subjects[i]['id_sub']) {
+            correspondingDepartmentOfSubject.push(departments[j]);
+          }
+        }
+      }
+    }
+  }
+
+  async function assignNow() {
+    await assignCorresponding();
+  }
+
+  assignNow().then(ren);
+  // console.log(correspondingDepartmentOfSubject);
+
+  function ren() {
+    var user = db.get('users').find({id: id}).value();
+
+
+    res.render('users/courseRegistration', {
+      loginUser: user,
+      departments: departments,
+      subjects: subjects,
+      correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
+      csrfToken: token
+    });
+  }
   // res.redirect('/users');
 }
