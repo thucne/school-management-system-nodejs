@@ -732,3 +732,90 @@ module.exports.assignStandardSchedule = function (req, res) {
   }
   // res.redirect('/users');
 }
+
+module.exports.assignTeacherToSubject = function (req, res) {
+  var subjects = subject.get('subjects').value();
+
+  res.render('school/assignTeacherToSubject', {
+    subjects: subjects,
+    csrfToken: req.csrfToken()
+  });
+}
+
+module.exports.searchTeacher = function (req, res) {
+  var teachers = db.get('users').value().filter(function (user) {
+    return user.role === 1;
+  });
+  var teacherWeeks = teacherSchedule.get('teacherSchedule').value();
+  var subjects = subject.get('subjects').value();
+
+
+  var selectedSubject = JSON.parse(req.body.sub);
+  // console.log('Selected Sub: ' + selectedSubject.name_sub);
+
+  var selectedSubjectCredit = selectedSubject['credits'];
+  // console.log('Credit: ' + selectedSubjectCredit);
+
+  var listOfTeacherWeek = [];
+
+  let i;
+  for (i = 0; i < teacherWeeks.length; i++) {
+    let currentTeacherWeek = teacherSchedule.get('teacherSchedule').nth(i).value();
+    // console.log('Current week: ' + currentWeek.id_week);
+    let k;
+    let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+    for (k = 1; k <= 7; k++) {
+      let thisDay = days[k - 1];
+      // console.log('This day: ' + thisDay);
+      let thisDayValue = currentTeacherWeek[thisDay];
+      let l;
+      let count = selectedSubjectCredit;
+      for (l = 0; l < thisDayValue.length; l++) {
+        if (thisDayValue[l] === 0) {
+          count--;
+        } else {
+          if (count !== 0) {
+            count = selectedSubjectCredit;
+          }
+        }
+        if (count === 0) {
+          break;
+        }
+      }
+      if (count === 0) {
+        listOfTeacherWeek.push(currentTeacherWeek);
+        break;
+      }
+    }
+  }
+  // for (i = 0; i < listOfWeek.length; i++) {
+  //   console.log('List of Week: ' + listOfWeek[i].id_week);
+  // }
+
+  var listOfTeacher = [];
+
+  for (let j = 0; j < teachers.length; j++) {
+    let i;
+    let currentTeacher = teachers[j];
+    for (i = 0; i < listOfTeacherWeek.length; i++) {
+      if (currentTeacher['teacherSchedule'] === listOfTeacherWeek[i].id) {
+        listOfTeacher.push(currentTeacher);
+        break;
+      }
+    }
+  }
+
+  for (i = 0; i < listOfTeacherWeek.length; i++) {
+    console.log('List of Teacher: ' + listOfTeacher[i].name);
+  }
+
+
+  res.render('school/assignTeacherToSubject', {
+    subjects: subjects,
+    teachers: listOfTeacher,
+    selectedSubject: selectedSubject,
+    csrfToken: req.csrfToken()
+  })
+
+  // res.redirect('/users');
+}
