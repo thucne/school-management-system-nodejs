@@ -223,14 +223,23 @@ module.exports.registrationMenuDisplaying = function (req, res) {
   function ren() {
     var user = db.get('users').find({id: id}).value();
 
+    if (user) {
+      res.render('users/courseRegistration', {
+        loginUser: user,
+        departments: departments,
+        subjects: subjects,
+        correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
+        csrfToken: token
+      });
+    } else {
+      // res.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      res.clearCookie('userID');
+      // console.log(userInfo.name + "oops");
 
-    res.render('users/courseRegistration', {
-      loginUser: user,
-      departments: departments,
-      subjects: subjects,
-      correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
-      csrfToken: token
-    });
+      res.locals.userInfo.name = " ";
+
+      res.render('auth/login');
+    }
   }
   // res.redirect('/users');
 }
