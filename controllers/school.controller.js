@@ -751,71 +751,316 @@ module.exports.searchTeacher = function (req, res) {
 
 
   var selectedSubject = JSON.parse(req.body.sub);
-  // console.log('Selected Sub: ' + selectedSubject.name_sub);
+  // console.log(teachers);
 
   var selectedSubjectCredit = selectedSubject['credits'];
-  // console.log('Credit: ' + selectedSubjectCredit);
+  console.log('Credit: ' + selectedSubjectCredit);
 
   var listOfTeacherWeek = [];
 
-  let i;
-  for (i = 0; i < teacherWeeks.length; i++) {
-    let currentTeacherWeek = teacherSchedule.get('teacherSchedule').nth(i).value();
-    // console.log('Current week: ' + currentWeek.id_week);
-    let k;
-    let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-    for (k = 1; k <= 7; k++) {
-      let thisDay = days[k - 1];
-      // console.log('This day: ' + thisDay);
-      let thisDayValue = currentTeacherWeek[thisDay];
-      let l;
-      let count = selectedSubjectCredit;
-      for (l = 0; l < thisDayValue.length; l++) {
-        if (thisDayValue[l] === 0) {
-          count--;
-        } else {
-          if (count !== 0) {
-            count = selectedSubjectCredit;
+  function findAvailableSchedule() {
+    for (let i = 0; i < teacherWeeks.length; i++) {
+      let currentTeacherWeek = teacherSchedule.get('teacherSchedule').nth(i).value();
+      // console.log('Current week: ' + currentTeacherWeek.id);
+      let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+      for (let k = 1; k <= 7; k++) {
+        let thisDay = days[k - 1];
+        // console.log('This day: ' + thisDay);
+        let thisDayValue = currentTeacherWeek[thisDay];
+        let count = selectedSubjectCredit;
+        // console.log('This Day Value length ' + thisDayValue.length);
+        for (let l = 0; l < thisDayValue.length; l++) {
+          if (thisDayValue[l] === 0) {
+            count--;
+          } else {
+            if (count !== 0) {
+              count = selectedSubjectCredit;
+            }
+          }
+          if (count === 0) {
+            break;
           }
         }
         if (count === 0) {
+          listOfTeacherWeek.push(currentTeacherWeek);
+          // console.log('OK');
           break;
         }
       }
-      if (count === 0) {
-        listOfTeacherWeek.push(currentTeacherWeek);
-        break;
-      }
     }
   }
-  // for (i = 0; i < listOfWeek.length; i++) {
-  //   console.log('List of Week: ' + listOfWeek[i].id_week);
-  // }
+
+  async function findAvailableScheduleNow() {
+    await findAvailableSchedule();
+  }
 
   var listOfTeacher = [];
 
-  for (let j = 0; j < teachers.length; j++) {
-    let i;
-    let currentTeacher = teachers[j];
-    for (i = 0; i < listOfTeacherWeek.length; i++) {
-      if (currentTeacher['teacherSchedule'] === listOfTeacherWeek[i].id) {
-        listOfTeacher.push(currentTeacher);
-        break;
+  function findCorrespondentTeacher() {
+    // for (let i = 0; i < listOfTeacherWeek.length; i++) {
+    //   console.log('List of Week: ' + listOfTeacherWeek[i].id_week);
+    // }
+
+    for (let j = 0; j < teachers.length; j++) {
+      let currentTeacher = teachers[j];
+      for (let i = 0; i < listOfTeacherWeek.length; i++) {
+        if (currentTeacher['teacherSchedule'] === listOfTeacherWeek[i]['id']) {
+          listOfTeacher.push(currentTeacher);
+          break;
+        }
       }
     }
   }
 
-  for (i = 0; i < listOfTeacherWeek.length; i++) {
-    console.log('List of Teacher: ' + listOfTeacher[i].name);
+  async function findCorrespondentTeacherNow() {
+    await findCorrespondentTeacher();
   }
 
+  function run(){
+    findCorrespondentTeacherNow().then(ren);
+  }
+
+  function ren() {
+    // for (let i = 0; i < listOfTeacher.length; i++) {
+    //   console.log('List of Teacher: ' + listOfTeacher[i].name);
+    // }
+
+
+    res.render('school/assignTeacherToSubject', {
+      subjects: subjects,
+      teachers: listOfTeacher,
+      selectedSubject: selectedSubject,
+      csrfToken: req.csrfToken()
+    })
+  }
+
+  findAvailableScheduleNow().then(run);
+
+  // res.redirect('/users');
+}
+
+module.exports.searchTeacherWeek = function (req, res) {
+  var subjects = subject.get('subjects').value();
+
+
+  var selectedSubject = JSON.parse(req.body.sub);
+  var selectedTeacher = JSON.parse(req.body.tea);
+  var listTeacher = JSON.parse(req.body.list_tea);
+
+  var selectedSubjectCredit = selectedSubject['credits'];
+  var selectedTeacherWeek = teacherSchedule.get('teacherSchedule').find({id: selectedTeacher['teacherSchedule']}).value();
+
+  console.log(selectedTeacherWeek);
+  console.log(selectedSubjectCredit);
+
+  let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+  let periods = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+
+  let result = {mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: []};
+  let result2 = {mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: []};
+
+  let k;
+  for (k = 1; k <= 7; k++) {
+    let thisDay = days[k - 1];
+    let thisDayValue = selectedTeacherWeek[thisDay];
+    // console.log('this day value ' + thisDayValue);
+    let l;
+    let count = selectedSubjectCredit;
+    let preCount = selectedSubjectCredit;
+    for (l = 0; l < thisDayValue.length; l++) {
+      if (thisDayValue[l] === 1) {
+        result[thisDay].push(1);
+        result2[thisDay].push(1);
+        count = selectedSubjectCredit;
+        // console.log('push 1');
+      } else {
+        result[thisDay].push(0);
+        result2[thisDay].push(0);
+        // console.log('push 0');
+        count--;
+      }
+
+      let checkValid = count - preCount;
+
+      if (0 < checkValid && checkValid < selectedSubjectCredit) {
+        for (let h = 0; h <= checkValid; h++) {
+          result[thisDay].pop();
+          result2[thisDay].pop();
+        }
+        for (let h = 0; h <= checkValid; h++) {
+          result[thisDay].push(1);
+          result2[thisDay].push(1);
+        }
+        count = selectedSubjectCredit;
+      }
+      if (l === thisDayValue.length - 1) {
+        let checkTail = selectedSubjectCredit - count;
+        if ((checkTail !== 0) && checkTail !== parseInt(selectedSubjectCredit)) {
+          for (let h = 0; h <= checkTail; h++) {
+            result[thisDay].pop();
+            result2[thisDay].pop();
+          }
+          for (let h = 0; h <= checkTail; h++) {
+            result[thisDay].push(1);
+            result2[thisDay].push(1);
+          }
+        }
+      }
+      preCount = count;
+
+    }
+  }
+
+  console.log('result 1 ' + result['mon']);
+  console.log('result 2 ' + result2['mon']);
+
+  var displayedResult = {
+    '1': [],
+    '2': [],
+    '3': [],
+    '4': [],
+    '5': [],
+    '6': [],
+    '7': [],
+    '8': [],
+    '9': [],
+    '10': [],
+    '11': [],
+    '12': []
+  }
+  var where = [];
+
+  for (let t = 0; t < days.length; t++) {
+    let count = 1;
+    for (let p = 0; p < periods.length; p++) {
+      if (result[days[t]][p] === 0) {
+        if (count > 1) {
+          result[days[t]][p] = count;
+        }
+        count++;
+      } else {
+        count = 1;
+      }
+
+    }
+  }
+
+  for (let a = 0; a < 12; a++) {
+    let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+    let periods = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+
+    for (let b = 0; b < days.length; b++) {
+      if (result[days[b]][a] < 2) {
+        displayedResult[periods[a]].push(result[days[b]][a]);
+      }
+    }
+  }
+
+  for (let t = 0; t < days.length; t++) {
+    let count = 1;
+    for (let p = 0; p < periods.length; p++) {
+      if (result2[days[t]][p] === 0) {
+        if (count > 1) {
+          result2[days[t]][p] = count;
+        }
+        if (p === 11 && result2[days[t]][11] > 1) {
+          for (let h = 11; h > (p - count + 1); h--) {
+            result2[days[t]][h] = 0;
+          }
+          if (result2[days[t]][p - count + 1] !== 1) {
+            result2[days[t]][p - count + 1] = count;
+          }
+        }
+        count++;
+      } else {
+        if (count > 1) {
+          for (let h = p - 1; h > (p - count + 1); h--) {
+            result2[days[t]][h] = 0;
+          }
+        }
+        if (result2[days[t]][p - count + 1] !== 1) {
+          result2[days[t]][p - count + 1] = count - 1;
+        }
+
+        count = 1;
+      }
+    }
+  }
+  console.log('result 1 AFTER ' + result['mon']);
+  console.log('result 2 AFTER ' + result2['mon']);
+
+
+  var checkArray = [];
+
+  for (let c = 0; c < 12; c++) {
+    for (let g = 0; g < days.length; g++) {
+      if (result2[days[g]][c] !== 0) {
+        where.push(result2[days[g]][c]);
+        checkArray.push(result2[days[g]][c]);
+      }
+    }
+  }
+  console.log('where ' + where);
+
+  var count = 7;
+  var compareString = checkArray.slice(0, count);
+  // console.log('Check Array String: '  + checkArray);
+  // console.log('Length of Check Array String: '  + checkArray.length);
+  // console.log('Compare String: '  + compareString);
+  // console.log('Type of Compare String: '  + compareString[0]);
+  var currentString;
+  var whereDay = [];
+
+  for (let x = 0; x < compareString.length; x++) {
+    whereDay.push(days[x]);
+  }
+
+  for (let y = 1; y < 12; y++) {
+    // console.log('Compare String: '  + compareString);
+
+    let f = 7;
+    for (let v = 0;  v < compareString.length; v++) {
+      if (compareString[v] !== 1 && compareString[v] !== 9) {
+        f--;
+      }
+    }
+    // console.log('Count: ' + count + ' f: ' + f);
+    currentString = checkArray.slice(count, count + f);
+    count = count + f;
+    // console.log('pre Current String: '  + currentString);
+    for (let r = 0; r < 7; r++) {
+      // let currentIdx = currentString[r];
+      let compareIdx = compareString[r];
+
+      if (compareIdx > 1 && compareIdx < 9) {
+        if (compareIdx !== 2) {
+          currentString.splice(r, 0, compareIdx - 1);
+        } else {
+          currentString.splice(r, 0, 9);
+        }
+      } else {
+        whereDay.push(days[r]);
+        // console.log('Push ' + days[r]);
+      }
+    }
+    // console.log('Current String: ' + currentString);
+
+    compareString = currentString;
+    // console.log('Compare String: '  + compareString);
+
+  }
+
+  console.log('Length of List of Days: ' + whereDay.length);
+  console.log('List of Days: ' + whereDay);
 
   res.render('school/assignTeacherToSubject', {
     subjects: subjects,
-    teachers: listOfTeacher,
+    teachers: listTeacher,
     selectedSubject: selectedSubject,
+    selectedTeacher: selectedTeacher,
+    weekDetails: displayedResult,
+    where: where,
+    whereDay: whereDay,
     csrfToken: req.csrfToken()
   })
-
-  // res.redirect('/users');
 }
