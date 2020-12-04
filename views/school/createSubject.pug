@@ -18,8 +18,10 @@ block content
                             input(type='hidden', name='_csrf', value=csrfToken)
                             label.text-success(for='exampleFormControlSelect1', data-toggle='tooltip', data-placement='right', title=subjects.length + ' subjects found!') Available: #{subjects.length}
                             select#exampleFormControlSelect1.form-control(size='5', style='overflow-x: scroll;', name='sub')
+                                - var isChecked = 0
                                 each subject in subjects
-                                    option(value=subject, selected=selectedSubject ? (selectedSubject['id_sub'] === subject.id_sub): false )= 'ID: '+ subject.id_sub + '; Name: ' + subject.name_sub
+                                    option(value=subject, selected=selectedSubject ? (selectedSubject['id_sub'] === subject.id_sub): (isChecked === 0))= 'ID: '+ subject.id_sub + '; Name: ' + subject.name_sub
+                                    - isChecked = 1
                         button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
                     if selectedSubject
                         span
@@ -57,8 +59,10 @@ block content
                                     label(for='exampleFormControlSelect2') Available: #{rooms.length}
 
                                 select#exampleFormControlSelect2.form-control(size='5', style='overflow-x: scroll;', name='roo')
+                                  - var isRoomChecked = 0
                                   each room in rooms
-                                    option(value=room, selected=selectedRoom ? (selectedRoom['id'] === room.id): false)= 'ID: '+ room.id + '; Room: ' + room['room']
+                                    option(value=room, selected=selectedRoom ? (selectedRoom['id'] === room.id): (isRoomChecked === 0))= 'ID: '+ room.id + '; Room: ' + room['room']
+                                    - isRoomChecked = 1
                                 input(type='hidden', name='subject', value=selectedSubject ? selectedSubject : '')
                             button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
                     else
