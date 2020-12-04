@@ -1,6 +1,6 @@
 var db = require('../lowdb/db');
 var avatar = require('../lowdb/avatar');
-// var avt = require('../avatar');
+var department = require('../lowdb/department');
 
 const shortid = require('shortid');
 var aguid = require('aguid');
@@ -194,6 +194,7 @@ module.exports.postCreate = function (req, res) {
 module.exports.registrationMenuDisplaying = function (req, res) {
   var id = req.params.loginId;
   var token = req.csrfToken();
+  var departments = department.get('department').value();
   console.log("register " + token);
 
   var user = db.get('users').find({id: id}).value();
@@ -201,6 +202,7 @@ module.exports.registrationMenuDisplaying = function (req, res) {
   console.log(user.name);
   res.render('users/courseRegistration', {
     loginUser: user,
+    departments: departments,
     csrfToken: token
   });
   // res.redirect('/users');
