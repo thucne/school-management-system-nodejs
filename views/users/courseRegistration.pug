@@ -2,6 +2,7 @@ extends ../layouts/common
 
 block content
     link(rel="stylesheet", href="/styles/cellHover.css")
+    link(rel="stylesheet", href="/styles/myTable.css")
     script.
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
@@ -40,4 +41,39 @@ block content
                                                 each department in departments
                                                     a.dropdown-item(href='/', data-toggle='tooltip', data-placement='right', title=department.department_name) #{department.department_name}
                 .con-md-2
+
+            hr(style="background-color: red;")
+            .table-responsive.mt-4
+                .table-wrapper-scroll-y.my-custom-scrollbar
+                    table.table.table-hover.table-striped
+                        tr.table-secondary.blue
+                           th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Department ID') Department ID
+                           th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Department Name') Department Name
+                           th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject ID') Subject ID
+                           th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Name') Subject Name
+                           th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Lecture Name') Lecture Name
+                           th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Type') Type
+                           th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Room') Room
+                           th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Dat') Day
+                           th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Period') Period
+                           th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Credits') Credits
+                           th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Start') Start Day
+                           th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='End') End Day
+                        if (subjects && correspondingDepartmentOfSubject)
+                          - var count = 0
+                          each subject in subjects
+                              tr
+                                  td= correspondingDepartmentOfSubject[count]['department_id']
+                                  td= correspondingDepartmentOfSubject[count++]['department_name']
+                                  td= subject.id_sub
+                                  td= subject.name_sub
+                                  td= subject.lecturer ? subject.lecturer : 'Updating...'
+                                  td= subject.type
+                                  td= subject.room ? subject.room : 'Updating...'
+                                  td= subject.whichDay ? subject.whichDay.charAt(0).toUpperCase() + subject.whichDay.slice(1) : 'Updating...'
+                                  td= subject.whichPeriod ? subject.whichPeriod : 'Updating...'
+                                  td= subject.credits
+                                  td= subject.start
+                                  td= subject.end
+
 
