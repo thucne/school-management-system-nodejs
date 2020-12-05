@@ -234,8 +234,8 @@ module.exports.searchWeek = function (req, res) {
         result2[thisDay].push(0);
         count--;
       }
-      console.log('result 1 PRE ' + result['mon']);
-      console.log('result 2 PRE ' + result2['mon']);
+      // console.log('result 1 PRE ' + result['mon']);
+      // console.log('result 2 PRE ' + result2['mon']);
       let checkValid = count - preCount;
 
       if (0 < checkValid && checkValid < selectedSubjectCredit) {
