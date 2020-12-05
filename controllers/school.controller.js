@@ -740,7 +740,9 @@ module.exports.assignStandardSchedule = function (req, res) {
 }
 
 module.exports.assignTeacherToSubject = function (req, res) {
-  var subjects = subject.get('subjects').value();
+  var subjects = subject.get('subjects').value().filter( function (subject) {
+    return subject.room;
+  });
 
   res.render('school/assignTeacherToSubject', {
     subjects: subjects,
@@ -879,8 +881,8 @@ module.exports.searchTeacherWeek = function (req, res) {
         result2[thisDay].push(0);
         count--;
       }
-      console.log('result 1 PRE  ' + result['mon']);
-      console.log('result 2 PRE  ' + result2['mon']);
+      // console.log('result 1 PRE  ' + result['mon']);
+      // console.log('result 2 PRE  ' + result2['mon']);
       let checkValid = count - preCount;
 
       if (0 < checkValid && checkValid < selectedSubjectCredit) {
@@ -895,9 +897,9 @@ module.exports.searchTeacherWeek = function (req, res) {
         count = selectedSubjectCredit;
       }
 
-      console.log('result 1 PRE1 ' + result['mon']);
-      console.log('result 2 PRE1 ' + result2['mon']);
-      console.log('COUNT NOW ' + count);
+      // console.log('result 1 PRE1 ' + result['mon']);
+      // console.log('result 2 PRE1 ' + result2['mon']);
+      // console.log('COUNT NOW ' + count);
       if (count < 0) {
         count = 0;
       }
@@ -915,8 +917,8 @@ module.exports.searchTeacherWeek = function (req, res) {
           }
         }
       }
-      console.log('result 1 PRE2 ' + result['mon']);
-      console.log('result 2 PRE2 ' + result2['mon']);
+      // console.log('result 1 PRE2 ' + result['mon']);
+      // console.log('result 2 PRE2 ' + result2['mon']);
       preCount = count;
 
     }
@@ -1065,4 +1067,103 @@ module.exports.searchTeacherWeek = function (req, res) {
     whereDay: whereDay,
     csrfToken: req.csrfToken()
   })
+}
+
+module.exports.assignTeacherNOWToSubject = function (req, res) {
+  var subjects = subject.get('subjects').value();
+  var selectedSubject = subject.get('subjects').find({id_sub: parseInt(req.body.chooseThisSubjectID)}).value();
+  var selectThis = JSON.parse(req.body.selectThis);
+
+  console.log('Select This: ' + selectThis);
+  console.log('Type of Select This: ' + typeof selectedSubject);
+  console.log('Day of Select This: ' + selectThis[0]);
+  console.log('Period of Select This: ' + selectThis[1]);
+  var whichPeriod = [];
+  for (let t = 0; t < req.body.chooseThisCredit; t++) {
+    whichPeriod.push(selectThis[1]++);
+  }
+  console.log('Teacher: ' + req.body.chooseThisTeacherName + ' whichday: ' + selectThis[0] + ' whichperiod ' + whichPeriod);
+
+  subject.get('subjects')
+      .find({id_sub: parseInt(req.body.chooseThisSubjectID)})
+      .assign({lecturer: req.body.chooseThisTeacherName, lecturerID: req.body.chooseThisTeacherID})
+      .write();
+
+  var selectedTeacher = db.get('users').find({id: req.body.chooseThisTeacherID}).value();
+  var selectWeekID = selectedTeacher['teacherSchedule'];
+
+  var selectedWeek = teacherSchedule.get('teacherSchedule').find({id: selectWeekID}).value();
+  // console.log('Week ISSSS ' + selectedWeek.id_week);
+
+  var whatDayInSelectedWeek = selectThis[0];
+  var oo = selectedWeek[whatDayInSelectedWeek];
+
+  // console.log('Type of day ' + typeof whatDayInSelectedWeek);
+  // console.log('day ' + whatDayInSelectedWeek);
+
+  var to = (selectThis[1] - 1);
+  console.log('COntent in What Day In Week BEFORE ' + oo);
+  for (let b = selectThis[1] - req.body.chooseThisCredit - 1; b < to; b++) {
+    oo.splice(b, 1, 1);
+  }
+  console.log('COntent in What Day In Week ' + oo);
+
+  if (whatDayInSelectedWeek === 'mon') {
+    teacherSchedule.get('teacherSchedule').find({id: selectWeekID}).assign({mon: oo}).write();
+  } else if (whatDayInSelectedWeek === 'tue') {
+    teacherSchedule.get('teacherSchedule').find({id: selectWeekID}).assign({tue: oo}).write();
+  } else if (whatDayInSelectedWeek === 'wed') {
+    teacherSchedule.get('teacherSchedule').find({id: selectWeekID}).assign({wed: oo}).write();
+  } else if (whatDayInSelectedWeek === 'thu') {
+    teacherSchedule.get('teacherSchedule').find({id: selectWeekID}).assign({thu: oo}).write();
+  } else if (whatDayInSelectedWeek === 'fri') {
+    teacherSchedule.get('teacherSchedule').find({id: selectWeekID}).assign({fri: oo}).write();
+  } else if (whatDayInSelectedWeek === 'sat') {
+    teacherSchedule.get('teacherSchedule').find({id: selectWeekID}).assign({sat: oo}).write();
+  } else if (whatDayInSelectedWeek === 'sun') {
+    teacherSchedule.get('teacherSchedule').find({id: selectWeekID}).assign({sun: oo}).write();
+  }
+
+  if (req.body.existedTeacher !== undefined && req.body.existedDay !== undefined && req.body.existedPeriod !== undefined) {
+    var existedTeacher = db.get('users').find({id: req.body.existedTeacherID}).value();
+    var existedWeekID = existedTeacher['teacherSchedule'];
+    var existedWeek = teacherSchedule.get('teacherSchedule').find({id: existedWeekID}).value();
+    var whatDayInExistedWeek = req.body.existedDay;
+    console.log('whatDayInExistedWeek ' + whatDayInExistedWeek);
+    console.log('type OF whatDayInExistedWeek ' + typeof whatDayInExistedWeek);
+    var oops = existedWeek[whatDayInExistedWeek];
+
+    var tops = (parseInt(req.body.existedPeriod) + parseInt(req.body.chooseThisCredit) - 1);
+
+    console.log('COntent in What Day In EXISTED Week BEFORE ' + oops);
+    for (let b = parseInt(req.body.existedPeriod) - 1; b < tops; b++) {
+      oops.splice(b, 1, 0);
+    }
+    console.log('req.body.existedPeriod - 1: ' + (req.body.existedPeriod - 1) + ' tops: ' + tops);
+    console.log('COntent in What Day In EXISTED Week ' + oops);
+
+    if (whatDayInExistedWeek === 'mon') {
+      teacherSchedule.get('teacherSchedule').find({id: existedWeekID}).assign({mon: oops}).write();
+    } else if (whatDayInExistedWeek === 'tue') {
+      teacherSchedule.get('teacherSchedule').find({id: existedWeekID}).assign({tue: oops}).write();
+    } else if (whatDayInExistedWeek === 'wed') {
+      teacherSchedule.get('teacherSchedule').find({id: existedWeekID}).assign({wed: oops}).write();
+    } else if (whatDayInExistedWeek === 'thu') {
+      teacherSchedule.get('teacherSchedule').find({id: existedWeekID}).assign({thu: oops}).write();
+    } else if (whatDayInExistedWeek === 'fri') {
+      teacherSchedule.get('teacherSchedule').find({id: existedWeekID}).assign({fri: oops}).write();
+    } else if (whatDayInExistedWeek === 'sat') {
+      teacherSchedule.get('teacherSchedule').find({id: existedWeekID}).assign({sat: oops}).write();
+    } else if (whatDayInExistedWeek === 'sun') {
+      teacherSchedule.get('teacherSchedule').find({id: existedWeekID}).assign({sun: oops}).write();
+    }
+  }
+
+
+  res.render('school/assignTeacherToSubject', {
+    subjects: subjects,
+    selectedSubject: selectedSubject,
+    teachers: JSON.parse(req.body.chooseTheseTeachers),
+    csrfToken: req.csrfToken()
+  });
 }
