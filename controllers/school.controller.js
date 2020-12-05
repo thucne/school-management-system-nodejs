@@ -1066,3 +1066,7 @@ module.exports.searchTeacherWeek = function (req, res) {
     csrfToken: req.csrfToken()
   })
 }
+
+module.exports.assignTeacherToSubject = function (req, res) {
+  res.redirect('/school/searchForTeacher');
+}
