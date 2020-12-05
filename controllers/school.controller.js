@@ -234,7 +234,8 @@ module.exports.searchWeek = function (req, res) {
         result2[thisDay].push(0);
         count--;
       }
-
+      console.log('result 1 PRE ' + result['mon']);
+      console.log('result 2 PRE ' + result2['mon']);
       let checkValid = count - preCount;
 
       if (0 < checkValid && checkValid < selectedSubjectCredit) {
@@ -248,6 +249,11 @@ module.exports.searchWeek = function (req, res) {
         }
         count = selectedSubjectCredit;
       }
+
+      if (count < 0) {
+        count = 0;
+      }
+
       if (l === thisDayValue.length - 1) {
         let checkTail = selectedSubjectCredit - count;
         if ((checkTail !== 0) && checkTail !== parseInt(selectedSubjectCredit)) {
@@ -848,10 +854,7 @@ module.exports.searchTeacherWeek = function (req, res) {
   var listTeacher = JSON.parse(req.body.list_tea);
 
   var selectedSubjectCredit = selectedSubject['credits'];
-  var selectedTeacherWeek = teacherSchedule.get('teacherSchedule').find({id: selectedTeacher['teacherSchedule']}).value();
-
-  console.log(selectedTeacherWeek);
-  console.log(selectedSubjectCredit);
+  var selectedWeek = teacherSchedule.get('teacherSchedule').find({id: selectedTeacher['teacherSchedule']}).value();
 
   let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
   let periods = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
@@ -862,8 +865,7 @@ module.exports.searchTeacherWeek = function (req, res) {
   let k;
   for (k = 1; k <= 7; k++) {
     let thisDay = days[k - 1];
-    let thisDayValue = selectedTeacherWeek[thisDay];
-    // console.log('this day value ' + thisDayValue);
+    let thisDayValue = selectedWeek[thisDay];
     let l;
     let count = selectedSubjectCredit;
     let preCount = selectedSubjectCredit;
@@ -872,14 +874,13 @@ module.exports.searchTeacherWeek = function (req, res) {
         result[thisDay].push(1);
         result2[thisDay].push(1);
         count = selectedSubjectCredit;
-        // console.log('push 1');
       } else {
         result[thisDay].push(0);
         result2[thisDay].push(0);
-        // console.log('push 0');
         count--;
       }
-
+      console.log('result 1 PRE  ' + result['mon']);
+      console.log('result 2 PRE  ' + result2['mon']);
       let checkValid = count - preCount;
 
       if (0 < checkValid && checkValid < selectedSubjectCredit) {
@@ -893,6 +894,14 @@ module.exports.searchTeacherWeek = function (req, res) {
         }
         count = selectedSubjectCredit;
       }
+
+      console.log('result 1 PRE1 ' + result['mon']);
+      console.log('result 2 PRE1 ' + result2['mon']);
+      console.log('COUNT NOW ' + count);
+      if (count < 0) {
+        count = 0;
+      }
+
       if (l === thisDayValue.length - 1) {
         let checkTail = selectedSubjectCredit - count;
         if ((checkTail !== 0) && checkTail !== parseInt(selectedSubjectCredit)) {
@@ -906,14 +915,12 @@ module.exports.searchTeacherWeek = function (req, res) {
           }
         }
       }
+      console.log('result 1 PRE2 ' + result['mon']);
+      console.log('result 2 PRE2 ' + result2['mon']);
       preCount = count;
 
     }
   }
-
-  console.log('result 1 ' + result['mon']);
-  console.log('result 2 ' + result2['mon']);
-
   var displayedResult = {
     '1': [],
     '2': [],
@@ -986,10 +993,6 @@ module.exports.searchTeacherWeek = function (req, res) {
       }
     }
   }
-  console.log('result 1 AFTER ' + result['mon']);
-  console.log('result 2 AFTER ' + result2['mon']);
-
-
   var checkArray = [];
 
   for (let c = 0; c < 12; c++) {
@@ -1000,7 +1003,6 @@ module.exports.searchTeacherWeek = function (req, res) {
       }
     }
   }
-  console.log('where ' + where);
 
   var count = 7;
   var compareString = checkArray.slice(0, count);
@@ -1050,8 +1052,8 @@ module.exports.searchTeacherWeek = function (req, res) {
 
   }
 
-  console.log('Length of List of Days: ' + whereDay.length);
-  console.log('List of Days: ' + whereDay);
+  // console.log('Length of List of Days: ' + whereDay.length);
+  // console.log('List of Days: ' + whereDay);
 
   res.render('school/assignTeacherToSubject', {
     subjects: subjects,

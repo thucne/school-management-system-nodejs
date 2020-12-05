@@ -53,13 +53,13 @@
       "end": "06/01/2021",
       "type": "Theory",
       "credits": "4",
-      "room": "A1.718",
-      "whichDay": "fri",
+      "room": "A2.719",
+      "whichDay": "sun",
       "whichPeriod": [
+        1,
         2,
         3,
-        4,
-        5
+        4
       ]
     },
     {
