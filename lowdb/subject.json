@@ -30,7 +30,9 @@
       "whichPeriod": [
         10,
         11
-      ]
+      ],
+      "lecturer": "Reddoch",
+      "lecturerID": "0aa07faf-741e-45dc-995f-bac86ee7d32d"
     },
     {
       "id_sub": 3,
@@ -46,7 +48,9 @@
         2,
         3,
         4
-      ]
+      ],
+      "lecturer": "Hartless",
+      "lecturerID": "e2544629-8584-4e3e-af40-a22c21447683"
     },
     {
       "id_sub": 4,
