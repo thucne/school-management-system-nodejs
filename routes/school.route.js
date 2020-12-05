@@ -20,5 +20,6 @@ router.get('/assignStandardSchedule', controller.assignStandardSchedule);
 router.get('/assignTeacherToSubject', controller.assignTeacherToSubject);
 router.post('/searchForTeacher', controller.searchTeacher);
 router.post('/searchForTeacher/searchForWeek', controller.searchTeacherWeek);
+router.post('/searchForTeacher/searchForWeek/assign', controller.assignTeacherNOWToSubject);
 
 module.exports = router;
