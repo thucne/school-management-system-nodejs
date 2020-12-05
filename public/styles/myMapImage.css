@@ -1,0 +1,24 @@
+
+.container {
+    /*margin: 20px auto 0;*/
+    position: relative;
+    /*width: 90%;*/
+}
+
+.pyramid {
+    /*position: relative;*/
+
+    margin: 0 auto;
+    /*width: 90%;*/
+}
+
+img[usemap] {
+    border: none;
+    height: auto;
+    max-width: 100%;
+    width: auto;
+}
+
+/*p {*/
+/*    margin: 0;*/
+/*}*/

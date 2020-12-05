@@ -1,6 +1,14 @@
 extends layouts/common
 
 block content
-    img.mb-3(src='/images/404_2.png', alt='404', usemap='#workmap', style='max-width: 100%; border-radius: 20px;')
-    map(name='workmap')
-        area(shape='rect', coords='579,556,621,600', alt='Image', href='/users')
+    script(src='/plugins/jquery.rwdImageMaps.js')
+    script.
+      $(document).ready(function (e) {
+        $('img[usemap]').rwdImageMaps();
+      });
+    .pyramid
+        link(rel="stylesheet", href="/styles/myMapImage.css")
+        img.mb-3(src='/images/404_2.png', alt='404', usemap='#workmap', style='max-width: 100%; border-radius: 20px;')
+        map(name='workmap', id='workmap')
+            area(shape='rect', coords='580,557,619,599', alt='Image', href='/users')
+        //534,514,571,552
