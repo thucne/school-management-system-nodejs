@@ -77,9 +77,11 @@ block content
                         h2 #{selectedTeacher['name']}'s Schedule
                         .container-fluid.mb-0
                             .row
-                                .col-md-6
+                                .col-md-12
                                     .text-success(data-toggle='tooltip', data-placement='right', title='Choose colored area!')
-                                        label Results for #{selectedSubject.credits} needed credits
+                                        span
+                                            label Results for #{selectedSubject.credits} needed credits.
+                                            label.text-danger Note that no matter what was your selection, this teacher's time-table will be used in exactly the same Day and Period as ones in this subject.
                     if (weekDetails && (where.length!== 0) && (whereDay.length!==0))
                         form(action='/school/searchForTeacher/searchForWeek/assign', method='POST')
                             .form-group

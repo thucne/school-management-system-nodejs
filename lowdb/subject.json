@@ -66,7 +66,9 @@
         2,
         3,
         4
-      ]
+      ],
+      "lecturer": "Chadwick",
+      "lecturerID": "7214ce70-ecb2-478f-97ed-c4699cbe4438"
     },
     {
       "id_sub": 5,
@@ -143,7 +145,16 @@
       "start": "01/08/2021",
       "end": "06/16/2021",
       "type": "Theory",
-      "credits": "3"
+      "credits": "3",
+      "room": "A1.516",
+      "whichDay": "thu",
+      "whichPeriod": [
+        4,
+        5,
+        6
+      ],
+      "lecturer": "Corkel",
+      "lecturerID": "b0570372-c7ff-4f74-a725-bf5535deddd3"
     },
     {
       "id_sub": 13,
@@ -4119,7 +4130,17 @@
       "end": "06/11/2021",
       "type": "Laboratory",
       "credits": "4",
-      "name_sub": "Software Engineering"
+      "name_sub": "Software Engineering",
+      "room": "A1.709",
+      "whichDay": "mon",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "lecturer": "Behling",
+      "lecturerID": "969a9c62-4e6b-4f01-ab44-2f70e2e9aa92"
     },
     {
       "id_sub": 509,
