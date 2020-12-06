@@ -43,7 +43,9 @@ block content
                 .con-md-2
 
             hr(style="background-color: red;")
-            form(action='/users/register/' + userInfo.loginId + '/select', method="GET", name='SelectThis')
+            form(action='/users/register/select', method="POST", name='SelectThis')
+                // - var listOfSelectedSubjects = [1,2,3,4]
+                //input(type='hidden', name='listOfSelectedSubjects', value=[0, 1, 2, 3])
                 .table-responsive.mt-4(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
                     .table-wrapper-scroll-y.my-custom-scrollbar.ui-table-header-row
                         table.table.table-hover.table-striped
@@ -63,6 +65,13 @@ block content
                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='End') End Day
                             if (subjects && correspondingDepartmentOfSubject)
                               - var count = 0
+                              - var listOfSelectedSubjects = []
+                              if (inputSelectedSubject)
+                                - listOfSelectedSubjects = inputSelectedSubject
+                              input(type='hidden', name='listOfSelectedSubjects', value=listOfSelectedSubjects)
+                              input(type='hidden', name='existedDepartments', value=departments)
+                              input(type='hidden', name='_csrf', value=csrfToken)
+                              input(type='hidden', name='hiddenLoginID', value=userInfo.loginId)
                               each subject in subjects
                                   tr
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
@@ -81,7 +90,6 @@ block content
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.credits
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.start
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.end
-
 
             hr(style="background-color: gray;")
             if (!selectedSubjects)
