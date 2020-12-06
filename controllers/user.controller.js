@@ -223,7 +223,7 @@ module.exports.registrationMenuDisplaying = function (req, res) {
   function ren() {
     var user = db.get('users').find({id: id}).value();
 
-    if (user) {
+    if (user && id === res.locals.userInfo.loginId) {
       res.render('users/courseRegistration', {
         loginUser: user,
         departments: departments,
@@ -242,4 +242,16 @@ module.exports.registrationMenuDisplaying = function (req, res) {
     }
   }
   // res.redirect('/users');
+}
+
+module.exports.selectTheseSubjects = function (req, res) {
+  var id = req.params.loginId;
+  console.log(id);
+
+  if (id === res.locals.userInfo.loginId) {
+    console.log('YES ' + res.locals.userInfo.loginId);
+  } else {
+    console.log('NO ' + id);
+  }
+  res.redirect('/users');
 }

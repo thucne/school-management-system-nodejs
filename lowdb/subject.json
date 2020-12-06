@@ -8028,7 +8028,15 @@
       "start": "01/20/2021",
       "end": "06/04/2021",
       "type": "Theory",
-      "credits": "2"
+      "credits": "2",
+      "room": "A2.713",
+      "whichDay": "mon",
+      "whichPeriod": [
+        7,
+        8
+      ],
+      "lecturer": "Caherny",
+      "lecturerID": "fd9f62d3-2107-4006-9567-8a0605840573"
     },
     {
       "id_sub": 995,
