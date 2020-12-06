@@ -193,7 +193,7 @@ module.exports.postCreate = function (req, res) {
 };
 
 module.exports.registrationMenuDisplaying = function (req, res) {
-  var id = req.params.loginId;
+  var id = res.locals.userInfo.loginId;
   var token = req.csrfToken();
   var departments = department.get('department').value();
   // console.log("register " + token);
@@ -245,13 +245,25 @@ module.exports.registrationMenuDisplaying = function (req, res) {
 }
 
 module.exports.selectTheseSubjects = function (req, res) {
-  var id = req.params.loginId;
+  var id = req.body.hiddenLoginID;
+
+  var listOfSelectedSubjects = JSON.parse(req.body.listOfSelectedSubjects);
   console.log(id);
+  console.log('Existed Selected Subject ' + listOfSelectedSubjects);
 
   if (id === res.locals.userInfo.loginId) {
     console.log('YES ' + res.locals.userInfo.loginId);
   } else {
     console.log('NO ' + id);
   }
-  res.redirect('/users/register/' + id);
+  res.render('users/courseRegistration', {
+    loginUser: db.get('users').find({id: id}).value(),
+    departments: JSON.parse(req.body.existedDepartments),
+    subjects: req.body.existedSubjects,
+    correspondingDepartmentOfSubject: req.body.existedCorresponding,
+    inputSelectedSubject: listOfSelectedSubjects,
+    csrfToken: req.csrfToken()
+  });
+
+  // res.redirect('/users');
 }

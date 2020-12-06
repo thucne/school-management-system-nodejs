@@ -24,9 +24,9 @@ router.post('/updateInfo', upload.single('avatar'), csrfProtection, validate.pos
 
 router.get('/create', csrfProtection, controller.create);
 
-router.get('/register/:loginId', csrfProtection, controller.registrationMenuDisplaying);
+router.get('/register', csrfProtection, controller.registrationMenuDisplaying);
 
-router.get('/register/:loginId/select', csrfProtection, controller.selectTheseSubjects);
+router.post('/register/select', csrfProtection, controller.selectTheseSubjects);
 
 router.post('/create', upload.single('avatar'), csrfProtection, validate.postCreate, controller.postCreate);
 
