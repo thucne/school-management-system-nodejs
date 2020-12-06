@@ -253,5 +253,5 @@ module.exports.selectTheseSubjects = function (req, res) {
   } else {
     console.log('NO ' + id);
   }
-  res.redirect('/users');
+  res.redirect('/users/register/' + id);
 }

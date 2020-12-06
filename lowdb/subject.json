@@ -194,7 +194,16 @@
       "start": "01/09/2021",
       "end": "06/28/2021",
       "type": "Theory",
-      "credits": "3"
+      "credits": "3",
+      "room": "A1.709",
+      "whichDay": "mon",
+      "whichPeriod": [
+        5,
+        6,
+        7
+      ],
+      "lecturer": "Reddoch",
+      "lecturerID": "0aa07faf-741e-45dc-995f-bac86ee7d32d"
     },
     {
       "id_sub": 17,
