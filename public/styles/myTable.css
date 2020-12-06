@@ -3,6 +3,12 @@
     height: 400px;
     overflow: auto;
 }
+
+.my-custom-scrollbar-fee {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+}
 .table-wrapper-scroll-y {
     display: block;
 }

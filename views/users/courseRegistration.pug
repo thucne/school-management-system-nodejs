@@ -43,7 +43,7 @@ block content
                 .con-md-2
 
             hr(style="background-color: red;")
-            form(action='/users/register/' + userInfo.loginId, method="GET", name='SelectThis')
+            form(action='/users/register/' + userInfo.loginId + '/select', method="GET", name='SelectThis')
                 .table-responsive.mt-4(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
                     .table-wrapper-scroll-y.my-custom-scrollbar.ui-table-header-row
                         table.table.table-hover.table-striped
@@ -53,7 +53,7 @@ block content
                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Department Name') Department Name
                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject ID') Subject ID
                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Name') Subject Name
-                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Lecture Name') Lecture Name
+                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Lecture Name') Lecturer Name
                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Type') Type
                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Room') Room
                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Day') Day
@@ -82,4 +82,18 @@ block content
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.start
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.end
 
+
+            hr(style="background-color: gray;")
+            if (!selectedSubjects)
+                h4(style='color: blue; font-style: italic;') Selected Subjects
+                .table-responsive(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
+                  .table-wrapper-scroll-y.my-custom-scrollbar-fee.ui-table-header-row
+                      table.table.table-hover.table-striped
+                          tr.table-secondary.blue
+                              th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='No.') No.
+                              th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject ID') Subject ID
+                              th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Name') Subject Name
+                              th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Credits') Credits
+                              th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Fee') Fee
+                              th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Status') Subject Status
 

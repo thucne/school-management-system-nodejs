@@ -26,6 +26,8 @@ router.get('/create', csrfProtection, controller.create);
 
 router.get('/register/:loginId', csrfProtection, controller.registrationMenuDisplaying);
 
+router.get('/register/:loginId/select', csrfProtection, controller.selectTheseSubjects);
+
 router.post('/create', upload.single('avatar'), csrfProtection, validate.postCreate, controller.postCreate);
 
 router.get('/delete/:id', csrfProtection, controller.deleteUser);
