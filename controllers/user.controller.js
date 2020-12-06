@@ -259,14 +259,14 @@ module.exports.selectTheseSubjects = function (req, res) {
     listOfSelectedSubjects.push(findSelectedSubjectThisTime);
   }
 
-  console.log(id);
-  console.log('Existed Selected Subject ' + listOfSelectedSubjects);
+  // console.log(id);
+  // console.log('Existed Selected Subject ' + listOfSelectedSubjects);
 
-  if (id === res.locals.userInfo.loginId) {
-    console.log('YES ' + res.locals.userInfo.loginId);
-  } else {
-    console.log('NO ' + id);
-  }
+  // if (id === res.locals.userInfo.loginId) {
+  //   console.log('YES ' + res.locals.userInfo.loginId);
+  // } else {
+  //   console.log('NO ' + id);
+  // }
 
   var subjects = subject.get('subjects').value();
   var correspondingDepartmentOfSubject = [];
