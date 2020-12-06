@@ -295,9 +295,19 @@ module.exports.selectTheseSubjects = function (req, res) {
       console.log(selectedSubjectThisTime);
       let foundSub = subjects.filter(function (sub) {
         return sub.id_sub === parseInt(selectedSubjectThisTime);
-      })
-      console.log(foundSub[0].name_sub);
+      });
+      // console.log(foundSub[0].name_sub);
       foundSub[0].checked = true;
+      let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime)}).value();
+      let theseSubjectName = findSelectedSubjectThisTime.name_sub;
+
+      let foundTheseSub = subjects.filter(function (sub) {
+        return sub.name_sub === theseSubjectName && sub.id_sub !== parseInt(selectedSubjectThisTime);
+      });
+      // console.log(foundTheseSub);
+      for (let i = 0; i < foundTheseSub.length; i++) {
+        foundTheseSub[i].checked = true;
+      }
 
     }
     res.render('users/courseRegistration', {
