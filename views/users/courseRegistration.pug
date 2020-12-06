@@ -69,14 +69,13 @@ block content
                               if (inputSelectedSubject)
                                 - listOfSelectedSubjects = inputSelectedSubject
                               input(type='hidden', name='listOfSelectedSubjects', value=listOfSelectedSubjects)
-                              input(type='hidden', name='existedDepartments', value=departments)
                               input(type='hidden', name='_csrf', value=csrfToken)
                               input(type='hidden', name='hiddenLoginID', value=userInfo.loginId)
                               each subject in subjects
                                   tr
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
                                         .form-check
-                                            input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=subject.id_sub, onchange="document.SelectThis.submit()", disabled=!subject.room)
+                                            input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=subject.id_sub, onchange="document.SelectThis.submit()", disabled=!subject.room || subject.checked, checked=subject.checked)
                                             //label.custom-control-label(for=count.toString())
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= correspondingDepartmentOfSubject[count]['department_id']
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= correspondingDepartmentOfSubject[count++]['department_name']
@@ -92,7 +91,7 @@ block content
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.end
 
             hr(style="background-color: gray;")
-            if (!selectedSubjects)
+            if (listOfSelectedSubjects.length !== 0)
                 h4(style='color: blue; font-style: italic;') Selected Subjects
                 .table-responsive(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
                   .table-wrapper-scroll-y.my-custom-scrollbar-fee.ui-table-header-row
@@ -104,4 +103,25 @@ block content
                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Credits') Credits
                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Fee') Fee
                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Status') Subject Status
+                              th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select') Select
+                          if (inputSelectedSubject)
+                            - var count = 0
+                            - var listOfSelectedSubjects = []
+                            if (inputSelectedSubject)
+                              - listOfSelectedSubjects = inputSelectedSubject
+                            input(type='hidden', name='listOfSelectedSubjects', value=listOfSelectedSubjects)
+                            input(type='hidden', name='_csrf', value=csrfToken)
+                            input(type='hidden', name='hiddenLoginID', value=userInfo.loginId)
+                            each selectedSubject in listOfSelectedSubjects
+                                tr
+                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= count++
+                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.id_sub
+                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.name_sub
+                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.credits
+                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= ((parseInt(selectedSubject.credits)*56*23270).toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= 'Updating...'
+                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
+                                        .form-check
+                                            input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=selectedSubject.id_sub)
+
 
