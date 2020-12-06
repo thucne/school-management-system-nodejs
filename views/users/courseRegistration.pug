@@ -92,45 +92,62 @@ block content
 
             hr(style="background-color: gray;")
             if (listOfSelectedSubjects.length !== 0)
-                h4(style='color: blue; font-style: italic;') Selected Subjects
-                .table-responsive(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
-                  .table-wrapper-scroll-y.my-custom-scrollbar-fee.ui-table-header-row
-                      table.table.table-hover.table-striped
-                          tr.table-secondary.blue
-                              th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='No.') No.
-                              th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject ID') Subject ID
-                              th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Name') Subject Name
-                              th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Credits') Credits
-                              th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Fee') Fee
-                              th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Status') Subject Status
-                              th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select') Select
-                          if (inputSelectedSubject)
-                            - var count = 0
-                            - var listOfSelectedSubjects = []
-                            - var sumCredit = 0
-                            - var sumFee = 0
-                            if (inputSelectedSubject)
-                              - listOfSelectedSubjects = inputSelectedSubject
-                            input(type='hidden', name='listOfSelectedSubjects', value=listOfSelectedSubjects)
-                            input(type='hidden', name='_csrf', value=csrfToken)
-                            input(type='hidden', name='hiddenLoginID', value=userInfo.loginId)
-                            each selectedSubject in listOfSelectedSubjects
-                                - sumCredit = sumCredit + parseInt(selectedSubject.credits)
-                                - sumFee = sumFee + parseInt(selectedSubject.credits)*56*23270
+                h4(style='color: blue; font-style: italic; float: left;') Selected Subjects
+                button.btn.btn-secondary.btn-sm(accesskey='h', type='button', style='float: right;', data-toggle='tooltip'
+                    , data-placement='right', title='Delete selected rows', onclick='del()') Delete
+                button.btn.btn-secondary.btn-sm.mr-1(type='submit', style='float: right;', data-toggle='tooltip'
+                    , data-placement='left', title='Save the registrations', onclick="document.SaveThis.submit()") Save
+                script(type='text/javascript').
+                  function del() {
+                    var checkedValue = document.querySelector('.sltSubject').checked;
+                    // var index;
+                    // for (let i = 0; i < checkedValue.length; i++) {
+                    //   index = listOfSelectedSubjects.indexOf(checkedValue[i]);
+                    //   listOfSelectedSubjects.splice(index, 1);
+                    // }
+                    console.log('Checked ' + checkedValue);
+                    location.reload();
+                  }
+                form(action='/users/register/select/save', method="POST", name='SaveThis')
+                    //h4(style='color: blue; font-style: italic;') Selected Subjects
+                    .table-responsive(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
+                      .table-wrapper-scroll-y.my-custom-scrollbar-fee.ui-table-header-row
+                          table.table.table-hover.table-striped
+                              tr.table-secondary.blue
+                                  th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='No.') No.
+                                  th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject ID') Subject ID
+                                  th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Name') Subject Name
+                                  th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Credits') Credits
+                                  th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Fee') Fee
+                                  th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Status') Subject Status
+                                  th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select') Select
+                              if (inputSelectedSubject)
+                                - var count = 0
+                                - var listOfSelectedSubjects = []
+                                - var sumCredit = 0
+                                - var sumFee = 0
+                                if (inputSelectedSubject)
+                                  - listOfSelectedSubjects = inputSelectedSubject
+                                input(type='hidden', name='listOfSelectedSubjects', value=listOfSelectedSubjects)
+                                input(type='hidden', name='_csrf', value=csrfToken)
+                                input(type='hidden', name='hiddenLoginID', value=userInfo.loginId)
+                                each selectedSubject in listOfSelectedSubjects
+                                    - sumCredit = sumCredit + parseInt(selectedSubject.credits)
+                                    - sumFee = sumFee + parseInt(selectedSubject.credits)*56*23270
+                                    tr
+                                        td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= count++
+                                        td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.id_sub
+                                        td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.name_sub
+                                        td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.credits
+                                        td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= ((parseInt(selectedSubject.credits)*56*23270).toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                        td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= 'Updating...'
+                                        td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
+                                            .form-check
+                                                input.form-check-input.position-static(id=count.toString(), class='sltSubject', type='checkbox', name='thisSubject', value=selectedSubject)
                                 tr
-                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= count++
-                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.id_sub
-                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.name_sub
-                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.credits
-                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= ((parseInt(selectedSubject.credits)*56*23270).toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= 'Updating...'
-                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
-                                        .form-check
-                                            input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=selectedSubject.id_sub)
-                            tr
-                                td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total', colspan='3') Total
-                                td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Credits')= sumCredit
-                                td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Fee')= (sumFee.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                                td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')
-                                td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')
+                                    td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total', colspan='3') Total
+                                    td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Credits')= sumCredit
+                                    td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Fee')= (sumFee.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                    td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')
+                                    td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')
 
