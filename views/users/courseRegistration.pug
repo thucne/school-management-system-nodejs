@@ -67,7 +67,7 @@ block content
                                   tr
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
                                         .form-check
-                                            input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=subject.id_sub, onclick="document.SelectThis.submit()")
+                                            input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=subject.id_sub, onchange="document.SelectThis.submit()", disabled=!subject.room)
                                             //label.custom-control-label(for=count.toString())
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= correspondingDepartmentOfSubject[count]['department_id']
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= correspondingDepartmentOfSubject[count++]['department_name']
