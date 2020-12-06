@@ -246,8 +246,19 @@ module.exports.registrationMenuDisplaying = function (req, res) {
 
 module.exports.selectTheseSubjects = function (req, res) {
   var id = req.body.hiddenLoginID;
+  var departments = department.get('department').value();
 
   var listOfSelectedSubjects = JSON.parse(req.body.listOfSelectedSubjects);
+
+  var selectedSubjectThisTime;
+
+  if (req.body.thisSubject) {
+    selectedSubjectThisTime = req.body.thisSubject;
+
+    let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime)}).value();
+    listOfSelectedSubjects.push(findSelectedSubjectThisTime);
+  }
+
   console.log(id);
   console.log('Existed Selected Subject ' + listOfSelectedSubjects);
 
@@ -256,14 +267,47 @@ module.exports.selectTheseSubjects = function (req, res) {
   } else {
     console.log('NO ' + id);
   }
-  res.render('users/courseRegistration', {
-    loginUser: db.get('users').find({id: id}).value(),
-    departments: JSON.parse(req.body.existedDepartments),
-    subjects: req.body.existedSubjects,
-    correspondingDepartmentOfSubject: req.body.existedCorresponding,
-    inputSelectedSubject: listOfSelectedSubjects,
-    csrfToken: req.csrfToken()
-  });
 
+  var subjects = subject.get('subjects').value();
+  var correspondingDepartmentOfSubject = [];
+
+  function assignCorresponding() {
+    for (let i = 0; i < subjects.length; i++) {
+      for (let j = 0; j < departments.length; j++) {
+        for (let k = 0; k < departments[j]['subjects'].length; k++) {
+          if (departments[j]['subjects'][k] === subjects[i]['id_sub']) {
+            correspondingDepartmentOfSubject.push(departments[j]);
+          }
+        }
+      }
+    }
+  }
+
+  async function assignNow() {
+    await assignCorresponding();
+  }
+
+  assignNow().then(ren);
+
+  function ren() {
+    if (req.body.thisSubject) {
+      selectedSubjectThisTime = req.body.thisSubject;
+      console.log(selectedSubjectThisTime);
+      let foundSub = subjects.filter(function (sub) {
+        return sub.id_sub === parseInt(selectedSubjectThisTime);
+      })
+      console.log(foundSub[0].name_sub);
+      foundSub[0].checked = true;
+
+    }
+    res.render('users/courseRegistration', {
+      loginUser: db.get('users').find({id: id}).value(),
+      departments: departments,
+      subjects: subjects,
+      correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
+      inputSelectedSubject: listOfSelectedSubjects,
+      csrfToken: req.csrfToken()
+    });
+  }
   // res.redirect('/users');
 }
