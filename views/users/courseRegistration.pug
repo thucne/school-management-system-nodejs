@@ -41,7 +41,7 @@ block content
                                                 each department in departments
                                                     a.dropdown-item(href='/', data-toggle='tooltip', data-placement='right', title=department.department_name) #{department.department_name}
                 .con-md-2
-
+            - var listOfSelectedSubjects = []
             hr(style="background-color: red;")
             form(action='/users/register/select', method="POST", name='SelectThis')
                 // - var listOfSelectedSubjects = [1,2,3,4]
@@ -65,7 +65,7 @@ block content
                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='End') End Day
                             if (subjects && correspondingDepartmentOfSubject)
                               - var count = 0
-                              - var listOfSelectedSubjects = []
+                               // - var listOfSelectedSubjects = []
                               if (inputSelectedSubject)
                                 - listOfSelectedSubjects = inputSelectedSubject
                               input(type='hidden', name='listOfSelectedSubjects', value=listOfSelectedSubjects)
@@ -93,29 +93,11 @@ block content
             hr(style="background-color: gray;")
             if (listOfSelectedSubjects.length !== 0)
                 h4(style='color: blue; font-style: italic; float: left;') Selected Subjects
-                button.btn.btn-secondary.btn-sm(accesskey='h', type='button', style='float: right;', data-toggle='tooltip'
-                    , data-placement='right', title='Delete selected rows', onclick='del()') Delete
-                button.btn.btn-secondary.btn-sm.mr-1(type='submit', style='float: right;', data-toggle='tooltip'
-                    , data-placement='left', title='Save the registrations', onclick="document.SaveThis.submit()") Save
-                script(type='text/javascript').
-                  function del() {
-                    var checkedSubjectForDeletion = [];
-                    // inArr = Object.values(inArr);
-                    $("input:checkbox[name=thisSelectedSubject]:checked").each(function () {
-                      checkedSubjectForDeletion.push($(this).val());
-                    });
-
-                    function loop() {
-                      for (let i = 0; i < checkedSubjectForDeletion.length; i++) {
-                        alert(JSON.parse(checkedSubjectForDeletion[i]).name_sub);
-                      }
-                      // alert(JSON.parse(checkedSubjectForDeletion[0]).name_sub);
-                    }
-
-                    loop();
-                    location.reload();;
-                  }
                 form(action='/users/register/select/save', method="POST", name='SaveThis')
+                    button.btn.btn-secondary.btn-sm(type='submit', style='float: right;', data-toggle='tooltip'
+                        , data-placement='right', title='Delete selected rows', formaction='/users/register/delete') Delete
+                    button.btn.btn-secondary.btn-sm.mr-1(type='submit', style='float: right;', data-toggle='tooltip'
+                        , data-placement='left', title='Save the registrations', onclick="document.SaveThis.submit()") Save
                     //h4(style='color: blue; font-style: italic;') Selected Subjects
                     .table-responsive(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
                       .table-wrapper-scroll-y.my-custom-scrollbar-fee.ui-table-header-row
@@ -130,7 +112,7 @@ block content
                                   th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select') Select
                               if (inputSelectedSubject)
                                 - var count = 0
-                                - var listOfSelectedSubjects = []
+                                // - var listOfSelectedSubjects = []
                                 - var sumCredit = 0
                                 - var sumFee = 0
                                 if (inputSelectedSubject)
@@ -150,11 +132,11 @@ block content
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= 'Updating...'
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
                                             .form-check
-                                                input.form-check-input.position-static(id=count.toString(), class='sltSubject', type='checkbox', name='thisSelectedSubject', value=selectedSubject)
+                                                input.form-check-input.position-static(id=count.toString(), class='sltSubject', type='checkbox', name='thisSelectedSubject', value=selectedSubject.id_sub)
                                 tr
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total', colspan='3') Total
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Credits')= sumCredit
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Fee')= (sumFee.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                                    td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')
+                                    td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')= typeof listOfSelectedSubjects
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')
 

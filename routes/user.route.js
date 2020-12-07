@@ -28,6 +28,8 @@ router.get('/register', csrfProtection, controller.registrationMenuDisplaying);
 
 router.post('/register/select', csrfProtection, controller.selectTheseSubjects);
 
+router.post('/register/delete', csrfProtection, controller.deleteTheseSubjects);
+
 router.post('/create', upload.single('avatar'), csrfProtection, validate.postCreate, controller.postCreate);
 
 router.get('/delete/:id', csrfProtection, controller.deleteUser);
