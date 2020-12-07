@@ -321,3 +321,82 @@ module.exports.selectTheseSubjects = function (req, res) {
   }
   // res.redirect('/users');
 }
+
+module.exports.deleteTheseSubjects = function (req, res) {
+  var id = req.body.hiddenLoginID;
+  var departments = department.get('department').value();
+
+  var listOfSelectedSubjects = JSON.parse(req.body.listOfSelectedSubjects);
+
+  var selectedSubjectThisTime;
+
+  if (req.body.thisSelectedSubject) {
+    selectedSubjectThisTime = req.body.thisSelectedSubject;
+
+    let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime)}).value();
+    var idx = listOfSelectedSubjects.indexOf(findSelectedSubjectThisTime);
+    listOfSelectedSubjects.splice(idx, 1);
+  }
+
+  // console.log(id);
+  // console.log('Existed Selected Subject ' + listOfSelectedSubjects);
+
+  // if (id === res.locals.userInfo.loginId) {
+  //   console.log('YES ' + res.locals.userInfo.loginId);
+  // } else {
+  //   console.log('NO ' + id);
+  // }
+
+  var subjects = subject.get('subjects').value();
+  var correspondingDepartmentOfSubject = [];
+
+  function assignCorresponding() {
+    for (let i = 0; i < subjects.length; i++) {
+      for (let j = 0; j < departments.length; j++) {
+        for (let k = 0; k < departments[j]['subjects'].length; k++) {
+          if (departments[j]['subjects'][k] === subjects[i]['id_sub']) {
+            correspondingDepartmentOfSubject.push(departments[j]);
+          }
+        }
+      }
+    }
+  }
+
+  async function assignNow() {
+    await assignCorresponding();
+  }
+
+  assignNow().then(ren);
+
+  function ren() {
+    if (req.body.thisSelectedSubject) {
+      selectedSubjectThisTime = req.body.thisSelectedSubject;
+      // console.log(selectedSubjectThisTime);
+      let foundSub = subjects.filter(function (sub) {
+        return sub.id_sub === parseInt(selectedSubjectThisTime);
+      });
+      // console.log(foundSub[0].name_sub);
+      foundSub[0].checked = false;
+      let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime)}).value();
+      let theseSubjectName = findSelectedSubjectThisTime.name_sub;
+
+      let foundTheseSub = subjects.filter(function (sub) {
+        return sub.name_sub === theseSubjectName && sub.id_sub !== parseInt(selectedSubjectThisTime);
+      });
+      // console.log(foundTheseSub);
+      for (let i = 0; i < foundTheseSub.length; i++) {
+        foundTheseSub[i].checked = false;
+      }
+
+    }
+    res.render('users/courseRegistration', {
+      loginUser: db.get('users').find({id: id}).value(),
+      departments: departments,
+      subjects: subjects,
+      correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
+      inputSelectedSubject: listOfSelectedSubjects,
+      csrfToken: req.csrfToken()
+    });
+  }
+}
+
