@@ -249,6 +249,7 @@ module.exports.selectTheseSubjects = function (req, res) {
   var departments = department.get('department').value();
 
   var listOfSelectedSubjects = JSON.parse(req.body.listOfSelectedSubjects);
+  // console.log('List of these Subject BEFORE ' + listOfSelectedSubjects.length);
 
   var selectedSubjectThisTime;
 
@@ -258,7 +259,7 @@ module.exports.selectTheseSubjects = function (req, res) {
     let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime)}).value();
     listOfSelectedSubjects.push(findSelectedSubjectThisTime);
   }
-
+  console.log('List of these Subject AFTER ' + listOfSelectedSubjects[listOfSelectedSubjects.length - 1].name_sub);
   // console.log(id);
   // console.log('Existed Selected Subject ' + listOfSelectedSubjects);
 
@@ -292,7 +293,7 @@ module.exports.selectTheseSubjects = function (req, res) {
   function ren() {
     if (req.body.thisSubject) {
       selectedSubjectThisTime = req.body.thisSubject;
-      console.log(selectedSubjectThisTime);
+      // console.log(selectedSubjectThisTime);
       let foundSub = subjects.filter(function (sub) {
         return sub.id_sub === parseInt(selectedSubjectThisTime);
       });

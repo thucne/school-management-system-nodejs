@@ -17,6 +17,7 @@
       ],
       "lecturer": "Reddoch",
       "lecturerID": "0aa07faf-741e-45dc-995f-bac86ee7d32d"
+       
     },
     {
       "id_sub": 2,
@@ -82,7 +83,9 @@
       "whichPeriod": [
         6,
         7
-      ]
+      ],
+      "lecturer": "Haselwood Oo",
+      "lecturerID": "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3"
     },
     {
       "id_sub": 6,
@@ -90,7 +93,15 @@
       "start": "01/27/2021",
       "end": "06/19/2021",
       "type": "Laboratory",
-      "credits": "2"
+      "credits": "2",
+      "room": "A2.619",
+      "whichDay": "mon",
+      "whichPeriod": [
+        1,
+        2
+      ],
+      "lecturer": "Elloit",
+      "lecturerID": "c8b9c0b9-d2de-4d36-86fc-41858481715d"
     },
     {
       "id_sub": 7,
@@ -99,12 +110,12 @@
       "type": "Laboratory",
       "credits": "3",
       "name_sub": "Probability, Statistics and Random Variables",
-      "room": "A2.718",
-      "whichDay": "sat",
+      "room": "A1.709",
+      "whichDay": "wed",
       "whichPeriod": [
-        9,
-        10,
-        11
+        6,
+        7,
+        8
       ]
     },
     {
@@ -113,7 +124,15 @@
       "start": "01/28/2021",
       "end": "06/22/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+      "room": "A1.709",
+      "whichDay": "sat",
+      "whichPeriod": [
+        3,
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 9,
@@ -121,7 +140,14 @@
       "start": "01/29/2021",
       "end": "06/23/2021",
       "type": "Laboratory",
-      "credits": "3"
+      "credits": "3",
+      "room": "A1.709",
+      "whichDay": "thu",
+      "whichPeriod": [
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 10,
@@ -371,7 +397,8 @@
       "start": "01/21/2021",
       "end": "06/27/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 38,
@@ -403,7 +430,8 @@
       "start": "01/15/2021",
       "end": "06/19/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 42,
@@ -579,7 +607,8 @@
       "start": "01/28/2021",
       "end": "06/24/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 64,
@@ -627,7 +656,8 @@
       "start": "01/29/2021",
       "end": "06/15/2021",
       "type": "Theory",
-      "credits": "2"
+      "credits": "2",
+       
     },
     {
       "id_sub": 70,
@@ -659,7 +689,8 @@
       "start": "01/25/2021",
       "end": "06/11/2021",
       "type": "Laboratory",
-      "credits": "3"
+      "credits": "3",
+       
     },
     {
       "id_sub": 74,
@@ -755,7 +786,8 @@
       "start": "01/11/2021",
       "end": "06/20/2021",
       "type": "Theory",
-      "credits": "3"
+      "credits": "3",
+       
     },
     {
       "id_sub": 86,
@@ -835,7 +867,8 @@
       "end": "06/07/2021",
       "type": "Theory",
       "credits": "4",
-      "name_sub": "Discrete Math"
+      "name_sub": "Discrete Math",
+       
     },
     {
       "id_sub": 96,
@@ -899,7 +932,8 @@
       "start": "01/28/2021",
       "end": "06/21/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 104,
@@ -1019,7 +1053,8 @@
       "end": "06/18/2021",
       "type": "Theory",
       "credits": "3",
-      "name_sub": "Discrete Math"
+      "name_sub": "Discrete Math",
+       
     },
     {
       "id_sub": 119,
@@ -1259,7 +1294,8 @@
       "start": "01/13/2021",
       "end": "06/29/2021",
       "type": "Laboratory",
-      "credits": "2"
+      "credits": "2",
+       
     },
     {
       "id_sub": 149,
@@ -1387,7 +1423,8 @@
       "start": "01/30/2021",
       "end": "06/17/2021",
       "type": "Theory",
-      "credits": "2"
+      "credits": "2",
+       
     },
     {
       "id_sub": 165,
@@ -1395,7 +1432,8 @@
       "start": "01/16/2021",
       "end": "06/13/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 166,
@@ -1611,7 +1649,8 @@
       "end": "06/16/2021",
       "type": "Theory",
       "credits": "4",
-      "name_sub": "Discrete Math"
+      "name_sub": "Discrete Math",
+       
     },
     {
       "id_sub": 193,
@@ -1683,7 +1722,8 @@
       "start": "01/23/2021",
       "end": "06/08/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 202,
@@ -1851,7 +1891,8 @@
       "start": "01/05/2021",
       "end": "06/17/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 223,
@@ -2179,7 +2220,8 @@
       "start": "01/17/2021",
       "end": "06/18/2021",
       "type": "Theory",
-      "credits": "2"
+      "credits": "2",
+       
     },
     {
       "id_sub": 264,
@@ -2227,7 +2269,8 @@
       "start": "01/30/2021",
       "end": "06/28/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 270,
@@ -2347,7 +2390,8 @@
       "start": "01/06/2021",
       "end": "06/26/2021",
       "type": "Theory",
-      "credits": "2"
+      "credits": "2",
+       
     },
     {
       "id_sub": 285,
@@ -2475,7 +2519,8 @@
       "start": "01/06/2021",
       "end": "06/04/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 301,
@@ -2963,7 +3008,8 @@
       "start": "01/22/2021",
       "end": "06/20/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 362,
@@ -3155,7 +3201,8 @@
       "start": "01/05/2021",
       "end": "06/18/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 386,
@@ -3187,7 +3234,8 @@
       "start": "01/09/2021",
       "end": "05/31/2021",
       "type": "Theory",
-      "credits": "3"
+      "credits": "3",
+       
     },
     {
       "id_sub": 390,
@@ -3243,7 +3291,8 @@
       "start": "01/25/2021",
       "end": "06/08/2021",
       "type": "Laboratory",
-      "credits": "3"
+      "credits": "3",
+       
     },
     {
       "id_sub": 397,
@@ -3291,7 +3340,8 @@
       "start": "01/04/2021",
       "end": "06/12/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 403,
@@ -3507,7 +3557,8 @@
       "start": "01/11/2021",
       "end": "06/26/2021",
       "type": "Theory",
-      "credits": "3"
+      "credits": "3",
+       
     },
     {
       "id_sub": 430,
@@ -3643,7 +3694,8 @@
       "start": "01/17/2021",
       "end": "06/20/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 447,
@@ -3659,7 +3711,8 @@
       "start": "01/24/2021",
       "end": "06/05/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 449,
@@ -3859,7 +3912,8 @@
       "start": "01/08/2021",
       "end": "06/24/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 474,
@@ -4245,7 +4299,8 @@
       "end": "06/17/2021",
       "type": "Laboratory",
       "credits": "4",
-      "name_sub": "Discrete Math"
+      "name_sub": "Discrete Math",
+       
     },
     {
       "id_sub": 521,
@@ -4277,7 +4332,8 @@
       "start": "01/06/2021",
       "end": "06/11/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 525,
@@ -4325,7 +4381,8 @@
       "start": "01/18/2021",
       "end": "06/28/2021",
       "type": "Laboratory",
-      "credits": "2"
+      "credits": "2",
+       
     },
     {
       "id_sub": 531,
@@ -4429,7 +4486,8 @@
       "start": "01/01/2021",
       "end": "06/20/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 544,
@@ -4469,7 +4527,8 @@
       "start": "01/10/2021",
       "end": "06/24/2021",
       "type": "Laboratory",
-      "credits": "3"
+      "credits": "3",
+       
     },
     {
       "id_sub": 549,
@@ -4565,7 +4624,8 @@
       "start": "01/18/2021",
       "end": "06/01/2021",
       "type": "Laboratory",
-      "credits": "2"
+      "credits": "2",
+       
     },
     {
       "id_sub": 561,
@@ -4629,7 +4689,8 @@
       "start": "01/26/2021",
       "end": "06/13/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 569,
@@ -4781,7 +4842,8 @@
       "start": "01/23/2021",
       "end": "06/29/2021",
       "type": "Theory",
-      "credits": "2"
+      "credits": "2",
+       
     },
     {
       "id_sub": 588,
@@ -4973,7 +5035,8 @@
       "start": "01/22/2021",
       "end": "06/23/2021",
       "type": "Laboratory",
-      "credits": "2"
+      "credits": "2",
+       
     },
     {
       "id_sub": 612,
@@ -5325,7 +5388,8 @@
       "start": "01/01/2021",
       "end": "06/09/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 656,
@@ -5485,7 +5549,8 @@
       "start": "01/26/2021",
       "end": "06/24/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 676,
@@ -5925,7 +5990,8 @@
       "start": "01/19/2021",
       "end": "05/31/2021",
       "type": "Laboratory",
-      "credits": "3"
+      "credits": "3",
+       
     },
     {
       "id_sub": 731,
@@ -6037,7 +6103,8 @@
       "start": "01/12/2021",
       "end": "06/29/2021",
       "type": "Theory",
-      "credits": "2"
+      "credits": "2",
+       
     },
     {
       "id_sub": 745,
@@ -6405,7 +6472,8 @@
       "start": "01/11/2021",
       "end": "06/06/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 791,
@@ -6437,7 +6505,8 @@
       "start": "01/14/2021",
       "end": "06/22/2021",
       "type": "Laboratory",
-      "credits": "3"
+      "credits": "3",
+       
     },
     {
       "id_sub": 795,
@@ -6589,7 +6658,8 @@
       "start": "01/06/2021",
       "end": "06/21/2021",
       "type": "Laboratory",
-      "credits": "3"
+      "credits": "3",
+       
     },
     {
       "id_sub": 814,
@@ -6829,7 +6899,8 @@
       "start": "01/09/2021",
       "end": "06/27/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 844,
@@ -6981,7 +7052,8 @@
       "start": "01/27/2021",
       "end": "06/18/2021",
       "type": "Laboratory",
-      "credits": "3"
+      "credits": "3",
+       
     },
     {
       "id_sub": 863,
@@ -7149,7 +7221,8 @@
       "start": "01/23/2021",
       "end": "06/21/2021",
       "type": "Theory",
-      "credits": "2"
+      "credits": "2",
+       
     },
     {
       "id_sub": 884,
@@ -7629,7 +7702,8 @@
       "end": "06/03/2021",
       "type": "Theory",
       "credits": "2",
-      "name_sub": "Discrete Math"
+      "name_sub": "Discrete Math",
+       
     },
     {
       "id_sub": 944,
@@ -7717,7 +7791,8 @@
       "start": "01/25/2021",
       "end": "06/07/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 955,
@@ -7917,7 +7992,8 @@
       "end": "06/04/2021",
       "type": "Theory",
       "credits": "2",
-      "name_sub": "Discrete Math"
+      "name_sub": "Discrete Math",
+       
     },
     {
       "id_sub": 980,
@@ -7997,7 +8073,8 @@
       "start": "01/13/2021",
       "end": "06/15/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+       
     },
     {
       "id_sub": 990,
