@@ -99,13 +99,13 @@ block content
                     , data-placement='left', title='Save the registrations', onclick="document.SaveThis.submit()") Save
                 script(type='text/javascript').
                   function del() {
-                    var checkedValue = document.querySelector('.sltSubject').checked;
+                    var checkedValue = document.querySelector('.sltSubject:checked').value;
                     // var index;
                     // for (let i = 0; i < checkedValue.length; i++) {
                     //   index = listOfSelectedSubjects.indexOf(checkedValue[i]);
                     //   listOfSelectedSubjects.splice(index, 1);
                     // }
-                    console.log('Checked ' + checkedValue);
+                    alert(JSON.parse(checkedValue).name_sub);
                     location.reload();
                   }
                 form(action='/users/register/select/save', method="POST", name='SaveThis')

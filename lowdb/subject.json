@@ -32,7 +32,8 @@
         11
       ],
       "lecturer": "Reddoch",
-      "lecturerID": "0aa07faf-741e-45dc-995f-bac86ee7d32d"
+      "lecturerID": "0aa07faf-741e-45dc-995f-bac86ee7d32d",
+      "checked": true
     },
     {
       "id_sub": 3,
@@ -68,7 +69,8 @@
         4
       ],
       "lecturer": "Chadwick",
-      "lecturerID": "7214ce70-ecb2-478f-97ed-c4699cbe4438"
+      "lecturerID": "7214ce70-ecb2-478f-97ed-c4699cbe4438",
+      "checked": true
     },
     {
       "id_sub": 5,
@@ -90,7 +92,8 @@
       "start": "01/27/2021",
       "end": "06/19/2021",
       "type": "Laboratory",
-      "credits": "2"
+      "credits": "2",
+      "checked": true
     },
     {
       "id_sub": 7,
@@ -747,7 +750,8 @@
       "start": "01/05/2021",
       "end": "06/02/2021",
       "type": "Theory",
-      "credits": "3"
+      "credits": "3",
+      "checked": true
     },
     {
       "id_sub": 85,
@@ -1139,7 +1143,8 @@
       "start": "01/30/2021",
       "end": "06/21/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 134,
@@ -1219,7 +1224,8 @@
       "start": "01/24/2021",
       "end": "06/23/2021",
       "type": "Theory",
-      "credits": "2"
+      "credits": "2",
+      "checked": true
     },
     {
       "id_sub": 144,
@@ -1547,7 +1553,8 @@
       "start": "01/03/2021",
       "end": "06/12/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 185,
@@ -1635,7 +1642,8 @@
       "end": "06/04/2021",
       "type": "Theory",
       "credits": "4",
-      "name_sub": "Object-oriented Programming"
+      "name_sub": "Object-oriented Programming",
+      "checked": true
     },
     {
       "id_sub": 196,
@@ -1739,7 +1747,8 @@
       "start": "01/01/2021",
       "end": "06/12/2021",
       "type": "Theory",
-      "credits": "2"
+      "credits": "2",
+      "checked": true
     },
     {
       "id_sub": 209,
@@ -2187,7 +2196,8 @@
       "start": "01/07/2021",
       "end": "06/24/2021",
       "type": "Laboratory",
-      "credits": "2"
+      "credits": "2",
+      "checked": true
     },
     {
       "id_sub": 265,
@@ -2307,7 +2317,8 @@
       "start": "01/12/2021",
       "end": "06/05/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 280,
@@ -2387,7 +2398,8 @@
       "start": "01/08/2021",
       "end": "06/13/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 290,
@@ -2443,7 +2455,8 @@
       "start": "01/26/2021",
       "end": "06/23/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 297,
@@ -2563,7 +2576,8 @@
       "start": "01/23/2021",
       "end": "06/01/2021",
       "type": "Theory",
-      "credits": "2"
+      "credits": "2",
+      "checked": true
     },
     {
       "id_sub": 312,
@@ -2627,7 +2641,8 @@
       "start": "01/14/2021",
       "end": "06/04/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 320,
@@ -2947,7 +2962,8 @@
       "start": "01/13/2021",
       "end": "06/18/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 360,
@@ -2979,7 +2995,8 @@
       "start": "01/07/2021",
       "end": "06/21/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 364,
@@ -3283,7 +3300,8 @@
       "start": "01/06/2021",
       "end": "06/22/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 402,
@@ -3363,7 +3381,8 @@
       "end": "06/21/2021",
       "type": "Theory",
       "credits": "2",
-      "name_sub": "Object-oriented Programming"
+      "name_sub": "Object-oriented Programming",
+      "checked": true
     },
     {
       "id_sub": 412,
@@ -3387,7 +3406,8 @@
       "start": "01/22/2021",
       "end": "06/20/2021",
       "type": "Theory",
-      "credits": "3"
+      "credits": "3",
+      "checked": true
     },
     {
       "id_sub": 415,
@@ -3571,7 +3591,8 @@
       "start": "01/29/2021",
       "end": "06/18/2021",
       "type": "Theory",
-      "credits": "3"
+      "credits": "3",
+      "checked": true
     },
     {
       "id_sub": 438,
@@ -3747,7 +3768,8 @@
       "start": "01/21/2021",
       "end": "06/13/2021",
       "type": "Laboratory",
-      "credits": "3"
+      "credits": "3",
+      "checked": true
     },
     {
       "id_sub": 460,
@@ -4229,7 +4251,8 @@
       "start": "01/10/2021",
       "end": "06/20/2021",
       "type": "Laboratory",
-      "credits": "3"
+      "credits": "3",
+      "checked": true
     },
     {
       "id_sub": 519,
@@ -4421,7 +4444,8 @@
       "start": "01/04/2021",
       "end": "06/12/2021",
       "type": "Theory",
-      "credits": "3"
+      "credits": "3",
+      "checked": true
     },
     {
       "id_sub": 543,
@@ -4517,7 +4541,8 @@
       "start": "01/30/2021",
       "end": "06/05/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 555,
@@ -4901,7 +4926,8 @@
       "start": "01/17/2021",
       "end": "06/05/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 603,
@@ -5077,7 +5103,8 @@
       "start": "01/07/2021",
       "end": "06/15/2021",
       "type": "Theory",
-      "credits": "2"
+      "credits": "2",
+      "checked": true
     },
     {
       "id_sub": 625,
@@ -5445,7 +5472,8 @@
       "end": "06/14/2021",
       "type": "Laboratory",
       "credits": "4",
-      "name_sub": "Object-oriented Programming"
+      "name_sub": "Object-oriented Programming",
+      "checked": true
     },
     {
       "id_sub": 671,
@@ -5509,7 +5537,8 @@
       "start": "01/10/2021",
       "end": "06/23/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 679,
@@ -5629,7 +5658,8 @@
       "start": "01/01/2021",
       "end": "06/18/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 694,
@@ -5781,7 +5811,8 @@
       "start": "01/14/2021",
       "end": "06/13/2021",
       "type": "Theory",
-      "credits": "3"
+      "credits": "3",
+      "checked": true
     },
     {
       "id_sub": 713,
@@ -6005,7 +6036,17 @@
       "start": "01/24/2021",
       "end": "06/08/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+      "room": "A2.509",
+      "whichDay": "mon",
+      "whichPeriod": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "lecturer": "Haselwood Oo",
+      "lecturerID": "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3"
     },
     {
       "id_sub": 741,
@@ -6149,7 +6190,8 @@
       "start": "01/28/2021",
       "end": "06/08/2021",
       "type": "Laboratory",
-      "credits": "2"
+      "credits": "2",
+      "checked": true
     },
     {
       "id_sub": 759,
@@ -6309,7 +6351,8 @@
       "start": "01/28/2021",
       "end": "06/26/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 779,
@@ -6565,7 +6608,8 @@
       "start": "01/30/2021",
       "end": "06/03/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 811,
@@ -6573,7 +6617,8 @@
       "start": "01/12/2021",
       "end": "06/28/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 812,
@@ -6901,7 +6946,8 @@
       "start": "01/28/2021",
       "end": "06/18/2021",
       "type": "Laboratory",
-      "credits": "2"
+      "credits": "2",
+      "checked": true
     },
     {
       "id_sub": 853,
@@ -6997,7 +7043,8 @@
       "end": "06/13/2021",
       "type": "Laboratory",
       "credits": "2",
-      "name_sub": "Object-oriented Programming"
+      "name_sub": "Object-oriented Programming",
+      "checked": true
     },
     {
       "id_sub": 865,
@@ -7181,7 +7228,8 @@
       "start": "01/21/2021",
       "end": "06/24/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 888,
@@ -7357,7 +7405,8 @@
       "start": "01/27/2021",
       "end": "06/11/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 910,
@@ -7461,7 +7510,8 @@
       "start": "01/29/2021",
       "end": "06/17/2021",
       "type": "Laboratory",
-      "credits": "3"
+      "credits": "3",
+      "checked": true
     },
     {
       "id_sub": 923,
@@ -7797,7 +7847,8 @@
       "start": "01/29/2021",
       "end": "06/09/2021",
       "type": "Theory",
-      "credits": "3"
+      "credits": "3",
+      "checked": true
     },
     {
       "id_sub": 965,
@@ -7805,7 +7856,8 @@
       "start": "01/10/2021",
       "end": "06/10/2021",
       "type": "Theory",
-      "credits": "3"
+      "credits": "3",
+      "checked": true
     },
     {
       "id_sub": 966,
@@ -7957,7 +8009,8 @@
       "start": "01/20/2021",
       "end": "06/03/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+      "checked": true
     },
     {
       "id_sub": 985,
