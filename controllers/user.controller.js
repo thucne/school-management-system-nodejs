@@ -292,7 +292,7 @@ module.exports.selectTheseSubjects = function (req, res) {
   function ren() {
     if (req.body.thisSubject) {
       selectedSubjectThisTime = req.body.thisSubject;
-      console.log(selectedSubjectThisTime);
+      // console.log(selectedSubjectThisTime);
       let foundSub = subjects.filter(function (sub) {
         return sub.id_sub === parseInt(selectedSubjectThisTime);
       });

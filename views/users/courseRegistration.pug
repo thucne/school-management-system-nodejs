@@ -99,14 +99,21 @@ block content
                     , data-placement='left', title='Save the registrations', onclick="document.SaveThis.submit()") Save
                 script(type='text/javascript').
                   function del() {
-                    var checkedValue = document.querySelector('.sltSubject').checked;
-                    // var index;
-                    // for (let i = 0; i < checkedValue.length; i++) {
-                    //   index = listOfSelectedSubjects.indexOf(checkedValue[i]);
-                    //   listOfSelectedSubjects.splice(index, 1);
-                    // }
-                    console.log('Checked ' + checkedValue);
-                    location.reload();
+                    var checkedSubjectForDeletion = [];
+                    // inArr = Object.values(inArr);
+                    $("input:checkbox[name=thisSelectedSubject]:checked").each(function () {
+                      checkedSubjectForDeletion.push($(this).val());
+                    });
+
+                    function loop() {
+                      for (let i = 0; i < checkedSubjectForDeletion.length; i++) {
+                        alert(JSON.parse(checkedSubjectForDeletion[i]).name_sub);
+                      }
+                      // alert(JSON.parse(checkedSubjectForDeletion[0]).name_sub);
+                    }
+
+                    loop();
+                    location.reload();;
                   }
                 form(action='/users/register/select/save', method="POST", name='SaveThis')
                     //h4(style='color: blue; font-style: italic;') Selected Subjects
@@ -143,7 +150,7 @@ block content
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= 'Updating...'
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
                                             .form-check
-                                                input.form-check-input.position-static(id=count.toString(), class='sltSubject', type='checkbox', name='thisSubject', value=selectedSubject)
+                                                input.form-check-input.position-static(id=count.toString(), class='sltSubject', type='checkbox', name='thisSelectedSubject', value=selectedSubject)
                                 tr
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total', colspan='3') Total
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Credits')= sumCredit
