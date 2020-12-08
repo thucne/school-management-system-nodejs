@@ -473,7 +473,7 @@ module.exports.saveRegistrations = function (req, res) {
       }
     }
   }
-  
+
   console.log('Overlapping ' + overlappingSelection);
   // console.log(id);
   // console.log('Existed Selected Subject ' + listOfSelectedSubjects);
