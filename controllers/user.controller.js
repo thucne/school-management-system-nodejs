@@ -316,6 +316,7 @@ module.exports.selectTheseSubjects = function (req, res) {
       subjects: subjects,
       correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
       inputSelectedSubject: listOfSelectedSubjects,
+      book_mark: '#here',
       csrfToken: req.csrfToken()
     });
   }
@@ -398,6 +399,7 @@ module.exports.deleteTheseSubjects = function (req, res) {
       subjects: subjects,
       correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
       inputSelectedSubject: listOfSelectedSubjects,
+      book_mark: '#here',
       csrfToken: req.csrfToken()
     });
   }
