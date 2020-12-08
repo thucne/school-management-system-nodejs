@@ -90,7 +90,13 @@
       "start": "01/27/2021",
       "end": "06/19/2021",
       "type": "Laboratory",
-      "credits": "2"
+      "credits": "2",
+      "room": "A2.409",
+      "whichDay": "sat",
+      "whichPeriod": [
+        1,
+        2
+      ]
     },
     {
       "id_sub": 7,
@@ -170,7 +176,13 @@
       "start": "01/24/2021",
       "end": "06/08/2021",
       "type": "Laboratory",
-      "credits": "2"
+      "credits": "2",
+      "room": "A1.718",
+      "whichDay": "fri",
+      "whichPeriod": [
+        4,
+        5
+      ]
     },
     {
       "id_sub": 15,
@@ -277,7 +289,14 @@
       "end": "06/11/2021",
       "type": "Theory",
       "credits": "3",
-      "name_sub": "Data Mining"
+      "name_sub": "Data Mining",
+      "room": "A1.709",
+      "whichDay": "sun",
+      "whichPeriod": [
+        3,
+        4,
+        5
+      ]
     },
     {
       "id_sub": 25,

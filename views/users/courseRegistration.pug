@@ -6,7 +6,12 @@ block content
     if book_mark
         script(type='text/javascript').
           function scroll() {
-            location.href = location.href + '#here'
+            var idx = location.href.indexOf('#here');
+            while (idx > 0) {
+              location.href.splice(idx, 5);
+              idx = location.href.indexOf('#here');
+            };
+            location.href = location.href + '#here';
           }
           scroll();
     script.
@@ -98,13 +103,15 @@ block content
 
             hr(style="background-color: gray;", id='here')
             if (listOfSelectedSubjects.length !== 0)
-                h4(style='color: blue; font-style: italic; float: left;') Selected Subjects
+                h4(style='color: blue; float: left;') Selected Subjects
                 form(action='/users/register/save', method="POST", name='SaveThis')
                     button.btn.btn-secondary.btn-sm(type='submit', style='float: right;', data-toggle='tooltip'
                         , data-placement='right', title='Delete selected rows', formaction='/users/register/delete') Delete
                     button.btn.btn-secondary.btn-sm.mr-1(type='submit', style='float: right;', data-toggle='tooltip'
                         , data-placement='left', title='Save the registrations', onclick="document.SaveThis.submit()") Save
                     //h4(style='color: blue; font-style: italic;') Selected Subjects
+                    br
+                    h5.text-danger(style='clear:both; font-style: italic;') Note: All the registrations before will be overwritten by these subjects below.
                     .table-responsive(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
                       .table-wrapper-scroll-y.my-custom-scrollbar-fee.ui-table-header-row
                           table.table.table-hover.table-striped
@@ -135,7 +142,7 @@ block content
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.name_sub
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.credits
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= ((parseInt(selectedSubject.credits)*56*23270).toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                                        td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= 'Updating...'
+                                        td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= 'Not saved'
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
                                             .form-check
                                                 input.form-check-input.position-static(id=count.toString(), class='sltSubject', type='checkbox', name='thisSelectedSubject', value=selectedSubject.id_sub)
