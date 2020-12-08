@@ -406,6 +406,136 @@ module.exports.deleteTheseSubjects = function (req, res) {
 }
 
 module.exports.saveRegistrations = function (req, res) {
+  var id = req.body.hiddenLoginID;
+  var departments = department.get('department').value();
 
+  var listOfSelectedSubjects = JSON.parse(req.body.listOfSelectedSubjects);
+
+  var selectedSubjectThisTimeID;
+  var selectedSubjectThisTime = [];
+  var listOfSavedSubjectsBEFORE = [];
+
+  // if (req.body.listOfSavedSubjectsBEFORE) {
+  //   listOfSavedSubjectsBEFORE = JSON.parse(req.body.listOfSavedSubjectsBEFORE);
+  //   for (let i = 0; i < listOfSavedSubjectsBEFORE.length; i++) {
+  //     let currentSubjectBEFORE = subject.get('subjects').find({id_sub: listOfSavedSubjectsBEFORE[i]}).value();
+  //
+  //   }
+  // }
+
+  if (req.body.thisSelectedSubject) {
+    selectedSubjectThisTimeID = req.body.thisSelectedSubject;
+    console.log('Array ' + selectedSubjectThisTimeID);
+    for (let i = 0; i < selectedSubjectThisTimeID.length; i++) {
+      let found = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTimeID[i])}).value();
+      selectedSubjectThisTime.push(found);
+    }
+    for (let i = 0; i < selectedSubjectThisTime.length; i++) {
+      console.log('selectedSubjectThisTime: ' + selectedSubjectThisTime[i].name_sub);
+    }
+  }
+
+  var overlappingSelection = [];
+
+  if (selectedSubjectThisTime.length > 0) {
+    for (let i = 0; i < selectedSubjectThisTime.length - 1; i++) {
+      for (let j = i + 1; j < selectedSubjectThisTime.length; j++) {
+        if (selectedSubjectThisTime[i].whichDay === selectedSubjectThisTime[j].whichDay) {
+          let subA = selectedSubjectThisTime[i].whichPeriod.length;
+          let subB = selectedSubjectThisTime[j].whichPeriod.length;
+          let max = subA > subB ? selectedSubjectThisTime[i] : selectedSubjectThisTime[j];
+          let min = subA > subB ? selectedSubjectThisTime[j] : selectedSubjectThisTime[i];
+          var isOverlapping = false;
+          for (let k = 0; k < max.whichPeriod.length; k++) {
+            let periodA = max.whichPeriod[k];
+            for (let l = 0; l < min.whichPeriod.length; l++) {
+              let periodB = min.whichPeriod[l];
+              if (periodA === periodB) {
+                isOverlapping = true;
+              }
+            }
+          }
+          if (isOverlapping) {
+            overlappingSelection.push(max.name_sub);
+            overlappingSelection.push(min.name_sub);
+          }
+        }
+      }
+    }
+  }
+
+  for (let i = 0; i < overlappingSelection.length; i++) {
+    let selectedSub = overlappingSelection[i]
+    for (let j = i + 1; j < overlappingSelection.length; j++) {
+      let thisSub = overlappingSelection[j];
+      if (selectedSub === thisSub) {
+        overlappingSelection.splice(j, 1);
+      }
+    }
+  }
+  
+  console.log('Overlapping ' + overlappingSelection);
+  // console.log(id);
+  // console.log('Existed Selected Subject ' + listOfSelectedSubjects);
+
+  // if (id === res.locals.userInfo.loginId) {
+  //   console.log('YES ' + res.locals.userInfo.loginId);
+  // } else {
+  //   console.log('NO ' + id);
+  // }
+
+  var subjects = subject.get('subjects').value();
+  var correspondingDepartmentOfSubject = [];
+
+  function assignCorresponding() {
+    for (let i = 0; i < subjects.length; i++) {
+      for (let j = 0; j < departments.length; j++) {
+        for (let k = 0; k < departments[j]['subjects'].length; k++) {
+          if (departments[j]['subjects'][k] === subjects[i]['id_sub']) {
+            correspondingDepartmentOfSubject.push(departments[j]);
+          }
+        }
+      }
+    }
+  }
+
+  async function assignNow() {
+    await assignCorresponding();
+  }
+
+  assignNow().then(ren);
+
+  function ren() {
+    // if (req.body.thisSelectedSubject) {
+    //   selectedSubjectThisTime = req.body.thisSelectedSubject;
+    //   // console.log(selectedSubjectThisTime);
+    //   for (let k = 0; k < selectedSubjectThisTime.length; k++) {
+    //     let foundSub = subjects.filter(function (sub) {
+    //       return sub.id_sub === parseInt(selectedSubjectThisTime[k]);
+    //     });
+    //     // console.log(foundSub[0].name_sub);
+    //     foundSub[0].checked = false;
+    //     let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime[k])}).value();
+    //     let theseSubjectName = findSelectedSubjectThisTime.name_sub;
+    //
+    //     let foundTheseSub = subjects.filter(function (sub) {
+    //       return sub.name_sub === theseSubjectName && sub.id_sub !== parseInt(selectedSubjectThisTime[k]);
+    //     });
+    //     // console.log(foundTheseSub);
+    //     for (let i = 0; i < foundTheseSub.length; i++) {
+    //       foundTheseSub[i].checked = false;
+    //     }
+    //   }
+    // }
+    res.render('users/courseRegistration', {
+      loginUser: db.get('users').find({id: id}).value(),
+      departments: departments,
+      subjects: subjects,
+      correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
+      inputSelectedSubject: listOfSelectedSubjects,
+      book_mark: '#here',
+      csrfToken: req.csrfToken()
+    });
+  }
 }
 
