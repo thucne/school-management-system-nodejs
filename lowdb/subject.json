@@ -227,7 +227,17 @@
       "start": "01/05/2021",
       "end": "06/02/2021",
       "type": "Theory",
-      "credits": "4"
+      "credits": "4",
+      "room": "A1.709",
+      "whichDay": "mon",
+      "whichPeriod": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "lecturer": "Haselwood Oo",
+      "lecturerID": "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3"
     },
     {
       "id_sub": 20,
@@ -347,7 +357,16 @@
       "end": "06/15/2021",
       "type": "Laboratory",
       "credits": "3",
-      "name_sub": "Machine Learning"
+      "name_sub": "Machine Learning",
+      "room": "A1.709",
+      "whichDay": "wed",
+      "whichPeriod": [
+        6,
+        7,
+        8
+      ],
+      "lecturer": "Haselwood Oo",
+      "lecturerID": "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3"
     },
     {
       "id_sub": 35,
