@@ -93,7 +93,7 @@ block content
             hr(style="background-color: gray;")
             if (listOfSelectedSubjects.length !== 0)
                 h4(style='color: blue; font-style: italic; float: left;') Selected Subjects
-                form(action='/users/register/select/save', method="POST", name='SaveThis')
+                form(action='/users/register/save', method="POST", name='SaveThis')
                     button.btn.btn-secondary.btn-sm(type='submit', style='float: right;', data-toggle='tooltip'
                         , data-placement='right', title='Delete selected rows', formaction='/users/register/delete') Delete
                     button.btn.btn-secondary.btn-sm.mr-1(type='submit', style='float: right;', data-toggle='tooltip'

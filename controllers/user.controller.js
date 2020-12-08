@@ -403,3 +403,7 @@ module.exports.deleteTheseSubjects = function (req, res) {
   }
 }
 
+module.exports.saveRegistrations = function (req, res) {
+
+}
+

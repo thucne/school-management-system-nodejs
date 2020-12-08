@@ -770,14 +770,21 @@ module.exports.searchTeacher = function (req, res) {
     for (let i = 0; i < teacherWeeks.length; i++) {
       let currentTeacherWeek = teacherSchedule.get('teacherSchedule').nth(i).value();
       // console.log('Current week: ' + currentTeacherWeek.id);
-      let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-      for (let k = 1; k <= 7; k++) {
+      // let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+      let days = [];
+      days.push(JSON.parse(req.body.sub).whichDay);
+      // console.log('Which Day ' + JSON.parse(req.body.sub).whichDay);
+      for (let k = 1; k <= 1; k++) {
         let thisDay = days[k - 1];
         // console.log('This day: ' + thisDay);
         let thisDayValue = currentTeacherWeek[thisDay];
         let count = selectedSubjectCredit;
         // console.log('This Day Value length ' + thisDayValue.length);
-        for (let l = 0; l < thisDayValue.length; l++) {
+        let startPeriod = parseInt(JSON.parse(req.body.sub).whichPeriod[0]);
+        let finishPeriod = parseInt(JSON.parse(req.body.sub).whichPeriod[JSON.parse(req.body.sub).whichPeriod.length - 1]);
+        // console.log('Start ' + (startPeriod - 1));
+        // console.log('End ' + (finishPeriod - 1));
+        for (let l = startPeriod - 1; l < finishPeriod; l++) {
           if (thisDayValue[l] === 0) {
             count--;
           } else {
