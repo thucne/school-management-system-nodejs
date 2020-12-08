@@ -3,6 +3,12 @@ extends ../layouts/common
 block content
     link(rel="stylesheet", href="/styles/cellHover.css")
     link(rel="stylesheet", href="/styles/myTable.css")
+    if book_mark
+        script(type='text/javascript').
+          function scroll() {
+            location.href = location.href + '#here'
+          }
+          scroll();
     script.
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
@@ -90,7 +96,7 @@ block content
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.start
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.end
 
-            hr(style="background-color: gray;")
+            hr(style="background-color: gray;", id='here')
             if (listOfSelectedSubjects.length !== 0)
                 h4(style='color: blue; font-style: italic; float: left;') Selected Subjects
                 form(action='/users/register/save', method="POST", name='SaveThis')
