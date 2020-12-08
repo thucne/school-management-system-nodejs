@@ -332,10 +332,12 @@ module.exports.deleteTheseSubjects = function (req, res) {
 
   if (req.body.thisSelectedSubject) {
     selectedSubjectThisTime = req.body.thisSelectedSubject;
-
-    let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime)}).value();
-    var idx = listOfSelectedSubjects.indexOf(findSelectedSubjectThisTime);
-    listOfSelectedSubjects.splice(idx, 1);
+    console.log('Array ' + selectedSubjectThisTime);
+    for (let i = 0; i < selectedSubjectThisTime.length; i++)  {
+      let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime[i])}).value();
+      let idx = listOfSelectedSubjects.indexOf(findSelectedSubjectThisTime);
+      listOfSelectedSubjects.splice(idx, 1);
+    }
   }
 
   // console.log(id);
@@ -372,22 +374,23 @@ module.exports.deleteTheseSubjects = function (req, res) {
     if (req.body.thisSelectedSubject) {
       selectedSubjectThisTime = req.body.thisSelectedSubject;
       // console.log(selectedSubjectThisTime);
-      let foundSub = subjects.filter(function (sub) {
-        return sub.id_sub === parseInt(selectedSubjectThisTime);
-      });
-      // console.log(foundSub[0].name_sub);
-      foundSub[0].checked = false;
-      let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime)}).value();
-      let theseSubjectName = findSelectedSubjectThisTime.name_sub;
+      for (let k = 0; k < selectedSubjectThisTime.length; k++) {
+        let foundSub = subjects.filter(function (sub) {
+          return sub.id_sub === parseInt(selectedSubjectThisTime[k]);
+        });
+        // console.log(foundSub[0].name_sub);
+        foundSub[0].checked = false;
+        let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime[k])}).value();
+        let theseSubjectName = findSelectedSubjectThisTime.name_sub;
 
-      let foundTheseSub = subjects.filter(function (sub) {
-        return sub.name_sub === theseSubjectName && sub.id_sub !== parseInt(selectedSubjectThisTime);
-      });
-      // console.log(foundTheseSub);
-      for (let i = 0; i < foundTheseSub.length; i++) {
-        foundTheseSub[i].checked = false;
+        let foundTheseSub = subjects.filter(function (sub) {
+          return sub.name_sub === theseSubjectName && sub.id_sub !== parseInt(selectedSubjectThisTime[k]);
+        });
+        // console.log(foundTheseSub);
+        for (let i = 0; i < foundTheseSub.length; i++) {
+          foundTheseSub[i].checked = false;
+        }
       }
-
     }
     res.render('users/courseRegistration', {
       loginUser: db.get('users').find({id: id}).value(),
