@@ -111,7 +111,7 @@ block content
                                   th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Status') Subject Status
                                   th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select') Select
                               if (inputSelectedSubject)
-                                - var count = 0
+                                - var count = 1
                                 // - var listOfSelectedSubjects = []
                                 - var sumCredit = 0
                                 - var sumFee = 0
@@ -137,6 +137,6 @@ block content
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total', colspan='3') Total
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Credits')= sumCredit
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Fee')= (sumFee.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                                    td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')= typeof listOfSelectedSubjects
+                                    td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')
 
