@@ -185,15 +185,15 @@ block content
                                         each color in resultColor
                                             if (color === selectedSubject.id_sub)
                                                 - isThisSubjectOK = 1;
-                                    if (isThisSubjectOK === 2)
-                                        - isThisSubjectOK = 0
+                                        if (isThisSubjectOK === 2)
+                                            - isThisSubjectOK = 0
                                     tr(data-toggle='tooltip', data-placement='right', title=isThisSubjectOverlap ? 'These subjects overlap with each other!': '', class=(isThisSubjectOverlap ? 'isOverlapping': (isThisSubjectOK !== 2 ? (isThisSubjectOK === 1 ?'isOK':'isNotOK' ): '')))
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= count++
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.id_sub
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.name_sub
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.credits
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= ((parseInt(selectedSubject.credits)*56*23270).toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                                        td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= isThisSubjectOK !== 2 ? (isThisSubjectOK === 1 ? 'Saved' : 'This subject overlaps your schedule') : 'Not Saved'
+                                        td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= isThisSubjectOK !== 2 ? (isThisSubjectOK === 1 ? 'Saved' : 'Overlaps your schedule') : 'Not Saved'
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
                                             .form-check
                                                 input.form-check-input.position-static.checkSingle(id=count.toString(), class='sltSubject', type='checkbox', name='thisSelectedSubject', value=selectedSubject.id_sub)
