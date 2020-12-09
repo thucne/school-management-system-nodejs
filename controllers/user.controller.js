@@ -532,7 +532,7 @@ module.exports.saveRegistrations = function (req, res) {
 
       var isAllOfNotOverlappingSelectedSubjectOKToSave = false;
       var numOfSubject = 0;
-
+      var resultColor = [];
       for (let i = 0; i < notOverlappingSelectedSubjects.length; i++) {
         let thisDayOfThisCurrentSubjectInDB = thisStudentWeeks[notOverlappingSelectedSubjects[i].whichDay];
         console.log('This Day ' + thisStudentWeeks[notOverlappingSelectedSubjects[i].whichDay]);
@@ -556,9 +556,11 @@ module.exports.saveRegistrations = function (req, res) {
         }
         if (count === 0) {
           numOfSubject++;
+          resultColor.push(notOverlappingSelectedSubjects[i].id_sub);
         }
       }
-      console.log('count ' + numOfSubject)
+      console.log('count ' + numOfSubject);
+      console.log('result color ' + resultColor);
       if (numOfSubject === notOverlappingSelectedSubjects.length) {
         isAllOfNotOverlappingSelectedSubjectOKToSave = true;
       }
@@ -571,6 +573,7 @@ module.exports.saveRegistrations = function (req, res) {
         subjects: subjects,
         correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
         inputSelectedSubject: listOfSelectedSubjects,
+        resultColor: resultColor,
         book_mark: '#here',
         csrfToken: req.csrfToken()
       });
