@@ -62,3 +62,13 @@ th {
     font-weight: bold;
     font-style: italic;
 }
+
+.isOK {
+    color: green;
+    font-weight: bold;
+}
+
+.isNotOK {
+    color: red;
+    font-weight: bold;
+}
