@@ -6282,7 +6282,15 @@
       "start": "01/27/2021",
       "end": "06/06/2021",
       "type": "Laboratory",
-      "credits": "4"
+      "credits": "4",
+      "room": "A2.718",
+      "whichDay": "fri",
+      "whichPeriod": [
+        3,
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 769,

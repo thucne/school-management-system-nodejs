@@ -524,12 +524,46 @@ module.exports.saveRegistrations = function (req, res) {
         }
       }
 
-      var students = db.get('users').value().filter(function (user) {
-        return user.role === 0;
-      });
+      var thisStudent = db.get('users').find({id: id}).value();
+      var thisStudentWeeks = studentSchedule.get('studentSchedule').find({id: thisStudent.studentSchedule}).value();
 
-      var studentWeeks = studentSchedule.get('studentSchedule').value();
-      
+      console.log('thisStudent ' + thisStudent.name);
+      console.log('thisStudentWeeks ' + thisStudentWeeks.id);
+
+      var isAllOfNotOverlappingSelectedSubjectOKToSave = false;
+      var numOfSubject = 0;
+
+      for (let i = 0; i < notOverlappingSelectedSubjects.length; i++) {
+        let thisDayOfThisCurrentSubjectInDB = thisStudentWeeks[notOverlappingSelectedSubjects[i].whichDay];
+        console.log('This Day ' + thisStudentWeeks[notOverlappingSelectedSubjects[i].whichDay]);
+
+        let count = notOverlappingSelectedSubjects[i].credits;
+        console.log('This Credit ' + count);
+        let startPeriod = notOverlappingSelectedSubjects[i].whichPeriod[0];
+        let finishPeriod = notOverlappingSelectedSubjects[i].whichPeriod[notOverlappingSelectedSubjects[i].whichPeriod.length - 1];
+        console.log('Start ' + (startPeriod - 1) + ' End ' + finishPeriod);
+        for (let l = startPeriod; l < finishPeriod + 1; l++) {
+          if (thisDayOfThisCurrentSubjectInDB[l] === 0) {
+            count--;
+          } else {
+            if (count !== 0) {
+              count = notOverlappingSelectedSubjects[i].credits;
+            }
+          }
+          if (count === 0) {
+            break;
+          }
+        }
+        if (count === 0) {
+          numOfSubject++;
+        }
+      }
+      console.log('count ' + numOfSubject)
+      if (numOfSubject === notOverlappingSelectedSubjects.length) {
+        isAllOfNotOverlappingSelectedSubjectOKToSave = true;
+      }
+
+      console.log('isAllOfNotOverlappingSelectedSubjectOKToSave ' + isAllOfNotOverlappingSelectedSubjectOKToSave);
 
       res.render('users/courseRegistration', {
         loginUser: db.get('users').find({id: id}).value(),
