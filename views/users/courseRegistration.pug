@@ -18,6 +18,7 @@ block content
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
+
     .px-3.pt-3.hide
         h1 Course Registration
         hr(style="background-color: lightgray;")
@@ -105,7 +106,45 @@ block content
             if (listOfSelectedSubjects.length !== 0)
                 h4(style='color: blue; float: left;') Selected Subjects
                 form(action='/users/register/save', method="POST", name='SaveThis')
-                    button.btn.btn-secondary.btn-sm(type='submit', style='float: right;', data-toggle='tooltip'
+                    script(type='text/javascript').
+                      function selectAll() {
+                        var checkbox = document.getElementsByName('thisSelectedSubject');
+                        var areAllUnchecked = true;
+                        var areAllChecked = true;
+                        for (let i = 0; i < checkbox.length; i++) {
+                          if (checkbox[i].checked === true) {
+                            areAllUnchecked = false;
+                            break;
+                          }
+                        }
+                        for (let i = 0; i < checkbox.length; i++) {
+                          if (checkbox[i].checked === false) {
+                            break;
+                          }
+                          if (i === checkbox.length - 1) {
+                            areAllChecked = true;
+                          }
+                        }
+                        if (areAllUnchecked || areAllChecked) {
+                          for (let i = 0; i < checkbox.length; i++) {
+                            if (checkbox[i].checked === false)
+                              checkbox[i].checked = true;
+                            else
+                              checkbox[i].checked = false;
+                          }
+                        } else {
+                          for (let i = 0; i < checkbox.length; i++) {
+                            checkbox[i].checked = true;
+                          }
+                        }
+
+                        // location.reload();
+                      }
+                    .form-check(style='float: right;')
+                        input.form-check-input(type='checkbox', onclick="selectAll()", id='selectAllSub')
+                        label(for='selectAllSub') All
+
+                    button.btn.btn-secondary.btn-sm.mr-1(type='submit', style='float: right;', data-toggle='tooltip'
                         , data-placement='right', title='Delete selected rows', formaction='/users/register/delete') Delete
                     button.btn.btn-secondary.btn-sm.mr-1(type='submit', style='float: right;', data-toggle='tooltip'
                         , data-placement='left', title='Save the registrations', onclick="document.SaveThis.submit()") Save
@@ -137,7 +176,7 @@ block content
                                     - sumCredit = sumCredit + parseInt(selectedSubject.credits)
                                     - sumFee = sumFee + parseInt(selectedSubject.credits)*56*23270
                                     - var isThisSubjectOverlap = false
-                                    - var isThisSubjectOK = 0
+                                    - var isThisSubjectOK = 2
                                     if overlapping
                                         each subLap in overlapping
                                             if (subLap === selectedSubject.name_sub)
@@ -146,16 +185,18 @@ block content
                                         each color in resultColor
                                             if (color === selectedSubject.id_sub)
                                                 - isThisSubjectOK = 1;
-                                    tr(data-toggle='tooltip', data-placement='right', title=isThisSubjectOverlap ? 'These subjects overlap with each other!': '', class=(isThisSubjectOverlap ? 'isOverlapping': (isThisSubjectOK !== null ? (isThisSubjectOK === 0 ?'isNotOK':'isOK' ): '')))
+                                            else
+                                                - isThisSubjectOK = 0
+                                    tr(data-toggle='tooltip', data-placement='right', title=isThisSubjectOverlap ? 'These subjects overlap with each other!': '', class=(isThisSubjectOverlap ? 'isOverlapping': (isThisSubjectOK !== 2 ? (isThisSubjectOK === 0 ?'isNotOK':'isOK' ): '')))
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= count++
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.id_sub
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.name_sub
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.credits
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= ((parseInt(selectedSubject.credits)*56*23270).toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                                        td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= isThisSubjectOK !== null ? (isThisSubjectOK === 1 ? 'Saved' : 'This subject overlaps your schedule') : 'Not Saved'
+                                        td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= isThisSubjectOK !== 2 ? (isThisSubjectOK === 1 ? 'Saved' : 'This subject overlaps your schedule') : 'Not Saved'
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
                                             .form-check
-                                                input.form-check-input.position-static(id=count.toString(), class='sltSubject', type='checkbox', name='thisSelectedSubject', value=selectedSubject.id_sub)
+                                                input.form-check-input.position-static.checkSingle(id=count.toString(), class='sltSubject', type='checkbox', name='thisSelectedSubject', value=selectedSubject.id_sub)
                                 tr
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total', colspan='3') Total
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Credits')= sumCredit
