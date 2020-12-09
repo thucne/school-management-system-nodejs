@@ -56,3 +56,9 @@ th {
     color: red;
     font-style: italic;
 }
+
+.isOverlapping {
+    color: #0000cc;
+    font-weight: bold;
+    font-style: italic;
+}

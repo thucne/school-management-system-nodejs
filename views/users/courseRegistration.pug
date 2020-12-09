@@ -136,7 +136,12 @@ block content
                                 each selectedSubject in listOfSelectedSubjects
                                     - sumCredit = sumCredit + parseInt(selectedSubject.credits)
                                     - sumFee = sumFee + parseInt(selectedSubject.credits)*56*23270
-                                    tr
+                                    - var isThisSubjectOverlap = false
+                                    if overlapping
+                                        each subLap in overlapping
+                                            if (subLap === selectedSubject.name_sub)
+                                                - isThisSubjectOverlap = true;
+                                    tr(data-toggle='tooltip', data-placement='right', title=isThisSubjectOverlap ? 'These subjects overlap with each other!': '', class=isThisSubjectOverlap ? 'isOverlapping': '')
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= count++
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.id_sub
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.name_sub
