@@ -22,7 +22,9 @@ html
           $(function () {
             $('[data-toggle="tooltip"]').tooltip();
           });
-
+          $('.hide').on('copy paste cut drag drop', function (e) {
+            e.preventDefault();
+          });
         div
             img.cropimg(src="/images/galaxy.jpg", alt='Navigation img', width="100%", height="auto")
         .sticky-top
