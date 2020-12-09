@@ -2,6 +2,8 @@ var db = require('../lowdb/db');
 var avatar = require('../lowdb/avatar');
 var department = require('../lowdb/department');
 var subject = require('../lowdb/subject');
+var studentSchedule = require('../lowdb/studentStandardSchedule');
+var teacherSchedule = require('../lowdb/teacherStandardSchedule');
 
 const shortid = require('shortid');
 var aguid = require('aguid');
@@ -408,6 +410,7 @@ module.exports.deleteTheseSubjects = function (req, res) {
 module.exports.saveRegistrations = function (req, res) {
   var id = req.body.hiddenLoginID;
   var departments = department.get('department').value();
+  var subjects = subject.get('subjects').value();
 
   var listOfSelectedSubjects = JSON.parse(req.body.listOfSelectedSubjects);
 
@@ -475,18 +478,9 @@ module.exports.saveRegistrations = function (req, res) {
   }
   
   console.log('Overlapping ' + overlappingSelection);
-  // console.log(id);
-  // console.log('Existed Selected Subject ' + listOfSelectedSubjects);
 
-  // if (id === res.locals.userInfo.loginId) {
-  //   console.log('YES ' + res.locals.userInfo.loginId);
-  // } else {
-  //   console.log('NO ' + id);
-  // }
-
-  var subjects = subject.get('subjects').value();
   var correspondingDepartmentOfSubject = [];
-
+  //Find department
   function assignCorresponding() {
     for (let i = 0; i < subjects.length; i++) {
       for (let j = 0; j < departments.length; j++) {
@@ -506,36 +500,47 @@ module.exports.saveRegistrations = function (req, res) {
   assignNow().then(ren);
 
   function ren() {
-    // if (req.body.thisSelectedSubject) {
-    //   selectedSubjectThisTime = req.body.thisSelectedSubject;
-    //   // console.log(selectedSubjectThisTime);
-    //   for (let k = 0; k < selectedSubjectThisTime.length; k++) {
-    //     let foundSub = subjects.filter(function (sub) {
-    //       return sub.id_sub === parseInt(selectedSubjectThisTime[k]);
-    //     });
-    //     // console.log(foundSub[0].name_sub);
-    //     foundSub[0].checked = false;
-    //     let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime[k])}).value();
-    //     let theseSubjectName = findSelectedSubjectThisTime.name_sub;
-    //
-    //     let foundTheseSub = subjects.filter(function (sub) {
-    //       return sub.name_sub === theseSubjectName && sub.id_sub !== parseInt(selectedSubjectThisTime[k]);
-    //     });
-    //     // console.log(foundTheseSub);
-    //     for (let i = 0; i < foundTheseSub.length; i++) {
-    //       foundTheseSub[i].checked = false;
-    //     }
-    //   }
-    // }
-    res.render('users/courseRegistration', {
-      loginUser: db.get('users').find({id: id}).value(),
-      departments: departments,
-      subjects: subjects,
-      correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
-      inputSelectedSubject: listOfSelectedSubjects,
-      book_mark: '#here',
-      csrfToken: req.csrfToken()
-    });
+    if (overlappingSelection.length !== 0) {
+      res.render('users/courseRegistration', {
+        loginUser: db.get('users').find({id: id}).value(),
+        departments: departments,
+        subjects: subjects,
+        correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
+        inputSelectedSubject: listOfSelectedSubjects,
+        book_mark: '#here',
+        overlapping: overlappingSelection,
+        csrfToken: req.csrfToken()
+      });
+    } else {
+      var notOverlappingSelectedSubjects = [];
+      if (req.body.thisSelectedSubject) {
+        selectedSubjectThisTimeID = req.body.thisSelectedSubject;
+        for (let i = 0; i < selectedSubjectThisTimeID.length; i++) {
+          let found = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTimeID[i])}).value();
+          notOverlappingSelectedSubjects.push(found);
+        }
+        for (let i = 0; i < notOverlappingSelectedSubjects.length; i++) {
+          console.log('notOverlappingSelectedSubjects: ' + notOverlappingSelectedSubjects[i].name_sub);
+        }
+      }
+
+      var students = db.get('users').value().filter(function (user) {
+        return user.role === 0;
+      });
+
+      var studentWeeks = studentSchedule.get('studentSchedule').value();
+      
+
+      res.render('users/courseRegistration', {
+        loginUser: db.get('users').find({id: id}).value(),
+        departments: departments,
+        subjects: subjects,
+        correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
+        inputSelectedSubject: listOfSelectedSubjects,
+        book_mark: '#here',
+        csrfToken: req.csrfToken()
+      });
+    }
   }
 }
 
