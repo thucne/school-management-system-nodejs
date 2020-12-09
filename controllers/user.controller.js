@@ -529,7 +529,7 @@ module.exports.saveRegistrations = function (req, res) {
       });
 
       var studentWeeks = studentSchedule.get('studentSchedule').value();
-      
+
 
       res.render('users/courseRegistration', {
         loginUser: db.get('users').find({id: id}).value(),
