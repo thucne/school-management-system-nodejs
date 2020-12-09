@@ -185,9 +185,9 @@ block content
                                         each color in resultColor
                                             if (color === selectedSubject.id_sub)
                                                 - isThisSubjectOK = 1;
-                                            else
-                                                - isThisSubjectOK = 0
-                                    tr(data-toggle='tooltip', data-placement='right', title=isThisSubjectOverlap ? 'These subjects overlap with each other!': '', class=(isThisSubjectOverlap ? 'isOverlapping': (isThisSubjectOK !== 2 ? (isThisSubjectOK === 0 ?'isNotOK':'isOK' ): '')))
+                                    if (isThisSubjectOK === 2)
+                                        - isThisSubjectOK = 0
+                                    tr(data-toggle='tooltip', data-placement='right', title=isThisSubjectOverlap ? 'These subjects overlap with each other!': '', class=(isThisSubjectOverlap ? 'isOverlapping': (isThisSubjectOK !== 2 ? (isThisSubjectOK === 1 ?'isOK':'isNotOK' ): '')))
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= count++
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.id_sub
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.name_sub
