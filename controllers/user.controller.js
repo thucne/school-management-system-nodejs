@@ -338,7 +338,7 @@ module.exports.deleteTheseSubjects = function (req, res) {
     console.log('Array ' + selectedSubjectThisTime);
     for (let i = 0; i < selectedSubjectThisTime.length; i++)  {
       let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime[i])}).value();
-      let idx = listOfSelectedSubjects.indexOf(findSelectedSubjectThisTime);
+      let idx = listOfSelectedSubjects.findIndex(x => x.name_sub === findSelectedSubjectThisTime.name_sub);
       listOfSelectedSubjects.splice(idx, 1);
     }
   }
