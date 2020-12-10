@@ -163,11 +163,15 @@ block content
                                         each color in resultColor
                                             if (color === selectedSubject.id_sub)
                                                 - isThisSubjectOK = 1;
-                                      if (isThisSubjectOK !== 1)
+                                        if (isThisSubjectOK !== 1 && selectedSubject.saved !== true)
                                             - isThisSubjectOK = 0
-
-                                    else if (selectedSubject.saved === true)
-                                        - isThisSubjectOK = 1
+                                      else if (!selectedSubject.saved)
+                                        - isThisSubjectOK = 0
+                                      //if (isThisSubjectOK === 2)
+                                      //  - isThisSubjectOK = 0
+                                    //else if (selectedSubject.saved === true)
+                                    //    - isThisSubjectOK = 1
+                                    //
 
                                     tr(data-toggle='tooltip', data-placement='right', title=isThisSubjectOverlap ? 'These subjects overlap with each other!': '', class=(isThisSubjectOverlap ? 'isOverlapping': (isThisSubjectOK !== 2 ? (isThisSubjectOK === 1 ?'isOK':'isNotOK' ): (selectedSubject.saved ? 'isOK': ''))))
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= count++
