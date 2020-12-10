@@ -26,7 +26,8 @@
     "pug": "^3.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "shortid": "^2.2.15"
+    "shortid": "^2.2.15",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

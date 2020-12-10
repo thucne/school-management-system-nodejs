@@ -105,7 +105,7 @@ block content
             hr(style="background-color: gray;", id='here')
             if (listOfSelectedSubjects.length !== 0)
                 h4(style='color: blue; float: left;') Selected Subjects
-                form(action='/users/register/save', method="POST", name='SaveThis')
+                form(action='/users/register/save', method="POST", name='SaveThis', id='SaveThis')
                     script(type='text/javascript').
                       function selectAll() {
                         var checkbox = document.getElementsByName('thisSelectedSubject');
@@ -116,14 +116,42 @@ block content
                           }
                         }
                       }
+
+                      // import swal from 'sweetalert';
+
+                      function confirmSave() {
+                        swal({
+                          title: "Are you sure?",
+                          text: "Once saved, you will not be able to delete these registrations!",
+                          icon: "warning",
+                          buttons: true,
+                          dangerMode: true,
+                        }).then((willSave) => {
+                          if (willSave) {
+                            swal("OK! Your registrations has been saved!", {
+                              icon: "success",
+                              timer: 1000,
+                            }).then(()=> {
+                              document.getElementById('SaveThis').submit();
+                            });
+                          } else {
+                            swal("Let's reconsider!", {
+                              icon: 'error',
+                              timer: 1000
+                            });
+                          }
+                        });
+                        return false;
+                      }
+
                     .form-check(style='float: right;')
                         input.form-check-input(type='checkbox', onclick="selectAll()", id='selectAllSub')
                         label(for='selectAllSub') All
 
                     button.btn.btn-secondary.btn-sm.mr-1(type='submit', style='float: right;', data-toggle='tooltip'
                         , data-placement='right', title='Delete selected rows', formaction='/users/register/delete') Delete
-                    button.btn.btn-secondary.btn-sm.mr-1(type='submit', style='float: right;', data-toggle='tooltip'
-                        , data-placement='left', title='Save the registrations', onclick="document.SaveThis.submit()") Save
+                    button.btn.btn-secondary.btn-sm.mr-1(type='button', style='float: right;', data-toggle='tooltip'
+                        , data-placement='left', title='Save the registrations', onclick='confirmSave()') Save
                     //h4(style='color: blue; font-style: italic;') Selected Subjects
                     br
                     h5.text-danger(style='clear:both; font-style: italic;') Note: Saved courses cannot be deleted after confirmation to avoid slot-holdings and slot-tradings.
@@ -182,7 +210,7 @@ block content
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= isThisSubjectOK !== 2 ? (isThisSubjectOK === 1 ? 'Saved' : 'Overlaps your schedule') : (selectedSubject.saved !== true ? 'Not Saved': 'Saved')
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
                                             .form-check
-                                                input.form-check-input.position-static.checkSingle(id=count.toString(), class='sltSubject', type='checkbox', name='thisSelectedSubject', value=parseInt(selectedSubject.id_sub), disabled=selectedSubject.saved)
+                                                input.form-check-input.position-static.checkSingle(id=count.toString(), class='sltSubject', type='checkbox', name='thisSelectedSubject', value=parseInt(selectedSubject.id_sub), disabled=selectedSubject.saved === true)
                                 tr
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total', colspan='3') Total
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Credits')= sumCredit
