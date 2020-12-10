@@ -415,7 +415,7 @@ module.exports.saveRegistrations = function (req, res) {
   var listOfSelectedSubjects = JSON.parse(req.body.listOfSelectedSubjects);
 
   var selectedSubjectThisTimeID;
-  var selectedSubjectThisTime = [];
+  let selectedSubjectThisTime = [];
   var listOfSavedSubjectsBEFORE = [];
 
   // if (req.body.listOfSavedSubjectsBEFORE) {
@@ -427,10 +427,17 @@ module.exports.saveRegistrations = function (req, res) {
   // }
 
   if (req.body.thisSelectedSubject) {
-    selectedSubjectThisTimeID = req.body.thisSelectedSubject;
-    console.log('Array ' + selectedSubjectThisTimeID);
-    for (let i = 0; i < selectedSubjectThisTimeID.length; i++) {
-      let found = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTimeID[i])}).value();
+    selectedSubjectThisTimeID = JSON.parse(req.body.thisSelectedSubject);
+    console.log('Array is ' + typeof selectedSubjectThisTimeID);
+    var isArray = Array.isArray(selectedSubjectThisTimeID);
+    console.log('IS ARRAY ' + isArray);
+    if (isArray) {
+      for (let i = 0; i < selectedSubjectThisTimeID.length; i++) {
+        let found = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTimeID[i])}).value();
+        selectedSubjectThisTime.push(found);
+      }
+    } else {
+      let found = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTimeID)}).value();
       selectedSubjectThisTime.push(found);
     }
     for (let i = 0; i < selectedSubjectThisTime.length; i++) {
@@ -440,7 +447,7 @@ module.exports.saveRegistrations = function (req, res) {
 
   var overlappingSelection = [];
 
-  if (selectedSubjectThisTime.length > 0) {
+  if (isArray === true && selectedSubjectThisTime.length > 0) {
     for (let i = 0; i < selectedSubjectThisTime.length - 1; i++) {
       for (let j = i + 1; j < selectedSubjectThisTime.length; j++) {
         if (selectedSubjectThisTime[i].whichDay === selectedSubjectThisTime[j].whichDay) {
@@ -467,15 +474,18 @@ module.exports.saveRegistrations = function (req, res) {
     }
   }
 
-  for (let i = 0; i < overlappingSelection.length; i++) {
-    let selectedSub = overlappingSelection[i]
-    for (let j = i + 1; j < overlappingSelection.length; j++) {
-      let thisSub = overlappingSelection[j];
-      if (selectedSub === thisSub) {
-        overlappingSelection.splice(j, 1);
+  if (isArray === true) {
+    for (let i = 0; i < overlappingSelection.length; i++) {
+      let selectedSub = overlappingSelection[i]
+      for (let j = i + 1; j < overlappingSelection.length; j++) {
+        let thisSub = overlappingSelection[j];
+        if (selectedSub === thisSub) {
+          overlappingSelection.splice(j, 1);
+        }
       }
     }
   }
+
   
   console.log('Overlapping ' + overlappingSelection);
 
@@ -500,7 +510,7 @@ module.exports.saveRegistrations = function (req, res) {
   assignNow().then(ren);
 
   function ren() {
-    if (overlappingSelection.length !== 0) {
+    if (overlappingSelection.length > 0) {
       res.render('users/courseRegistration', {
         loginUser: db.get('users').find({id: id}).value(),
         departments: departments,
@@ -515,8 +525,13 @@ module.exports.saveRegistrations = function (req, res) {
       var notOverlappingSelectedSubjects = [];
       if (req.body.thisSelectedSubject) {
         selectedSubjectThisTimeID = req.body.thisSelectedSubject;
-        for (let i = 0; i < selectedSubjectThisTimeID.length; i++) {
-          let found = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTimeID[i])}).value();
+        if (isArray) {
+          for (let i = 0; i < selectedSubjectThisTimeID.length; i++) {
+            let found = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTimeID[i])}).value();
+            notOverlappingSelectedSubjects.push(found);
+          }
+        } else {
+          let found = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTimeID)}).value();
           notOverlappingSelectedSubjects.push(found);
         }
         for (let i = 0; i < notOverlappingSelectedSubjects.length; i++) {
@@ -579,17 +594,38 @@ module.exports.saveRegistrations = function (req, res) {
         }
       }
 
-      if (notOverlappingSelectedSubjects.length > 0 ) {
-        for (let k = 0; k < notOverlappingSelectedSubjects.length; k++) {
-          let whatDayOfThisSubject = notOverlappingSelectedSubjects[k].whichDay;
+      let savableSubject = [];
+      for (let g = 0;  g < resultColor.length; g++ ){
+        let findColorSubject = subject.get('subjects').find({id_sub: resultColor[g]}).value();
+        savableSubject.push(findColorSubject);
+      }
+
+      if (resultColor.length > 0 ) {
+        for (let k = 0; k < savableSubject.length; k++) {
+          let whatDayOfThisSubject = savableSubject[k].whichDay;
           let findAboveDayInThisStudentSchedule = thisStudentWeeks[whatDayOfThisSubject];
-          let whatPeriodOfThisSubjectTO = notOverlappingSelectedSubjects[k].whichPeriod[0] - 1;
+          let whatPeriodOfThisSubjectTO = savableSubject[k].whichPeriod[0] - 1;
           console.log('findAboveDayInThisStudentSchedule ' + findAboveDayInThisStudentSchedule + ' whatPeriodOfThisSubjectTO ' + whatPeriodOfThisSubjectTO);
           console.log('COntent in What Day In Week BEFORE ' + findAboveDayInThisStudentSchedule);
-          for (let b = whatPeriodOfThisSubjectTO; b < whatPeriodOfThisSubjectTO + parseInt(notOverlappingSelectedSubjects[k].credits); b++) {
+          for (let b = whatPeriodOfThisSubjectTO; b < whatPeriodOfThisSubjectTO + parseInt(savableSubject[k].credits); b++) {
             findAboveDayInThisStudentSchedule.splice(b, 1, 1);
           }
           console.log('COntent in What Day In Week ' + findAboveDayInThisStudentSchedule);
+          if (whatDayOfThisSubject === 'mon') {
+            studentSchedule.get('studentSchedule').find({id: thisStudent.studentSchedule}).assign({mon: findAboveDayInThisStudentSchedule}).write();
+          } else if (whatDayOfThisSubject === 'tue') {
+            studentSchedule.get('studentSchedule').find({id: thisStudent.studentSchedule}).assign({tue: findAboveDayInThisStudentSchedule}).write();
+          } else if (whatDayOfThisSubject === 'wed') {
+            studentSchedule.get('studentSchedule').find({id: thisStudent.studentSchedule}).assign({wed: findAboveDayInThisStudentSchedule}).write();
+          } else if (whatDayOfThisSubject === 'thu') {
+            studentSchedule.get('studentSchedule').find({id: thisStudent.studentSchedule}).assign({thu: findAboveDayInThisStudentSchedule}).write();
+          } else if (whatDayOfThisSubject === 'fri') {
+            studentSchedule.get('studentSchedule').find({id: thisStudent.studentSchedule}).assign({fri: findAboveDayInThisStudentSchedule}).write();
+          } else if (whatDayOfThisSubject === 'sat') {
+            studentSchedule.get('studentSchedule').find({id: thisStudent.studentSchedule}).assign({sat: findAboveDayInThisStudentSchedule}).write();
+          } else if (whatDayOfThisSubject === 'sun') {
+            studentSchedule.get('studentSchedule').find({id: thisStudent.studentSchedule}).assign({sun: findAboveDayInThisStudentSchedule}).write();
+          }
         }
       }
 
