@@ -569,6 +569,11 @@ module.exports.saveRegistrations = function (req, res) {
         for (let i = 0; i < notOverlappingSelectedSubjects.length; i++) {
           console.log('notOverlappingSelectedSubjects: ' + notOverlappingSelectedSubjects[i].name_sub);
         }
+        for (let w = listOfSelectedSubjects.length - selectedSubjectThisTimeID.length + 1; w < listOfSelectedSubjects.length; w++ ) {
+          listOfSelectedSubjects[w].saved = true;
+          console.log('w ' + listOfSelectedSubjects[w].saved);
+        }
+
       }
 
       var thisStudent = db.get('users').find({id: id}).value();
@@ -576,6 +581,10 @@ module.exports.saveRegistrations = function (req, res) {
 
       console.log('thisStudent ' + thisStudent.name);
       console.log('thisStudentWeeks ' + thisStudentWeeks.id);
+      for (let l = 0; l < listOfSelectedSubjects.length; l++) {
+        console.log('listOfSelectedSubjects ' + listOfSelectedSubjects[l].saved);
+      }
+
 
       var isAllOfNotOverlappingSelectedSubjectOKToSave = false;
       var numOfSubject = 0;
@@ -604,13 +613,6 @@ module.exports.saveRegistrations = function (req, res) {
         if (count === 0) {
           numOfSubject++;
           resultColor.push(notOverlappingSelectedSubjects[i].id_sub);
-          // let thisTime = listOfSelectedSubjects.filter(function (sub) {
-          //   console.log('TYPE OF sub ' + sub.id_sub);
-          //   return sub.id_sub === notOverlappingSelectedSubjects[i].id_sub
-          // })
-          // console.log('This TIME ' + thisTime.name_sub);
-          // console.log('TYPE OF TIME ' + notOverlappingSelectedSubjects[i].id_sub);
-          // thisTime.saved = true;
         }
       }
 
