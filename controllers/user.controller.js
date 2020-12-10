@@ -224,6 +224,36 @@ module.exports.registrationMenuDisplaying = function (req, res) {
 
   function ren() {
     var user = db.get('users').find({id: id}).value();
+    let savedSubjects = user.savedSubjects;
+    var listOfSelectedSubjects = [];
+    if (savedSubjects !== undefined) {
+      for (let i = 0; i < savedSubjects.length; i++) {
+        listOfSelectedSubjects.push(savedSubjects[i])
+      }
+    }
+
+    if (listOfSelectedSubjects.length > 0) {
+      for (let m = 0;  m < listOfSelectedSubjects.length; m++) {
+        let thisSubName = subject.get('subjects').find({id_sub: listOfSelectedSubjects[m]}).value().name_sub;
+        let tempSubjects = subjects.filter(function (sub) {
+          return sub.name_sub === thisSubName;
+        });
+        // console.log(foundTheseSub);
+        for (let i = 0; i < tempSubjects.length; i++) {
+          tempSubjects[i].checked = true;
+        }
+      }
+    }
+    //convert to name_sub from id_sub
+    if (listOfSelectedSubjects.length > 0) {
+      let tempArr = [];
+      for (let n = 0;  n < listOfSelectedSubjects.length; n++) {
+        let thisSub = subject.get('subjects').find({id_sub: listOfSelectedSubjects[n]}).value();
+        thisSub.saved = true;
+        tempArr.push(thisSub);
+      }
+      listOfSelectedSubjects = tempArr;
+    }
 
     if (user && id === res.locals.userInfo.loginId) {
       res.render('users/courseRegistration', {
@@ -231,15 +261,12 @@ module.exports.registrationMenuDisplaying = function (req, res) {
         departments: departments,
         subjects: subjects,
         correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
+        inputSelectedSubject: listOfSelectedSubjects,
         csrfToken: token
       });
     } else {
-      // res.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       res.clearCookie('userID');
-      // console.log(userInfo.name + "oops");
-
       res.locals.userInfo.name = " ";
-
       res.render('auth/login');
     }
   }
@@ -298,6 +325,10 @@ module.exports.selectTheseSubjects = function (req, res) {
       let foundSub = subjects.filter(function (sub) {
         return sub.id_sub === parseInt(selectedSubjectThisTime);
       });
+
+      // let savedSubjects = db.get('users').find({id: id}).value().savedSubjects;
+      //
+      // if (savedSubjects !== undefined)
       // console.log(foundSub[0].name_sub);
       foundSub[0].checked = true;
       let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime)}).value();
@@ -306,6 +337,7 @@ module.exports.selectTheseSubjects = function (req, res) {
       let foundTheseSub = subjects.filter(function (sub) {
         return sub.name_sub === theseSubjectName && sub.id_sub !== parseInt(selectedSubjectThisTime);
       });
+
       // console.log(foundTheseSub);
       for (let i = 0; i < foundTheseSub.length; i++) {
         foundTheseSub[i].checked = true;
@@ -427,8 +459,8 @@ module.exports.saveRegistrations = function (req, res) {
   // }
 
   if (req.body.thisSelectedSubject) {
-    selectedSubjectThisTimeID = JSON.parse(req.body.thisSelectedSubject);
-    console.log('Array is ' + typeof selectedSubjectThisTimeID);
+    selectedSubjectThisTimeID = req.body.thisSelectedSubject;
+    console.log('Array is ' + selectedSubjectThisTimeID);
     var isArray = Array.isArray(selectedSubjectThisTimeID);
     console.log('IS ARRAY ' + isArray);
     if (isArray) {
@@ -572,8 +604,26 @@ module.exports.saveRegistrations = function (req, res) {
         if (count === 0) {
           numOfSubject++;
           resultColor.push(notOverlappingSelectedSubjects[i].id_sub);
+          // let thisTime = listOfSelectedSubjects.filter(function (sub) {
+          //   console.log('TYPE OF sub ' + sub.id_sub);
+          //   return sub.id_sub === notOverlappingSelectedSubjects[i].id_sub
+          // })
+          // console.log('This TIME ' + thisTime.name_sub);
+          // console.log('TYPE OF TIME ' + notOverlappingSelectedSubjects[i].id_sub);
+          // thisTime.saved = true;
         }
       }
+
+      // if (resultColor.length > 0){
+      //   for (let b = 0;  b < resultColor.length; b++) {
+      //     let find = listOfSelectedSubjects.filter(function (x) {
+      //       return x.id_sub === parseInt(resultColor[b]);
+      //     });
+      //     console.log('whatttttttttt ' + parseInt(resultColor[b]));
+      //     find.saved = true;
+      //   }
+      // }
+
       console.log('count ' + numOfSubject);
       console.log('result color ' + resultColor);
       if (numOfSubject === notOverlappingSelectedSubjects.length) {
@@ -635,7 +685,7 @@ module.exports.saveRegistrations = function (req, res) {
         subjects: subjects,
         correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
         inputSelectedSubject: listOfSelectedSubjects,
-        resultColor: db.get('users').find({id: id}).value().savedSubjects,
+        resultColor: resultColor,
         book_mark: '#here',
         csrfToken: req.csrfToken()
       });
