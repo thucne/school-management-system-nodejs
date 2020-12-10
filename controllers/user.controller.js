@@ -688,6 +688,7 @@ module.exports.saveRegistrations = function (req, res) {
         correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
         inputSelectedSubject: listOfSelectedSubjects,
         resultColor: resultColor,
+        reloadPage: true,
         book_mark: '#here',
         csrfToken: req.csrfToken()
       });
