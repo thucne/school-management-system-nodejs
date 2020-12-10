@@ -65,7 +65,15 @@
       ],
       "_csrf": "LVbKaWO3-TuxRxc6ZZ78bcx5W64rUV--BWlQ",
       "role": 0,
-      "studentSchedule": 3
+      "studentSchedule": 3,
+      "savedSubjects": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        14
+      ]
     },
     {
       "id": "ad01abac-4921-43c1-b17d-7f72140a91d4",
