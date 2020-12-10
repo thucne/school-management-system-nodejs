@@ -109,36 +109,10 @@ block content
                     script(type='text/javascript').
                       function selectAll() {
                         var checkbox = document.getElementsByName('thisSelectedSubject');
-                        var areAllUnchecked = true;
-                        var areAllChecked = true;
+                        var checkboxAll = document.getElementById('selectAllSub');
                         for (let i = 0; i < checkbox.length; i++) {
-                          if (checkbox[i].checked === true) {
-                            areAllUnchecked = false;
-                            break;
-                          }
+                          checkbox[i].checked = checkboxAll.checked === true;
                         }
-                        for (let i = 0; i < checkbox.length; i++) {
-                          if (checkbox[i].checked === false) {
-                            break;
-                          }
-                          if (i === checkbox.length - 1) {
-                            areAllChecked = true;
-                          }
-                        }
-                        if (areAllUnchecked || areAllChecked) {
-                          for (let i = 0; i < checkbox.length; i++) {
-                            if (checkbox[i].checked === false)
-                              checkbox[i].checked = true;
-                            else
-                              checkbox[i].checked = false;
-                          }
-                        } else {
-                          for (let i = 0; i < checkbox.length; i++) {
-                            checkbox[i].checked = true;
-                          }
-                        }
-
-                        // location.reload();
                       }
                     .form-check(style='float: right;')
                         input.form-check-input(type='checkbox', onclick="selectAll()", id='selectAllSub')
