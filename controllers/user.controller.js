@@ -542,7 +542,7 @@ module.exports.saveRegistrations = function (req, res) {
         let startPeriod = notOverlappingSelectedSubjects[i].whichPeriod[0];
         let finishPeriod = notOverlappingSelectedSubjects[i].whichPeriod[notOverlappingSelectedSubjects[i].whichPeriod.length - 1];
         console.log('Start ' + (startPeriod - 1) + ' End ' + finishPeriod);
-        for (let l = startPeriod; l < finishPeriod + 1; l++) {
+        for (let l = startPeriod - 1; l < finishPeriod; l++) {
           if (thisDayOfThisCurrentSubjectInDB[l] === 0) {
             count--;
           } else {
@@ -567,13 +567,39 @@ module.exports.saveRegistrations = function (req, res) {
 
       console.log('isAllOfNotOverlappingSelectedSubjectOKToSave ' + isAllOfNotOverlappingSelectedSubjectOKToSave);
 
+      if (resultColor.length > 0) {
+        let currentSavedSubject = db.get('users').find({id: id}).value().savedSubjects;
+        if (currentSavedSubject) {
+          for (let j = 0; j < resultColor.length; j++) {
+            currentSavedSubject.push(resultColor[j]);
+          }
+          db.get('users').find({id: id}).assign({savedSubjects: currentSavedSubject}).write();
+        } else {
+          db.get('users').find({id: id}).assign({savedSubjects: resultColor}).write();
+        }
+      }
+
+      if (notOverlappingSelectedSubjects.length > 0 ) {
+        for (let k = 0; k < notOverlappingSelectedSubjects.length; k++) {
+          let whatDayOfThisSubject = notOverlappingSelectedSubjects[k].whichDay;
+          let findAboveDayInThisStudentSchedule = thisStudentWeeks[whatDayOfThisSubject];
+          let whatPeriodOfThisSubjectTO = notOverlappingSelectedSubjects[k].whichPeriod[0] - 1;
+          console.log('findAboveDayInThisStudentSchedule ' + findAboveDayInThisStudentSchedule + ' whatPeriodOfThisSubjectTO ' + whatPeriodOfThisSubjectTO);
+          console.log('COntent in What Day In Week BEFORE ' + findAboveDayInThisStudentSchedule);
+          for (let b = whatPeriodOfThisSubjectTO; b < whatPeriodOfThisSubjectTO + parseInt(notOverlappingSelectedSubjects[k].credits); b++) {
+            findAboveDayInThisStudentSchedule.splice(b, 1, 1);
+          }
+          console.log('COntent in What Day In Week ' + findAboveDayInThisStudentSchedule);
+        }
+      }
+
       res.render('users/courseRegistration', {
         loginUser: db.get('users').find({id: id}).value(),
         departments: departments,
         subjects: subjects,
         correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
         inputSelectedSubject: listOfSelectedSubjects,
-        resultColor: resultColor,
+        resultColor: db.get('users').find({id: id}).value().savedSubjects,
         book_mark: '#here',
         csrfToken: req.csrfToken()
       });
