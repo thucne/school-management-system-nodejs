@@ -32,7 +32,14 @@
       ],
       "_csrf": "2FOPapE6-b0mLoG12ZIACMOPiG07yd7Nl1oM",
       "role": 0,
-      "studentSchedule": 1
+      "studentSchedule": 1,
+      "savedSubjects": [
+        1,
+        2,
+        3,
+        5,
+        14
+      ]
     },
     {
       "id": "a585b731-0527-4a30-941d-92d78bea7c43",

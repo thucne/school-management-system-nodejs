@@ -104,6 +104,15 @@ block content
 
             hr(style="background-color: gray;", id='here')
             if (listOfSelectedSubjects.length !== 0)
+                if (reloadPage !== null)
+                  if (reloadPage === true)
+                    script(type='text/javascript').
+                      swal("Wait!", {
+                        icon: "warning",
+                        timer: 1500,
+                      }).then(() => {
+                        location.href = '/users/register#here';
+                      });
                 h4(style='color: blue; float: left;') Selected Subjects
                 form(action='/users/register/save', method="POST", name='SaveThis', id='SaveThis')
                     script(type='text/javascript').
