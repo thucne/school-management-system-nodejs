@@ -12171,7 +12171,13 @@
       "password": "qmg91IlUw",
       "avatar": "uploads/1a9beaffa6810973f333cef16f804a23",
       "role": 0,
-      "studentSchedule": 809
+      "studentSchedule": 809,
+      "savedSubjects": [
+        1,
+        3,
+        5,
+        24
+      ]
     },
     {
       "_csrf": "EL4S0yFv-Vr7PSg1_7XNAeWPSgUbPZUkQnao",

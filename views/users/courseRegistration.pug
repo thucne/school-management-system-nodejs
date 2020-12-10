@@ -170,7 +170,7 @@ block content
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= isThisSubjectOK !== 2 ? (isThisSubjectOK === 1 ? 'Saved' : 'Overlaps your schedule') : 'Not Saved'
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
                                             .form-check
-                                                input.form-check-input.position-static.checkSingle(id=count.toString(), class='sltSubject', type='checkbox', name='thisSelectedSubject', value=selectedSubject.id_sub)
+                                                input.form-check-input.position-static.checkSingle(id=count.toString(), class='sltSubject', type='checkbox', name='thisSelectedSubject', value=parseInt(selectedSubject.id_sub))
                                 tr
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total', colspan='3') Total
                                     td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Credits')= sumCredit
