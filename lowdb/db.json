@@ -39,7 +39,9 @@
         3,
         5,
         14,
-        16
+        16,
+        7,
+        15
       ]
     },
     {
@@ -56,7 +58,10 @@
         "Avatar is kept unchanged."
       ],
       "role": 0,
-      "studentSchedule": 2
+      "studentSchedule": 2,
+      "savedSubjects": [
+        1
+      ]
     },
     {
       "id": "7869a2c6-033e-4274-8ac9-16fb29139823",
@@ -12239,6 +12244,9 @@
     },
     {
       "id": "_xTPn4IQF"
+    },
+    {
+      "id": "pES_36yE_"
     }
   ]
 }
