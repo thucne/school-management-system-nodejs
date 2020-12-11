@@ -190,7 +190,19 @@ module.exports.postCreate = function (req, res) {
   console.log(req.file.path);
   console.log(req.body);
 
-  db.get('users').push(req.body).write();
+  var newUser = {
+    name: req.body.name,
+    first_name: req.body.first_name,
+    gender: req.body.gender,
+    email: req.body.email,
+    id: req.body.id,
+    ip_address: req.body.ip_address,
+    password: req.body.password,
+    avatar: req.body.avatar,
+    role: req.body.role === 'Student' ? 0 : (req.body.role === 'Teacher' ? 1 : 10)
+  }
+
+  db.get('users').push(newUser).write();
   res.redirect('/users');
 };
 

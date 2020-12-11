@@ -4,6 +4,28 @@ var db = require('../lowdb/db');
   var errs = [];
   console.log(req.csrfToken());
 
+   if (!req.body.accessCode) {
+     errs.push('Access code is required.');
+   } else {
+     var accessCode = parseInt(req.body.accessCode);
+     var thisAdmin = db.get('users').find({id: res.locals.userInfo.loginId}).value();
+     if (thisAdmin.role !== 10) {
+       let token = req.csrfToken();
+       res.clearCookie("userID");
+       res.render('users/create', {
+         csrfToken: token,
+         values: req.body,
+         reloadPage: 'yes',
+         book_mark: '#here'
+       });
+       return;
+     } else {
+       if (thisAdmin.accessCode !== accessCode) {
+         errs.push('Invalid Access Code!')
+       }
+     }
+   }
+
   if (!req.body.name) {
     errs.push('Last Name is required.');
   }
@@ -15,6 +37,9 @@ var db = require('../lowdb/db');
   }
   if (!req.body.email) {
     errs.push('Email is required.');
+  }
+  if (!req.body.role) {
+    errs.push('Role is required.');
   }
 
   // req.body.avatar = (req.file.path.length !== 0) ? req.file.path.split('\\').slice(1).join('/'): 'nope';

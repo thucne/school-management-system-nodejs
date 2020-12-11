@@ -17,7 +17,7 @@ block content
         input(type="text", name="q", class="form-control", value=page.searchString, placeholder="Any")
         button.btn.btn-primary.ml-2(type='submit', data-toggle='tooltip', data-placement='top', title='Search by the input keyword') &#128270;
 
-    #mySchool.carousel.slide(data-ride='carousel')
+    #mySchool.carousel.slide.avt(data-ride='carousel')
       ol.carousel-indicators
         li.active(data-target='#mySchool', data-slide-to='0')
         li(data-target='#mySchool', data-slide-to='1')
@@ -80,7 +80,7 @@ block content
           data-toggle='tooltip', data-placement='left', title='Previous 3 pages') Previous
       li.page-item.ml-2
         a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + page.x) #{page.x}
-      li.page-item.active(data-toggle='tooltip', data-placement='top', title='Current page')
+      li.page-item.active.avt(data-toggle='tooltip', data-placement='top', title='Current page')
         span.page-link #{page.y}
           span.sr-only
       li.page-item
