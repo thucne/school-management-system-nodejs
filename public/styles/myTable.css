@@ -73,12 +73,12 @@ th {
     font-weight: bold;
 }
 
-footer {
-    text-align: center;
-    align-items: center;
-    vertical-align : middle;
-    justify-content: center;
-    padding: 3px;
-    background-color: gray;
-    color: white;
-}
+/*footer {*/
+/*    text-align: center;*/
+/*    align-items: center;*/
+/*    vertical-align : middle;*/
+/*    justify-content: center;*/
+/*    padding: 3px;*/
+/*    background-color: gray;*/
+/*    color: white;*/
+/*}*/
