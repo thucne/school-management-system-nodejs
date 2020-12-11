@@ -23,11 +23,24 @@ footer {
     /*position: sticky;*/
     /*position: -webkit-sticky;*/
     /*left: 0 ; right: 0; bottom: 0;*/
-    text-align: center;
+    /*text-align: center;*/
     align-items: center;
     vertical-align : middle;
     justify-content: center;
-    padding: 3px;
+    /*padding: 3px;*/
     background-color: gray;
     color: white;
+    z-index: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /*background:#ccccff;*/
+    /*color:#000000;*/
+    text-align:center;
+    font-weight:bold;
+    line-height:20px;
+}
+
+.avt {
+    z-index: 0;
 }

@@ -7,6 +7,9 @@ block content
         location.href='/users/create#here'
       }
       scroll();
+  if (reloadPage)
+    script(type='text/javascript').
+      location.reload();
   .container-fluid.my-5.hide
     .row
       .col-md-7
@@ -55,6 +58,26 @@ block content
               pattern="^\\w+@[a-zA-Z]+\\.com$",
               title="any@inWords.com", class=values ? (values.email ? 'is-valid': 'is-invalid'): '')
             .valid-feedback(class=values ? (values.email ? 'valid-feedback': 'invalid-feedback'):'')= values ? (values.email ? 'Looks good!': 'Please provide a valid email!') : ''
+
+            p.mb-1 Role
+              .container-fluid
+                .row
+                  .col-sm-3
+                  .col-sm-9
+                    .custom-control.custom-radio.custom-control-inline
+                      input#student.custom-control-input(type='radio', name='role', value='Student', checked=values ? (values.role === 'Student'): 'false')
+                      label.custom-control-label(for='student') Student
+                    .custom-control.custom-radio.custom-control-inline
+                      input#teacher.custom-control-input(type='radio', name='role', value='Teacher', checked=values ? (values.role === 'Teacher'): 'false')
+                      label.custom-control-label(for='teacher') Teacher
+                    .custom-control.custom-radio.custom-control-inline
+                      input#admin.custom-control-input(type='radio', name='role', value='Admin', checked=values ? (values.role === 'Admin'): 'false')
+                      label.custom-control-label(for='admin') Admin
+            label(for='accessCode') Access Code
+            input#accessCode.form-control(name="accessCode", style='width: 150px;', type="text", value=values ? values.accessCode: '',
+                pattern="^[0-9]{6}$",
+                title="******", class=values ? (values.accessCode ? 'is-valid' : 'is-invalid'): '')
+            .valid-feedback(class=values ? (values.accessCode ? 'valid-feedback' : 'invalid-feedback'): '')= values ? (values.accessCode ? 'Looks good!' : 'Please provide a valid access code!') : ''
 
             label(for="avatar") Avatar
             input#avatar.form-control-file(name="avatar", type="file")
