@@ -12252,6 +12252,17 @@
       "password": "AWrJU7AzZ",
       "avatar": "uploads/3a2655cbdae07062c8a02705637dee92",
       "role": 0
+    },
+    {
+      "name": "Nguyen Duc",
+      "first_name": "Dang Khoi",
+      "gender": "Male",
+      "email": "dangkhoi@gmail.com",
+      "id": "a7898af5-a024-4dc4-807f-c0867bc35a3c",
+      "ip_address": "72.97.234.25",
+      "password": "sJbhKqzcZ",
+      "avatar": "uploads/b0a57cf3499551b9f87fb4d3db2d0cd6",
+      "role": 1
     }
   ],
   "sessions": [
@@ -12272,6 +12283,12 @@
     },
     {
       "id": "_ssym0JCH"
+    },
+    {
+      "id": "p78D6IfZM"
+    },
+    {
+      "id": "9fs_EekIR"
     }
   ]
 }
