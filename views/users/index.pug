@@ -42,9 +42,10 @@ block content
         span.carousel-control-next-icon(aria-hidden='true')
         span.sr-only Next
     .table-responsive
-      table.table.mt-3.table-hover
+      table.table.mt-3.table-hover.table-striped
         tr.table-secondary
           th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
+          th(data-toggle='tooltip', data-placement='top', title='Role') Role
           th(data-toggle='tooltip', data-placement='top', title='First Name') First Name
           th(data-toggle='tooltip', data-placement='top', title='Last Name') Last Name
           th(data-toggle='tooltip', data-placement='top', title='Gender') Gender
@@ -57,11 +58,12 @@ block content
         each user in users
           tr
             td= users.indexOf(user) + (7 * (page.y - 1)) + 1
-            td= user.name
-            td= user.first_name
-            td= user.gender
-            td= user.email
-            td= user.ip_address
+            td= user.role !== null ? (user.role === 1 ? 'Teacher': (user.role === 0 ? 'Student': 'Admin')) : 'Unknown'
+            td= user.name !== null ? user.name: 'Unknown'
+            td= user.first_name !== null ? user.first_name: 'Unknown'
+            td= user.gender !== null ? user.gender : 'Unknown'
+            td= user.email !== null ? user.email: 'Unknown'
+            td= user.ip_address !== null ? user.ip_address: 'Unknown'
             td
               if user.avatar
                 img(src= (user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '/' + user.avatar: user.avatar, width="40", alt=!user.avatar ? 'Not Found': '')

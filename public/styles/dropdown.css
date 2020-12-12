@@ -30,7 +30,7 @@ footer {
     /*padding: 3px;*/
     background-color: gray;
     color: white;
-    z-index: 0;
+    z-index: 1;
     position: fixed;
     bottom: 0;
     width: 100%;
