@@ -1,0 +1,283 @@
+#a{
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 270px;
+    margin-left: -125px;
+    margin-bottom: 10px;
+    background-color: #ff5151;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px;
+    /* position: fixed; */
+    position: fixed;
+    z-index: 4;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#a.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#b{
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 270px;
+    margin-left: -125px;
+    margin-bottom: 80px;
+    background-color: #ff5151;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px;
+    /* position: fixed; */
+    position: fixed;
+    z-index: 4;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#b.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#c{
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 270px;
+    margin-left: -125px;
+    margin-bottom: 150px;
+    background-color: #ff5151;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px;
+    /* position: fixed; */
+    position: fixed;
+    z-index: 4;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#c.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#d{
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 270px;
+    margin-left: -125px;
+    margin-bottom: 220px;
+    background-color: #ff5151;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px;
+    /* position: fixed; */
+    position: fixed;
+    z-index: 4;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#d.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#e{
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 270px;
+    margin-left: -125px;
+    margin-bottom: 290px;
+    background-color: #ff5151;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px;
+    /* position: fixed; */
+    position: fixed;
+    z-index: 4;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#e.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#m{
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 270px;
+    margin-left: -125px;
+    margin-bottom: 10px;
+    background-color: #fcac00;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px;
+    position: fixed;
+    z-index: 4;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#m.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#n{
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 270px;
+    margin-left: -125px;
+    margin-bottom: 80px;
+    background-color: #fcac00;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px;
+    position: fixed;
+    z-index: 4;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#n.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#p{
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 270px;
+    margin-left: -125px;
+    margin-bottom: 150px;
+    background-color: #fcac00;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px;
+    position: fixed;
+    z-index: 4;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#p.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#q{
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 270px;
+    margin-left: -125px;
+    margin-bottom: 220px;
+    background-color: #fcac00;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px;
+    position: fixed;
+    z-index: 4;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#q.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#warning{
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 270px;
+    margin-left: -125px;
+    margin-bottom: 10px;
+    background-color: #fcac00;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px;
+    /* position: fixed; */
+    position: fixed;
+    z-index: 4;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#warning.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#errsnackbar{
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 270px;
+    margin-left: -125px;
+    background-color: #ff5151;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px;
+    position: fixed;
+    z-index: 4;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#errsnackbar.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#snackbar{
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #32CD32;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px;
+    position: fixed;
+    z-index: 4;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#snackbar.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 1.5s;
+    animation: fadein 0.5s, fadeout 0.5s 1.5s;
+}
+@-webkit-keyframes fadein{
+    from{bottom: 0;opacity: 0;}
+    to{bottom: 30px;opacity: 1;}
+}
+@keyframes fadein{
+    from{bottom: 0;opacity: 0;}
+    to{bottom: 30px;opacity: 1;}
+}
+@-webkit-keyframes fadeout{
+    from{bottom: 30px;opacity: 1;}
+    to{bottom: 0;opacity: 0;}
+}
+@keyframes fadeout{
+    from{bottom: 30px;opacity: 1;}
+    to{bottom: 0;opacity: 0;}
+}

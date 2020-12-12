@@ -15,9 +15,9 @@ block content
       .col-md-7
         h1 Sign up
 
-        if errs
-          each err in errs
-            .alert.alert-danger= err
+        //- if errs
+        //-   each err in errs
+        //-     .alert.alert-danger= err
 
         form(action="/users/create", method="POST", enctype="multipart/form-data", name="Create")
           .form-group
@@ -86,3 +86,27 @@ block content
 
       .col-md-5
         img.mb-5.p-2(src='/images/Create.png', alt='Create', width='100%', style='box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);')
+  .container-fluid.my-5.hide
+    .row
+      .col-md-12
+        if errs
+          -var IdArray = ['a','b','c','d','e']
+          -var count = 0
+          each err in errs
+            div( id=IdArray[count++]) &#10006 #{err}
+          script(type="text/javascript").
+            var snackbar1 = document.getElementById("a");
+            snackbar1.className="show";
+            setTimeout(()=>{snackbar1.className=snackbar1.className.replace("show","")},3000);
+            var snackbar2 = document.getElementById("b");
+            snackbar2.className="show";
+            setTimeout(()=>{snackbar2.className=snackbar2.className.replace("show","")},3000);
+            var snackbar3 = document.getElementById("c");
+            snackbar3.className="show";
+            setTimeout(()=>{snackbar3.className=snackbar3.className.replace("show","")},3000);
+            var snackbar4 = document.getElementById("d");
+            snackbar4.className="show";
+            setTimeout(()=>{snackbar4.className=snackbar4.className.replace("show","")},3000);
+            var snackbar5 = document.getElementById("e");
+            snackbar5.className="show";
+            setTimeout(()=>{snackbar5.className=snackbar5.className.replace("show","")},3000);      

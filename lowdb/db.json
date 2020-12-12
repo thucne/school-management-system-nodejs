@@ -71,12 +71,12 @@
       "ip_address": "89.86.155.214",
       "email": "dbradmore6@smugmug.com",
       "password": "P5mDZZ3OlR",
-      "avatar": "uploads/35dd809287b63c77d2e1bedc844011c1",
+      "avatar": "../uploads/35dd809287b63c77d2e1bedc844011c1",
       "errs": [],
       "warnings": [
         "Avatar is kept unchanged."
       ],
-      "_csrf": "LVbKaWO3-TuxRxc6ZZ78bcx5W64rUV--BWlQ",
+      "_csrf": "x3q5x684-DQBdPzt4GrAiYiXQM0qTENsAXd8",
       "role": 0,
       "studentSchedule": 3,
       "savedSubjects": [
@@ -12289,6 +12289,9 @@
     },
     {
       "id": "9fs_EekIR"
+    },
+    {
+      "id": "xtdsPQdzY"
     }
   ]
 }
