@@ -6,3 +6,8 @@ block content
             .col-md-12
                 h3 Hello #{name},
                 h2 Welcome to the MySchool.io!
+                div(id="snackbar")  Welcome to school
+                    script(type="text/javascript").
+                        var snackbar = document.getElementById("snackbar");
+                        snackbar.className="show";
+                        setTimeout(()=>{snackbar.className=snackbar.className.replace("show","")},2000);

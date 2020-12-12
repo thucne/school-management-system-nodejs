@@ -9,7 +9,12 @@ block content
 
                 if errs
                   each err in errs
-                      .alert.alert-danger= err
+                    //-   .alert.alert-danger= err
+                    div(id="errsnackbar") &#10006 #{err}
+                        script(type="text/javascript").
+                            var errsnackbar = document.getElementById("errsnackbar");
+                            errsnackbar.className="show";
+                            setTimeout(()=>{errsnackbar.className=errsnackbar.className.replace("show","")},3000);
 
                 form(action="/auth/login", method="POST")
                     .form-group

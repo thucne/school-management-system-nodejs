@@ -26,12 +26,47 @@ block content
                 #reactState
                     p
                         h4 Student info
+                    -var count = 0
+                    -var errArray = ['a','b','c','d']
+                    -var warnArray = ['m','n','p','q']
                     if errs
                         each err in errs
-                            .alert.alert-danger= err
+                            div( id=errArray[count]) &#10006 #{err}
+                            -count++
+                        script(type="text/javascript").
+                            var snackbar1 = document.getElementById("a");
+                            snackbar1.className="show";
+                            setTimeout(()=>{snackbar1.className=snackbar1.className.replace("show","")},3000);
+                            var snackbar2 = document.getElementById("b");
+                            snackbar2.className="show";
+                            setTimeout(()=>{snackbar2.className=snackbar2.className.replace("show","")},3000);
+                            var snackbar3 = document.getElementById("c");
+                            snackbar3.className="show";
+                            setTimeout(()=>{snackbar3.className=snackbar3.className.replace("show","")},3000);
                     if warnings
                         each warning in warnings
-                            .alert.alert-warning= warning
+                            div(id=warnArray[count]) &#9888 #{warning}
+                            -count++
+                            if count == 1
+                                script(type="text/javascript").
+                                    var WarningSnackbar1 = document.getElementById("m");
+                                    WarningSnackbar1.className = "show";
+                                    setTimeout(()=>{WarningSnackbar1.className=WarningSnackbar1.className.replace("show","")},3000);
+                            else if count == 2
+                                script(type="text/javascript").
+                                    var WarningSnackbar2 = document.getElementById("n");
+                                    WarningSnackbar2.className = "show";
+                                    setTimeout(()=>{WarningSnackbar2.className=WarningSnackbar2.className.replace("show","")},3000);
+                            else if count == 3
+                                script(type="text/javascript").
+                                    var WarningSnackbar3 = document.getElementById("p");
+                                    WarningSnackbar3.className = "show";
+                                    setTimeout(()=>{WarningSnackbar3.className=WarningSnackbar3.className.replace("show","")},3000);
+                            else if count == 4
+                                script(type="text/javascript").
+                                    var WarningSnackbar4 = document.getElementById("q");
+                                    WarningSnackbar4.className = "show";
+                                    setTimeout(()=>{WarningSnackbar4.className=WarningSnackbar4.className.replace("show","")},3000); 
                     form(action="/users/updateInfo/", method="POST", enctype="multipart/form-data")
                         .form-group
                             input(type="hidden", name="_csrf", value=csrfToken)
