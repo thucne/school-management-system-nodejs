@@ -930,6 +930,10 @@ module.exports.searchTeacherWeek = function (req, res) {
 
     }
   }
+  for (let n = 1; n <= 7; n++) {
+    let thisDay = days[n - 1];
+    console.log('Result before ' + result[thisDay]);
+  }
   var displayedResult = {
     '1': [],
     '2': [],
@@ -959,6 +963,12 @@ module.exports.searchTeacherWeek = function (req, res) {
       }
 
     }
+  }
+
+  for (let n = 1; n <= 7; n++) {
+    let thisDay = days[n - 1];
+    console.log('Result after ' + result[thisDay]);
+
   }
 
   for (let a = 0; a < 12; a++) {
@@ -1063,6 +1073,11 @@ module.exports.searchTeacherWeek = function (req, res) {
 
   // console.log('Length of List of Days: ' + whereDay.length);
   // console.log('List of Days: ' + whereDay);
+  for (let p = 1; p <= 12; p++) {
+    console.log('what are needed fields to render ' + displayedResult[p.toString()]);
+  }
+  console.log('what are needed fields to render ' + where);
+  console.log('what are needed fields to render ' + whereDay);
 
   res.render('school/assignTeacherToSubject', {
     subjects: subjects,

@@ -21,7 +21,7 @@ block content
     if (isNotStudent !== null)
         if (isNotStudent === true)
             script(type='text/javascript').
-              swal("Your are not allow to register for courses.", {
+              swal("Your are not allowed to register for courses.", {
                 icon: "warning",
                 timer: 3000,
               }).then(() => {
@@ -116,7 +116,7 @@ block content
                             if (doesThisStudentHasAValidSchedule)
                               if (doesThisStudentHasAValidSchedule === true)
                                 tr
-                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center; color: red; font-weight: bold; font-size: 250%;', rowspan=12, colspan=13) You currently do not have your own schedule, contact the admin for help!
+                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center; color: red; font-weight: bold; font-size: 250%;', rowspan=12, colspan=13) You are new and currently do not have your own schedule, contact the admin for help!
             hr(style="background-color: gray;", id='here')
             if (listOfSelectedSubjects.length !== 0)
                 if (reloadPage !== null)
