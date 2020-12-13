@@ -359,7 +359,16 @@
       "start": "01/04/2021",
       "end": "06/18/2021",
       "type": "Laboratory",
-      "credits": "3"
+      "credits": "3",
+      "room": "A1.718",
+      "whichDay": "fri",
+      "whichPeriod": [
+        1,
+        2,
+        3
+      ],
+      "lecturer": "Yurkin",
+      "lecturerID": "49eca5f9-dde2-4a04-9ff0-5279c70f0c7b"
     },
     {
       "id_sub": 31,

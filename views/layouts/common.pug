@@ -51,11 +51,13 @@ html
                         li.nav-item
                             a.nav-link(href='/users') Student list
                         li.nav-item
-                            a.nav-link(href='/auth/login', class=userInfo.name === " " ? 'nav-link': 'nav-link disabled') Log in
+                            a.nav-link(href='/auth/login', class=userInfo.name === " " ? 'nav-link': 'nav-link disabled', hidden=userInfo.name === ' ' ? false: true) Log in
                         li.nav-item
-                            a.nav-link(href='/users/create') Sign up
+                            a.nav-link(href='/users/create') Create Account
                         li.nav-item
                             a.nav-link(href='/users/register') Course Registration
+                        li.nav-item
+                            a.nav-link(href='/users/schedule') Schedule
                         li.nav-item.dropdown
                             button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button',
                                 data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Auto functions

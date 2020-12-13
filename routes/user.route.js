@@ -24,6 +24,8 @@ router.post('/updateInfo', upload.single('avatar'), csrfProtection, validate.pos
 
 router.get('/create', csrfProtection, controller.create);
 
+router.get('/schedule', csrfProtection, controller.schedule);
+
 router.get('/register', csrfProtection, controller.registrationMenuDisplaying);
 
 router.post('/register/select', csrfProtection, controller.selectTheseSubjects);
@@ -37,6 +39,5 @@ router.post('/create', upload.single('avatar'), csrfProtection, validate.postCre
 router.get('/delete/:id', csrfProtection, controller.deleteUser);
 
 router.get('/:id', csrfProtection, controller.id);
-
 
 module.exports = router;

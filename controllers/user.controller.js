@@ -741,3 +741,246 @@ module.exports.saveRegistrations = function (req, res) {
   }
 }
 
+module.exports.schedule = function (req, res) {
+  var thisUser = db.get('users').find({id: res.locals.userInfo.loginId}).value();
+
+  var whoIsThis = thisUser.role;
+  var selectedWeek;
+
+  if (whoIsThis === 0) {
+    selectedWeek = studentSchedule.get('studentSchedule').find({id: thisUser['studentSchedule']}).value();
+  } else if (whoIsThis === 1) {
+    selectedWeek = teacherSchedule.get('teacherSchedule').find({id: thisUser['teacherSchedule']}).value();
+  } else {
+    // return;
+  }
+
+
+  let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+  let periods = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+
+  let result = {mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: []};
+  let result2 = {mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: []};
+
+  let correspondingSubjects = [];
+
+
+  //list of subjects
+  if (whoIsThis === 0) {
+    if (thisUser.savedSubjects !== undefined) {
+      for (let k = 0;  k < thisUser.savedSubjects.length; k++) {
+        let currentSub = subject.get('subjects').find({id_sub: thisUser.savedSubjects[k]}).value();
+        correspondingSubjects.push(currentSub);
+      }
+    }
+  } else if (whoIsThis === 1) {
+    var listSub = subject.get('subjects').value().filter(function (sub) {
+      return sub.lecturerID === thisUser.id;
+    });
+
+    for (let n = 0; n < listSub.length; n++) {
+      correspondingSubjects.push(listSub[n]);
+    }
+  }
+
+  var displayedResult = {
+    '1': [],
+    '2': [],
+    '3': [],
+    '4': [],
+    '5': [],
+    '6': [],
+    '7': [],
+    '8': [],
+    '9': [],
+    '10': [],
+    '11': [],
+    '12': []
+  }
+  var where = [];
+
+  if (whoIsThis === 0) {
+    //find there time table
+    for (let i = 0; i < days.length; i++) {
+      let thisDay = days[i];
+      for (let p = 0; p < selectedWeek[thisDay].length; p++) {
+        result[thisDay].push(selectedWeek[thisDay][p]);
+        result2[thisDay].push(selectedWeek[thisDay][p]);
+      }
+      console.log('result This day > ' + result[thisDay]);
+    }
+    //now reverse the result
+
+    for (let i = 0; i < days.length; i++) {
+      let thisDay = days[i];
+      for (let j = 0; j < periods.length; j++) {
+        if (result[thisDay][j] === 0) {
+          result[thisDay][j] = 1;
+          result2[thisDay][j] = 1;
+        } else {
+          result[thisDay][j] = 0;
+          result2[thisDay][j] = 0;
+        }
+      }
+      console.log('result This day reverse > ' + result[thisDay]);
+    }
+  } else if (whoIsThis === 1) {
+    //find there time table
+    for (let i = 0; i < days.length; i++) {
+      let thisDay = days[i];
+      for (let p = 0; p < selectedWeek[thisDay].length; p++) {
+        result[thisDay].push(selectedWeek[thisDay][p]);
+        result2[thisDay].push(selectedWeek[thisDay][p]);
+      }
+      console.log('result This day > ' + result[thisDay]);
+    }
+    //now reverse the result
+
+    for (let i = 0; i < days.length; i++) {
+      let thisDay = days[i];
+      for (let j = 0; j < periods.length; j++) {
+        if (result[thisDay][j] === 0) {
+          result[thisDay][j] = 1;
+          result2[thisDay][j] = 1;
+        } else {
+          result[thisDay][j] = 0;
+          result2[thisDay][j] = 0;
+        }
+      }
+      console.log('result This day reverse > ' + result[thisDay]);
+    }
+  }
+
+  for (let t = 0; t < days.length; t++) {
+    let count = 1;
+    for (let p = 0; p < periods.length; p++) {
+      if (result[days[t]][p] === 0) {
+        if (count > 1) {
+          result[days[t]][p] = count;
+        }
+        count++;
+      } else {
+        count = 1;
+      }
+    }
+    console.log('result This day After > ' + result[days[t]]);
+  }
+
+  for (let a = 0; a < 12; a++) {
+    let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+    let periods = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+
+    for (let b = 0; b < days.length; b++) {
+      if (result[days[b]][a] < 2) {
+        displayedResult[periods[a]].push(result[days[b]][a]);
+      }
+    }
+  }
+
+  for (let t = 0; t < days.length; t++) {
+    let count = 1;
+    for (let p = 0; p < periods.length; p++) {
+      if (result2[days[t]][p] === 0) {
+        if (count > 1) {
+          result2[days[t]][p] = count;
+        }
+        if (p === 11 && result2[days[t]][11] > 1) {
+          for (let h = 11; h > (p - count + 1); h--) {
+            result2[days[t]][h] = 0;
+          }
+          if (result2[days[t]][p - count + 1] !== 1) {
+            result2[days[t]][p - count + 1] = count;
+          }
+        }
+        count++;
+      } else {
+        if (count > 1) {
+          for (let h = p - 1; h > (p - count + 1); h--) {
+            result2[days[t]][h] = 0;
+          }
+        }
+        if (result2[days[t]][p - count + 1] !== 1) {
+          result2[days[t]][p - count + 1] = count - 1;
+        }
+
+        count = 1;
+      }
+    }
+  }
+  var checkArray = [];
+
+  for (let c = 0; c < 12; c++) {
+    for (let g = 0; g < days.length; g++) {
+      if (result2[days[g]][c] !== 0) {
+        where.push(result2[days[g]][c]);
+        checkArray.push(result2[days[g]][c]);
+      }
+    }
+  }
+
+  var count = 7;
+  var compareString = checkArray.slice(0, count);
+  // console.log('Check Array String: '  + checkArray);
+  // console.log('Length of Check Array String: '  + checkArray.length);
+  // console.log('Compare String: '  + compareString);
+  // console.log('Type of Compare String: '  + compareString[0]);
+  var currentString;
+  var whereDay = [];
+
+  for (let x = 0; x < compareString.length; x++) {
+    whereDay.push(days[x]);
+  }
+
+  for (let y = 1; y < 12; y++) {
+    // console.log('Compare String: '  + compareString);
+
+    let f = 7;
+    for (let v = 0;  v < compareString.length; v++) {
+      if (compareString[v] !== 1 && compareString[v] !== 9) {
+        f--;
+      }
+    }
+    // console.log('Count: ' + count + ' f: ' + f);
+    currentString = checkArray.slice(count, count + f);
+    count = count + f;
+    // console.log('pre Current String: '  + currentString);
+    for (let r = 0; r < 7; r++) {
+      // let currentIdx = currentString[r];
+      let compareIdx = compareString[r];
+
+      if (compareIdx > 1 && compareIdx < 9) {
+        if (compareIdx !== 2) {
+          currentString.splice(r, 0, compareIdx - 1);
+        } else {
+          currentString.splice(r, 0, 9);
+        }
+      } else {
+        whereDay.push(days[r]);
+        // console.log('Push ' + days[r]);
+      }
+    }
+    // console.log('Current String: ' + currentString);
+
+    compareString = currentString;
+    // console.log('Compare String: '  + compareString);
+
+  }
+
+  // console.log('Length of List of Days: ' + whereDay.length);
+  // console.log('List of Days: ' + whereDay);
+  for (let p = 1; p <= 12; p++) {
+    console.log('what are needed fields to render ' + displayedResult[p.toString()]);
+  }
+  console.log('what are needed fields to render where >' + where);
+  console.log('what are needed fields to render ' + whereDay);
+
+  res.render('users/viewSchedule', {
+    thisUser: thisUser,
+    weekDetails: displayedResult,
+    where: where,
+    whereDay: whereDay,
+    savedSubjects: correspondingSubjects,
+    csrfToken: req.csrfToken()
+  });
+
+}
