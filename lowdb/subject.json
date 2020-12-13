@@ -2385,7 +2385,15 @@
       "start": "01/22/2021",
       "end": "06/07/2021",
       "type": "Laboratory",
-      "credits": "2"
+      "credits": "2",
+      "room": "A1.416",
+      "whichDay": "sat",
+      "whichPeriod": [
+        11,
+        12
+      ],
+      "lecturer": "Haselwood Oo",
+      "lecturerID": "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3"
     },
     {
       "id_sub": 281,

@@ -60,26 +60,27 @@ block content
             th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete a student') Delete
             th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select a student') Select
         each user in users
-          tr
-            td= users.indexOf(user) + (7 * (page.y - 1)) + 1
-            td= user.role !== null ? (user.role === 1 ? 'Teacher': (user.role === 0 ? 'Student': 'Admin')) : 'Unknown'
-            td= user.name !== null ? user.name: 'Unknown'
-            td= user.first_name !== null ? user.first_name: 'Unknown'
-            td= user.gender !== null ? user.gender : 'Unknown'
-            td= user.email !== null ? user.email: 'Unknown'
-            td= user.ip_address !== null ? user.ip_address: 'Unknown'
-            td
-              if user.avatar
-                img(src= (user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '/' + user.avatar: user.avatar, width="40", alt=!user.avatar ? 'Not Found': '')
-              else
-                span Not Found
-            td(style='text-align:center;')
-              a.btn.btn-outline-info.rounded-circle(href="/users/" + user.id, data-toggle='tooltip', data-placement='top', title='Click to see the student information') &#128194;
-            if (userInfo.role === 10)
-              td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete this student from the database')
-                a.btn.btn-outline-danger.rounded-circle(href="/users/delete/" + user.id) &#10060;
-              td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select this student')
-                a.btn.btn-outline-success.rounded-circle(href="/school/select/" + user.id) &#10004;
+          if (user.role !== 10)
+            tr
+              td= users.indexOf(user) + (7 * (page.y - 1)) + 1
+              td= user.role !== null ? (user.role === 1 ? 'Teacher': (user.role === 0 ? 'Student': 'Admin')) : 'Unknown'
+              td= user.name !== null ? user.name: 'Unknown'
+              td= user.first_name !== null ? user.first_name: 'Unknown'
+              td= user.gender !== null ? user.gender : 'Unknown'
+              td= user.email !== null ? user.email: 'Unknown'
+              td= user.ip_address !== null ? user.ip_address: 'Unknown'
+              td
+                if user.avatar
+                  img(src= (user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '/' + user.avatar: user.avatar, width="40", alt=!user.avatar ? 'Not Found': '')
+                else
+                  span Not Found
+              td(style='text-align:center;')
+                a.btn.btn-outline-info.rounded-circle(href="/users/" + user.id, data-toggle='tooltip', data-placement='top', title='Click to see the user information') &#128194;
+              if (userInfo.role === 10)
+                td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete this student from the database')
+                  a.btn.btn-outline-danger.rounded-circle(href="/users/delete/" + user.id) &#10060;
+                td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select this user')
+                  a.btn.btn-outline-success.rounded-circle(href="/school/select/" + user.id) &#10004;
 
     ul.pagination.justify-content-center.pagination
       li.page-item
