@@ -10,175 +10,178 @@ block content
         .px-3.pt-3.hide
             h1 #{thisUser['name']}'s Schedule
             hr(style="background-color: lightgray;")
-            .container-fluid.my-5
-                .row
-                    .col-md-12
-                        if (weekDetails && (where.length!== 0) && (whereDay.length!==0))
-                            .table-responsive.px-3.table-hover
-                                table.table(style='text-align: center;')
-                                    tr.table-secondary
-                                        th Mon
-                                        th Tue
-                                        th Wed
-                                        th Thu
-                                        th Fri
-                                        th Sat
-                                        th Sun
+            if (where && where.length!== 0)
+                .container-fluid.my-5
+                    .row
+                        .col-md-12
+                            if (weekDetails && (where.length!== 0) && (whereDay.length!==0))
+                                .table-responsive.px-3.table-hover
+                                    table.table(style='text-align: center;')
+                                        tr.table-secondary
+                                            th Mon
+                                            th Tue
+                                            th Wed
+                                            th Thu
+                                            th Fri
+                                            th Sat
+                                            th Sun
 
-                                    - var count = 0
-                                    - var idGenerate = 0
-                                    - var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';';
-                                    - var whatPeriod = 1
+                                        - var count = 0
+                                        - var idGenerate = 0
+                                        - var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';';
+                                        - var whatPeriod = 1
 
-                                    each weekDay in weekDetails
-                                      tr(style='color: white; text-shadow: 0 0 3px #000000, 0 0 5px #FFFF00;')
-                                          if (weekDay['0'] !== undefined)
-                                              td.myCell(rowspan=weekDay['0'] === 0 ? where[count].toString() : '1', style=weekDay['0'] === 0 ? ('background-color: ' + randomColor) : 'cursor: not-allowed;')
-                                                  if (weekDay['0'] === 1)
-                                                      div
-                                                  else
-                                                      h2 #{whereDay[count].charAt(0).toUpperCase() + whereDay[count].slice(1)}
-                                                      .myLeft
-                                                          - var listSubOfThisDay = []
-                                                          if (savedSubjects)
-                                                            each save in savedSubjects
-                                                              if (save.whichDay === whereDay[count] && save.whichPeriod[0] >= whatPeriod)
-                                                                - listSubOfThisDay.push(save);
-                                                          if (listSubOfThisDay.length > 0)
-                                                            each Sub in listSubOfThisDay
-                                                              p= '[ ' + Sub.name_sub + ', ID: ' + Sub.id_sub + ' ,Room: ' + Sub.room + ' ,Period: ' + Sub.whichPeriod + ' ,Lecturer: ' + (Sub.lecturer ? Sub.lecturer: 'Unknown') + ' ]'
-
-                                                      //.custom-control.custom-radio.custom-control-inline
-                                                      //    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[selectedSubject.whichDay, selectedSubject.whichPeriod[0]], checked=idGenerate === 0)
-                                                      //    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
-                                                  - idGenerate++
-                                                  - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
-                                          if (weekDay['1'] !== undefined)
-                                              td.myCell(rowspan=weekDay['1'] === 0 ? where[(1 + count)].toString() : '1', style=weekDay['1'] === 0 ? ('background-color: ' + randomColor) : 'cursor: not-allowed;')
-                                                  if (weekDay['1'] === 1)
-                                                      div
-                                                  else
-                                                      h2 #{whereDay[count + 1].charAt(0).toUpperCase() + whereDay[count + 1].slice(1)}
-                                                      .myLeft
-                                                          - var listSubOfThisDay = []
-                                                          if (savedSubjects)
-                                                              each save in savedSubjects
-                                                                if (save.whichDay === whereDay[count + 1] && save.whichPeriod[0] >= whatPeriod)
+                                        each weekDay in weekDetails
+                                          tr(style='color: white; text-shadow: 0 0 3px #000000, 0 0 5px #FFFF00;')
+                                              if (weekDay['0'] !== undefined)
+                                                  td.myCell(rowspan=weekDay['0'] === 0 ? where[count].toString() : '1', style=weekDay['0'] === 0 ? ('background-color: ' + randomColor) : 'cursor: not-allowed;')
+                                                      if (weekDay['0'] === 1)
+                                                          div
+                                                      else
+                                                          h2 #{whereDay[count].charAt(0).toUpperCase() + whereDay[count].slice(1)}
+                                                          .myLeft
+                                                              - var listSubOfThisDay = []
+                                                              if (savedSubjects)
+                                                                each save in savedSubjects
+                                                                  if (save.whichDay === whereDay[count] && save.whichPeriod[0] >= whatPeriod)
                                                                     - listSubOfThisDay.push(save);
-                                                          if (listSubOfThisDay.length > 0)
-                                                              each Sub in listSubOfThisDay
-                                                                  p= '[ ' + Sub.name_sub + ', ID: ' + Sub.id_sub + ' ,Room: ' + Sub.room + ' ,Period: ' + Sub.whichPeriod + ' ,Lecturer: ' + (Sub.lecturer ? Sub.lecturer : 'Unknown') + ' ]'
+                                                              if (listSubOfThisDay.length > 0)
+                                                                each Sub in listSubOfThisDay
+                                                                  p= '[ ' + Sub.name_sub + ', ID: ' + Sub.id_sub + ', Room: ' + Sub.room + ', Period: ' + Sub.whichPeriod + ', Lecturer: ' + (Sub.lecturer ? Sub.lecturer: 'Unknown') + ' ]'
 
-                                                      //.custom-control.custom-radio.custom-control-inline
-                                                      //    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[selectedSubject.whichDay, selectedSubject.whichPeriod[0]], checked=idGenerate === 0)
-                                                      //    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
-                                                  - idGenerate++
-                                                  - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
-                                          if (weekDay['2'] !== undefined)
-                                              td.myCell(rowspan=weekDay['2'] === 0 ? where[(2 + count)].toString() : '1', style=weekDay['2'] === 0 ? ('background-color: ' + randomColor) : 'cursor: not-allowed;')
-                                                  if (weekDay['2'] === 1)
-                                                      div
-                                                  else
-                                                      h2 #{whereDay[count + 2].charAt(0).toUpperCase() + whereDay[count + 2].slice(1)}
-                                                      .myLeft
-                                                            - var listSubOfThisDay = []
-                                                            if (savedSubjects)
-                                                              each save in savedSubjects
-                                                                  if (save.whichDay === whereDay[count + 2] && save.whichPeriod[0] >= whatPeriod)
-                                                                    - listSubOfThisDay.push(save);
-                                                            if (listSubOfThisDay.length > 0)
-                                                              each Sub in listSubOfThisDay
-                                                                  p= '[ ' + Sub.name_sub + ', ID: ' + Sub.id_sub + ' ,Room: ' + Sub.room + ' ,Period: ' + Sub.whichPeriod + ' ,Lecturer: ' + (Sub.lecturer ? Sub.lecturer : 'Unknown') + ' ]'
+                                                          //.custom-control.custom-radio.custom-control-inline
+                                                          //    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[selectedSubject.whichDay, selectedSubject.whichPeriod[0]], checked=idGenerate === 0)
+                                                          //    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
+                                                      - idGenerate++
+                                                      - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
+                                              if (weekDay['1'] !== undefined)
+                                                  td.myCell(rowspan=weekDay['1'] === 0 ? where[(1 + count)].toString() : '1', style=weekDay['1'] === 0 ? ('background-color: ' + randomColor) : 'cursor: not-allowed;')
+                                                      if (weekDay['1'] === 1)
+                                                          div
+                                                      else
+                                                          h2 #{whereDay[count + 1].charAt(0).toUpperCase() + whereDay[count + 1].slice(1)}
+                                                          .myLeft
+                                                              - var listSubOfThisDay = []
+                                                              if (savedSubjects)
+                                                                  each save in savedSubjects
+                                                                    if (save.whichDay === whereDay[count + 1] && save.whichPeriod[0] >= whatPeriod)
+                                                                        - listSubOfThisDay.push(save);
+                                                              if (listSubOfThisDay.length > 0)
+                                                                  each Sub in listSubOfThisDay
+                                                                      p= '[ ' + Sub.name_sub + ', ID: ' + Sub.id_sub + ', Room: ' + Sub.room + ', Period: ' + Sub.whichPeriod + ', Lecturer: ' + (Sub.lecturer ? Sub.lecturer : 'Unknown') + ' ]'
 
-                                                      //.custom-control.custom-radio.custom-control-inline
-                                                      //    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[selectedSubject.whichDay, selectedSubject.whichPeriod[0]], checked=idGenerate === 0)
-                                                      //    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
-                                                  - idGenerate++
-                                                  - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
-                                          if (weekDay['3'] !== undefined)
-                                              td.myCell(rowspan=weekDay['3'] === 0 ? where[(3 + count)].toString() : '1', style=weekDay['3'] === 0 ? ('background-color: ' + randomColor) : 'cursor: not-allowed;')
-                                                  if (weekDay['3'] === 1)
-                                                      div
-                                                  else
-                                                      h2 #{whereDay[count + 3].charAt(0).toUpperCase() + whereDay[count + 3].slice(1)}
-                                                      .myLeft
-                                                            - var listSubOfThisDay = []
-                                                            if (savedSubjects)
-                                                              each save in savedSubjects
-                                                                  if (save.whichDay === whereDay[count + 3] && save.whichPeriod[0] >= whatPeriod)
-                                                                    - listSubOfThisDay.push(save);
-                                                            if (listSubOfThisDay.length > 0)
-                                                              each Sub in listSubOfThisDay
-                                                                  p= '[ ' + Sub.name_sub + ', ID: ' + Sub.id_sub + ' ,Room: ' + Sub.room + ' ,Period: ' + Sub.whichPeriod + ' ,Lecturer: ' + (Sub.lecturer ? Sub.lecturer : 'Unknown') + ' ]'
+                                                          //.custom-control.custom-radio.custom-control-inline
+                                                          //    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[selectedSubject.whichDay, selectedSubject.whichPeriod[0]], checked=idGenerate === 0)
+                                                          //    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
+                                                      - idGenerate++
+                                                      - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
+                                              if (weekDay['2'] !== undefined)
+                                                  td.myCell(rowspan=weekDay['2'] === 0 ? where[(2 + count)].toString() : '1', style=weekDay['2'] === 0 ? ('background-color: ' + randomColor) : 'cursor: not-allowed;')
+                                                      if (weekDay['2'] === 1)
+                                                          div
+                                                      else
+                                                          h2 #{whereDay[count + 2].charAt(0).toUpperCase() + whereDay[count + 2].slice(1)}
+                                                          .myLeft
+                                                                - var listSubOfThisDay = []
+                                                                if (savedSubjects)
+                                                                  each save in savedSubjects
+                                                                      if (save.whichDay === whereDay[count + 2] && save.whichPeriod[0] >= whatPeriod)
+                                                                        - listSubOfThisDay.push(save);
+                                                                if (listSubOfThisDay.length > 0)
+                                                                  each Sub in listSubOfThisDay
+                                                                      p= '[ ' + Sub.name_sub + ', ID: ' + Sub.id_sub + ', Room: ' + Sub.room + ', Period: ' + Sub.whichPeriod + ', Lecturer: ' + (Sub.lecturer ? Sub.lecturer : 'Unknown') + ' ]'
 
-                                                      //.custom-control.custom-radio.custom-control-inline
-                                                      //    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[selectedSubject.whichDay, selectedSubject.whichPeriod[0]], checked=idGenerate === 0)
-                                                      //    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
-                                                  - idGenerate++
-                                                  - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
-                                          if (weekDay['4'] !== undefined)
-                                              td.myCell(rowspan=weekDay['4'] === 0 ? where[(4 + count)].toString() : '1', style=weekDay['4'] === 0 ? ('background-color: ' + randomColor) : 'cursor: not-allowed;')
-                                                  if (weekDay['4'] === 1)
-                                                      div
-                                                  else
-                                                      h2 #{whereDay[count + 4].charAt(0).toUpperCase() + whereDay[count + 4].slice(1)}
-                                                      .myLeft
-                                                            - var listSubOfThisDay = []
-                                                            if (savedSubjects)
-                                                              each save in savedSubjects
-                                                                  if (save.whichDay === whereDay[count + 4] && save.whichPeriod[0] >= whatPeriod)
-                                                                    - listSubOfThisDay.push(save);
-                                                            if (listSubOfThisDay.length > 0)
-                                                              each Sub in listSubOfThisDay
-                                                                  p= '[ ' + Sub.name_sub + ', ID: ' + Sub.id_sub + ' ,Room: ' + Sub.room + ' ,Period: ' + Sub.whichPeriod + ' ,Lecturer: ' + (Sub.lecturer ? Sub.lecturer : 'Unknown') + ' ]'
+                                                          //.custom-control.custom-radio.custom-control-inline
+                                                          //    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[selectedSubject.whichDay, selectedSubject.whichPeriod[0]], checked=idGenerate === 0)
+                                                          //    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
+                                                      - idGenerate++
+                                                      - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
+                                              if (weekDay['3'] !== undefined)
+                                                  td.myCell(rowspan=weekDay['3'] === 0 ? where[(3 + count)].toString() : '1', style=weekDay['3'] === 0 ? ('background-color: ' + randomColor) : 'cursor: not-allowed;')
+                                                      if (weekDay['3'] === 1)
+                                                          div
+                                                      else
+                                                          h2 #{whereDay[count + 3].charAt(0).toUpperCase() + whereDay[count + 3].slice(1)}
+                                                          .myLeft
+                                                                - var listSubOfThisDay = []
+                                                                if (savedSubjects)
+                                                                  each save in savedSubjects
+                                                                      if (save.whichDay === whereDay[count + 3] && save.whichPeriod[0] >= whatPeriod)
+                                                                        - listSubOfThisDay.push(save);
+                                                                if (listSubOfThisDay.length > 0)
+                                                                  each Sub in listSubOfThisDay
+                                                                      p= '[ ' + Sub.name_sub + ', ID: ' + Sub.id_sub + ', Room: ' + Sub.room + ', Period: ' + Sub.whichPeriod + ', Lecturer: ' + (Sub.lecturer ? Sub.lecturer : 'Unknown') + ' ]'
 
-                                                      //.custom-control.custom-radio.custom-control-inline
-                                                      //    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[selectedSubject.whichDay, selectedSubject.whichPeriod[0]], checked=idGenerate === 0)
-                                                      //    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
-                                                  - idGenerate++
-                                                  - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
-                                          if (weekDay['5'] !== undefined)
-                                              td.myCell(rowspan=weekDay['5'] === 0 ? where[(5 + count)].toString() : '1', style=weekDay['5'] === 0 ? ('background-color: ' + randomColor) : 'cursor: not-allowed;')
-                                                  if (weekDay['5'] === 1)
-                                                      div
-                                                  else
-                                                      h2 #{whereDay[count + 5].charAt(0).toUpperCase() + whereDay[count + 5].slice(1)}
-                                                      .myLeft
-                                                            - var listSubOfThisDay = []
-                                                            if (savedSubjects)
-                                                              each save in savedSubjects
-                                                                  if (save.whichDay === whereDay[count + 5] && save.whichPeriod[0] >= whatPeriod)
-                                                                    - listSubOfThisDay.push(save);
-                                                            if (listSubOfThisDay.length > 0)
-                                                              each Sub in listSubOfThisDay
-                                                                  p= '[ ' + Sub.name_sub + ', ID: ' + Sub.id_sub + ' ,Room: ' + Sub.room + ' ,Period: ' + Sub.whichPeriod + ' ,Lecturer: ' + (Sub.lecturer ? Sub.lecturer : 'Unknown') + ' ]'
+                                                          //.custom-control.custom-radio.custom-control-inline
+                                                          //    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[selectedSubject.whichDay, selectedSubject.whichPeriod[0]], checked=idGenerate === 0)
+                                                          //    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
+                                                      - idGenerate++
+                                                      - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
+                                              if (weekDay['4'] !== undefined)
+                                                  td.myCell(rowspan=weekDay['4'] === 0 ? where[(4 + count)].toString() : '1', style=weekDay['4'] === 0 ? ('background-color: ' + randomColor) : 'cursor: not-allowed;')
+                                                      if (weekDay['4'] === 1)
+                                                          div
+                                                      else
+                                                          h2 #{whereDay[count + 4].charAt(0).toUpperCase() + whereDay[count + 4].slice(1)}
+                                                          .myLeft
+                                                                - var listSubOfThisDay = []
+                                                                if (savedSubjects)
+                                                                  each save in savedSubjects
+                                                                      if (save.whichDay === whereDay[count + 4] && save.whichPeriod[0] >= whatPeriod)
+                                                                        - listSubOfThisDay.push(save);
+                                                                if (listSubOfThisDay.length > 0)
+                                                                  each Sub in listSubOfThisDay
+                                                                      p= '[ ' + Sub.name_sub + ', ID: ' + Sub.id_sub + ', Room: ' + Sub.room + ', Period: ' + Sub.whichPeriod + ', Lecturer: ' + (Sub.lecturer ? Sub.lecturer : 'Unknown') + ' ]'
 
-                                                      //.custom-control.custom-radio.custom-control-inline
-                                                      //    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[selectedSubject.whichDay, selectedSubject.whichPeriod[0]], checked=idGenerate === 0)
-                                                      //    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
-                                                  - idGenerate++
-                                                  - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
-                                          if (weekDay['6'] !== undefined)
-                                              td.myCell(rowspan=weekDay['6'] === 0 ? where[(6 + count)].toString() : '1', style=weekDay['6'] === 0 ? ('background-color: ' + randomColor) : 'cursor: not-allowed;')
-                                                  if (weekDay['6'] === 1)
-                                                      div
-                                                  else
-                                                      h2 #{whereDay[count + 6].charAt(0).toUpperCase() + whereDay[count + 6].slice(1)}
-                                                      .myLeft
-                                                            - var listSubOfThisDay = []
-                                                            if (savedSubjects)
-                                                              each save in savedSubjects
-                                                                  if (save.whichDay === whereDay[count + 6] && save.whichPeriod[0] >= whatPeriod)
-                                                                    - listSubOfThisDay.push(save);
-                                                            if (listSubOfThisDay.length > 0)
-                                                              each Sub in listSubOfThisDay
-                                                                  p= '[ ' + Sub.name_sub + ', ID: ' + Sub.id_sub + ' ,Room: ' + Sub.room + ' ,Period: ' + Sub.whichPeriod + ' ,Lecturer: ' + (Sub.lecturer ? Sub.lecturer : 'Unknown') + ' ]'
+                                                          //.custom-control.custom-radio.custom-control-inline
+                                                          //    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[selectedSubject.whichDay, selectedSubject.whichPeriod[0]], checked=idGenerate === 0)
+                                                          //    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
+                                                      - idGenerate++
+                                                      - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
+                                              if (weekDay['5'] !== undefined)
+                                                  td.myCell(rowspan=weekDay['5'] === 0 ? where[(5 + count)].toString() : '1', style=weekDay['5'] === 0 ? ('background-color: ' + randomColor) : 'cursor: not-allowed;')
+                                                      if (weekDay['5'] === 1)
+                                                          div
+                                                      else
+                                                          h2 #{whereDay[count + 5].charAt(0).toUpperCase() + whereDay[count + 5].slice(1)}
+                                                          .myLeft
+                                                                - var listSubOfThisDay = []
+                                                                if (savedSubjects)
+                                                                  each save in savedSubjects
+                                                                      if (save.whichDay === whereDay[count + 5] && save.whichPeriod[0] >= whatPeriod)
+                                                                        - listSubOfThisDay.push(save);
+                                                                if (listSubOfThisDay.length > 0)
+                                                                  each Sub in listSubOfThisDay
+                                                                      p= '[ ' + Sub.name_sub + ', ID: ' + Sub.id_sub + ', Room: ' + Sub.room + ', Period: ' + Sub.whichPeriod + ', Lecturer: ' + (Sub.lecturer ? Sub.lecturer : 'Unknown') + ' ]'
 
-                                                      //.custom-control.custom-radio.custom-control-inline
-                                                      //    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[selectedSubject.whichDay, selectedSubject.whichPeriod[0]], checked=idGenerate === 0)
-                                                      //    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
-                                                  - idGenerate++
-                                                  - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
+                                                          //.custom-control.custom-radio.custom-control-inline
+                                                          //    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[selectedSubject.whichDay, selectedSubject.whichPeriod[0]], checked=idGenerate === 0)
+                                                          //    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
+                                                      - idGenerate++
+                                                      - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
+                                              if (weekDay['6'] !== undefined)
+                                                  td.myCell(rowspan=weekDay['6'] === 0 ? where[(6 + count)].toString() : '1', style=weekDay['6'] === 0 ? ('background-color: ' + randomColor) : 'cursor: not-allowed;')
+                                                      if (weekDay['6'] === 1)
+                                                          div
+                                                      else
+                                                          h2 #{whereDay[count + 6].charAt(0).toUpperCase() + whereDay[count + 6].slice(1)}
+                                                          .myLeft
+                                                                - var listSubOfThisDay = []
+                                                                if (savedSubjects)
+                                                                  each save in savedSubjects
+                                                                      if (save.whichDay === whereDay[count + 6] && save.whichPeriod[0] >= whatPeriod)
+                                                                        - listSubOfThisDay.push(save);
+                                                                if (listSubOfThisDay.length > 0)
+                                                                  each Sub in listSubOfThisDay
+                                                                      p= '[ ' + Sub.name_sub + ', ID: ' + Sub.id_sub + ', Room: ' + Sub.room + ', Period: ' + Sub.whichPeriod + ', Lecturer: ' + (Sub.lecturer ? Sub.lecturer : 'Unknown') + ' ]'
 
-                                      - count = count + weekDay.length
-                                      - whatPeriod++
+                                                          //.custom-control.custom-radio.custom-control-inline
+                                                          //    input.custom-control-input(type='radio', name='selectThis', id=idGenerate.toString(), value=[selectedSubject.whichDay, selectedSubject.whichPeriod[0]], checked=idGenerate === 0)
+                                                          //    label.custom-control-label(for=idGenerate.toString()) #{whatPeriod}-#{whatPeriod + parseInt(selectedSubject.credits) - 1}
+                                                      - idGenerate++
+                                                      - randomColor = '#' + Math.floor(Math.random()*16777215).toString(16) + ';'
+
+                                          - count = count + weekDay.length
+                                          - whatPeriod++
+            else
+                p(style='font-size: 200%; color: red;') You are new and hence do not have your own schedule, come back later please!

@@ -49,11 +49,12 @@ html
                         li.nav-item
                             a.nav-link(href='/') Home
                         li.nav-item
-                            a.nav-link(href='/users') Student list
+                            a.nav-link(href='/users')= (userInfo.role === 10 ? 'Student list': 'Your info')
                         li.nav-item
                             a.nav-link(href='/auth/login', class=userInfo.name === " " ? 'nav-link': 'nav-link disabled', hidden=userInfo.name === ' ' ? false: true) Log in
-                        li.nav-item
-                            a.nav-link(href='/users/create') Create Account
+                        if (userInfo.role === 10)
+                            li.nav-item
+                                a.nav-link(href='/users/create') Create Account
                         li.nav-item
                             a.nav-link(href='/users/register') Course Registration
                         li.nav-item

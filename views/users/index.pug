@@ -5,18 +5,20 @@ block content
   .px-3.pt-4.hide
     h1
       span.mr-3 Students
-      a.btn.btn-primary(href="/users/create", , data-toggle='tooltip', data-placement='right', title='Create a new student') New
+      if (userInfo.role === 10)
+        a.btn.btn-primary(href="/users/create", , data-toggle='tooltip', data-placement='right', title='Create a new student') New
     script.
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
     .d-flex.align-items-center
-      button.btn.btn-success(type='button', data-toggle='tooltip', data-placement='right', title=page.num + ' students found!') Result: &nbsp;
+      button.btn.btn-success.mb-2(type='button', data-toggle='tooltip', data-placement='right', title=page.num + ' students found!') Result: &nbsp;
         span.badge.badge-light #{page.num}
         span.sr-only unread messages
-      form.ml-auto(action="/users/search", method="GET", class="d-flex")
-        input(type="text", name="q", class="form-control", value=page.searchString, placeholder="Any")
-        button.btn.btn-primary.ml-2(type='submit', data-toggle='tooltip', data-placement='top', title='Search by the input keyword') &#128270;
+      if (userInfo.role === 10)
+        form.ml-auto(action="/users/search", method="GET", class="d-flex")
+          input(type="text", name="q", class="form-control", value=page.searchString, placeholder="Any")
+          button.btn.btn-primary.ml-2(type='submit', data-toggle='tooltip', data-placement='top', title='Search by the input keyword') &#128270;
 
     #mySchool.carousel.slide.avt(data-ride='carousel')
       ol.carousel-indicators
@@ -54,8 +56,9 @@ block content
           th(data-toggle='tooltip', data-placement='top', title='Students IP Address') IP Address
           th(data-toggle='tooltip', data-placement='top', title='Avatars') Avatar
           th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Some functionalities') Edit
-          th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete a student') Delete
-          th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select a student') Select
+          if (userInfo.role === 10)
+            th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete a student') Delete
+            th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select a student') Select
         each user in users
           tr
             td= users.indexOf(user) + (7 * (page.y - 1)) + 1
@@ -72,10 +75,11 @@ block content
                 span Not Found
             td(style='text-align:center;')
               a.btn.btn-outline-info.rounded-circle(href="/users/" + user.id, data-toggle='tooltip', data-placement='top', title='Click to see the student information') &#128194;
-            td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete this student from the database')
-              a.btn.btn-outline-danger.rounded-circle(href="/users/delete/" + user.id) &#10060;
-            td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select this student')
-              a.btn.btn-outline-success.rounded-circle(href="/school/select/" + user.id) &#10004;
+            if (userInfo.role === 10)
+              td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete this student from the database')
+                a.btn.btn-outline-danger.rounded-circle(href="/users/delete/" + user.id) &#10060;
+              td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select this student')
+                a.btn.btn-outline-success.rounded-circle(href="/school/select/" + user.id) &#10004;
 
     ul.pagination.justify-content-center.pagination
       li.page-item
