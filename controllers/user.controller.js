@@ -208,6 +208,7 @@ module.exports.postCreate = function (req, res) {
 
 module.exports.registrationMenuDisplaying = function (req, res) {
   var id = res.locals.userInfo.loginId;
+
   var token = req.csrfToken();
   var departments = department.get('department').value();
   // console.log("register " + token);
@@ -236,6 +237,38 @@ module.exports.registrationMenuDisplaying = function (req, res) {
 
   function ren() {
     var user = db.get('users').find({id: id}).value();
+
+    var isThisStudent = (user.role === 0);
+
+    console.log('IS this Student > ' + isThisStudent);
+
+    if (!isThisStudent) {
+      res.render('users/courseRegistration', {
+        loginUser: user,
+        departments: departments,
+        subjects: subjects,
+        correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
+        isNotStudent: true,
+        csrfToken: token
+      });
+      return;
+    }
+
+    var doesThisStudentHasAValidSchedule = user.studentSchedule !== undefined;
+    console.log('IS this Student has Schedule Number ? > ' + doesThisStudentHasAValidSchedule);
+
+    if (!doesThisStudentHasAValidSchedule) {
+      res.render('users/courseRegistration', {
+        loginUser: user,
+        departments: departments,
+        subjects: subjects,
+        correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
+        doesThisStudentHasAValidSchedule: true,
+        csrfToken: token
+      });
+      return;
+    }
+
     let savedSubjects = user.savedSubjects;
     var listOfSelectedSubjects = [];
     if (savedSubjects !== undefined) {

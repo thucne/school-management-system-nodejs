@@ -18,6 +18,18 @@ block content
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
+    if (isNotStudent !== null)
+        if (isNotStudent === true)
+            script(type='text/javascript').
+              swal("Your are not allow to register for courses.", {
+                icon: "warning",
+                timer: 3000,
+              }).then(() => {
+                document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                // console.log(userInfo.name + "oops");
+                location.reload();
+                userInfo.name = " ";
+              });
 
     .px-3.pt-3.hide
         h1 Course Registration
@@ -75,7 +87,7 @@ block content
                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Credits') Credits
                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Start') Start Day
                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='End') End Day
-                            if (subjects && correspondingDepartmentOfSubject)
+                            if (subjects && correspondingDepartmentOfSubject && !doesThisStudentHasAValidSchedule)
                               - var count = 0
                                // - var listOfSelectedSubjects = []
                               if (inputSelectedSubject)
@@ -101,7 +113,10 @@ block content
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.credits
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.start
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.end
-
+                            if (doesThisStudentHasAValidSchedule)
+                              if (doesThisStudentHasAValidSchedule === true)
+                                tr
+                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center; color: red; font-weight: bold; font-size: 250%;', rowspan=12, colspan=13) You currently do not have your own schedule, contact the admin for help!
             hr(style="background-color: gray;", id='here')
             if (listOfSelectedSubjects.length !== 0)
                 if (reloadPage !== null)

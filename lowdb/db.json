@@ -8,12 +8,12 @@
       "ip_address": "162.186.26.22",
       "email": "chaselwood3@miibeian.com",
       "password": "qoi6pJclU",
-      "avatar": "../uploads/fd793e0752f1894ff5a3385efe1c9965",
+      "avatar": "uploads/a288e6fc90db805e918014cc02197b85",
       "errs": [],
       "warnings": [
         "Avatar is kept unchanged."
       ],
-      "_csrf": "C3RYjMVt-nda8hazQFX5CSuJj_1vwOPaceT8",
+      "_csrf": "NFs8ThuP-xKgrx6Om4i-AyDQU0-miMmGC7I0",
       "role": 1,
       "teacherSchedule": 1
     },
@@ -12292,6 +12292,12 @@
     },
     {
       "id": "xtdsPQdzY"
+    },
+    {
+      "id": "kmRoem9fa"
+    },
+    {
+      "id": "worKvgAsl"
     }
   ]
 }
