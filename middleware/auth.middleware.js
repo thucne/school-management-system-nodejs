@@ -4,6 +4,7 @@ module.exports.default = function (req, res, next) {
   res.locals.userInfo = {
     name: " ",
     loginId: " ",
+    role: " ",
   };
   // console.log('auth ' + req.signedCookies.isServerRS ? 1 : 0)
   // res.locals.isServerRS = {
@@ -33,6 +34,7 @@ module.exports.requireAuth = function (req, res, next) {
   if (user) {
     res.locals.userInfo.name =  "Hi " + user.name + "!"
     res.locals.userInfo.loginId = user.id;
+    res.locals.userInfo.role = user.role;
     // res.locals.isServerRS = { count: res.locals.count + 1 }
     req.body.username = user.name + ' ' + user.first_name;
   }

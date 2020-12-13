@@ -24,12 +24,18 @@ module.exports.index = function (req, res) {
   var token = req.csrfToken();
   console.log("index " + token);
 
+  var isAdmin = db.get('users').find({id: res.locals.userInfo.loginId}).value().role === 10;
+  var thisUser = []
+  if (!isAdmin) {
+    thisUser.push(db.get('users').find({id: res.locals.userInfo.loginId}).value());
+  }
+
   res.render('users/index', {
     csrfToken: token,
-    users: db.get('users').value().slice(start, end),
+    users: isAdmin === true ? db.get('users').value().slice(start, end): thisUser,
     page: {
       max: max,
-      num: db.get('users').value().length,
+      num: isAdmin === true ? db.get('users').value().length: 1,
       thisPage: page,
       x: --page,
       y: ++page,
@@ -799,7 +805,7 @@ module.exports.schedule = function (req, res) {
   }
   var where = [];
 
-  if (whoIsThis === 0) {
+  if (whoIsThis === 0 && selectedWeek !== undefined) {
     //find there time table
     for (let i = 0; i < days.length; i++) {
       let thisDay = days[i];
@@ -824,7 +830,7 @@ module.exports.schedule = function (req, res) {
       }
       console.log('result This day reverse > ' + result[thisDay]);
     }
-  } else if (whoIsThis === 1) {
+  } else if (whoIsThis === 1 && selectedWeek !== undefined) {
     //find there time table
     for (let i = 0; i < days.length; i++) {
       let thisDay = days[i];
