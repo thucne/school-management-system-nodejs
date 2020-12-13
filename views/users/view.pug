@@ -1,7 +1,7 @@
 extends ../layouts/common
 
 block content
-    h1.hide Student's Information
+    h1.hide #{userInfo.role === 10 ? 'Admin': (userInfo.role === 1 ? 'Teacher': 'Student')}'s Information
     hr(style="background-color: lightgray;")
     .container-fluid.mt-5.hide
         .row
