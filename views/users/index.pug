@@ -4,7 +4,7 @@ block content
 
   .px-3.pt-4.hide
     h1
-      span.mr-3 Students
+      span.mr-3= (userInfo.role === 1 ? 'Teacher': (userInfo.role === 0 ? 'Student': 'Users'))
       if (userInfo.role === 10)
         a.btn.btn-primary(href="/users/create", , data-toggle='tooltip', data-placement='right', title='Create a new student') New
     script.

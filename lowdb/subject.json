@@ -119,15 +119,7 @@
       "start": "01/28/2021",
       "end": "06/22/2021",
       "type": "Theory",
-      "credits": "4",
-      "room": "A2.418",
-      "whichDay": "sat",
-      "whichPeriod": [
-        3,
-        4,
-        5,
-        6
-      ]
+      "credits": "4"
     },
     {
       "id_sub": 9,
@@ -135,14 +127,7 @@
       "start": "01/29/2021",
       "end": "06/23/2021",
       "type": "Laboratory",
-      "credits": "3",
-      "room": "A2.719",
-      "whichDay": "sat",
-      "whichPeriod": [
-        2,
-        3,
-        4
-      ]
+      "credits": "3"
     },
     {
       "id_sub": 10,
@@ -359,16 +344,7 @@
       "start": "01/04/2021",
       "end": "06/18/2021",
       "type": "Laboratory",
-      "credits": "3",
-      "room": "A1.718",
-      "whichDay": "fri",
-      "whichPeriod": [
-        1,
-        2,
-        3
-      ],
-      "lecturer": "Yurkin",
-      "lecturerID": "49eca5f9-dde2-4a04-9ff0-5279c70f0c7b"
+      "credits": "3"
     },
     {
       "id_sub": 31,
@@ -2337,15 +2313,7 @@
       "start": "01/13/2021",
       "end": "06/20/2021",
       "type": "Laboratory",
-      "credits": "2",
-      "room": "A1.416",
-      "whichDay": "thu",
-      "whichPeriod": [
-        5,
-        6
-      ],
-      "lecturer": "Haselwood Oo",
-      "lecturerID": "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3"
+      "credits": "2"
     },
     {
       "id_sub": 276,
@@ -2385,15 +2353,7 @@
       "start": "01/22/2021",
       "end": "06/07/2021",
       "type": "Laboratory",
-      "credits": "2",
-      "room": "A1.416",
-      "whichDay": "sat",
-      "whichPeriod": [
-        11,
-        12
-      ],
-      "lecturer": "Haselwood Oo",
-      "lecturerID": "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3"
+      "credits": "2"
     },
     {
       "id_sub": 281,
@@ -6307,15 +6267,7 @@
       "start": "01/27/2021",
       "end": "06/06/2021",
       "type": "Laboratory",
-      "credits": "4",
-      "room": "A2.718",
-      "whichDay": "fri",
-      "whichPeriod": [
-        3,
-        4,
-        5,
-        6
-      ]
+      "credits": "4"
     },
     {
       "id_sub": 769,
