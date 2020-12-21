@@ -32,17 +32,7 @@
       ],
       "_csrf": "2FOPapE6-b0mLoG12ZIACMOPiG07yd7Nl1oM",
       "role": 0,
-      "studentSchedule": 1,
-      "savedSubjects": [
-        1,
-        2,
-        3,
-        5,
-        14,
-        16,
-        7,
-        15
-      ]
+      "studentSchedule": 1
     },
     {
       "id": "a585b731-0527-4a30-941d-92d78bea7c43",
@@ -58,10 +48,7 @@
         "Avatar is kept unchanged."
       ],
       "role": 0,
-      "studentSchedule": 2,
-      "savedSubjects": [
-        1
-      ]
+      "studentSchedule": 2
     },
     {
       "id": "7869a2c6-033e-4274-8ac9-16fb29139823",
@@ -78,15 +65,7 @@
       ],
       "_csrf": "x3q5x684-DQBdPzt4GrAiYiXQM0qTENsAXd8",
       "role": 0,
-      "studentSchedule": 3,
-      "savedSubjects": [
-        1,
-        2,
-        3,
-        5,
-        7,
-        14
-      ]
+      "studentSchedule": 3
     },
     {
       "id": "ad01abac-4921-43c1-b17d-7f72140a91d4",
@@ -109,15 +88,18 @@
       "id": "0aa07faf-741e-45dc-995f-bac86ee7d32d",
       "name": "Reddoch",
       "first_name": "Tatiania",
-      "gender": "Female",
+      "gender": "Male",
       "ip_address": "30.199.90.149",
       "email": "treddoch8@fastcompany.com",
       "password": "ortyJFtH",
-      "avatar": "uploads/c09b1cccb4f245cd414bac2ede730056",
-      "_csrf": "6foafeG9-rwNA8ZQ_zvkj4wxRYrb5hgZOy9o",
+      "avatar": "../uploads/c09b1cccb4f245cd414bac2ede730056",
+      "_csrf": "zqIDvhpJ-v_l2B49-rpjpbNaZcwTn9Q1hJuU",
       "errs": [],
       "role": 1,
-      "teacherSchedule": 2
+      "teacherSchedule": 2,
+      "warnings": [
+        "Avatar is kept unchanged."
+      ]
     },
     {
       "id": "98c77229-cd1e-4477-b9af-74d0de6c25e0",
@@ -12182,28 +12164,21 @@
       "teacherSchedule": 203
     },
     {
-      "_csrf": "7CEoQBRE-qD4HbdFGVJ1uzgjxEUyXbzikJio",
-      "name": "Hoang Thuy",
+      "_csrf": "YluYCYki-vFc6d60B5oo5Xac6sWEZ0BLcac4",
+      "name": "Thuy",
       "first_name": "Linh",
       "gender": "Female",
       "email": "htlinh@artist.com",
       "id": "7f32af70-09a9-418a-88a5-d175b1182d3c",
       "ip_address": "65.153.55.237",
       "password": "qmg91IlUw",
-      "avatar": "uploads/1a9beaffa6810973f333cef16f804a23",
+      "avatar": "../uploads/1a9beaffa6810973f333cef16f804a23",
       "role": 0,
       "studentSchedule": 809,
-      "savedSubjects": [
-        1,
-        2,
-        3,
-        5,
-        7,
-        14,
-        15,
-        16,
-        19
-      ]
+      "warnings": [
+        "Avatar is kept unchanged."
+      ],
+      "errs": []
     },
     {
       "_csrf": "EL4S0yFv-Vr7PSg1_7XNAeWPSgUbPZUkQnao",
@@ -12271,36 +12246,6 @@
       "list": {
         "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3": 1
       }
-    },
-    {
-      "id": "nzWMwc4OS"
-    },
-    {
-      "id": "_xTPn4IQF"
-    },
-    {
-      "id": "pES_36yE_"
-    },
-    {
-      "id": "_ssym0JCH"
-    },
-    {
-      "id": "p78D6IfZM"
-    },
-    {
-      "id": "9fs_EekIR"
-    },
-    {
-      "id": "xtdsPQdzY"
-    },
-    {
-      "id": "kmRoem9fa"
-    },
-    {
-      "id": "worKvgAsl"
-    },
-    {
-      "id": "1MLY377mL"
     }
   ]
 }

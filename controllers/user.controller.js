@@ -282,14 +282,14 @@ module.exports.registrationMenuDisplaying = function (req, res) {
         listOfSelectedSubjects.push(savedSubjects[i])
       }
     }
-
+    console.log('Saved SJ ' + listOfSelectedSubjects);
     if (listOfSelectedSubjects.length > 0) {
       for (let m = 0;  m < listOfSelectedSubjects.length; m++) {
         let thisSubName = subject.get('subjects').find({id_sub: listOfSelectedSubjects[m]}).value().name_sub;
         let tempSubjects = subjects.filter(function (sub) {
           return sub.name_sub === thisSubName;
         });
-        // console.log(foundTheseSub);
+        console.log(tempSubjects);
         for (let i = 0; i < tempSubjects.length; i++) {
           tempSubjects[i].checked = true;
         }
