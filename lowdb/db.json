@@ -13241,7 +13241,8 @@
       "ip_address": "164.120.15.70",
       "password": "123456",
       "role": 10,
-      "accessCode": 849433
+      "accessCode": 849433,
+      "universityID": "ADMIN18125"
     },
     {
       "name": "Nguyen Duc",
