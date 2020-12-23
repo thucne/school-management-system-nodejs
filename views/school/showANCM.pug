@@ -9,11 +9,11 @@ block content
     .px-3.pt-3.mb-5.hide
         h3(style='color: green;') Details
 
-        if (thisANCM)
+        if (thisANCM && whoPost)
                 h4(style='color: blue;')= thisANCM.title
                 hr
                 .p-3
                     pre= thisANCM.content
                     br
                     hr
-                    small= 'Post by ' + thisANCM.postBy + ' on ' + thisANCM.when
+                    small= 'Post by ' + whoPost + ' on ' + thisANCM.when
