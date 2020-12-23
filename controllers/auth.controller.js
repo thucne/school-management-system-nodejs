@@ -14,7 +14,7 @@ module.exports.postLogin = function (req, res) {
   var email = req.body.email;
   var password = req.body.password;
 
-  var user = db.get('users').find({ email: email}).value();
+  var user = db.get('users').find({ universityID: email}).value();
 
   if (!user) {
     let token = req.csrfToken();
