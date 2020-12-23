@@ -27,4 +27,6 @@ router.get('/createAnnouncement', controller.displayAnnouncementCreatingForm);
 router.post('/postThisAnnouncement', checkForm.checkAnnouncementCreatingForm, controller.postThisAnnouncement);
 router.get('/showThisANCM/:id', controller.showThisANCM);
 router.get('/deleteANCM/:id', controller.deleteThisANCM);
+router.get('/assignStudentAndTeacherID', controller.assignStudentAndTeacherID);
+
 module.exports = router;
