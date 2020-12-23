@@ -5,6 +5,7 @@ var subject = require('../lowdb/subject');
 var department = require('../lowdb/department');
 var studentSchedule = require('../lowdb/studentStandardSchedule');
 var teacherSchedule = require('../lowdb/teacherStandardSchedule');
+var announcement = require('../lowdb/announcements');
 
 module.exports.week = function (req, res) {
   console.log(week.get('weeks').nth(1).value());
@@ -1188,4 +1189,73 @@ module.exports.assignTeacherNOWToSubject = function (req, res) {
     teachers: JSON.parse(req.body.chooseTheseTeachers),
     csrfToken: req.csrfToken()
   });
+}
+
+module.exports.showAnnouncements = function (req, res) {
+  var thisUserID = res.locals.userInfo.loginId;
+
+  var listOfAnnouncements = announcement.get('ancm').value().filter(function (annc) {
+    if (annc.to === 'all') {
+      return true;
+    } else {
+      let listOfIdAnnc = annc.to;
+      if (listOfIdAnnc === thisUserID) {
+        return true;
+      }
+      // console.log(typeof listOfIdAnnc);
+      // if (typeof listOfIdAnnc === 'string') {
+      // listOfIdAnnc.split(" ");
+      // }
+      for (let k = 0;  k < listOfIdAnnc.length; k++) {
+        if (listOfIdAnnc[k] === thisUserID) {
+          return true;
+        }
+      }
+      return false;
+    }
+  });
+
+  // for (let n = 0; n < listOfAnnouncements.length; n++) {
+  //   console.log(listOfAnnouncements[n].content);
+  // }
+
+  res.render('school/ancms', {
+    csrfToken: req.csrfToken(),
+    listOfAnnouncements: listOfAnnouncements
+  });
+}
+
+module.exports.displayAnnouncementCreatingForm = function (req, res) {
+  res.render('school/createAnnouncement', {
+    csrfToken: req.csrfToken()
+  })
+}
+
+module.exports.postThisAnnouncement = function (req, res) {
+  req.body.to.split(', ');
+  var title = req.body.title;
+  var content = req.body.content;
+
+  var latestANCM = announcement.get('ancm').value();
+
+  latestANCM = announcement.get('ancm').nth(latestANCM.length - 1).value();
+
+  req.body.id = latestANCM.id + 1;
+  let date = new Date();
+  req.body.when = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+  req.body.postBy = res.locals.userInfo.loginId;
+
+  var newANCM = {
+    id: req.body.id,
+    to: req.body.to,
+    title: req.body.title,
+    content: req.body.content,
+    postBy: req.body.postBy,
+    when: req.body.when
+  }
+  console.log(newANCM);
+
+  announcement.get('ancm').push(newANCM).write();
+
+  res.redirect('/users');
 }

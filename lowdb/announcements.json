@@ -1,0 +1,68 @@
+{
+  "ancm": [
+    {
+      "id": 1,
+      "to": "all",
+      "title": "Announcement from Office of Student Affairs",
+      "content": "This is an announcement",
+      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
+      "when": "12/22/2020"
+    },
+    {
+      "id": 2,
+      "to": [
+        "a585b731-0527-4a30-941d-92d78bea7c43",
+        "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3"
+      ],
+      "title": "Announcement from your supervisor",
+      "content": "This is an announcement for Haselwood Oo and Foat",
+      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
+      "when": "12/22/2020"
+    },
+    {
+      "id": 3,
+      "to": [
+        "7f32af70-09a9-418a-88a5-d175b1182d3c"
+      ],
+      "title": "Exclusive announcement",
+      "content": "This is an announcement for Hoang Thuy Linh",
+      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
+      "when": "12/22/2020"
+    },
+    {
+      "id": 4,
+      "to": "all",
+      "title": "ANNOUNCEMENT ABOUT REGISTRATION SCHEDULE IN 2ND SEMESTER, ACADEMIC YEAR 2020 - 2021",
+      "content": "ANNOUNCEMENT\r\n\r\nAbout registration schedule in 2­nd semester, academic year 2020 - 2021\r\n\r\n1/ The Office of Academic Affairs would like to inform all students about registration schedule as below:\r\n\r\nTime: from 8:00 am to 12:00 pm\r\n\r\nDate:\r\n\r\n·      Monday (December 21st, 2020): Intake 2016 and previous intakes;\r\n\r\n·      Tuesday (December 22nd, 2020): Intake 2017;\r\n\r\n·      Wednesday - Thursday (December 23-24, 2020): Intake 2018;\r\n\r\n·      Friday - Saturday (December 25-26, 2020): Intake 2019;\r\n\r\n·      Sunday (December 27th, 2020): All Students (except first-year students K.2020)\r\n\r\nNOTE:\r\n\r\n- Demo registration: The OAA is going to test the online registration system on December 15-16,  2020, so all registrations in this period will be invalid;\r\n\r\n- During the registration period, any changes in the number of students per group will be displayed next day at 8:00 am.\r\n\r\n-  The students who haven’t paid tuition fee completely, are not allowed to register in the 2nd semester of the academic year 2020-2021. During the schedule adjustment period, The Office of Financial and Planning will daily update the school fee status after 24:00. Therefore, students will be able to register course at 8:00 a.m the following day.\r\n\r\n2/ Deadline for the advisor’s approval: from December 21st  to December 28th , 2020.\r\n\r\nNOTE :\r\n\r\n- The students are not allowed to adjust the schedule after advisors approve the registration.\r\n\r\n- Please contact advisors for any other arising issues .\r\n\r\n3/ During the registration, students have to pay attention to the starting time and room of each class in order to ensure relaxation and movement between classes.\r\n\r\n \r\n\r\n Morning :\r\n\r\n Afternoon :\r\n\r\nPeriod 1 : 8:00 am – 8:50 am\r\n\r\nPeriod 7 : 13:15 pm – 14:05 pm\r\n\r\nPeriod 2 : 8:50 am – 9:40 am\r\n\r\nPeriod 8 : 14:05 pm – 14:55 pm\r\n\r\nPeriod 3 : 9:40 am – 10: 30 am\r\n\r\nPeriod 9 : 14:55 pm – 15:45 pm\r\n\r\nPeriod 4 : 10:35 am – 11:25 am\r\n\r\nPeriod 10 : 15:50 pm – 16:40 pm\r\n\r\nPeriod 5 : 11:25 am – 12:15 am \r\n\r\nPeriod 11 : 16:40 pm – 17:30 pm\r\n\r\nPeriod 6 : 12:15 am – 13:05 am \r\n\r\nPeriod 12 : 17:30 pm – 18:20 pm\r\n\r\n 4/ The OAA will separate students of oversize classes into smaller classes in case of exceeding of number of students:\r\n\r\n          - The schedules of new classes are the same with the original class;\r\n\r\n          - The number of students of the original class will be preserved. And the number of students in new classes, lecturers will be arranged based on requirements of School / Department\r\n\r\n          - The list of students in new classes will be based on students’ time of registration which is recorded on the system\r\n\r\n        5/ Please access the following link for the registration instruction:\r\n\r\n         (attached here)\r\n\r\n          6/Any question regarding the following issues, please feel free to contact person in charge:\r\n\r\n-  Subject/Subject code, registration and some cases of not changing registered  subjects because the registrations have been approved: Advisors.\r\n\r\n- Subjects, schedule, number of students: School / Department.\r\n\r\n- Tuition fee: Office of Finance and Planning (O2.701).\r\n\r\n- Edusoft accounts, student ID of changing majors/ programs and other issues: Office of Undergraduate Academic Affairs (O2.708) :\r\n\r\n· Ms. Tran Minh Thien Tam, email: tmttam@hcmiu.edu.vn; (028) 37244270 -  3229\r\n\r\n· Mr. Do Thai Son, email: dtson@hcmiu.edu.vn; (028) 37244270 -  3885\r\n\r\n         \r\n\r\n          THE OFFICE OF UNDERGRADUATE ACADEMIC AFFAIRS",
+      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
+      "when": "12/23/2020"
+    },
+    {
+      "id": 5,
+      "to": "7f32af70-09a9-418a-88a5-d175b1182d3c",
+      "title": "ANNOUNCEMENT FROM YOUR SUPERVISOR",
+      "content": "Hi Linh,\r\n\r\nI would like to invite you to a meeting at 10 am in Room A1.607.\r\n\r\nLy Tu Nga.\r\n",
+      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
+      "when": "12/23/2020"
+    },
+    {
+      "id": 6,
+      "to": [
+        "7f32af70-09a9-418a-88a5-d175b1182d3c",
+        "b9fd048a-9eec-4859-80b0-668131cbf5cc"
+      ],
+      "title": "ANNOUNCEMENT FOR ONLINE COURSE EVALUATION SEMESTER 1, ACADEMIC YEAR 2020-2021",
+      "content": "Dear All Students,\r\n\r\nOffice of Quality Assurance would like to inform all students on Online Course Evaluation, Semester 1, Academic year 2020-2021\r\n\r\nSurvey channel: Edusoft Web\r\n\r\nSurvey period time:\r\n\r\nPlease sign up student’s edusoft account for schedule of course evaluation online survey.\r\n\r\nPlease follow these steps to complete surveys:\r\n\r\nSign up student’s edusoft account on https://edusoftweb.hcmiu.edu.vn/\r\nClick on the Tab “Evaluation Teaching”\r\nDo and save all surveys on time",
+      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
+      "when": "12/23/2020"
+    },
+    {
+      "id": 7,
+      "to": "all",
+      "title": "ANNOUNCEMENT: ABOUT NAME LIST OF PHYSICAL TRAINING 1 AND PHYSICAL TRAINING 2 IN THE FIRST SEMESTER, ACADEMIC YEAR 2020-2021",
+      "content": "ANNOUNCEMENT\r\n\r\nThe Office of Academic Affairs would like to inform students* about name list of Physical Training 1 and Physical Training 2 in the 1st semester, academic year 2020 – 2021, as below:\r\n\r\nSubject\r\n\r\nGroup\r\n\r\nCourse name\r\n\r\nDay\r\n\r\nSection\r\n\r\nPhysical Training 1\r\n(PT001IU)\r\n\r\n01\r\n\r\nTable Tennis\r\n\r\n2\r\n\r\nMorning\r\n\r\nPhysical Training 2\r\n(PT002IU)\r\n\r\n01\r\n\r\nTable Tennis\r\n\r\n6\r\n\r\nMorning\r\n\r\n02\r\n\r\nTable Tennis\r\n\r\n4\r\n\r\nAfternoon\r\n\r\n*Only applied to Intake 2019 and previous intakes\r\n\r\nØ  Venue:\r\n\r\n§   Table Tennis: 4th floor at International University\r\n\r\n                                                                                       THE OFFICE OF ACADEMIC AFFAIRS",
+      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
+      "when": "12/23/2020"
+    }
+  ]
+}

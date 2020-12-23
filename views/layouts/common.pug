@@ -49,6 +49,8 @@ html
                         li.nav-item
                             a.nav-link(href='/') Home
                         li.nav-item
+                            a.nav-link(href='/school/announcements') Announcements
+                        li.nav-item
                             a.nav-link(href='/users')= (userInfo.role === 10 ? 'User list': 'Your info')
                         li.nav-item
                             a.nav-link(href='/auth/login', class=userInfo.name === " " ? 'nav-link': 'nav-link disabled', hidden=userInfo.name === ' ' ? false: true) Log in
@@ -61,18 +63,20 @@ html
                         if (userInfo.role !== 10)
                             li.nav-item
                                 a.nav-link(href='/users/schedule') Schedule
-                        li.nav-item.dropdown
-                            button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button',
-                                data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Auto functions
-                            .dropdown-menu(aria-labelledby='dropdownMenuButton')
-                                a.dropdown-item.disabled(href='/school/eliminate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Eliminate Duplicates
-                                a.dropdown-item.disabled(href='/school/assign', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign
-                                a.dropdown-item.disabled(href='/school/generate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Subject Generating
-                                a.dropdown-item(href='/school/createSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create Subject
-                                a.dropdown-item.disabled(href='/school/createDepartment', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create Department
-                                a.dropdown-item.disabled(href='/school/createDepartment/assignSubjectToDepartment', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign Subject to Department
-                                a.dropdown-item.disabled(href='/school/assignStandardSchedule', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign Standard Table
-                                a.dropdown-item(href='/school/assignTeacherToSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign Teacher to Subject
+                        if (userInfo.role === 10)
+                            li.nav-item.dropdown
+                                button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button',
+                                    data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Admin functions
+                                .dropdown-menu(aria-labelledby='dropdownMenuButton')
+                                    //a.dropdown-item.disabled(href='/school/eliminate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Eliminate Duplicates
+                                    //a.dropdown-item.disabled(href='/school/assign', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign
+                                    //a.dropdown-item.disabled(href='/school/generate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Subject Generating
+                                    a.dropdown-item(href='/school/createSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Set subject's time
+                                    //a.dropdown-item.disabled(href='/school/createDepartment', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create Department
+                                    //a.dropdown-item.disabled(href='/school/createDepartment/assignSubjectToDepartment', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign Subject to Department
+                                    //a.dropdown-item.disabled(href='/school/assignStandardSchedule', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign Standard Table
+                                    a.dropdown-item(href='/school/assignTeacherToSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Set subject's lecturer
+                                    a.dropdown-item(href='/school/createAnnouncement', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Post new announcement
 
                     span.form-inline.my-2.my-lg-0=  userInfo.name
                     span &nbsp;

@@ -1,6 +1,7 @@
 var express = require('express');
 
 var controller = require('../controllers/school.controller');
+var checkForm = require('../middleware/formCheck.middleware');
 
 var router = express.Router();
 
@@ -21,5 +22,7 @@ router.get('/assignTeacherToSubject', controller.assignTeacherToSubject);
 router.post('/searchForTeacher', controller.searchTeacher);
 router.post('/searchForTeacher/searchForWeek', controller.searchTeacherWeek);
 router.post('/searchForTeacher/searchForWeek/assign', controller.assignTeacherNOWToSubject);
-
+router.get('/announcements', controller.showAnnouncements);
+router.get('/createAnnouncement', controller.displayAnnouncementCreatingForm);
+router.post('/postThisAnnouncement', checkForm.checkAnnouncementCreatingForm, controller.postThisAnnouncement);
 module.exports = router;

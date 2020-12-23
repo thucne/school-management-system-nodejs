@@ -1,0 +1,39 @@
+extends ../layouts/common
+
+block content
+    link(rel="stylesheet", href="/styles/cellHover.css")
+    script.
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    .px-3.pt-3.hide
+        h1 Create new announcement
+        .container-fluid.my-5.hide
+            .row
+                .col-md-12
+                    form(action="/school/postThisAnnouncement", method="POST", name="Create")
+                        .form-group
+                            input(type='hidden', name='_csrf', value=csrfToken)
+                            label(for='to') To
+                            input#to.form-control(name="to", type="text", value=values ? values.to : '', placeholder="all or ITITIU18125, ITITIU18110, ITITI18066...",
+                                class=values ? (values.to ? 'is-valid' : 'is-invalid'): '')
+                            .valid-feedback(class=values ? (values.to ? 'valid-feedback' : 'invalid-feedback'): '')= values ? (values.to ? 'Looks good!' : 'Please provide list of ID or type "all"!') : ''
+                            label(for='title') Title
+                            input#title.form-control(name="title", type="text", value=values ? values.title : '', placeholder="Ex: Regulations of Final Examination",
+                                class=values ? (values.title ? 'is-valid' : 'is-invalid'): '')
+                            .valid-feedback(class=values ? (values.title ? 'valid-feedback' : 'invalid-feedback'): '')= values ? (values.title ? 'Looks good!' : 'Please provide a title!') : ''
+                            label(for='content') Content
+                            textarea#content.form-control(name="content", rows='10', cols='100%', value=values ? values.content: '', placeholder="Ex: " +
+                            "                            \n" +
+                            "                            1.      For students owing tuition fees:\n" +
+                            "                            \n" +
+                            "                            -       Students who owe 1.000.000 VND shall be considered tuition debt, will not be allowed to take the exam.\n" +
+                            "                            \n" +
+                            "                            2.      For students who do not complete tuition on time:\n" +
+                            "                            \n" +
+                            "                            -       Students who pay tuition later than January 4, 2021 must present the tuition fee receipt or confirm that they have paid tuition from MySchool.io web system when entering the examination room.",
+                                    class=values ? (values.content ? 'is-valid' : 'is-invalid'): '')
+                            .valid-feedback(class=values ? (values.content ? 'valid-feedback' : 'invalid-feedback'): '')= values ? (values.content ? 'Looks good!' : 'Please provide the content of announcement!') : ''
+
+                        button.btn.btn-primary= 'Post'
+

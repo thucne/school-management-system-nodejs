@@ -1,110 +1,111 @@
 extends ../layouts/common
 
 block content
-    h1.hide #{userInfo.role === 10 ? 'Admin': (userInfo.role === 1 ? 'Teacher': 'Student')}'s Information
-    hr(style="background-color: lightgray;")
-    .container-fluid.mt-5.hide
-        .row
-            .col-sm-4.rounded-lg.shadow-none.p-3.mb-5.bg-light(style="height: 100%;")
-                p.px-5.mb-5
-                    if user.avatar
-                        img(src=(user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '../' + user.avatar : user.avatar , width="40", alt=!user.avatar ? 'Not Found' : '')
-                    else
-                        span Not Found
-                    span &nbsp;
-                    span(style="margin-left: 40;")
-                        b= user.name
+    .p-3
+        h1.hide #{userInfo.role === 10 ? 'Admin': (userInfo.role === 1 ? 'Teacher': 'Student')}'s Information
+        hr(style="background-color: lightgray;")
+        .container-fluid.mt-5.hide
+            .row
+                .col-sm-4.rounded-lg.shadow-none.p-3.mb-5.bg-light(style="height: 100%;")
+                    p.px-5.mb-5
+                        if user.avatar
+                            img(src=(user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '../' + user.avatar : user.avatar , width="40", alt=!user.avatar ? 'Not Found' : '')
+                        else
+                            span Not Found
+                        span &nbsp;
+                        span(style="margin-left: 40;")
+                            b= user.name
 
-                a.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.PersonalInfo ? 'active' : '') : 'active'
-                , href='/users/' + user.id)
-                    span.ml-2 Personal info
-                a.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.Fee ? 'active' : '') : '')
-                    span.ml-2 Fee
-                a.btn.btn-light.border-0.rounded-0.d-sm-flex(href='/users', class=thisSession ? (thisSession.Back ? 'active' : '') : '')
-                    span.ml-2 Back
-            .col-sm-8
-                #reactState
-                    p
-                        h4 Student info
-                    -var count = 0
-                    -var errArray = ['a','b','c','d']
-                    -var warnArray = ['m','n','p','q']
-                    if errs
-                        each err in errs
-                            div( id=errArray[count]) &#10006 #{err}
-                            -count++
-                        script(type="text/javascript").
-                            var snackbar1 = document.getElementById("a");
-                            snackbar1.className="show";
-                            setTimeout(()=>{snackbar1.className=snackbar1.className.replace("show","")},3000);
-                            var snackbar2 = document.getElementById("b");
-                            snackbar2.className="show";
-                            setTimeout(()=>{snackbar2.className=snackbar2.className.replace("show","")},3000);
-                            var snackbar3 = document.getElementById("c");
-                            snackbar3.className="show";
-                            setTimeout(()=>{snackbar3.className=snackbar3.className.replace("show","")},3000);
-                    if warnings
-                        each warning in warnings
-                            div(id=warnArray[count]) &#9888 #{warning}
-                            -count++
-                            if count == 1
-                                script(type="text/javascript").
-                                    var WarningSnackbar1 = document.getElementById("m");
-                                    WarningSnackbar1.className = "show";
-                                    setTimeout(()=>{WarningSnackbar1.className=WarningSnackbar1.className.replace("show","")},3000);
-                            else if count == 2
-                                script(type="text/javascript").
-                                    var WarningSnackbar2 = document.getElementById("n");
-                                    WarningSnackbar2.className = "show";
-                                    setTimeout(()=>{WarningSnackbar2.className=WarningSnackbar2.className.replace("show","")},3000);
-                            else if count == 3
-                                script(type="text/javascript").
-                                    var WarningSnackbar3 = document.getElementById("p");
-                                    WarningSnackbar3.className = "show";
-                                    setTimeout(()=>{WarningSnackbar3.className=WarningSnackbar3.className.replace("show","")},3000);
-                            else if count == 4
-                                script(type="text/javascript").
-                                    var WarningSnackbar4 = document.getElementById("q");
-                                    WarningSnackbar4.className = "show";
-                                    setTimeout(()=>{WarningSnackbar4.className=WarningSnackbar4.className.replace("show","")},3000); 
-                    form(action="/users/updateInfo/", method="POST", enctype="multipart/form-data")
-                        .form-group
-                            input(type="hidden", name="_csrf", value=csrfToken)
+                    a.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.PersonalInfo ? 'active' : '') : 'active'
+                    , href='/users/' + user.id)
+                        span.ml-2 Personal info
+                    a.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.Fee ? 'active' : '') : '')
+                        span.ml-2 Fee
+                    a.btn.btn-light.border-0.rounded-0.d-sm-flex(href='/users', class=thisSession ? (thisSession.Back ? 'active' : '') : '')
+                        span.ml-2 Back
+                .col-sm-8
+                    #reactState
+                        p
+                            h4 Student info
+                        -var count = 0
+                        -var errArray = ['a','b','c','d']
+                        -var warnArray = ['m','n','p','q']
+                        if errs
+                            each err in errs
+                                div( id=errArray[count]) &#10006 #{err}
+                                -count++
+                            script(type="text/javascript").
+                                var snackbar1 = document.getElementById("a");
+                                snackbar1.className="show";
+                                setTimeout(()=>{snackbar1.className=snackbar1.className.replace("show","")},3000);
+                                var snackbar2 = document.getElementById("b");
+                                snackbar2.className="show";
+                                setTimeout(()=>{snackbar2.className=snackbar2.className.replace("show","")},3000);
+                                var snackbar3 = document.getElementById("c");
+                                snackbar3.className="show";
+                                setTimeout(()=>{snackbar3.className=snackbar3.className.replace("show","")},3000);
+                        if warnings
+                            each warning in warnings
+                                div(id=warnArray[count]) &#9888 #{warning}
+                                -count++
+                                if count == 1
+                                    script(type="text/javascript").
+                                        var WarningSnackbar1 = document.getElementById("m");
+                                        WarningSnackbar1.className = "show";
+                                        setTimeout(()=>{WarningSnackbar1.className=WarningSnackbar1.className.replace("show","")},3000);
+                                else if count == 2
+                                    script(type="text/javascript").
+                                        var WarningSnackbar2 = document.getElementById("n");
+                                        WarningSnackbar2.className = "show";
+                                        setTimeout(()=>{WarningSnackbar2.className=WarningSnackbar2.className.replace("show","")},3000);
+                                else if count == 3
+                                    script(type="text/javascript").
+                                        var WarningSnackbar3 = document.getElementById("p");
+                                        WarningSnackbar3.className = "show";
+                                        setTimeout(()=>{WarningSnackbar3.className=WarningSnackbar3.className.replace("show","")},3000);
+                                else if count == 4
+                                    script(type="text/javascript").
+                                        var WarningSnackbar4 = document.getElementById("q");
+                                        WarningSnackbar4.className = "show";
+                                        setTimeout(()=>{WarningSnackbar4.className=WarningSnackbar4.className.replace("show","")},3000);
+                        form(action="/users/updateInfo/", method="POST", enctype="multipart/form-data")
+                            .form-group
+                                input(type="hidden", name="_csrf", value=csrfToken)
 
-                            label(for="name") Last Name
-                            input#name.form-control(name="name", type="text", value=user ? user.name : '', placeholder="Katy",
-                                pattern="^[a-zA-Z]{1,15}\\s{0,1}[a-zA-Z]{1,15}\\s*$",
-                                title= "In word, less than 30 letters.")
+                                label(for="name") Last Name
+                                input#name.form-control(name="name", type="text", value=user ? user.name : '', placeholder="Katy",
+                                    pattern="^[a-zA-Z]{1,15}\\s{0,1}[a-zA-Z]{1,15}\\s*$",
+                                    title= "In word, less than 30 letters.")
 
-                            label(for="first_name") First Name
-                            input#first_name.form-control(name="first_name", type="text", value=user ? user.first_name: '', placeholder="Perry",
-                                pattern="^[a-zA-Z]{1,15}\\s{0,1}[a-zA-Z]{1,15}\\s*$",
-                                title="In word, less than 30 letters.")
+                                label(for="first_name") First Name
+                                input#first_name.form-control(name="first_name", type="text", value=user ? user.first_name: '', placeholder="Perry",
+                                    pattern="^[a-zA-Z]{1,15}\\s{0,1}[a-zA-Z]{1,15}\\s*$",
+                                    title="In word, less than 30 letters.")
 
-                            //label(for="gender") Gender
-                            //input#gender.form-control.input-group(name="gender", type="text", value=values ? values.gender : '', placeholder="Male")
+                                //label(for="gender") Gender
+                                //input#gender.form-control.input-group(name="gender", type="text", value=values ? values.gender : '', placeholder="Male")
 
-                            p.mb-1 Gender
-                            input#male.ml-3(type='radio', name='gender', value='Male', checked=user.gender === 'Male')
-                            label.ml-2(for='male') Male
-                            input#female.ml-3(type='radio', name='gender', value='Female', checked=user.gender === 'Female')
-                            label.ml-2(for='female') Female
-                            input#other.ml-3(type='radio', name='gender', value='Other', checked=user.gender === 'Other')
-                            label.ml-2(for='other') Other
-                            br
-                            label(for="email") Email
-                            input#email.form-control(name="email", type="text", value=user ? user.email : '', placeholder="katyperry@gmail.com",
-                                pattern="^\\w+@[a-zA-Z]+\\.com$",
-                                title="any@inWords.com")
+                                p.mb-1 Gender
+                                input#male.ml-3(type='radio', name='gender', value='Male', checked=user.gender === 'Male')
+                                label.ml-2(for='male') Male
+                                input#female.ml-3(type='radio', name='gender', value='Female', checked=user.gender === 'Female')
+                                label.ml-2(for='female') Female
+                                input#other.ml-3(type='radio', name='gender', value='Other', checked=user.gender === 'Other')
+                                label.ml-2(for='other') Other
+                                br
+                                label(for="email") Email
+                                input#email.form-control(name="email", type="text", value=user ? user.email : '', placeholder="katyperry@gmail.com",
+                                    pattern="^\\w+@[a-zA-Z]+\\.com$",
+                                    title="any@inWords.com")
 
-                            label(for="avatar") Avatar
-                            input#avatar.form-control-file(name="avatar", type="file")
+                                label(for="avatar") Avatar
+                                input#avatar.form-control-file(name="avatar", type="file")
 
-                            input(type="hidden", name="id", value=user.id)
-                        button.btn.btn-primary Update info
+                                input(type="hidden", name="id", value=user.id)
+                            button.btn.btn-primary Update info
 
-            script(src="https://unpkg.com/react@17/umd/react.development.js" crossorigin)
-            script(src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin)
-            script(src="https://unpkg.com/babel-standalone@6/babel.min.js")
+                script(src="https://unpkg.com/react@17/umd/react.development.js" crossorigin)
+                script(src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin)
+                script(src="https://unpkg.com/babel-standalone@6/babel.min.js")
 
-    hr(style="background-color: lightgray;")
+        hr(style="background-color: lightgray;")
