@@ -6,11 +6,19 @@ block content
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
+
     .px-3.pt-3.mb-5.hide
         h1 Announcements
         if (listOfAnnouncements)
           - var listOfAlertName = ['alert-primary', 'alert-secondary', 'alert-success', 'alert-danger', 'alert-warning', 'alert-info',  'alert-light', 'alert-dark']
           each ancm in listOfAnnouncements
+            script(type='text/javascript').
+                function del(id) {
+                  location.href = '/school/deleteANCM/' + id
+                  // location.reload();
+                }
             - var thisKindOfAlert = Math.floor(Math.random() * 8);
             .alert(class=listOfAlertName[thisKindOfAlert])
                 a(href='/school/showThisANCM/' + ancm.id)= ancm.title + ' [' + ancm.when + ']'
+                if (userInfo.role === 10)
+                  button.close(type='button', onclick='del("ancm.id")') &times;
