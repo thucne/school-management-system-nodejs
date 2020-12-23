@@ -1218,6 +1218,9 @@ module.exports.showAnnouncements = function (req, res) {
     }
   });
 
+  listOfAnnouncements.sort(function(a,b){
+    return new Date(b.when) - new Date(a.when);
+  });
   // for (let n = 0; n < listOfAnnouncements.length; n++) {
   //   console.log(listOfAnnouncements[n].content);
   // }
