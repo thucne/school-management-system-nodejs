@@ -64,6 +64,16 @@
       "content": "Phòng Đào tạo Đại học thông báo danh sách trả I đến sinh viên.\r\nSinh viên xem danh sách tại đây.  ",
       "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
       "when": "12/23/2020"
+    },
+    {
+      "id": 9,
+      "to": [
+        "TCTCIU202"
+      ],
+      "title": "A Message for BLACKPINK",
+      "content": "Hi there!\r\n\r\nI love you <3\r\n",
+      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
+      "when": "12/23/2020"
     }
   ]
 }
