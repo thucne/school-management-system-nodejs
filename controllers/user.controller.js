@@ -32,10 +32,10 @@ module.exports.index = function (req, res) {
 
   res.render('users/index', {
     csrfToken: token,
-    users: isAdmin === true ? db.get('users').value().slice(start, end): thisUser,
+    users: isAdmin === true ? db.get('users').value().slice(start, end) : thisUser,
     page: {
       max: max,
-      num: isAdmin === true ? db.get('users').value().length: 1,
+      num: isAdmin === true ? db.get('users').value().length : 1,
       thisPage: page,
       x: --page,
       y: ++page,
@@ -108,7 +108,7 @@ module.exports.update = function (req, res) {
   var i;
   // console.log(db.get('users').nth(2).value());
 
-  for (i = 0 ; i < user.length; i++) {
+  for (i = 0; i < user.length; i++) {
     // console.log(avt.nth(i).value());
     db.get('users').nth(i).assign(avt.nth(i).value()).write();
   }
@@ -188,8 +188,8 @@ module.exports.cookie = function (req, res, next) {
 module.exports.postCreate = function (req, res) {
   // req.body.id = shortid.generate();
   req.body.id = aguid(req.body.email);
-  req.body.ip_address = (Math.floor(Math.random() * 255) + 1)+"."+(Math.floor(Math.random() * 255))+"."+
-      (Math.floor(Math.random() * 255))+"."+(Math.floor(Math.random() * 255));
+  req.body.ip_address = (Math.floor(Math.random() * 255) + 1) + "." + (Math.floor(Math.random() * 255)) + "." +
+      (Math.floor(Math.random() * 255)) + "." + (Math.floor(Math.random() * 255));
   req.body.password = shortid.generate();
   req.body.avatar = req.file.path.split('\\').slice(1).join('/');
 
@@ -215,6 +215,7 @@ module.exports.postCreate = function (req, res) {
 module.exports.registrationMenuDisplaying = function (req, res) {
   var id = res.locals.userInfo.loginId;
 
+
   var token = req.csrfToken();
   var departments = department.get('department').value();
   // console.log("register " + token);
@@ -234,11 +235,17 @@ module.exports.registrationMenuDisplaying = function (req, res) {
     }
   }
 
+  //reset checked status
+  for (let v = 0; v < subjects.length; v++) {
+    subjects[v].checked = false;
+  }
+
   async function assignNow() {
     await assignCorresponding();
   }
 
   assignNow().then(ren);
+
   // console.log(correspondingDepartmentOfSubject);
 
   function ren() {
@@ -284,7 +291,7 @@ module.exports.registrationMenuDisplaying = function (req, res) {
     }
     console.log('Saved SJ ' + listOfSelectedSubjects);
     if (listOfSelectedSubjects.length > 0) {
-      for (let m = 0;  m < listOfSelectedSubjects.length; m++) {
+      for (let m = 0; m < listOfSelectedSubjects.length; m++) {
         let thisSubName = subject.get('subjects').find({id_sub: listOfSelectedSubjects[m]}).value().name_sub;
         let tempSubjects = subjects.filter(function (sub) {
           return sub.name_sub === thisSubName;
@@ -298,7 +305,7 @@ module.exports.registrationMenuDisplaying = function (req, res) {
     //convert to name_sub from id_sub
     if (listOfSelectedSubjects.length > 0) {
       let tempArr = [];
-      for (let n = 0;  n < listOfSelectedSubjects.length; n++) {
+      for (let n = 0; n < listOfSelectedSubjects.length; n++) {
         let thisSub = subject.get('subjects').find({id_sub: listOfSelectedSubjects[n]}).value();
         thisSub.saved = true;
         tempArr.push(thisSub);
@@ -321,6 +328,7 @@ module.exports.registrationMenuDisplaying = function (req, res) {
       res.render('auth/login');
     }
   }
+
   // res.redirect('/users');
 }
 
@@ -405,6 +413,7 @@ module.exports.selectTheseSubjects = function (req, res) {
       csrfToken: req.csrfToken()
     });
   }
+
   // res.redirect('/users');
 }
 
@@ -419,7 +428,7 @@ module.exports.deleteTheseSubjects = function (req, res) {
   if (req.body.thisSelectedSubject) {
     selectedSubjectThisTime = req.body.thisSelectedSubject;
     console.log('Array ' + selectedSubjectThisTime);
-    for (let i = 0; i < selectedSubjectThisTime.length; i++)  {
+    for (let i = 0; i < selectedSubjectThisTime.length; i++) {
       let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime[i])}).value();
       let idx = listOfSelectedSubjects.findIndex(x => x.id_sub === findSelectedSubjectThisTime.id_sub);
       listOfSelectedSubjects.splice(idx, 1);
@@ -569,10 +578,11 @@ module.exports.saveRegistrations = function (req, res) {
     }
   }
 
-  
+
   console.log('Overlapping ' + overlappingSelection);
 
   var correspondingDepartmentOfSubject = [];
+
   //Find department
   function assignCorresponding() {
     for (let i = 0; i < subjects.length; i++) {
@@ -620,7 +630,7 @@ module.exports.saveRegistrations = function (req, res) {
         for (let i = 0; i < notOverlappingSelectedSubjects.length; i++) {
           console.log('notOverlappingSelectedSubjects: ' + notOverlappingSelectedSubjects[i].name_sub);
         }
-        for (let w = listOfSelectedSubjects.length - selectedSubjectThisTimeID.length + 1; w < listOfSelectedSubjects.length; w++ ) {
+        for (let w = listOfSelectedSubjects.length - selectedSubjectThisTimeID.length + 1; w < listOfSelectedSubjects.length; w++) {
           listOfSelectedSubjects[w].saved = true;
           console.log('w ' + listOfSelectedSubjects[w].saved);
         }
@@ -698,12 +708,12 @@ module.exports.saveRegistrations = function (req, res) {
       }
 
       let savableSubject = [];
-      for (let g = 0;  g < resultColor.length; g++ ){
+      for (let g = 0; g < resultColor.length; g++) {
         let findColorSubject = subject.get('subjects').find({id_sub: resultColor[g]}).value();
         savableSubject.push(findColorSubject);
       }
 
-      if (resultColor.length > 0 ) {
+      if (resultColor.length > 0) {
         for (let k = 0; k < savableSubject.length; k++) {
           let whatDayOfThisSubject = savableSubject[k].whichDay;
           let findAboveDayInThisStudentSchedule = thisStudentWeeks[whatDayOfThisSubject];
@@ -774,7 +784,7 @@ module.exports.schedule = function (req, res) {
   //list of subjects
   if (whoIsThis === 0) {
     if (thisUser.savedSubjects !== undefined) {
-      for (let k = 0;  k < thisUser.savedSubjects.length; k++) {
+      for (let k = 0; k < thisUser.savedSubjects.length; k++) {
         let currentSub = subject.get('subjects').find({id_sub: thisUser.savedSubjects[k]}).value();
         correspondingSubjects.push(currentSub);
       }
@@ -941,7 +951,7 @@ module.exports.schedule = function (req, res) {
     // console.log('Compare String: '  + compareString);
 
     let f = 7;
-    for (let v = 0;  v < compareString.length; v++) {
+    for (let v = 0; v < compareString.length; v++) {
       if (compareString[v] !== 1 && compareString[v] !== 9) {
         f--;
       }
@@ -988,5 +998,9 @@ module.exports.schedule = function (req, res) {
     savedSubjects: correspondingSubjects,
     csrfToken: req.csrfToken()
   });
+
+}
+
+module.exports.showStudentList = function (req, res ) {
 
 }
