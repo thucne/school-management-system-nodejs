@@ -20,10 +20,10 @@ module.exports.checkAnnouncementCreatingForm = function (req, res, next) {
       for (let j = 0 ; j < users.length; j++) {
         // console.log(listOfID[j]);
         // console.log(users[i].id);
-        if (listOfID[i] === users[j].id) {
+        if (listOfID[i] === users[j].universityID) {
           found = true;
           console.log(listOfID[i]);
-          console.log(users[j].id);
+          console.log(users[j].universityID);
           break;
         } else {
           found = false;

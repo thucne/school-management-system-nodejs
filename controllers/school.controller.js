@@ -1193,7 +1193,7 @@ module.exports.assignTeacherNOWToSubject = function (req, res) {
 
 module.exports.showAnnouncements = function (req, res) {
   var thisUserID = res.locals.userInfo.loginId;
-
+  var universityID = db.get('users').find({id: thisUserID}).value()['universityID'];
   var listOfAnnouncements = announcement.get('ancm').value().filter(function (annc) {
     if (res.locals.userInfo.role === 10) {
       return true;
@@ -1202,7 +1202,7 @@ module.exports.showAnnouncements = function (req, res) {
       return true;
     } else {
       let listOfIdAnnc = annc.to;
-      if (listOfIdAnnc === thisUserID) {
+      if (listOfIdAnnc === universityID) {
         return true;
       }
       // console.log(typeof listOfIdAnnc);
@@ -1210,7 +1210,7 @@ module.exports.showAnnouncements = function (req, res) {
       // listOfIdAnnc.split(" ");
       // }
       for (let k = 0;  k < listOfIdAnnc.length; k++) {
-        if (listOfIdAnnc[k] === thisUserID || listOfIdAnnc[k] === 'all') {
+        if (listOfIdAnnc[k] === universityID || listOfIdAnnc[k] === 'all') {
           return true;
         }
       }
@@ -1288,4 +1288,46 @@ module.exports.deleteThisANCM = function (req, res) {
   announcement.get('ancm').remove(thisANCM).write();
 
   res.redirect('/school/announcements');
+}
+
+module.exports.assignStudentAndTeacherID = function (req, res) {
+  var users = db.get('users').value();
+
+  var listOfPreIDStudent = ['ITITIU', 'EEEEIU', 'BABAIU', 'ELELIU', 'BAFNIU', 'ITDSIU', 'SESEIU', 'BTFEIU', 'BTBTIU', 'CECEIU'];
+  var listOfEnumPreIDStudent = [0,0,0,0,0,0,0,0,0,0];
+  var listOfPreIDTeacher = 'TCTCIU';
+  var listOfEnumPreIDTeacher = 0;
+
+  var randomNumber = Math.floor(Math.random() * 10);
+  var randomNumber2 = Math.floor(Math.random() * 4) + 17;
+
+  for (let i = 0; i < users.length; i++) {
+    if (users[i]['role'] === 1) {
+      let thisID;
+      if (listOfEnumPreIDTeacher < 10) {
+        thisID = '00' + listOfEnumPreIDTeacher;
+      } else if (listOfEnumPreIDTeacher < 100) {
+        thisID = '0' + listOfEnumPreIDTeacher;
+      } else {
+        thisID = listOfEnumPreIDTeacher
+      }
+      db.get('users').nth(i).assign({teacherID: listOfPreIDTeacher + thisID}).write();
+      listOfEnumPreIDTeacher++;
+    } else if (users[i]['role'] === 0) {
+      let thisID;
+      if (listOfEnumPreIDStudent[randomNumber] < 10) {
+        thisID = '00' + listOfEnumPreIDStudent[randomNumber];
+      } else if (listOfEnumPreIDStudent[randomNumber] < 100) {
+        thisID = '0' + listOfEnumPreIDStudent[randomNumber];
+      } else {
+        thisID = listOfEnumPreIDStudent[randomNumber]
+      }
+      db.get('users').nth(i).assign({teacherID: listOfPreIDStudent[randomNumber] + randomNumber2 + thisID}).write();
+      listOfEnumPreIDStudent[randomNumber]++;
+      randomNumber = Math.floor(Math.random() * 10);
+      randomNumber2 = Math.floor(Math.random() * 4) + 17;
+    }
+  }
+
+  res.redirect('/users');
 }

@@ -11,8 +11,8 @@
     {
       "id": 2,
       "to": [
-        "a585b731-0527-4a30-941d-92d78bea7c43",
-        "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3"
+        "TCTCIU000",
+        "BABAIU19000"
       ],
       "title": "Announcement from your supervisor",
       "content": "This is an announcement for Haselwood Oo and Foat",
@@ -29,7 +29,7 @@
     },
     {
       "id": 5,
-      "to": "7f32af70-09a9-418a-88a5-d175b1182d3c",
+      "to": "BAFNIU19086",
       "title": "ANNOUNCEMENT FROM YOUR SUPERVISOR",
       "content": "Hi Linh,\r\n\r\nI would like to invite you to a meeting at 10 am in Room A1.607.\r\n\r\nLy Tu Nga.\r\n",
       "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
@@ -38,8 +38,8 @@
     {
       "id": 6,
       "to": [
-        "7f32af70-09a9-418a-88a5-d175b1182d3c",
-        "b9fd048a-9eec-4859-80b0-668131cbf5cc"
+        "CECEIU19000",
+        "BAFNIU19086"
       ],
       "title": "ANNOUNCEMENT FOR ONLINE COURSE EVALUATION SEMESTER 1, ACADEMIC YEAR 2020-2021",
       "content": "Dear All Students,\r\n\r\nOffice of Quality Assurance would like to inform all students on Online Course Evaluation, Semester 1, Academic year 2020-2021\r\n\r\nSurvey channel: Edusoft Web\r\n\r\nSurvey period time:\r\n\r\nPlease sign up student’s edusoft account for schedule of course evaluation online survey.\r\n\r\nPlease follow these steps to complete surveys:\r\n\r\nSign up student’s edusoft account on https://edusoftweb.hcmiu.edu.vn/\r\nClick on the Tab “Evaluation Teaching”\r\nDo and save all surveys on time",
@@ -57,8 +57,8 @@
     {
       "id": 8,
       "to": [
-        "82a3912d-9901-4d4a-8715-808e3ac5ad02",
-        "2945b207-1df4-4f0f-868f-5c3bf2f498e7"
+        "BAFNIU19086",
+        "BABAIU20001"
       ],
       "title": "FINAL EXAMINATION I GRADE 201",
       "content": "Phòng Đào tạo Đại học thông báo danh sách trả I đến sinh viên.\r\nSinh viên xem danh sách tại đây.  ",
