@@ -1,0 +1,15 @@
+extends ../layouts/common
+
+block content
+    link(rel="stylesheet", href="/styles/cellHover.css")
+    script.
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    .px-3.pt-3.mb-5.hide
+        h1 Details
+        .p-5
+        if (title)
+          h2= title
+        if (content)
+          p= content

@@ -10,6 +10,17 @@ block content
   if (reloadPage)
     script(type='text/javascript').
       location.reload();
+  - var isAdmin = userInfo.role === 10;
+    if (!isAdmin)
+        script(type='text/javascript').
+             swal("Your are not allowed to visit this page.", {
+              icon: "warning",
+              timer: 3000,
+              }).then(() => {
+                document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                location.reload();
+                userInfo.name = " ";
+              });
   .container-fluid.my-5.hide
     .row
       .col-md-7
