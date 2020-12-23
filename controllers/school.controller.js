@@ -1269,7 +1269,7 @@ module.exports.showThisANCM = function (req, res) {
   var thisANCMid = parseInt(req.params.id);
 
   var thisANCM = announcement.get('ancm').find({id: thisANCMid}).value();
-  thisANCM.postBy = db.get('users').find({id: thisANCM.postBy}).value().name;
+  var whoPost = db.get('users').find({id: thisANCM.postBy}).value()['name'];
 
   res.render('school/showANCM', {
     csrfToken: req.csrfToken(),
