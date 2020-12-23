@@ -1,7 +1,19 @@
 extends ../layouts/common
 
 block content
-    .p-3
+    if (isThisUserValid !== undefined)
+      if (isThisUserValid === false)
+          script(type='text/javascript').
+            swal("Unauthorized intrusion, you have been reported!", {
+              icon: "warning",
+              timer: 3000,
+            }).then(() => {
+              document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+              location.reload();
+              userInfo.name = " ";
+            });
+    if user
+      .p-3
         h1.hide #{userInfo.role === 10 ? 'Admin': (userInfo.role === 1 ? 'Teacher': 'Student')}'s Information
         hr(style="background-color: lightgray;")
         .container-fluid.mt-5.hide
