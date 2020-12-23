@@ -25,4 +25,5 @@ router.post('/searchForTeacher/searchForWeek/assign', controller.assignTeacherNO
 router.get('/announcements', controller.showAnnouncements);
 router.get('/createAnnouncement', controller.displayAnnouncementCreatingForm);
 router.post('/postThisAnnouncement', checkForm.checkAnnouncementCreatingForm, controller.postThisAnnouncement);
+router.get('/showThisANCM/:id', controller.displayAnnouncementCreatingForm);
 module.exports = router;

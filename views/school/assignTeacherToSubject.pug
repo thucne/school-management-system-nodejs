@@ -6,6 +6,13 @@ block content
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
+    - var isAdmin = userInfo.role === 10;
+    if (!isAdmin)
+        script(type='text/javascript').
+          swal("Your are not allowed to visit this page.", {icon: "warning", timer: 3000,}).then(() => {
+          document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+          location.reload();
+          userInfo.name = " ";});
     .px-3.pt-3.hide
         h1 Set subject's lecturer
         hr(style="background-color: lightgray;")

@@ -1232,9 +1232,11 @@ module.exports.displayAnnouncementCreatingForm = function (req, res) {
 }
 
 module.exports.postThisAnnouncement = function (req, res) {
-  req.body.to.split(', ');
-  var title = req.body.title;
-  var content = req.body.content;
+  req.body.to = req.body.to.split(', ');
+  var toArray = [];
+  for (let m = 0; m < req.body.to.length; m++) {
+    toArray.push(req.body.to[m]);
+  }
 
   var latestANCM = announcement.get('ancm').value();
 
@@ -1247,7 +1249,7 @@ module.exports.postThisAnnouncement = function (req, res) {
 
   var newANCM = {
     id: req.body.id,
-    to: req.body.to,
+    to: toArray,
     title: req.body.title,
     content: req.body.content,
     postBy: req.body.postBy,
@@ -1258,4 +1260,8 @@ module.exports.postThisAnnouncement = function (req, res) {
   announcement.get('ancm').push(newANCM).write();
 
   res.redirect('/users');
+}
+
+module.exports.showThisANCM = function (req, res) {
+
 }

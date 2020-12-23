@@ -4,7 +4,6 @@ const db = require('../lowdb/db');
 module.exports.checkAnnouncementCreatingForm = function (req, res, next) {
   var users = db.get('users').value();
 
-
   var errs = [];
 
   if (!req.body.to) {
