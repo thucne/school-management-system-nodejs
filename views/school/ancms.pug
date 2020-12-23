@@ -21,4 +21,4 @@ block content
             .alert(class=listOfAlertName[thisKindOfAlert])
                 a(href='/school/showThisANCM/' + ancm.id)= ancm.title + ' [' + ancm.when + ']'
                 if (userInfo.role === 10)
-                  button.close(type='button', onclick='del("ancm.id")') &times;
+                  button.close(type='button', onclick='del("'+ ancm.id + '")') &times;
