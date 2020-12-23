@@ -146,15 +146,24 @@ module.exports.create = function (req, res) {
 
 module.exports.id = function (req, res) {
   var id = req.params.id;
+
+  var isThisUserValid = !(id !== res.locals.userInfo.loginId && db.get('users').find({id: id}).value());
+  // var isVulnerableAccountFound = db.get('users').find({id: id}).value();
   var token = req.csrfToken();
   console.log("id " + token);
 
   var user = db.get('users').find({id: id}).value();
 
-  res.render('users/view', {
-    csrfToken: token,
-    user: user
-  })
+  if (user) {
+    res.render('users/view', {
+      csrfToken: token,
+      user: user,
+      isThisUserValid: isThisUserValid
+    })
+  } else {
+    res.render('404');
+  }
+
 };
 
 module.exports.deleteUser = function (req, res) {
