@@ -7,9 +7,13 @@ block content
         $('[data-toggle="tooltip"]').tooltip();
       });
     .px-3.pt-3.mb-5.hide
-        h1 Details
-        .p-5
-        if (title)
-          h2= title
-        if (content)
-          p= content
+        h3(style='color: green;') Details
+
+        if (thisANCM)
+                h4(style='color: blue;')= thisANCM.title
+                hr
+                .p-3
+                    pre= thisANCM.content
+                    br
+                    hr
+                    small= 'Post by ' + thisANCM.postBy + ' on ' + thisANCM.when

@@ -1195,6 +1195,9 @@ module.exports.showAnnouncements = function (req, res) {
   var thisUserID = res.locals.userInfo.loginId;
 
   var listOfAnnouncements = announcement.get('ancm').value().filter(function (annc) {
+    if (res.locals.userInfo.role === 10) {
+      return true;
+    }
     if (annc.to === 'all') {
       return true;
     } else {
@@ -1207,7 +1210,7 @@ module.exports.showAnnouncements = function (req, res) {
       // listOfIdAnnc.split(" ");
       // }
       for (let k = 0;  k < listOfIdAnnc.length; k++) {
-        if (listOfIdAnnc[k] === thisUserID) {
+        if (listOfIdAnnc[k] === thisUserID || listOfIdAnnc[k] === 'all') {
           return true;
         }
       }
@@ -1263,5 +1266,24 @@ module.exports.postThisAnnouncement = function (req, res) {
 }
 
 module.exports.showThisANCM = function (req, res) {
+  var thisANCMid = parseInt(req.params.id);
 
+  var thisANCM = announcement.get('ancm').find({id: thisANCMid}).value();
+  thisANCM.postBy = db.get('users').find({id: thisANCM.postBy}).value().name;
+
+  res.render('school/showANCM', {
+    csrfToken: req.csrfToken(),
+    thisANCM: thisANCM
+  })
+
+}
+
+module.exports.deleteThisANCM = function (req, res) {
+  var thisANCMid = parseInt(req.params.id);
+  console.log(thisANCMid);
+  var thisANCM = announcement.get('ancm').find({id: thisANCMid}).value();
+  console.log(thisANCM);
+  announcement.get('ancm').remove(thisANCM).write();
+
+  res.redirect('/school/announcements');
 }
