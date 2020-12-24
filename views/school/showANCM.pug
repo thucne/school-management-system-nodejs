@@ -6,14 +6,17 @@ block content
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
+    script(src='https://cdn.jsdelivr.net/npm/marked/marked.min.js')
+
     .px-3.pt-3.mb-5.hide
         h3(style='color: green;') Details
-
-        if (thisANCM && whoPost)
-                h4(style='color: blue;')= thisANCM.title
-                hr
-                .p-3
-                    pre= thisANCM.content
+        if (thisANCM && whoPost && content)
+              h4(style='color: blue;')= thisANCM.title
+              hr
+              .p-3
+                    include ../../README
+                    div
                     br
                     hr
+                    //object(data='C:\\Users\\PC\\WebstormProjects\\LearningJS\\sms\\README.pug')
                     small= 'Posted by ' + whoPost + ' on ' + thisANCM.when
