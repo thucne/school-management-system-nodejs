@@ -18,7 +18,7 @@ block content
              userInfo.name = " ";
            });
     .px-3.pt-3.hide
-        h1 New announcement
+        h1(style='color: blue;') New announcement
         .container-fluid.my-5.hide
             .row
                 .col-md-12
@@ -33,7 +33,13 @@ block content
                             input#title.form-control(name="title", type="text", value=values ? values.title : '', placeholder="Ex: Regulations of Final Examination",
                                 class=values ? (values.title ? 'is-valid' : 'is-invalid'): '')
                             .valid-feedback(class=values ? (values.title ? 'valid-feedback' : 'invalid-feedback'): '')= values ? (values.title ? 'Looks good!' : 'Please provide a title!') : ''
-                            label(for='content') Content
+                            label(for='content')
+                              span(style='font-style: italic;')
+                                span(style='font-style: normal;') Content&nbsp;[
+                                |You can use &nbsp;
+                                a(href='https://www.markdownguide.org/basic-syntax/') Markdown&nbsp;
+                                | syntax to emphasize your announcement!
+                                span(style='font-style: normal;') ]
                             textarea#content.form-control(name="content", rows='10', cols='100%', value=values ? values.content: '', placeholder="Ex: " +
                             "                            \n" +
                             "                            1.      For students owing tuition fees:\n" +

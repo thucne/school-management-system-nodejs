@@ -7,6 +7,10 @@ var studentSchedule = require('../lowdb/studentStandardSchedule');
 var teacherSchedule = require('../lowdb/teacherStandardSchedule');
 var announcement = require('../lowdb/announcements');
 
+const marked = require("marked");
+const htmlPugConverter = require('html-pug-converter')
+var fs = require('fs');
+
 module.exports.week = function (req, res) {
   console.log(week.get('weeks').nth(1).value());
   res.redirect('/users');
@@ -1275,9 +1279,14 @@ module.exports.showThisANCM = function (req, res) {
   var whoPost = db.get('users').find({id: thisANCM.postBy}).value()['name'] + ' '
       + db.get('users').find({id: thisANCM.postBy}).value()['first_name'];
 
+  const pug = htmlPugConverter(marked(thisANCM.content), {tabs: true});
+
+  fs.writeFileSync('README.pug', pug);
+
   res.render('school/showANCM', {
     csrfToken: req.csrfToken(),
     thisANCM: thisANCM,
+    content: pug,
     whoPost: whoPost
   })
 
