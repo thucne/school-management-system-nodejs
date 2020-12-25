@@ -1,7 +1,22 @@
 html
 	head
 	body
-		h3#final-examination Final examination
 		ul
-			li Time: Jan 11 - Jan 17
-			li Location: IU main base in Thu Duc District
+			li
+				input(checked="", disabled="", type="checkbox")
+				|  @mentions, #refs,
+				a(href="") links
+				| ,
+				strong formatting
+				| , and
+				del tags
+				| supported
+			li
+				input(checked="", disabled="", type="checkbox")
+				|  list syntax required (any unordered or ordered list supported)
+			li
+				input(checked="", disabled="", type="checkbox")
+				|  this is a complete item
+			li
+				input(disabled="", type="checkbox")
+				|  this is an incomplete item
