@@ -14,8 +14,30 @@ block content
           each ancm in listOfAnnouncements
             script(type='text/javascript').
                 function del(id) {
-                  location.href = '/school/deleteANCM/' + id
+                  swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to undo!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                  }).then((willSave) => {
+                    if (willSave) {
+                      swal("OK! The announcement has been deleted!", {
+                        icon: "success",
+                        timer: 1000,
+                      }).then(() => {
+                        location.href = '/school/deleteANCM/' + id
+                      });
+                    } else {
+                      swal("Let's reconsider!", {
+                        icon: 'error',
+                        timer: 1000
+                      });
+                    }
+                  });
+                  return false;
                   // location.reload();
+
                 }
             - var thisKindOfAlert = Math.floor(Math.random() * 8);
             .alert(class=listOfAlertName[thisKindOfAlert])
