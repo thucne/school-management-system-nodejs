@@ -1269,7 +1269,7 @@ module.exports.postThisAnnouncement = function (req, res) {
 
   announcement.get('ancm').push(newANCM).write();
 
-  res.redirect('/users');
+  res.redirect('/school/announcements');
 }
 
 module.exports.showThisANCM = function (req, res) {

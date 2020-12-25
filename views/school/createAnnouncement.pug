@@ -17,12 +17,38 @@ block content
              location.reload();
              userInfo.name = " ";
            });
+
     .px-3.pt-3.hide
         h1(style='color: blue;') New announcement
         .container-fluid.my-5.hide
             .row
                 .col-md-12
-                    form(action="/school/postThisAnnouncement", method="POST", name="Create")
+                    form(action="/school/postThisAnnouncement", method="POST", name="Create", id='Create')
+                        script(type='text/javascript').
+                          function confirmSave() {
+                            swal({
+                              title: "Create this announcement?",
+                              text: "Once posted, users could be able to see this announcement right away!",
+                              icon: "warning",
+                              buttons: true,
+                              dangerMode: true,
+                            }).then((willSave) => {
+                              if (willSave) {
+                                swal("Post successfully!", {
+                                  icon: "success",
+                                  timer: 1000,
+                                }).then(() => {
+                                  document.getElementById('Create').submit();
+                                });
+                              } else {
+                                swal("Let's reconsider!", {
+                                  icon: 'error',
+                                  timer: 1000
+                                });
+                              }
+                            });
+                            return false;
+                          }
                         .form-group
                             input(type='hidden', name='_csrf', value=csrfToken)
                             label(for='to') To
@@ -52,5 +78,5 @@ block content
                                     class=values ? (values.content ? 'is-valid' : 'is-invalid'): '')
                             .valid-feedback(class=values ? (values.content ? 'valid-feedback' : 'invalid-feedback'): '')= values ? (values.content ? 'Looks good!' : 'Please provide the content of announcement!') : ''
 
-                        button.btn.btn-primary= 'Post'
+                        button.btn.btn-primary(type='button' onclick='confirmSave()')= 'Post'
 

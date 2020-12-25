@@ -58,16 +58,6 @@
       "when": "12/23/2020"
     },
     {
-      "id": 9,
-      "to": [
-        "TCTCIU202"
-      ],
-      "title": "A Message for BLACKPINK",
-      "content": "# Marked in browser\\n\\nRendered by **marked**.",
-      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
-      "when": "12/23/2020"
-    },
-    {
       "id": 10,
       "to": [
         "all"
@@ -96,6 +86,16 @@
       "content": "- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported\r\n- [x] list syntax required (any unordered or ordered list supported)\r\n- [x] this is a complete item\r\n- [ ] this is an incomplete item",
       "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
       "when": "12/24/2020"
+    },
+    {
+      "id": 14,
+      "to": [
+        "all"
+      ],
+      "title": "FINAL EXAMINATION",
+      "content": "### Final examination\r\n\r\n* Time: Jan 11 - Jan 17\r\n* Location: IU main base in Thu Duc District\r\n",
+      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
+      "when": "12/25/2020"
     }
   ]
 }
