@@ -35,7 +35,7 @@ block content
         h1 Course Registration
         hr(style="background-color: lightgray;")
         if (loginUser)
-          h5 Hi #{loginUser.name}, you are now in the course registration page!
+            h5 Hi #{loginUser.name}, you are now in the course registration page!
         hr
         .container-fluid.pb-5
             .row
@@ -62,9 +62,9 @@ block content
                                             button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button',
                                                 data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Department
                                             .dropdown-menu.p-2(aria-labelledby='dropdownMenuButton')
-                                                each department in departments
-                                                    a.dropdown-item(href='/', data-toggle='tooltip', data-placement='right', title=department.department_name) #{department.department_name}
-                .con-md-2
+                                              each department in departments
+                                                  a.dropdown-item(href='/', data-toggle='tooltip', data-placement='right', title=department.department_name) #{department.department_name}
+                .col-md-2
             - var listOfSelectedSubjects = []
             hr(style="background-color: red;")
             form(action='/users/register/select', method="POST", name='SelectThis')
@@ -74,22 +74,22 @@ block content
                     .table-wrapper-scroll-y.my-custom-scrollbar.ui-table-header-row
                         table.table.table-hover.table-striped
                             tr.table-secondary.blue
-                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select This Subject') Select
-                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Department ID') Department ID
-                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Department Name') Department Name
-                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject ID') Subject ID
-                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Name') Subject Name
-                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Lecture Name') Lecturer Name
-                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Type') Type
-                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Room') Room
-                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Day') Day
-                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Period') Period
-                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Credits') Credits
-                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Start') Start Day
-                               th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='End') End Day
+                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select This Subject') Select
+                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Department ID') Department ID
+                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Department Name') Department Name
+                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject ID') Subject ID
+                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Name') Subject Name
+                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Lecture Name') Lecturer Name
+                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Type') Type
+                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Room') Room
+                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Day') Day
+                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Period') Period
+                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Credits') Credits
+                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Start') Start Day
+                                th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='End') End Day
                             if (subjects && correspondingDepartmentOfSubject && !doesThisStudentHasAValidSchedule)
                               - var count = 0
-                               // - var listOfSelectedSubjects = []
+                              // - var listOfSelectedSubjects = []
                               if (inputSelectedSubject)
                                 - listOfSelectedSubjects = inputSelectedSubject
                               input(type='hidden', name='listOfSelectedSubjects', value=listOfSelectedSubjects)
@@ -98,9 +98,9 @@ block content
                               each subject in subjects
                                   tr(class=!subject.room ? 'not-ready-subject': '', data-toggle='tooltip', data-placement='right', title=!subject.room ? 'This subject is being updated...': '')
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
-                                        .form-check
-                                            input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=subject.id_sub, onchange="document.SelectThis.submit()", disabled=!subject.room || (subject.checked === true))
-                                            //label.custom-control-label(for=count.toString())
+                                          .form-check
+                                              input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=subject.id_sub, onchange="document.SelectThis.submit()", disabled=!subject.room || (subject.checked === true))
+                                              //label.custom-control-label(for=count.toString())
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= correspondingDepartmentOfSubject[count]['department_id']
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= correspondingDepartmentOfSubject[count++]['department_name']
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.id_sub
@@ -114,20 +114,20 @@ block content
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.start
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.end
                             if (doesThisStudentHasAValidSchedule)
-                              if (doesThisStudentHasAValidSchedule === true)
-                                tr
-                                    td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center; color: red; font-weight: bold; font-size: 250%;', rowspan=12, colspan=13) You are new and currently do not have your own schedule, contact the admin for help!
+                                if (doesThisStudentHasAValidSchedule === true)
+                                    tr
+                                        td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center; color: red; font-weight: bold; font-size: 250%;', rowspan=12, colspan=13) You are new and currently do not have your own schedule, contact the admin for help!
             hr(style="background-color: gray;", id='here')
             if (listOfSelectedSubjects.length !== 0)
                 if (reloadPage !== null)
-                  if (reloadPage === true)
-                    script(type='text/javascript').
-                      swal("Please wait when we reload the server! Unsaved subjects will be removed.", {
-                        icon: "warning",
-                        timer: 3000,
-                      }).then(() => {
-                        location.href = '/users/register#here';
-                      });
+                    if (reloadPage === true)
+                        script(type='text/javascript').
+                          swal("Please wait when we reload the server! Unsaved subjects will be removed.", {
+                            icon: "warning",
+                            timer: 3000,
+                          }).then(() => {
+                            location.href = '/users/register#here';
+                          });
 
                 h4(style='color: blue; float: left;') Selected Subjects
                 form(action='/users/register/save', method="POST", name='SaveThis', id='SaveThis')
@@ -174,54 +174,54 @@ block content
                         label(for='selectAllSub') All
 
                     button.btn.btn-secondary.btn-sm.mr-1(type='submit', style='float: right;', data-toggle='tooltip'
-                        , data-placement='right', title='Delete selected rows', formaction='/users/register/delete') Delete
+                    , data-placement='right', title='Delete selected rows', formaction='/users/register/delete') Delete
                     button.btn.btn-secondary.btn-sm.mr-1(type='button', style='float: right;', data-toggle='tooltip'
-                        , data-placement='left', title='Save the registrations', onclick='confirmSave()') Save
+                    , data-placement='left', title='Save the registrations', onclick='confirmSave()') Save
                     //h4(style='color: blue; font-style: italic;') Selected Subjects
                     br
                     h5.text-danger(style='clear:both; font-style: italic;') Note: Saved courses cannot be deleted after confirmation to avoid slot-holdings and slot-tradings.
                         strong &nbsp;Be careful!
                     .table-responsive(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
-                      .table-wrapper-scroll-y.my-custom-scrollbar-fee.ui-table-header-row
-                          table.table.table-hover.table-striped#selectTable
-                              tr.table-secondary.blue
-                                  th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='No.') No.
-                                  th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject ID') Subject ID
-                                  th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Name') Subject Name
-                                  th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Credits') Credits
-                                  th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Fee') Fee
-                                  th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Status') Subject Status
-                                  th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select') Select
-                              if (inputSelectedSubject)
-                                - var count = 1
-                                // - var listOfSelectedSubjects = []
-                                - var sumCredit = 0
-                                - var sumFee = 0
+                        .table-wrapper-scroll-y.my-custom-scrollbar-fee.ui-table-header-row
+                            table.table.table-hover.table-striped#selectTable
+                                tr.table-secondary.blue
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='No.') No.
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject ID') Subject ID
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Name') Subject Name
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Credits') Credits
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Fee') Fee
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Status') Subject Status
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select') Select
                                 if (inputSelectedSubject)
-                                  - listOfSelectedSubjects = inputSelectedSubject
-                                input(type='hidden', name='listOfSelectedSubjects', value=listOfSelectedSubjects)
-                                input(type='hidden', name='_csrf', value=csrfToken)
-                                input(type='hidden', name='hiddenLoginID', value=userInfo.loginId)
-                                each selectedSubject in listOfSelectedSubjects
+                                  - var count = 1
+                                  // - var listOfSelectedSubjects = []
+                                  - var sumCredit = 0
+                                  - var sumFee = 0
+                                  if (inputSelectedSubject)
+                                    - listOfSelectedSubjects = inputSelectedSubject
+                                  input(type='hidden', name='listOfSelectedSubjects', value=listOfSelectedSubjects)
+                                  input(type='hidden', name='_csrf', value=csrfToken)
+                                  input(type='hidden', name='hiddenLoginID', value=userInfo.loginId)
+                                  each selectedSubject in listOfSelectedSubjects
                                     - sumCredit = sumCredit + parseInt(selectedSubject.credits)
                                     - sumFee = sumFee + parseInt(selectedSubject.credits)*56*23270
                                     - var isThisSubjectOverlap = false
                                     - var isThisSubjectOK = 2
                                     if overlapping
-                                        each subLap in overlapping
-                                            if (subLap === selectedSubject.name_sub)
-                                                - isThisSubjectOverlap = true;
+                                      each subLap in overlapping
+                                          if (subLap === selectedSubject.name_sub)
+                                            - isThisSubjectOverlap = true;
                                     if resultColor
-                                      if (resultColor.length > 0)
-                                        each color in resultColor
-                                            if (color === selectedSubject.id_sub)
+                                        if (resultColor.length > 0)
+                                          each color in resultColor
+                                              if (color === selectedSubject.id_sub)
                                                 - isThisSubjectOK = 1;
-                                        if (isThisSubjectOK !== 1 && selectedSubject.saved !== true)
+                                          if (isThisSubjectOK !== 1 && selectedSubject.saved !== true)
                                             - isThisSubjectOK = 0
-                                      else if (!selectedSubject.saved)
-                                        - isThisSubjectOK = 0
-                                      //if (isThisSubjectOK === 2)
-                                      //  - isThisSubjectOK = 0
+                                        else if (!selectedSubject.saved)
+                                          - isThisSubjectOK = 0
+                                        //if (isThisSubjectOK === 2)
+                                        //  - isThisSubjectOK = 0
                                     //else if (selectedSubject.saved === true)
                                     //    - isThisSubjectOK = 1
                                     //
@@ -236,11 +236,11 @@ block content
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
                                             .form-check
                                                 input.form-check-input.position-static.checkSingle(id=count.toString(), class='sltSubject', type='checkbox', name='thisSelectedSubject', value=parseInt(selectedSubject.id_sub), disabled=selectedSubject.saved === true)
-                                tr
-                                    td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total', colspan='3') Total
-                                    td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Credits')= sumCredit
-                                    td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Fee')= (sumFee.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                                    td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')
-                                    td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')
+                                  tr
+                                      td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total', colspan='3') Total
+                                      td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Credits')= sumCredit
+                                      td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Fee')= (sumFee.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                      td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')
+                                      td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')
 
 
