@@ -52,7 +52,7 @@ html
                         li.nav-item
                             a.nav-link(href='/school/announcements') Announcements
                         li.nav-item
-                            a.nav-link(href='/users')= (userInfo.role === 10 ? 'User list': 'Your info')
+                            a.nav-link(href='/users')= (userInfo.role === 10 ? 'User List': 'Your Info')
                         li.nav-item
                             a.nav-link(href='/auth/login', class=userInfo.name === " " ? 'nav-link': 'nav-link disabled', hidden=userInfo.name === ' ' ? false: true) Log in
                         if (userInfo.role === 10)

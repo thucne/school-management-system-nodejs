@@ -58,16 +58,6 @@
       "when": "12/23/2020"
     },
     {
-      "id": 10,
-      "to": [
-        "all"
-      ],
-      "title": "TEST file.md",
-      "content": "# School Management System [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/katyperrycbt/sms/releases/tag/v1.0.0) [![Version](https://img.shields.io/badge/version-1.0.1-green.svg)](https://github.com/katyperrycbt/sms/releases/tag/v1.0.1) [![Version](https://img.shields.io/badge/version-2.0.0-yellow.svg)](https://github.com/katyperrycbt/sms/releases/tag/v2.0.0)\r\n\r\n## [Using ExpressJS]\r\nHi there! \r\n\r\n[For a better instruction README.md, please let me know: *katyperrycbt@gmail.com*]\r\n\r\n# Prerequisite Knowledge\r\nHTML, CSS, JavaScript, Bootstrap and ofc Expressjs (Nodejs)\r\n\r\n# How to clone and stay updated\r\n\r\n**Clone:**\r\n```bash\r\ngit clone https://github.com/katyperrycbt/sms.git\r\ncd sms\r\nnpm install\r\n```\r\n*See: [Before you run]*\r\n\r\n**Stay updated:**\r\n```bash\r\ngit pull origin main\r\n```\r\n\r\n# Before you run\r\n\r\nMake sure you have already installed [Nodejs](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), [Expressjs](http://expressjs.com/).\r\n\r\n## In the cmd prompt, powershell\r\n### First \r\n```bash\r\nnpm install express --save\r\nnpm install\r\n```\r\n*Further module-errors handling:*\r\n```bash\r\nnpm install module_name --save\r\n```\r\n### Next \r\n[**Important**] \r\n\r\nCreate a file named `.env` with the content: \r\n```javascript\r\ncookie_secret=anything\r\n```\r\n\r\n(Note: 'anything' means any string you prefer. Learn more: [cookie-parser](https://www.npmjs.com/package/cookie-parser))\r\n\r\n### Start the server\r\nActivate auto-opening browser:\r\n* Open file: `sms.js`\r\n* Scroll down to the end, change this:\r\n```javascript\r\n  // open('http://localhost:6969/', {app: edge});\r\n```\r\n* Into this:\r\n```javascript\r\n  open('http://localhost:6969/', {app: edge});\r\n```\r\n(Note: Maybe you need to change the value of `edge` into your exactly directory of your browser `.exe` file)\r\n* Finally:\r\n```bash\r\nnpm start\r\n```\r\n",
-      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
-      "when": "12/24/2020"
-    },
-    {
       "id": 12,
       "to": [
         "all"
@@ -86,16 +76,6 @@
       "content": "- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported\r\n- [x] list syntax required (any unordered or ordered list supported)\r\n- [x] this is a complete item\r\n- [ ] this is an incomplete item",
       "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
       "when": "12/24/2020"
-    },
-    {
-      "id": 14,
-      "to": [
-        "all"
-      ],
-      "title": "FINAL EXAMINATION",
-      "content": "### Final examination\r\n\r\n* Time: Jan 11 - Jan 17\r\n* Location: IU main base in Thu Duc District\r\n",
-      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
-      "when": "12/25/2020"
     }
   ]
 }

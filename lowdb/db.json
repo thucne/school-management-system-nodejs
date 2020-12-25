@@ -3753,7 +3753,11 @@
       "avatar": "https://robohash.org/ipsumundepossimus.jpg?size=50x50&set=set1",
       "role": 0,
       "studentSchedule": 227,
-      "universityID": "BABAIU20019"
+      "universityID": "BABAIU20019",
+      "savedSubjects": [
+        1,
+        2
+      ]
     },
     {
       "id": "22c7b266-303f-4305-9dd1-2025f1a97ac2",
@@ -3766,7 +3770,10 @@
       "avatar": "https://robohash.org/aliquamaccusantiumvero.png?size=50x50&set=set1",
       "role": 0,
       "studentSchedule": 228,
-      "universityID": "ITITIU20030"
+      "universityID": "ITITIU20030",
+      "savedSubjects": [
+        1
+      ]
     },
     {
       "id": "630bdb8c-0c58-4468-98bf-5f285dd6e0b6",
@@ -3792,7 +3799,10 @@
       "avatar": "https://robohash.org/perspiciatisquiaomnis.png?size=50x50&set=set1",
       "role": 0,
       "studentSchedule": 229,
-      "universityID": "ITDSIU20023"
+      "universityID": "ITDSIU20023",
+      "savedSubjects": [
+        1
+      ]
     },
     {
       "id": "c135853a-0678-4ec2-9d13-c8342cec837c",
