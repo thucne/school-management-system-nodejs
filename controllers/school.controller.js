@@ -10,6 +10,8 @@ var announcement = require('../lowdb/announcements');
 const marked = require("marked");
 const htmlPugConverter = require('html-pug-converter')
 var fs = require('fs');
+const converter = require('json-2-csv');
+var xlsx = require('json-as-xlsx')
 
 module.exports.week = function (req, res) {
   console.log(week.get('weeks').nth(1).value());
@@ -1236,6 +1238,29 @@ module.exports.showAnnouncements = function (req, res) {
 }
 
 module.exports.displayAnnouncementCreatingForm = function (req, res) {
+
+  var columns = [
+    { label: 'Email', value: 'email' }, // Top level data
+    { label: 'Age', value: row => (row.age + ' years') }, // Run functions
+    { label: 'Phone', value: row => (row.more ? row.more.phone || '' : '') }, // Deep props
+  ]
+
+  var content = [
+    { email: 'Ana', age: 16, more: { phone: '11111111' } },
+    { email: 'Luis', age: 19, more: { phone: '12345678' } }
+  ]
+
+  var settings = {
+    sheetName: 'First sheet', // The name of the sheet
+    fileName: 'public/excels/Users', // The name of the spreadsheet
+    extraLength: 3, // A bigger number means that columns should be wider
+    writeOptions: {} // Style options from https://github.com/SheetJS/sheetjs#writing-options
+  }
+
+  var download = true // If true will download the xlsx file, otherwise will return a buffer
+
+  xlsx(columns, content, settings, download) // Will download the excel file
+
   res.render('school/createAnnouncement', {
     csrfToken: req.csrfToken()
   })
@@ -1342,4 +1367,8 @@ module.exports.assignStudentAndTeacherID = function (req, res) {
   }
 
   res.redirect('/users');
+}
+
+module.exports.download = function (req, res) {
+  res.render('school/download');
 }
