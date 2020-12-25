@@ -1,0 +1,27 @@
+extends ../layouts/common
+
+block content
+    link(rel="stylesheet", href="/styles/cellHover.css")
+    script.
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    - var isTeacher = userInfo.role === 1;
+    if (!isTeacher)
+        script(type='text/javascript').
+           swal("Your are not allowed to visit this page.", {
+            icon: "warning",
+            timer: 3000,
+            }).then(() => {
+                document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                location.reload();
+                userInfo.name = " ";
+            });
+    .px-3.pt-3.mb-5.hide
+        h1(style='color: blue;') Your courses
+        if (courses)
+          - var listOfAlertName = ['alert-primary', 'alert-secondary', 'alert-success', 'alert-danger', 'alert-warning', 'alert-info',  'alert-light', 'alert-dark']
+          each course in courses
+              - var thisKindOfAlert = Math.floor(Math.random() * 8);
+              .alert(class=listOfAlertName[thisKindOfAlert])
+                  a(href='/school/download/' + course.id_sub)= course.name_sub + ' [ID: ' + course.id_sub + ']'

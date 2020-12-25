@@ -378,7 +378,7 @@ module.exports.searchWeek = function (req, res) {
     // console.log('Compare String: '  + compareString);
 
     let f = 7;
-    for (let v = 0;  v < compareString.length; v++) {
+    for (let v = 0; v < compareString.length; v++) {
       if (compareString[v] !== 1 && compareString[v] !== 9) {
         f--;
       }
@@ -542,7 +542,7 @@ module.exports.createDepartment = function (req, res) {
 module.exports.assignSubjectToDepartment = function (req, res) {
   var listOfSubject = subject.get('subjects').value();
 
-  console.log( 'Here type of ' + typeof listOfSubject);
+  console.log('Here type of ' + typeof listOfSubject);
 
   var belongToDepartmentID = ['Physics', 'Net-centric Programming', 'Software Architecture', 'Computer Architecture',
     'Calculus', 'Critical Thinking', 'Physical', 'Academic English', 'Marxism', 'HCM\'s Thought',
@@ -683,6 +683,7 @@ module.exports.assignSubjectToDepartment = function (req, res) {
 
     await runAllSubjects();
   }
+
   demo().then(res.redirect('/users'));
   // for (let v = 0; )
 }
@@ -697,7 +698,7 @@ module.exports.assignStandardSchedule = function (req, res) {
   console.log(users[1]);
 
   function assignRole() {
-    for(let i = 0; i < users.length; i++) {
+    for (let i = 0; i < users.length; i++) {
       if (i % 5 === 0) {
         db.get('users').nth(i).assign({role: 1}).write();
       } else {
@@ -743,11 +744,12 @@ module.exports.assignStandardSchedule = function (req, res) {
 
     assignScheduleNow().then(res.redirect('/users'));
   }
+
   // res.redirect('/users');
 }
 
 module.exports.assignTeacherToSubject = function (req, res) {
-  var subjects = subject.get('subjects').value().filter( function (subject) {
+  var subjects = subject.get('subjects').value().filter(function (subject) {
     return subject.room;
   });
 
@@ -838,7 +840,7 @@ module.exports.searchTeacher = function (req, res) {
     await findCorrespondentTeacher();
   }
 
-  function run(){
+  function run() {
     findCorrespondentTeacherNow().then(ren);
   }
 
@@ -1047,7 +1049,7 @@ module.exports.searchTeacherWeek = function (req, res) {
     // console.log('Compare String: '  + compareString);
 
     let f = 7;
-    for (let v = 0;  v < compareString.length; v++) {
+    for (let v = 0; v < compareString.length; v++) {
       if (compareString[v] !== 1 && compareString[v] !== 9) {
         f--;
       }
@@ -1215,7 +1217,7 @@ module.exports.showAnnouncements = function (req, res) {
       // if (typeof listOfIdAnnc === 'string') {
       // listOfIdAnnc.split(" ");
       // }
-      for (let k = 0;  k < listOfIdAnnc.length; k++) {
+      for (let k = 0; k < listOfIdAnnc.length; k++) {
         if (listOfIdAnnc[k] === universityID || listOfIdAnnc[k] === 'all') {
           return true;
         }
@@ -1224,7 +1226,7 @@ module.exports.showAnnouncements = function (req, res) {
     }
   });
 
-  listOfAnnouncements.sort(function(a,b){
+  listOfAnnouncements.sort(function (a, b) {
     return new Date(b.when) - new Date(a.when);
   });
   // for (let n = 0; n < listOfAnnouncements.length; n++) {
@@ -1238,29 +1240,6 @@ module.exports.showAnnouncements = function (req, res) {
 }
 
 module.exports.displayAnnouncementCreatingForm = function (req, res) {
-
-  var columns = [
-    { label: 'Email', value: 'email' }, // Top level data
-    { label: 'Age', value: row => (row.age + ' years') }, // Run functions
-    { label: 'Phone', value: row => (row.more ? row.more.phone || '' : '') }, // Deep props
-  ]
-
-  var content = [
-    { email: 'Ana', age: 16, more: { phone: '11111111' } },
-    { email: 'Luis', age: 19, more: { phone: '12345678' } }
-  ]
-
-  var settings = {
-    sheetName: 'First sheet', // The name of the sheet
-    fileName: 'public/excels/Users', // The name of the spreadsheet
-    extraLength: 3, // A bigger number means that columns should be wider
-    writeOptions: {} // Style options from https://github.com/SheetJS/sheetjs#writing-options
-  }
-
-  var download = true // If true will download the xlsx file, otherwise will return a buffer
-
-  xlsx(columns, content, settings, download) // Will download the excel file
-
   res.render('school/createAnnouncement', {
     csrfToken: req.csrfToken()
   })
@@ -1331,7 +1310,7 @@ module.exports.assignStudentAndTeacherID = function (req, res) {
   var users = db.get('users').value();
 
   var listOfPreIDStudent = ['ITITIU', 'EEEEIU', 'BABAIU', 'ELELIU', 'BAFNIU', 'ITDSIU', 'SESEIU', 'BTFEIU', 'BTBTIU', 'CECEIU'];
-  var listOfEnumPreIDStudent = [0,0,0,0,0,0,0,0,0,0];
+  var listOfEnumPreIDStudent = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   var listOfPreIDTeacher = 'TCTCIU';
   var listOfEnumPreIDTeacher = 0;
 
@@ -1369,6 +1348,69 @@ module.exports.assignStudentAndTeacherID = function (req, res) {
   res.redirect('/users');
 }
 
+module.exports.showTeacherCourse = function (req, res) {
+  var listOfSubject = subject.get('subjects').value().filter(function (sub) {
+    return sub.lecturerID === res.locals.userInfo.loginId
+  });
+  console.log(res.locals.userInfo.loginId);
+  for(let i = 0; i < listOfSubject.length; i++ ){
+    console.log(listOfSubject.length);
+  }
+
+  res.render('school/showTeacherCourse', {
+        csrfToken: req.csrfToken(),
+        courses: listOfSubject
+      }
+  )
+}
+
 module.exports.download = function (req, res) {
-  res.render('school/download');
+  var thisSubjectID = parseInt(req.params.id);
+
+  var students = db.get('users').value().filter(function (user) {
+      return user.role === 0;
+  });
+  var studentsOfThisCourse = []
+  for (let i = 0; i < students.length; i++) {
+    if (students[i]['savedSubjects'] !== undefined && students[i]['savedSubjects'] !== null) {
+      for (let j = 0; j < students[i]['savedSubjects'].length; j++) {
+        if (students[i]['savedSubjects'][j] === thisSubjectID) {
+          studentsOfThisCourse.push(students[i]);
+          break;
+        }
+      }
+    }
+  }
+
+  var columns = [
+    {label: 'Student ID', value: row => (row.universityID)}, // Top level data
+    {label: 'First Name', value: row => (row.name)}, // Run functions
+    {label: 'last Name', value: row => (row.first_name)}, // Run functions
+    {label: 'Gender', value: row => (row.gender)}, // Run functions
+    {label: 'Email', value: row => (row.email)}, // Run functions
+  ]
+  
+  var content = [];
+  for (let m = 0; m < studentsOfThisCourse.length; m++) {
+    let temp = {
+      universityID: studentsOfThisCourse[m]['universityID'],
+      name: studentsOfThisCourse[m]['name'],
+      first_name: studentsOfThisCourse[m]['first_name'],
+      gender: studentsOfThisCourse[m]['gender'],
+      email: studentsOfThisCourse[m]['email']
+    }
+    content.push(temp);
+  }
+  var settings = {
+    sheetName: 'First sheet', // The name of the sheet
+    fileName: 'public/excels/Student List', // The name of the spreadsheet
+    extraLength: 3, // A bigger number means that columns should be wider
+    writeOptions: {} // Style options from https://github.com/SheetJS/sheetjs#writing-options
+  }
+
+  var download = true // If true will download the xlsx file, otherwise will return a buffer
+
+  xlsx(columns, content, settings, download) // Will download the excel file
+
+  res.redirect('/excels/Student List.xlsx');
 }

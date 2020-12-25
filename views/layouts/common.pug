@@ -64,9 +64,9 @@ html
                         if (userInfo.role !== 10)
                             li.nav-item
                                 a.nav-link(href='/users/schedule') Schedule
-                        //if (userInfo.role !== 10)
-                        li.nav-item
-                            a.nav-link(href='/excels/Users.xlsx' download) Download
+                        if (userInfo.role === 1)
+                            li.nav-item
+                                a.nav-link(href='/school/courseAllocation') Download Student Lists
                         if (userInfo.role === 10)
                             li.nav-item.dropdown
                                 button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button',
