@@ -21,6 +21,7 @@
     "express": "^4.17.1",
     "html-pug-converter": "^3.0.0",
     "ip-range-generator": "^1.0.1",
+    "json2csv": "^5.0.5",
     "lowdb": "^1.0.0",
     "marked": "^1.2.7",
     "multer": "^1.4.2",
