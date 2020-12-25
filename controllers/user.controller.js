@@ -311,6 +311,10 @@ module.exports.registrationMenuDisplaying = function (req, res) {
         }
       }
     }
+    // for (let n = 0; n < listOfSelectedSubjects.length; n++) {
+    //   let thisSub = subject.get('subjects').find({id_sub: listOfSelectedSubjects[n]}).value();
+    //   thisSub.saved = false;
+    // }
     //convert to name_sub from id_sub
     if (listOfSelectedSubjects.length > 0) {
       let tempArr = [];
@@ -344,15 +348,37 @@ module.exports.registrationMenuDisplaying = function (req, res) {
 module.exports.selectTheseSubjects = function (req, res) {
   var id = req.body.hiddenLoginID;
   var departments = department.get('department').value();
-
+  var thisUser = db.get('users').find({id: id}).value();
   var listOfSelectedSubjects = JSON.parse(req.body.listOfSelectedSubjects);
-
+  console.log()
   var selectedSubjectThisTime;
+
+  // if (listOfSelectedSubjects.length > 0) {
+  //   let tempArr = [];
+  //   for (let n = 0; n < listOfSelectedSubjects.length; n++) {
+  //     let thisSub = subject.get('subjects').find({id_sub: listOfSelectedSubjects[n]}).value();
+  //     // thisSub.saved = false;
+  //     let savedSubjects = thisUser.savedSubjects;
+  //     // var listOfSelectedSubjects = [];
+  //     if (savedSubjects !== undefined) {
+  //       for (let i = 0; i < savedSubjects.length; i++) {
+  //         if (savedSubjects[i] === thisSub.id_sub) {
+  //           thisSub.saved = true;
+  //         }
+  //       }
+  //     }
+  //     tempArr.push(thisSub);
+  //   }
+  //   listOfSelectedSubjects = tempArr;
+  // }
+
+  // req.body.thisSubject.saved = false
 
   if (req.body.thisSubject) {
     selectedSubjectThisTime = req.body.thisSubject;
-
+    // selectedSubjectThisTime.saved = false;
     let findSelectedSubjectThisTime = subject.get('subjects').find({id_sub: parseInt(selectedSubjectThisTime)}).value();
+    findSelectedSubjectThisTime.saved = false;
     listOfSelectedSubjects.push(findSelectedSubjectThisTime);
   }
 
@@ -364,8 +390,11 @@ module.exports.selectTheseSubjects = function (req, res) {
   // } else {
   //   console.log('NO ' + id);
   // }
-
+  //
   var subjects = subject.get('subjects').value();
+  // subjects.filter(function (sub) {
+  //   return sub.id_sub === parseInt()
+  // })
   var correspondingDepartmentOfSubject = [];
 
   function assignCorresponding() {

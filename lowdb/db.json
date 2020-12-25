@@ -36,7 +36,8 @@
       "studentSchedule": 1,
       "savedSubjects": [
         1,
-        2
+        2,
+        3
       ],
       "universityID": "CECEIU19000"
     },
@@ -3642,7 +3643,11 @@
       "avatar": "https://robohash.org/cumetnihil.jpg?size=50x50&set=set1",
       "role": 0,
       "studentSchedule": 221,
-      "universityID": "BTBTIU20026"
+      "universityID": "BTBTIU20026",
+      "savedSubjects": [
+        1,
+        2
+      ]
     },
     {
       "id": "f2b87021-2a53-4348-9550-111de195e657",
@@ -3655,7 +3660,11 @@
       "avatar": "https://robohash.org/cumqueconsequaturet.jpg?size=50x50&set=set1",
       "role": 0,
       "studentSchedule": 222,
-      "universityID": "ITITIU19029"
+      "universityID": "ITITIU19029",
+      "savedSubjects": [
+        1,
+        2
+      ]
     },
     {
       "id": "fb322c4f-61ad-4d50-b840-6016736e2253",
@@ -3668,7 +3677,11 @@
       "avatar": "https://robohash.org/molestiaedelenitiut.png?size=50x50&set=set1",
       "role": 0,
       "studentSchedule": 223,
-      "universityID": "BAFNIU18025"
+      "universityID": "BAFNIU18025",
+      "savedSubjects": [
+        1,
+        2
+      ]
     },
     {
       "id": "ee12b4cf-4dcb-47e2-8258-78dc0450dfd8",
@@ -3707,7 +3720,10 @@
       "avatar": "https://robohash.org/quamtemporaaut.bmp?size=50x50&set=set1",
       "role": 0,
       "studentSchedule": 225,
-      "universityID": "CECEIU18019"
+      "universityID": "CECEIU18019",
+      "savedSubjects": [
+        1
+      ]
     },
     {
       "id": "b18e97b6-9088-4c91-9a8b-84c0118f72a8",
@@ -3720,7 +3736,11 @@
       "avatar": "https://robohash.org/veritatisvoluptatumconsectetur.jpg?size=50x50&set=set1",
       "role": 0,
       "studentSchedule": 226,
-      "universityID": "ITDSIU17022"
+      "universityID": "ITDSIU17022",
+      "savedSubjects": [
+        2,
+        1
+      ]
     },
     {
       "id": "f8d9f3e0-5143-4b08-8198-187c26febcce",
@@ -7490,7 +7510,11 @@
       "avatar": "https://robohash.org/estquislaborum.bmp?size=50x50&set=set1",
       "role": 0,
       "studentSchedule": 458,
-      "universityID": "ITITIU18051"
+      "universityID": "ITITIU18051",
+      "savedSubjects": [
+        1,
+        2
+      ]
     },
     {
       "id": "ecae5996-5e78-4225-888a-1ef3f067a4ed",
@@ -13284,6 +13308,9 @@
     },
     {
       "id": "cq2MGxAcL"
+    },
+    {
+      "id": "IdC0kMg9I"
     }
   ]
 }

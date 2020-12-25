@@ -1385,7 +1385,7 @@ module.exports.download = function (req, res) {
   var columns = [
     {label: 'Student ID', value: row => (row.universityID)}, // Top level data
     {label: 'First Name', value: row => (row.name)}, // Run functions
-    {label: 'last Name', value: row => (row.first_name)}, // Run functions
+    {label: 'Last Name', value: row => (row.first_name)}, // Run functions
     {label: 'Gender', value: row => (row.gender)}, // Run functions
     {label: 'Email', value: row => (row.email)}, // Run functions
   ]
