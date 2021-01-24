@@ -50,7 +50,7 @@ app.get('/', authMiddleware.default, authMiddleware.requireAuth, function (req, 
 app.use('/users', authMiddleware.default, authMiddleware.requireAuth, userRouter);
 app.use('/auth', authMiddleware.default, csrfProtection, authRouter);
 app.use('/school', authMiddleware.default, authMiddleware.requireAuth, csrfProtection, schoolRouter);
-//
+
 app.enable('verbose errors');
 
 app.get('/404', function(req, res, next){
@@ -106,6 +106,6 @@ app.use(function(err, req, res, next){
 //Test Change
 app.listen(port, function () {
   console.log('Server at port '  + port + ' is running...!!');
-  open('http://localhost:6969/', {app: edge});
+  // open('http://localhost:6969/', {app: edge});
 });
 

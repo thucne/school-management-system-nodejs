@@ -10657,7 +10657,10 @@
       "avatar": "https://robohash.org/quietest.png?size=50x50&set=set1",
       "role": 0,
       "studentSchedule": 651,
-      "universityID": "BTFEIU20054"
+      "universityID": "BTFEIU20054",
+      "savedSubjects": [
+        1
+      ]
     },
     {
       "id": "81b5fd07-be19-497b-a91b-8699d5a45e29",
@@ -13010,7 +13013,10 @@
       "avatar": "https://robohash.org/accusantiumquiain.jpg?size=50x50&set=set1",
       "role": 0,
       "studentSchedule": 796,
-      "universityID": "ELELIU18080"
+      "universityID": "ELELIU18080",
+      "savedSubjects": [
+        2
+      ]
     },
     {
       "id": "bf5060cb-53b1-468a-b835-3ca55b767b90",
@@ -13236,7 +13242,17 @@
         "Avatar is kept unchanged."
       ],
       "errs": [],
-      "universityID": "BAFNIU19086"
+      "universityID": "BAFNIU19086",
+      "savedSubjects": [
+        1,
+        2,
+        3,
+        5,
+        16,
+        7,
+        14,
+        15
+      ]
     },
     {
       "_csrf": "EL4S0yFv-Vr7PSg1_7XNAeWPSgUbPZUkQnao",
@@ -13279,16 +13295,61 @@
       "universityID": "ADMIN18125"
     },
     {
-      "name": "Nguyen Duc",
-      "first_name": "Dang Khoi",
+      "name": "khuong",
+      "first_name": "duong tran",
       "gender": "Male",
-      "email": "dangkhoi@gmail.com",
-      "id": "a7898af5-a024-4dc4-807f-c0867bc35a3c",
-      "ip_address": "72.97.234.25",
-      "password": "sJbhKqzcZ",
-      "avatar": "uploads/b0a57cf3499551b9f87fb4d3db2d0cd6",
+      "email": "duong@mail.com",
+      "id": "1a7bbda9-9f8c-4aa7-8eec-37d4a7731380",
+      "ip_address": "163.58.88.48",
+      "password": "9GtSuynVo",
+      "avatar": "../uploads/5f0f506046ed7fba1007b899702a40e6",
       "role": 1,
-      "universityID": "TCTCIU203"
+      "teacherSchedule": 204,
+      "universityID": "TCTCIU4072",
+      "_csrf": "gXjbHLrx-1zV7Xuclit-PiAif2mgBm6b8eaI",
+      "warnings": [
+        "Avatar is kept unchanged."
+      ],
+      "errs": []
+    },
+    {
+      "name": "nguyen duy",
+      "first_name": "khang",
+      "gender": "Male",
+      "email": "duykhang@gmail.com",
+      "id": "5ac9dba1-a3b0-4da1-853d-f611a3c492a2",
+      "ip_address": "183.94.119.107",
+      "password": "zH3-D4nvN",
+      "avatar": "uploads/e9f612150364a74f327450f367d0c94b",
+      "role": 0,
+      "studentSchedule": 812,
+      "universityID": "CECEIU4298"
+    },
+    {
+      "name": "new",
+      "first_name": "admin",
+      "gender": "Male",
+      "email": "adminNew@gmail.com",
+      "id": "2b08d9d0-4caa-4a2c-8323-c6e43cc6e661",
+      "ip_address": "56.129.222.81",
+      "password": "k8u-rDZ8B",
+      "avatar": "uploads/9fe46fbae77774500d79fd963e195ac9",
+      "role": 10,
+      "accessCode": 397737,
+      "universityID": "ADMINADMINIU6490"
+    },
+    {
+      "name": "new new",
+      "first_name": "admin",
+      "gender": "Other",
+      "email": "th@gmail.com",
+      "id": "5ec9578d-ec83-4e9a-801f-ac800658e651",
+      "ip_address": "73.183.241.146",
+      "password": "O4iUBjXvC",
+      "avatar": "uploads/dd6590989ef4caf53b3b30a2e11a645b",
+      "role": 10,
+      "accessCode": 505015,
+      "universityID": "ADMINADMINIU9002"
     }
   ],
   "sessions": [
@@ -13297,30 +13358,6 @@
       "list": {
         "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3": 1
       }
-    },
-    {
-      "id": "Q9jkNvIgw"
-    },
-    {
-      "id": "z9iWQv0lI"
-    },
-    {
-      "id": "Bw39vRnzz"
-    },
-    {
-      "id": "LcnBQ6s7J"
-    },
-    {
-      "id": "mrleuPxt4"
-    },
-    {
-      "id": "UmeqRtWCd"
-    },
-    {
-      "id": "cq2MGxAcL"
-    },
-    {
-      "id": "IdC0kMg9I"
     }
   ]
 }
