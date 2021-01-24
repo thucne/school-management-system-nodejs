@@ -58,24 +58,25 @@
       "when": "12/23/2020"
     },
     {
-      "id": 12,
+      "id": 9,
       "to": [
         "all"
       ],
-      "title": "md",
-      "content": "*This text will be italic*\r\n_This will also be italic_\r\n\r\n**This text will be bold**\r\n__This will also be bold__\r\n\r\n_You **can** combine them_",
+      "title": "THÔNG BÁO SINH VIÊN HỌC TẠI HỌC VIỆN CÁN BỘ NGHỈ HỌC VÀO NGÀY 28 VÀ 29 THÁNG ",
+      "content": "***Vào thứ 2, thứ 3 ngày 28, 29 tháng 12 năm 2020,***\r\n\r\n Do Học Viện Cán bộ tổ chức thi công chức, Nhà trường thông báo đến các *giảng viên* có lịch dạy và *sinh viên* có lịch học vào thời gian trên *tại cơ sở Học viên Cán bộ* được nghỉ học. Thời gian học bù Nhà trường sẽ thông báo sau. \r\n\r\n*Nhà trường thông báo đến giảng viên và sinh viên để biết và thực hiện.*\r\n\r\n(Sinh viên xem thông báo *[tại đây](https://edusoftweb.hcmiu.edu.vn/Upload/file/LichThi/185TB-DHQT.pdf)*)\r\n",
       "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
-      "when": "12/24/2020"
+      "when": "12/26/2020"
     },
     {
-      "id": 13,
+      "id": 10,
       "to": [
-        "all"
+        "ELELIU18080",
+        "EEEEIU19066"
       ],
-      "title": "MD TEST",
-      "content": "- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported\r\n- [x] list syntax required (any unordered or ordered list supported)\r\n- [x] this is a complete item\r\n- [ ] this is an incomplete item",
+      "title": "THÔNG BÁO THAY ĐỔI PHÒNG THI GIỮA KỲ I ĐỢT 2 NĂM 2020-2021",
+      "content": "**Nhằm phục vụ cho Hội nghị Đảng viên lần 2, Phòng Đào tạo Đại học thông báo đến sinh viên về việc thay đổi phòng thi cho kỳ thi giữa kỳ học kỳ 1 đợt 2, năm học 2020-2021 như sau:**\r\n\r\n* Calculus 1, phòng cũ:  **A2.104**, phòng mới: **A1.409**\r\n\r\n* Financial Accounting, phòng cũ: **A2.104**, phòng mới: **A1.409**\r\n\r\n*Sinh viên vui lòng thực hiện theo thông báo.*\r\n",
       "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
-      "when": "12/24/2020"
+      "when": "12/26/2020"
     }
   ]
 }

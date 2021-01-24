@@ -205,6 +205,16 @@ module.exports.postCreate = function (req, res) {
   console.log(req.file.path);
   console.log(req.body);
 
+  var Students = db.get('users').value().filter(function (us) {
+    return us.role === 0;
+  });
+  var Teachers = db.get('users').value().filter(function (us) {
+    return us.role === 1;
+  });
+  var Admin = db.get('users').value().filter(function (us) {
+    return us.role === 10;
+  });
+
   var newUser = {
     name: req.body.name,
     first_name: req.body.first_name,
@@ -216,6 +226,22 @@ module.exports.postCreate = function (req, res) {
     avatar: req.body.avatar,
     role: req.body.role === 'Student' ? 0 : (req.body.role === 'Teacher' ? 1 : 10)
   }
+
+  if (req.body.role === 'Student') {
+    newUser.studentSchedule = parseInt(Students[Students.length-1]['studentSchedule']) + 1;
+    newUser.universityID = req.body.universityIDa + req.body.universityIDa + 'IU' + (Math.floor(Math.random() * 9999) + 1000).toString();
+
+  } else if (req.body.role === 'Teacher') {
+
+    newUser.teacherSchedule = parseInt(Teachers[Teachers.length-1]['teacherSchedule']) + 1;
+    newUser.universityID = req.body.universityIDb + req.body.universityIDb + 'IU' + (Math.floor(Math.random() * 9999) + 1000).toString();
+
+  } else {
+    newUser.accessCode = parseInt((Math.floor(Math.random() * 1000000) + 1000000).toString().substring(1));
+    newUser.universityID = req.body.universityIDc + req.body.universityIDc + 'IU' + (Math.floor(Math.random() * 9999) + 1000).toString();
+
+  }
+
 
   db.get('users').push(newUser).write();
   res.redirect('/users');
