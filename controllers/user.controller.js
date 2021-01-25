@@ -695,8 +695,11 @@ module.exports.saveRegistrations = function (req, res) {
           console.log('notOverlappingSelectedSubjects: ' + notOverlappingSelectedSubjects[i].name_sub);
         }
         for (let w = listOfSelectedSubjects.length - selectedSubjectThisTimeID.length + 1; w < listOfSelectedSubjects.length; w++) {
-          listOfSelectedSubjects[w].saved = true;
-          console.log('w ' + listOfSelectedSubjects[w].saved);
+          try {listOfSelectedSubjects[w].saved = true;}
+          catch (err) {
+            console.log('SAVVVVVVVVVVVVVVVVVVV');
+          }
+          // console.log('w ' + listOfSelectedSubjects[w].saved);
         }
 
       }

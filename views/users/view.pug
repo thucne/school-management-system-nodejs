@@ -12,6 +12,18 @@ block content
               location.reload();
               userInfo.name = " ";
             });
+    script(type='text/javascript').
+      var vl = 0;
+      function handleClick(myRadio) {
+        $("#Info, #Password, #Fee").hide();
+        $("#Infos, #Passwords, #Fees").removeClass("active");
+
+        // alert('Old value: ' + vl);
+        // alert('New value: ' + myRadio.getAttribute('value'));
+        vl = myRadio.getAttribute('value');
+        $("#" + vl).show();
+        $("#" + vl + "s").addClass("active");
+      }
     if user
       .p-3
         h1.hide #{userInfo.role === 10 ? 'Admin': (userInfo.role === 1 ? 'Teacher': 'Student')}'s Information
@@ -21,22 +33,25 @@ block content
                 .col-sm-4.rounded-lg.shadow-none.p-3.mb-5.bg-light(style="height: 100%;")
                     p.px-5.mb-5
                         if user.avatar
-                            img(src=(user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '../' + user.avatar : user.avatar , width="40", alt=!user.avatar ? 'Not Found' : '')
+                            img(src=(user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '../' + user.avatar: user.avatar , width="40", alt=!user.avatar ? 'Not Found': '')
                         else
                             span Not Found
                         span &nbsp;
                         span(style="margin-left: 40;")
                             b= user.name
-
-                    a.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.PersonalInfo ? 'active' : '') : 'active'
-                    , href='/users/' + user.id)
+                    //, href='/users/' + user.id
+                    a#Infos.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.Info ? 'active' : '') : 'active'
+                    , value="Info", onclick="handleClick(this);")
                         span.ml-2 Personal info
-                    a.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.Fee ? 'active' : '') : '')
+                    a#Passwords.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.ChangePassword ? 'active' : '') : '', value="Password", onclick="handleClick(this);")
+                        span.ml-2 Change password
+                    a#Fees.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.Fee ? 'active' : '') : '', value="Fee", onclick="handleClick(this);")
                         span.ml-2 Fee
                     a.btn.btn-light.border-0.rounded-0.d-sm-flex(href='/users', class=thisSession ? (thisSession.Back ? 'active' : '') : '')
                         span.ml-2 Back
                 .col-sm-8
-                    #reactState
+
+                    div#Info
                         p
                             h4 Student info
                         -var count = 0
@@ -115,6 +130,9 @@ block content
 
                                 input(type="hidden", name="id", value=user.id)
                             button.btn.btn-primary Update info
+                    div#Password(style="display: none;")
+                        p
+                            h4 Change Password
 
                 script(src="https://unpkg.com/react@17/umd/react.development.js" crossorigin)
                 script(src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin)
