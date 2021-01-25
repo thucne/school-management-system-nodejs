@@ -118,12 +118,12 @@ block content
               div#Teachers(style="display: none;")
                 label(for='universityID1') School/Faculty
                 select#universityID1.form-control(name='universityIDb')
-                  option(value='TC') TC
+                  option(value='TC') Teacher
 
               div#Admins(style="display: none;")
                 label(for='universityID2') School/Faculty
                 select#universityID2.form-control(name='universityIDc')
-                  option(value='ADMIN') ADMIN
+                  option(value='AM') Admin
 
             label(for='accessCode') Access Code
             input#accessCode.form-control(name="accessCode", style='width: 150px;', type="text", value=values ? values.accessCode: '',
