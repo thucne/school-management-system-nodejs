@@ -238,7 +238,7 @@ module.exports.postCreate = function (req, res) {
 
   } else {
     newUser.accessCode = parseInt((Math.floor(Math.random() * 1000000) + 1000000).toString().substring(1));
-    newUser.universityID = req.body.universityIDc + req.body.universityIDc + 'IU' + (Math.floor(Math.random() * 9999) + 1000).toString();
+    newUser.universityID = 'ADMIN' + (Math.floor(Math.random() * 99999) + 10000).toString();
 
   }
 

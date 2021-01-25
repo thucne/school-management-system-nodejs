@@ -13326,30 +13326,17 @@
       "universityID": "CECEIU4298"
     },
     {
-      "name": "new",
-      "first_name": "admin",
+      "name": "New ",
+      "first_name": "Admin",
       "gender": "Male",
-      "email": "adminNew@gmail.com",
-      "id": "2b08d9d0-4caa-4a2c-8323-c6e43cc6e661",
-      "ip_address": "56.129.222.81",
-      "password": "k8u-rDZ8B",
-      "avatar": "uploads/9fe46fbae77774500d79fd963e195ac9",
+      "email": "NewAdmin@admin.com",
+      "id": "37ca9796-2f5a-48cd-841d-928afe661608",
+      "ip_address": "6.114.244.72",
+      "password": "sujVF-gvK",
+      "avatar": "uploads/1c2224265053a5d153c6e4b8e14b5637",
       "role": 10,
-      "accessCode": 397737,
-      "universityID": "ADMINADMINIU6490"
-    },
-    {
-      "name": "new new",
-      "first_name": "admin",
-      "gender": "Other",
-      "email": "th@gmail.com",
-      "id": "5ec9578d-ec83-4e9a-801f-ac800658e651",
-      "ip_address": "73.183.241.146",
-      "password": "O4iUBjXvC",
-      "avatar": "uploads/dd6590989ef4caf53b3b30a2e11a645b",
-      "role": 10,
-      "accessCode": 505015,
-      "universityID": "ADMINADMINIU9002"
+      "accessCode": 803613,
+      "universityID": "ADMIN103556"
     }
   ],
   "sessions": [
@@ -13358,6 +13345,9 @@
       "list": {
         "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3": 1
       }
+    },
+    {
+      "id": "eaVoX085t"
     }
   ]
 }
