@@ -13266,7 +13266,10 @@
       "avatar": "uploads/bac7119d4d29ac27085d6330237d8428",
       "role": 0,
       "studentSchedule": 810,
-      "universityID": "BAFNIU17087"
+      "universityID": "BAFNIU17087",
+      "savedSubjects": [
+        9
+      ]
     },
     {
       "_csrf": "TqVWBpfM-LlCt0YqIXSCWnpNauOWhjPeQdzs",
@@ -13280,7 +13283,11 @@
       "avatar": "uploads/1490eab92eb17cc59e89aee88792fd67",
       "role": 0,
       "studentSchedule": 811,
-      "universityID": "ITDSIU20081"
+      "universityID": "ITDSIU20081",
+      "savedSubjects": [
+        564,
+        9
+      ]
     },
     {
       "name": "Tran",
@@ -13323,7 +13330,11 @@
       "avatar": "uploads/e9f612150364a74f327450f367d0c94b",
       "role": 0,
       "studentSchedule": 812,
-      "universityID": "CECEIU4298"
+      "universityID": "CECEIU4298",
+      "savedSubjects": [
+        564,
+        9
+      ]
     },
     {
       "name": "New ",

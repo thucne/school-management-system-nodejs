@@ -17,7 +17,7 @@
       ],
       "lecturer": "Reddoch",
       "lecturerID": "0aa07faf-741e-45dc-995f-bac86ee7d32d",
-      "checked": true,
+      "checked": false,
       "saved": true
     },
     {
@@ -139,7 +139,17 @@
       "end": "06/23/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": true,
+      "room": "A1.718",
+      "whichDay": "thu",
+      "whichPeriod": [
+        7,
+        8,
+        9
+      ],
+      "saved": true,
+      "lecturer": "khuong",
+      "lecturerID": "1a7bbda9-9f8c-4aa7-8eec-37d4a7731380"
     },
     {
       "id_sub": 10,
@@ -148,7 +158,7 @@
       "end": "06/24/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 11,
@@ -243,7 +253,7 @@
       "end": "06/12/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 18,
@@ -271,7 +281,7 @@
       ],
       "lecturer": "Haselwood Oo",
       "lecturerID": "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 20,
@@ -280,7 +290,7 @@
       "end": "06/02/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 21,
@@ -289,7 +299,7 @@
       "end": "06/13/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 22,
@@ -307,7 +317,7 @@
       "end": "06/10/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 24,
@@ -332,7 +342,7 @@
       "end": "06/01/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 26,
@@ -377,7 +387,7 @@
       "end": "06/18/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 31,
@@ -449,7 +459,7 @@
       "end": "06/27/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 38,
@@ -485,7 +495,7 @@
       "end": "06/19/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 42,
@@ -683,7 +693,7 @@
       "end": "06/24/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 64,
@@ -701,7 +711,7 @@
       "end": "06/11/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 66,
@@ -737,7 +747,7 @@
       "end": "06/15/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 70,
@@ -773,7 +783,7 @@
       "end": "06/11/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 74,
@@ -800,7 +810,7 @@
       "type": "Laboratory",
       "credits": "4",
       "name_sub": "Critical Thinking",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 77,
@@ -863,7 +873,7 @@
       "type": "Laboratory",
       "credits": "3",
       "name_sub": "Software Engineering",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 84,
@@ -881,7 +891,7 @@
       "end": "06/20/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 86,
@@ -971,7 +981,7 @@
       "type": "Theory",
       "credits": "4",
       "name_sub": "Discrete Math",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 96,
@@ -989,7 +999,7 @@
       "end": "06/28/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 98,
@@ -1043,7 +1053,7 @@
       "end": "06/21/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 104,
@@ -1106,7 +1116,7 @@
       "end": "06/28/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 111,
@@ -1169,7 +1179,7 @@
       "end": "06/20/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 118,
@@ -1178,7 +1188,7 @@
       "type": "Theory",
       "credits": "3",
       "name_sub": "Discrete Math",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 119,
@@ -1250,7 +1260,7 @@
       "end": "06/29/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 127,
@@ -1367,7 +1377,7 @@
       "type": "Laboratory",
       "credits": "4",
       "name_sub": "Software Engineering",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 140,
@@ -1448,7 +1458,7 @@
       "end": "06/29/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 149,
@@ -1484,7 +1494,7 @@
       "end": "06/08/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 153,
@@ -1538,7 +1548,7 @@
       "end": "06/09/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 159,
@@ -1574,7 +1584,7 @@
       "type": "Laboratory",
       "credits": "4",
       "name_sub": "Software Engineering",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 163,
@@ -1592,7 +1602,7 @@
       "end": "06/17/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 165,
@@ -1601,7 +1611,7 @@
       "end": "06/13/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 166,
@@ -1700,7 +1710,7 @@
       "end": "06/10/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 177,
@@ -1844,7 +1854,7 @@
       "type": "Theory",
       "credits": "4",
       "name_sub": "Discrete Math",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 193,
@@ -1907,7 +1917,7 @@
       "end": "06/19/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 200,
@@ -1925,7 +1935,7 @@
       "end": "06/08/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 202,
@@ -1997,7 +2007,7 @@
       "end": "06/14/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 210,
@@ -2114,7 +2124,7 @@
       "end": "06/17/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 223,
@@ -2132,7 +2142,7 @@
       "end": "06/02/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 225,
@@ -2384,7 +2394,7 @@
       "end": "06/21/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 253,
@@ -2474,7 +2484,7 @@
       "end": "06/09/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 263,
@@ -2483,7 +2493,7 @@
       "end": "06/18/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 264,
@@ -2537,7 +2547,7 @@
       "end": "06/28/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 270,
@@ -2672,7 +2682,7 @@
       "end": "06/26/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 285,
@@ -2699,7 +2709,7 @@
       "end": "06/21/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 288,
@@ -2735,7 +2745,7 @@
       "end": "06/26/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 292,
@@ -2762,7 +2772,7 @@
       "end": "06/15/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 295,
@@ -2816,7 +2826,7 @@
       "end": "06/04/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 301,
@@ -2825,7 +2835,7 @@
       "end": "06/14/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 302,
@@ -2843,7 +2853,7 @@
       "end": "06/21/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 304,
@@ -2888,7 +2898,7 @@
       "end": "06/22/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 309,
@@ -2906,7 +2916,7 @@
       "end": "06/29/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 311,
@@ -3005,7 +3015,7 @@
       "end": "06/16/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 322,
@@ -3122,7 +3132,7 @@
       "end": "06/17/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 335,
@@ -3158,7 +3168,7 @@
       "end": "06/16/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 339,
@@ -3167,7 +3177,7 @@
       "end": "06/10/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 340,
@@ -3185,7 +3195,7 @@
       "end": "06/14/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 342,
@@ -3194,7 +3204,7 @@
       "end": "06/13/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 343,
@@ -3230,7 +3240,7 @@
       "type": "Theory",
       "credits": "2",
       "name_sub": "Software Engineering",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 347,
@@ -3293,7 +3303,7 @@
       "end": "06/02/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 354,
@@ -3302,7 +3312,7 @@
       "type": "Laboratory",
       "credits": "4",
       "name_sub": "Critical Thinking",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 355,
@@ -3365,7 +3375,7 @@
       "end": "06/20/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 362,
@@ -3419,7 +3429,7 @@
       "end": "06/27/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 368,
@@ -3581,7 +3591,7 @@
       "end": "06/18/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 386,
@@ -3590,7 +3600,7 @@
       "end": "06/25/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 387,
@@ -3608,7 +3618,7 @@
       "end": "06/13/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 389,
@@ -3617,7 +3627,7 @@
       "end": "05/31/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 390,
@@ -3680,7 +3690,7 @@
       "end": "06/08/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 397,
@@ -3734,7 +3744,7 @@
       "end": "06/12/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 403,
@@ -3923,7 +3933,7 @@
       "end": "06/13/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 424,
@@ -3968,7 +3978,7 @@
       "end": "06/24/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 429,
@@ -3977,7 +3987,7 @@
       "end": "06/26/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 430,
@@ -4130,7 +4140,7 @@
       "end": "06/20/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 447,
@@ -4148,7 +4158,7 @@
       "end": "06/05/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 449,
@@ -4373,7 +4383,7 @@
       "end": "06/24/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 474,
@@ -4418,7 +4428,7 @@
       "end": "06/18/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 479,
@@ -4589,7 +4599,7 @@
       "type": "Laboratory",
       "credits": "4",
       "name_sub": "Critical Thinking",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 498,
@@ -4607,7 +4617,7 @@
       "end": "06/02/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 500,
@@ -4698,7 +4708,7 @@
       ],
       "lecturer": "Behling",
       "lecturerID": "969a9c62-4e6b-4f01-ab44-2f70e2e9aa92",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 509,
@@ -4725,7 +4735,7 @@
       "end": "06/20/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 512,
@@ -4752,7 +4762,7 @@
       "end": "06/24/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 515,
@@ -4806,7 +4816,7 @@
       "type": "Laboratory",
       "credits": "4",
       "name_sub": "Discrete Math",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 521,
@@ -4842,7 +4852,7 @@
       "end": "06/11/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 525,
@@ -4896,7 +4906,7 @@
       "end": "06/28/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 531,
@@ -5013,7 +5023,7 @@
       "end": "06/20/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 544,
@@ -5058,7 +5068,7 @@
       "end": "06/24/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 549,
@@ -5166,7 +5176,7 @@
       "end": "06/01/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 561,
@@ -5202,7 +5212,16 @@
       "end": "06/02/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": true,
+      "room": "A1.709",
+      "whichDay": "fri",
+      "whichPeriod": [
+        11,
+        12
+      ],
+      "lecturer": "khuong",
+      "lecturerID": "1a7bbda9-9f8c-4aa7-8eec-37d4a7731380",
+      "saved": true
     },
     {
       "id_sub": 565,
@@ -5238,7 +5257,7 @@
       "end": "06/13/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 569,
@@ -5409,7 +5428,7 @@
       "end": "06/29/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 588,
@@ -5454,7 +5473,7 @@
       "end": "06/10/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 593,
@@ -5526,7 +5545,7 @@
       "end": "06/20/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 601,
@@ -5535,7 +5554,7 @@
       "end": "06/14/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 602,
@@ -5625,7 +5644,7 @@
       "end": "06/23/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 612,
@@ -5634,7 +5653,7 @@
       "end": "06/11/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 613,
@@ -6021,7 +6040,7 @@
       "end": "06/09/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 656,
@@ -6048,7 +6067,7 @@
       "end": "06/02/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 659,
@@ -6201,7 +6220,7 @@
       "end": "06/24/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 676,
@@ -6210,7 +6229,7 @@
       "end": "06/14/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 677,
@@ -6273,7 +6292,7 @@
       "end": "06/29/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 684,
@@ -6354,7 +6373,7 @@
       "type": "Laboratory",
       "credits": "4",
       "name_sub": "Critical Thinking",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 693,
@@ -6390,7 +6409,7 @@
       "end": "06/11/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 697,
@@ -6417,7 +6436,7 @@
       "end": "06/16/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 700,
@@ -6444,7 +6463,7 @@
       "end": "06/09/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 703,
@@ -6696,7 +6715,7 @@
       "end": "05/31/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 731,
@@ -6714,7 +6733,7 @@
       "end": "06/23/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 733,
@@ -6759,7 +6778,7 @@
       "end": "06/26/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 738,
@@ -6822,7 +6841,7 @@
       "end": "06/29/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 745,
@@ -6912,7 +6931,7 @@
       "end": "06/21/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 755,
@@ -6957,7 +6976,7 @@
       "end": "06/13/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 760,
@@ -6966,7 +6985,7 @@
       "end": "06/12/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 761,
@@ -7002,7 +7021,7 @@
       "end": "06/23/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 765,
@@ -7074,7 +7093,7 @@
       "end": "06/07/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 773,
@@ -7236,7 +7255,7 @@
       "end": "06/06/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 791,
@@ -7272,7 +7291,7 @@
       "end": "06/22/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 795,
@@ -7326,7 +7345,7 @@
       "end": "06/06/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 801,
@@ -7443,7 +7462,7 @@
       "end": "06/21/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 814,
@@ -7506,7 +7525,7 @@
       "end": "05/31/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 821,
@@ -7632,7 +7651,7 @@
       "end": "06/29/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 835,
@@ -7659,7 +7678,7 @@
       "end": "06/17/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 838,
@@ -7713,7 +7732,7 @@
       "end": "06/27/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 844,
@@ -7884,7 +7903,7 @@
       "end": "06/18/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 863,
@@ -7956,7 +7975,7 @@
       "end": "06/09/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 871,
@@ -8073,7 +8092,7 @@
       "end": "06/21/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 884,
@@ -8226,7 +8245,7 @@
       "end": "06/25/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 901,
@@ -8289,7 +8308,7 @@
       "end": "06/27/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 908,
@@ -8334,7 +8353,7 @@
       "end": "06/28/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 913,
@@ -8451,7 +8470,7 @@
       "end": "06/24/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 926,
@@ -8487,7 +8506,7 @@
       "end": "06/22/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 930,
@@ -8604,7 +8623,7 @@
       "type": "Laboratory",
       "credits": "2",
       "name_sub": "Critical Thinking",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 943,
@@ -8613,7 +8632,7 @@
       "type": "Theory",
       "credits": "2",
       "name_sub": "Discrete Math",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 944,
@@ -8712,7 +8731,7 @@
       "end": "06/07/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 955,
@@ -8748,7 +8767,7 @@
       "end": "06/15/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 959,
@@ -8757,7 +8776,7 @@
       "end": "06/19/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 960,
@@ -8775,7 +8794,7 @@
       "end": "06/20/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 962,
@@ -8856,7 +8875,7 @@
       "end": "06/16/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 971,
@@ -8928,7 +8947,7 @@
       "end": "06/02/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 979,
@@ -8937,7 +8956,7 @@
       "type": "Theory",
       "credits": "2",
       "name_sub": "Discrete Math",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 980,
@@ -9018,7 +9037,7 @@
       "end": "06/09/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 989,
@@ -9027,7 +9046,7 @@
       "end": "06/15/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": false
     },
     {
       "id_sub": 990,
@@ -9080,7 +9099,7 @@
       ],
       "lecturer": "Caherny",
       "lecturerID": "fd9f62d3-2107-4006-9567-8a0605840573",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 995,
@@ -9089,7 +9108,7 @@
       "end": "06/17/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": true
     },
     {
       "id_sub": 996,
