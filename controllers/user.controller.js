@@ -173,8 +173,30 @@ module.exports.id = function (req, res) {
   console.log("id " + token);
 
   var user = db.get('users').find({id: id}).value();
+  var subjects = subject.get('subjects').value();
+  var listOfThisUsersSubjects;
 
-  if (user) {
+  if (user.savedSubjects !== null && user.savedSubjects !== undefined && user.savedSubjects) {
+    listOfThisUsersSubjects = subjects.filter(function (sub) {
+      let isTrue = false;
+      for (let i = 0; i < user.savedSubjects.length; i++) {
+        isTrue = sub.id_sub === user.savedSubjects[i];
+        if (isTrue === true)
+          break;
+      }
+      return isTrue;
+    })
+  }
+
+  if (user && listOfThisUsersSubjects.length > 0) {
+    console.log('length isssssssss' + listOfThisUsersSubjects.length);
+    res.render('users/view', {
+      csrfToken: token,
+      user: user,
+      isThisUserValid: isThisUserValid,
+      subjects: listOfThisUsersSubjects
+    })
+  } else if(user) {
     res.render('users/view', {
       csrfToken: token,
       user: user,
@@ -308,7 +330,7 @@ module.exports.registrationMenuDisplaying = function (req, res) {
 
     var isThisStudent = (user.role === 0);
 
-    console.log('IS this Student > ' + isThisStudent);
+    // console.log('IS this Student > ' + isThisStudent);
 
     if (!isThisStudent) {
       res.render('users/courseRegistration', {
@@ -323,7 +345,7 @@ module.exports.registrationMenuDisplaying = function (req, res) {
     }
 
     var doesThisStudentHasAValidSchedule = user.studentSchedule !== undefined;
-    console.log('IS this Student has Schedule Number ? > ' + doesThisStudentHasAValidSchedule);
+    // console.log('IS this Student has Schedule Number ? > ' + doesThisStudentHasAValidSchedule);
 
     if (!doesThisStudentHasAValidSchedule) {
       res.render('users/courseRegistration', {
@@ -351,7 +373,7 @@ module.exports.registrationMenuDisplaying = function (req, res) {
         let tempSubjects = subjects.filter(function (sub) {
           return sub.name_sub === thisSubName;
         });
-        console.log(tempSubjects);
+        // console.log(tempSubjects);
         for (let i = 0; i < tempSubjects.length; i++) {
           tempSubjects[i].checked = true;
         }

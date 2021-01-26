@@ -63,7 +63,7 @@ block content
                                                 data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Department
                                             .dropdown-menu.p-2(aria-labelledby='dropdownMenuButton')
                                               each department in departments
-                                                  a.dropdown-item(href='/', data-toggle='tooltip', data-placement='right', title=department.department_name) #{department.department_name}
+                                                  a.dropdown-item(data-toggle='tooltip', data-placement='right', title=department.department_name, onclick="fil(this);") #{department.department_name}
                 .col-md-2
             - var listOfSelectedSubjects = []
             hr(style="background-color: red;")
@@ -95,6 +95,7 @@ block content
                               input(type='hidden', name='listOfSelectedSubjects', value=listOfSelectedSubjects)
                               input(type='hidden', name='_csrf', value=csrfToken)
                               input(type='hidden', name='hiddenLoginID', value=userInfo.loginId)
+
                               each subject in subjects
                                   tr(class=!subject.room ? 'not-ready-subject': '', data-toggle='tooltip', data-placement='right', title=!subject.room ? 'This subject is being updated...': '')
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
