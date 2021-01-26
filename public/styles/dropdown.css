@@ -44,3 +44,8 @@ footer {
 .avt {
     z-index: 0;
 }
+
+body {
+    cursor: url(../images/006-cursor-1.cur), auto;
+    /*cursor: url("006-cursor-1.cur"), wait;*/
+}
