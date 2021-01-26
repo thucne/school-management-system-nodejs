@@ -1,6 +1,6 @@
 var db = require('../lowdb/db');
 
- module.exports.postCreate = function (req, res, next) {
+module.exports.postCreate = function (req, res, next) {
   var errs = [];
   console.log(req.csrfToken());
 
@@ -111,6 +111,39 @@ module.exports.postUpdate =  function (req, res, next) {
   next();
 }
 
+module.exports.postChangePassword = function (req, res ,next) {
+  var pErrs = [];
+  var user = db.get('users').find({id: req.body.id}).value();
+  var enteredOldPassword = req.body.oldPassword;
+  var enteredNewPassword = req.body.newPassword;
+  var reEnteredNewPassword = req.body.reNewPassword;
+  console.log('passwoird' + user.password);
 
+  console.log(user);
+  console.log('enter New Pass0 0 ' + enteredNewPassword);
+  console.log(user);
+
+  if (user.password !== enteredOldPassword) {
+    pErrs.push('Wrong old password');
+  }
+  if (enteredNewPassword !== reEnteredNewPassword) {
+    pErrs.push('Inconsistent new passwords');
+  }
+
+  if (pErrs.length) {
+    let token = req.csrfToken();
+
+    res.render('users/view', {
+      csrfToken: token,
+      pErrs: pErrs,
+      user: user,
+    })
+    return;
+  }
+
+  req.body.password = enteredNewPassword;
+
+  next();
+}
 
 

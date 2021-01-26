@@ -119,7 +119,7 @@ module.exports.update = function (req, res) {
 module.exports.updateInfo = function (req, res) {
   db.get('users').find({id: req.body.id}).assign(req.body).write();
 
-  console.log(req.body.id);
+  console.log(req.body);
 
   if (req.body.warnings) {
     res.render('users/view', {
@@ -132,6 +132,25 @@ module.exports.updateInfo = function (req, res) {
   }
 
 };
+
+module.exports.changePassword = function (req, res) {
+  db.get('users').find({id: req.body.id}).assign({password: req.body.password}).write();
+
+  var user = db.get('users').find({id: req.body.id}).value();
+
+  console.log(req.body);
+  var inputValue = {
+    oldPassword: req.body.oldPassword,
+    newPassword: req.body.newPassword,
+    reNewPassword: req.body.reNewPassword
+  }
+
+  res.render('users/view', {
+    csrfToken: req.csrfToken(),
+    user: user,
+    inputValue: inputValue
+  })
+}
 
 module.exports.create = function (req, res) {
   var token = req.csrfToken();

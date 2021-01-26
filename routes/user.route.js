@@ -22,6 +22,8 @@ router.get('/update', controller.update);
 
 router.post('/updateInfo', upload.single('avatar'), csrfProtection, validate.postUpdate ,controller.updateInfo);
 
+router.post('/changePassword', csrfProtection, validate.postChangePassword ,controller.changePassword);
+
 router.get('/create', csrfProtection, controller.create);
 
 router.get('/schedule', csrfProtection, controller.schedule);
