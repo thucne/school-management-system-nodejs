@@ -148,7 +148,8 @@ module.exports.changePassword = function (req, res) {
   res.render('users/view', {
     csrfToken: req.csrfToken(),
     user: user,
-    inputValue: inputValue
+    inputValue: inputValue,
+    success: true
   })
 }
 
