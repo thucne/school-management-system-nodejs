@@ -2,7 +2,7 @@ extends ../layouts/common
 
 block content
     if (isThisUserValid !== undefined)
-      if (isThisUserValid === false)
+      if (isThisUserValid === false && userInfo.role !== 10)
           script(type='text/javascript').
             swal("Unauthorized intrusion, you have been reported!", {
               icon: "warning",
@@ -131,6 +131,66 @@ block content
                                 input(type="hidden", name="id", value=user.id)
                             button.btn.btn-primary Update info
                     div#Password(style="display: none;")
+                        p
+                            h4 Change Password
+                        form(action="/users/changePassword/", method="POST")
+                            if pErrs
+                              each pErr in pErrs
+                                .alert.alert-warning= pErr
+
+                            script(type='text/javascript').
+
+                              // document.getElementById('newPassword').oninput = function () {
+                              //   var oldPassword = $("#oldPassword").val();
+                              //   var newPassword = $("#newPassword").val();
+                              //   if (oldPassword === newPassword) {
+                              //     $("#oldNew").show();
+                              //   }
+
+                                function check() {
+                                  $("#oldNew").hide();
+
+                                  // alert('us');
+                                    if ($('#oldPassword').val() === $('#newPassword').val()) {
+                                      // $('#message').html('Matching').css('color', 'green');
+                                      $("#oldNew").show();
+                                    } else {
+                                      // $('#message').html('Not Matching').css('color', 'red');
+                                    }
+                                }
+
+                                function reload() {
+                                  location.reload();
+                                }
+
+                            div#oldNew(style="display: none;")
+                                h5.alert.alert-danger Your old and new password are the same!
+
+                            .form-group
+                                input(type="hidden", name="_csrf", value=csrfToken)
+                                input(type="hidden", name="id", value=user.id)
+
+                                label(for='oldPassword') Old password
+                                input#oldPassword.form-control(name='oldPassword', type='password', pattern="^(?!\\s*$).+",
+                                    title="Required field", class=inputValue ? (inputValue.oldPassword ? 'is-valid' : 'is-invalid'): '', onkeyup="check();" required)
+
+                                .valid-feedback(class=inputValue ? (inputValue.oldPassword ? 'valid-feedback' : 'invalid-feedback'): '')= inputValue ? (inputValue.oldPassword ? 'Looks good!' : 'Please provide your current password!') : ''
+
+                                label(for='newPassword') New password
+                                input#newPassword.form-control(name='newPassword', type='password', pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\\\S+$).{8, 20}$",
+                                    title="Required field", class=inputValue ? (inputValue.newPassword ? 'is-valid' : 'is-invalid'): '', onkeyup="check();" required)
+                                .valid-feedback(class=inputValue ? (inputValue.newPassword ? 'valid-feedback' : 'invalid-feedback'): '')= inputValue ? (inputValue.newPassword ? 'Looks good!' : 'Please provide a new password!') : ''
+                                small#passwordHelpBlock.form-text.text-muted
+                                    | Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+
+                                label(for='reNewPassword') Re-entered new password
+                                input#reNewPassword.form-control(name='reNewPassword', type='password', pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\\\S+$).{8, 20}$",
+                                    title="Required field", class=inputValue ? (inputValue.reNewPassword ? 'is-valid' : 'is-invalid'): '' required)
+                                .valid-feedback(class=inputValue ? (inputValue.reNewPassword ? 'valid-feedback' : 'invalid-feedback'): '')= inputValue ? (inputValue.reNewPassword ? 'Looks good!' : 'Please re-enter new password!') : ''
+
+
+                            button.btn.btn-primary Change password
+                    div#Fee(style="display: none;")
                         p
                             h4 Change Password
 
