@@ -5492,7 +5492,12 @@
       "avatar": "https://robohash.org/idvoluptasquis.bmp?size=50x50&set=set1",
       "role": 0,
       "studentSchedule": 333,
-      "universityID": "SESEIU18038"
+      "universityID": "SESEIU18038",
+      "savedSubjects": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id": "25fe756f-4ab8-4f38-b83d-6d7c3f193f9c",
@@ -13326,14 +13331,15 @@
       "email": "duykhang@gmail.com",
       "id": "5ac9dba1-a3b0-4da1-853d-f611a3c492a2",
       "ip_address": "183.94.119.107",
-      "password": "zH3-D4nvN",
+      "password": "Khangnguyen19",
       "avatar": "uploads/e9f612150364a74f327450f367d0c94b",
       "role": 0,
       "studentSchedule": 812,
       "universityID": "CECEIU4298",
       "savedSubjects": [
         564,
-        9
+        9,
+        2
       ]
     },
     {
@@ -13362,6 +13368,9 @@
     },
     {
       "id": "Rkvq0D6Pw"
+    },
+    {
+      "id": "Lh6Scxvbw"
     }
   ]
 }
