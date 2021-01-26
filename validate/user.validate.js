@@ -137,6 +137,7 @@ module.exports.postChangePassword = function (req, res ,next) {
       csrfToken: token,
       pErrs: pErrs,
       user: user,
+
     })
     return;
   }

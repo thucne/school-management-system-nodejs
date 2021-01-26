@@ -24,6 +24,7 @@ block content
         $("#" + vl).show();
         $("#" + vl + "s").addClass("active");
       }
+
     if user
       .p-3
         h1.hide #{userInfo.role === 10 ? 'Admin': (userInfo.role === 1 ? 'Teacher': 'Student')}'s Information
@@ -40,7 +41,7 @@ block content
                         span(style="margin-left: 40;")
                             b= user.name
                     //, href='/users/' + user.id
-                    a#Infos.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.Info ? 'active' : '') : 'active'
+                    a#Infos.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.Info ? 'active' : '') : ''
                     , value="Info", onclick="handleClick(this);")
                         span.ml-2 Personal info
                     a#Passwords.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.ChangePassword ? 'active' : '') : '', value="Password", onclick="handleClick(this);")
@@ -51,7 +52,7 @@ block content
                         span.ml-2 Back
                 .col-sm-8
 
-                    div#Info
+                    div#Info(style="display: none;")
                         p
                             h4 Student info
                         -var count = 0
@@ -133,6 +134,9 @@ block content
                     div#Password(style="display: none;")
                         p
                             h4 Change Password
+
+                        div#Changed.alert.alert-info(style="display: none;") Password changed successfully!
+
                         form(action="/users/changePassword/", method="POST")
                             if pErrs
                               each pErr in pErrs
@@ -177,14 +181,14 @@ block content
                                 .valid-feedback(class=inputValue ? (inputValue.oldPassword ? 'valid-feedback' : 'invalid-feedback'): '')= inputValue ? (inputValue.oldPassword ? 'Looks good!' : 'Please provide your current password!') : ''
 
                                 label(for='newPassword') New password
-                                input#newPassword.form-control(name='newPassword', type='password', pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\\\S+$).{8, 20}$",
+                                input#newPassword.form-control(name='newPassword', type='password', pattern="^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$",
                                     title="Required field", class=inputValue ? (inputValue.newPassword ? 'is-valid' : 'is-invalid'): '', onkeyup="check();" required)
                                 .valid-feedback(class=inputValue ? (inputValue.newPassword ? 'valid-feedback' : 'invalid-feedback'): '')= inputValue ? (inputValue.newPassword ? 'Looks good!' : 'Please provide a new password!') : ''
                                 small#passwordHelpBlock.form-text.text-muted
                                     | Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
 
                                 label(for='reNewPassword') Re-entered new password
-                                input#reNewPassword.form-control(name='reNewPassword', type='password', pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\\\S+$).{8, 20}$",
+                                input#reNewPassword.form-control(name='reNewPassword', type='password', pattern="^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$",
                                     title="Required field", class=inputValue ? (inputValue.reNewPassword ? 'is-valid' : 'is-invalid'): '' required)
                                 .valid-feedback(class=inputValue ? (inputValue.reNewPassword ? 'valid-feedback' : 'invalid-feedback'): '')= inputValue ? (inputValue.reNewPassword ? 'Looks good!' : 'Please re-enter new password!') : ''
 
@@ -197,5 +201,34 @@ block content
                 script(src="https://unpkg.com/react@17/umd/react.development.js" crossorigin)
                 script(src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin)
                 script(src="https://unpkg.com/babel-standalone@6/babel.min.js")
-
+    if (success)
+        script(type='text/javascript').
+          // alert('ooooooooooooooooooooooooo');
+          function run1() {
+            $("#Info, #Password, #Fee").hide();
+            $("#Infos, #Passwords, #Fees").removeClass("active");
+            // alert('yes');
+            $("#Password, #Changed").show();
+            $("#Passwords").addClass("active");
+          }
+          run1();
+    if (!success)
+        script(type='text/javascript').
+          function run2() {
+            // alert('noooo');
+            $("#Info").show();
+            $("#Infos").addClass("active");
+          }
+          run2();
+    if (pErrs)
+        script(type='text/javascript').
+          function run3() {
+            $("#Info, #Password, #Fee").hide();
+            $("#Infos, #Passwords, #Fees").removeClass("active");
+            // alert('yes');
+            $("#Password").show();
+            $("#Passwords").addClass("active");
+          }
+          run3();
         hr(style="background-color: lightgray;")
+
