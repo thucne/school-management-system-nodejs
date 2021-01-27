@@ -5427,7 +5427,11 @@
       "avatar": "https://robohash.org/etquooccaecati.bmp?size=50x50&set=set1",
       "role": 0,
       "studentSchedule": 329,
-      "universityID": "BABAIU20029"
+      "universityID": "BABAIU20029",
+      "savedSubjects": [
+        6,
+        14
+      ]
     },
     {
       "id": "974a2aaa-662d-4313-80fa-561c50970617",
@@ -13376,6 +13380,9 @@
     },
     {
       "id": "SJOIphnw-"
+    },
+    {
+      "id": "YVbUW1-SZ"
     }
   ]
 }
