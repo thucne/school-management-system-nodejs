@@ -367,7 +367,7 @@ module.exports.registrationMenuDisplaying = function (req, res) {
         listOfSelectedSubjects.push(savedSubjects[i])
       }
     }
-    console.log('Saved SJ ' + listOfSelectedSubjects);
+    // console.log('Saved SJ ' + listOfSelectedSubjects);
     if (listOfSelectedSubjects.length > 0) {
       for (let m = 0; m < listOfSelectedSubjects.length; m++) {
         let thisSubName = subject.get('subjects').find({id_sub: listOfSelectedSubjects[m]}).value().name_sub;

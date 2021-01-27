@@ -40,7 +40,8 @@ block content
         // alert($("#falName").innerHTML);
         vl = myRadio.getAttribute('value');
         $("#faculty" + vl).show();
-        $("#falName").innerHTML = myRadio.innerHTML;
+        $(".falName" + vl).html(myRadio.innerHTML);
+        $("#dropdownMenuButton").html(myRadio.innerHTML);
         // $("#" + vl + "s").addClass("active");
       }
 
@@ -140,7 +141,7 @@ block content
               - var fal = 0
               for eachFal in subjectsByDepartment
                 div.faculty(id="faculty" + fal, style='display: none;')
-                  form(action='/users/register/select', method="POST", name='SelectThis')
+                  form(action='/users/register/select', method="POST", name='SelectThis' + fal)
                     // - var listOfSelectedSubjects = [1,2,3,4]
                     //input(type='hidden', name='listOfSelectedSubjects', value=[0, 1, 2, 3])
                     .table-responsive.mt-4(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
@@ -171,13 +172,13 @@ block content
                                   input(type='hidden', name='hiddenLoginID', value=userInfo.loginId)
 
                                   each subject in eachFal
-                                      tr(class=!subject.room ? 'not-ready-subject': '', data-toggle='tooltip', data-placement='right', title=!subject.room ? 'This subject is being updated...' : '')
+                                      tr(class=!subject.room ? 'not-ready-subject': '', data-toggle='tooltip', data-placement='right', title=!subject.room ? 'This subject is being updated...': '')
                                           td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
                                               .form-check
-                                                  input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=subject.id_sub, onchange="document.SelectThis.submit()", disabled=!subject.room || (subject.checked === true))
+                                                  input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=subject.id_sub, onchange="document.SelectThis"+ fal +".submit()", disabled=!subject.room || (subject.checked === true))
                                                   //label.custom-control-label(for=count.toString())
                                           td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= fal
-                                          td#falName(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;') Update
+                                          td(class ='falName' + fal, style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;') Update
                                           td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.id_sub
                                           td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.name_sub
                                           td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.lecturer ? subject.lecturer : 'Updating...'
@@ -256,7 +257,7 @@ block content
                     , data-placement='left', title='Save the registrations', onclick='confirmSave()') Save
                     //h4(style='color: blue; font-style: italic;') Selected Subjects
                     br
-                    h5.text-danger(style='clear:both; font-style: italic;') Note: Saved courses cannot be deleted after confirmation to avoid slot-holdings and slot-tradings.
+                    h5.text-danger(style='clear:both; font-style: italic;') Note: Saved subjects cannot be deleted to avoid course keeping and exchanging.
                         strong &nbsp;Be careful!
                     .table-responsive(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
                         .table-wrapper-scroll-y.my-custom-scrollbar-fee.ui-table-header-row
