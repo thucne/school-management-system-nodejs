@@ -37,28 +37,23 @@ block content
         $("#default").hide();
         $(".faculty").hide();
 
-        // alert($("#falName").innerHTML);
         vl = myRadio.getAttribute('value');
+
         $("#faculty" + vl).show();
+
         $(".falName" + vl).html(myRadio.innerHTML);
         $("#dropdownMenuButton").html(myRadio.innerHTML);
-        // $("#" + vl + "s").addClass("active");
       }
       function showResult() {
-        // location.reload();
         var str = $("#searchByName").val();
         // alert(str);
 
         var count = 0;
 
-        // Loop through the comment list
         $("table tr#oops").each(function () {
 
-          // If the list item does not contain the text phrase fade it out
           if ($(this).text().search(new RegExp(str, "i")) < 0) {
             $(this).fadeOut();
-
-            // Show the list item if the phrase matches and increase the count by 1
           } else {
             $(this).show();
             count++;
