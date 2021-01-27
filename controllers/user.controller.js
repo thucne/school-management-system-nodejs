@@ -175,8 +175,9 @@ module.exports.id = function (req, res) {
   var user = db.get('users').find({id: id}).value();
   var subjects = subject.get('subjects').value();
   var listOfThisUsersSubjects;
-
+  var isOkay = false
   if (user.savedSubjects !== null && user.savedSubjects !== undefined && user.savedSubjects) {
+    isOkay = true;
     listOfThisUsersSubjects = subjects.filter(function (sub) {
       let isTrue = false;
       for (let i = 0; i < user.savedSubjects.length; i++) {
@@ -188,7 +189,7 @@ module.exports.id = function (req, res) {
     })
   }
 
-  if (user && listOfThisUsersSubjects.length > 0) {
+  if (user && isOkay > 0) {
     console.log('length isssssssss' + listOfThisUsersSubjects.length);
     res.render('users/view', {
       csrfToken: token,
@@ -394,11 +395,44 @@ module.exports.registrationMenuDisplaying = function (req, res) {
       listOfSelectedSubjects = tempArr;
     }
 
+    var listOfDepartment = department.get('department').value();
+    var listOfSubject = subject.get('subjects').value();
+
+    var listOfDepartmentSubjects = {
+      0: [],
+      1: [],
+      2: [],
+      3: [],
+      4: [],
+      5: [],
+      6: [],
+      7: [],
+      8: [],
+      9: [],
+      10: [],
+    }
+
+    for (let i = 0; i < listOfDepartment.length; i++) {
+      let thisListOfSubject = listOfDepartment[i].subjects;
+      listOfDepartmentSubjects[i.toString()] = listOfSubject.filter(function (sub) {
+        let isFound = false;
+        for (let i = 0; i < thisListOfSubject.length; i++) {
+          if (sub.id_sub === thisListOfSubject[i]) {
+            isFound = true;
+            break;
+          }
+        }
+        return isFound;
+      });
+    }
+
+
     if (user && id === res.locals.userInfo.loginId) {
       res.render('users/courseRegistration', {
         loginUser: user,
         departments: departments,
         subjects: subjects,
+        subjectsByDepartment: listOfDepartmentSubjects,
         correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
         inputSelectedSubject: listOfSelectedSubjects,
         csrfToken: token
