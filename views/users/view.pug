@@ -46,8 +46,9 @@ block content
                         span.ml-2 Personal info
                     a#Passwords.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.ChangePassword ? 'active' : '') : '', value="Password", onclick="handleClick(this);")
                         span.ml-2 Change password
-                    a#Fees.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.Fee ? 'active' : '') : '', value="Fee", onclick="handleClick(this);")
-                        span.ml-2 Fee
+                    if (user.role === 0)
+                        a#Fees.btn.btn-light.border-0.rounded-0.d-sm-flex(class=thisSession ? (thisSession.Fee ? 'active' : '') : '', value="Fee", onclick="handleClick(this);")
+                            span.ml-2 Fee
                     a.btn.btn-light.border-0.rounded-0.d-sm-flex(href='/users', class=thisSession ? (thisSession.Back ? 'active' : '') : '')
                         span.ml-2 Back
                 .col-sm-8
@@ -194,55 +195,56 @@ block content
 
 
                             button.btn.btn-primary Change password
-                    div#Fee(style="display: none;")
-                        - var sumCredit = 0
-                        - var sumFee = 0
-                        - var exemption = 50
-                        - var balance = -1500000
-                        - var paid = 3000000
-                        - var owned = 0
-                        p
-                            h4 Your tuition information
-                        .table-responsive(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
-                            .table-wrapper-scroll-y.my-custom-scrollbar-fee.ui-table-header-row
-                                table.table.table-hover.table-striped#selectTable
-                                    tr.table-secondary.blue
-                                        th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='No.') No.
-                                        th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject ID') Subject ID
-                                        th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Name') Subject Name
-                                        th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Credits') Credits
-                                        th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Fee') Fee
-                                    if (subjects)
-                                      - var count = 1
-                                      // - var listOfSelectedSubjects = []
+                    if (user.role === 0)
+                        div#Fee(style="display: none;")
+                            - var sumCredit = 0
+                            - var sumFee = 0
+                            - var exemption = 50
+                            - var balance = -1500000
+                            - var paid = 3000000
+                            - var owned = 0
+                            p
+                                h4 Your tuition information
+                            .table-responsive(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
+                                .table-wrapper-scroll-y.my-custom-scrollbar-fee.ui-table-header-row
+                                    table.table.table-hover.table-striped#selectTable
+                                        tr.table-secondary.blue
+                                            th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='No.') No.
+                                            th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject ID') Subject ID
+                                            th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Name') Subject Name
+                                            th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Credits') Credits
+                                            th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Fee') Fee
+                                        if (subjects)
+                                          - var count = 1
+                                          // - var listOfSelectedSubjects = []
 
-                                      if (subjects)
-                                        - listOfSelectedSubjects = subjects
-                                      each selectedSubject in listOfSelectedSubjects
-                                        - sumCredit = sumCredit + parseInt(selectedSubject.credits)
-                                        - sumFee = sumFee + parseInt(selectedSubject.credits)*56*23270
+                                          if (subjects)
+                                            - listOfSelectedSubjects = subjects
+                                          each selectedSubject in listOfSelectedSubjects
+                                            - sumCredit = sumCredit + parseInt(selectedSubject.credits)
+                                            - sumFee = sumFee + parseInt(selectedSubject.credits)*56*23270
 
-                                        tr(data-toggle='tooltip', data-placement='right', title=selectedSubject.name_sub)
-                                            td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= count++
-                                            td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.id_sub
-                                            td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.name_sub
-                                            td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.credits
-                                            td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= ((parseInt(selectedSubject.credits) * 56 * 23270).toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                                      tr
-                                          td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total', colspan='3') Total
-                                          td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Credits')= sumCredit
-                                          td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Fee')= (sumFee.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                            tr(data-toggle='tooltip', data-placement='right', title=selectedSubject.name_sub)
+                                                td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= count++
+                                                td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.id_sub
+                                                td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.name_sub
+                                                td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= selectedSubject.credits
+                                                td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= ((parseInt(selectedSubject.credits) * 56 * 23270).toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                          tr
+                                              td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total', colspan='3') Total
+                                              td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Credits')= sumCredit
+                                              td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Fee')= (sumFee.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
-                        hr(style="background-color: lightgray;")
-                        div
-                            // - sumFee = sumFee*(100-exemption)/100
-                            - owned = sumFee*(100-exemption)/100 - balance - paid
-                            h5 Number of credits: #{sumCredit}
-                            h5 Tuition: #{(sumFee.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                            h5 Exemption: #{exemption}%
-                            h5 Balance: #{(balance.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                            h5 Paid: #{(paid.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                            h5 Owned: #{(owned.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                            hr(style="background-color: lightgray;")
+                            div
+                                // - sumFee = sumFee*(100-exemption)/100
+                                - owned = sumFee*(100-exemption)/100 - balance - paid
+                                h5 Number of credits: #{sumCredit}
+                                h5 Tuition: #{(sumFee.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                                h5 Exemption: #{exemption}%
+                                h5 Balance: #{(balance.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                                h5 Paid: #{(paid.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                                h5 Owned: #{(owned.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 script(src="https://unpkg.com/react@17/umd/react.development.js" crossorigin)
                 script(src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin)
                 script(src="https://unpkg.com/babel-standalone@6/babel.min.js")

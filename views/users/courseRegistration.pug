@@ -31,6 +31,19 @@ block content
                 userInfo.name = " ";
               });
 
+    script(type='text/javascript').
+      var vl = 0;
+      function fil(myRadio) {
+        $("#default").hide();
+        $(".faculty").hide();
+
+        // alert($("#falName").innerHTML);
+        vl = myRadio.getAttribute('value');
+        $("#faculty" + vl).show();
+        $("#falName").innerHTML = myRadio.innerHTML;
+        // $("#" + vl + "s").addClass("active");
+      }
+
     .px-3.pt-3.hide
         h1 Course Registration
         hr(style="background-color: lightgray;")
@@ -61,13 +74,16 @@ block content
                                         .dropdown(style='float: left;')
                                             button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button',
                                                 data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Department
+                                            - var countDe = 0
                                             .dropdown-menu.p-2(aria-labelledby='dropdownMenuButton')
                                               each department in departments
-                                                  a.dropdown-item(data-toggle='tooltip', data-placement='right', title=department.department_name, onclick="fil(this);") #{department.department_name}
+                                                  a.dropdown-item(data-toggle='tooltip', data-placement='right', title=department.department_name, onclick="fil(this);", value=countDe++) #{department.department_name}
                 .col-md-2
             - var listOfSelectedSubjects = []
+            - var corresDepart = []
             hr(style="background-color: red;")
-            form(action='/users/register/select', method="POST", name='SelectThis')
+            div#default
+              form(action='/users/register/select', method="POST", name='SelectThis')
                 // - var listOfSelectedSubjects = [1,2,3,4]
                 //input(type='hidden', name='listOfSelectedSubjects', value=[0, 1, 2, 3])
                 .table-responsive.mt-4(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
@@ -87,6 +103,7 @@ block content
                                 th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Credits') Credits
                                 th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Start') Start Day
                                 th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='End') End Day
+
                             if (subjects && correspondingDepartmentOfSubject && !doesThisStudentHasAValidSchedule)
                               - var count = 0
                               // - var listOfSelectedSubjects = []
@@ -118,6 +135,65 @@ block content
                                 if (doesThisStudentHasAValidSchedule === true)
                                     tr
                                         td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center; color: red; font-weight: bold; font-size: 250%;', rowspan=12, colspan=13) You are new and currently do not have your own schedule, contact the admin for help!
+
+            if (subjectsByDepartment)
+              - var fal = 0
+              for eachFal in subjectsByDepartment
+                div.faculty(id="faculty" + fal, style='display: none;')
+                  form(action='/users/register/select', method="POST", name='SelectThis')
+                    // - var listOfSelectedSubjects = [1,2,3,4]
+                    //input(type='hidden', name='listOfSelectedSubjects', value=[0, 1, 2, 3])
+                    .table-responsive.mt-4(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
+                        .table-wrapper-scroll-y.my-custom-scrollbar.ui-table-header-row
+                            table.table.table-hover.table-striped
+                                tr.table-secondary.blue
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select This Subject') Select
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Department ID') Department ID
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Department Name') Department Name
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject ID') Subject ID
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Name') Subject Name
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Lecture Name') Lecturer Name
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Subject Type') Type
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Room') Room
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Day') Day
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Period') Period
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Credits') Credits
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Start') Start Day
+                                    th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='End') End Day
+
+                                if (subjectsByDepartment && !doesThisStudentHasAValidSchedule)
+                                  - var count = 0
+                                  // - var listOfSelectedSubjects = []
+                                  if (inputSelectedSubject)
+                                    - listOfSelectedSubjects = inputSelectedSubject
+                                  input(type='hidden', name='listOfSelectedSubjects', value=listOfSelectedSubjects)
+                                  input(type='hidden', name='_csrf', value=csrfToken)
+                                  input(type='hidden', name='hiddenLoginID', value=userInfo.loginId)
+
+                                  each subject in eachFal
+                                      tr(class=!subject.room ? 'not-ready-subject': '', data-toggle='tooltip', data-placement='right', title=!subject.room ? 'This subject is being updated...' : '')
+                                          td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
+                                              .form-check
+                                                  input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=subject.id_sub, onchange="document.SelectThis.submit()", disabled=!subject.room || (subject.checked === true))
+                                                  //label.custom-control-label(for=count.toString())
+                                          td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= fal
+                                          td#falName(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;') Update
+                                          td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.id_sub
+                                          td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.name_sub
+                                          td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.lecturer ? subject.lecturer : 'Updating...'
+                                          td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.type
+                                          td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.room ? subject.room : 'Updating...'
+                                          td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.whichDay ? subject.whichDay.charAt(0).toUpperCase() + subject.whichDay.slice(1) : 'Updating...'
+                                          td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.whichPeriod ? subject.whichPeriod : 'Updating...'
+                                          td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.credits
+                                          td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.start
+                                          td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= subject.end
+                                if (doesThisStudentHasAValidSchedule)
+                                    if (doesThisStudentHasAValidSchedule === true)
+                                        tr
+                                            td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center; color: red; font-weight: bold; font-size: 250%;', rowspan=12, colspan=13) You are new and currently do not have your own schedule, contact the admin for help!
+                - fal++
+
             hr(style="background-color: gray;", id='here')
             if (listOfSelectedSubjects.length !== 0)
                 if (reloadPage !== null)
@@ -243,5 +319,3 @@ block content
                                       td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Total Fee')= (sumFee.toString() + ' VND').replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                                       td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')
                                       td.ui-table-header-cell.footer(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='')
-
-
