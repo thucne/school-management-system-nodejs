@@ -44,6 +44,28 @@ block content
         $("#dropdownMenuButton").html(myRadio.innerHTML);
         // $("#" + vl + "s").addClass("active");
       }
+      function showResult() {
+        // location.reload();
+        var str = $("#searchByName").val();
+        // alert(str);
+
+        var count = 0;
+
+        // Loop through the comment list
+        $("table tr#oops").each(function () {
+
+          // If the list item does not contain the text phrase fade it out
+          if ($(this).text().search(new RegExp(str, "i")) < 0) {
+            $(this).fadeOut();
+
+            // Show the list item if the phrase matches and increase the count by 1
+          } else {
+            $(this).show();
+            count++;
+          }
+        });
+
+      }
 
     .px-3.pt-3.hide
         h1 Course Registration
@@ -60,20 +82,20 @@ block content
                         .container-fluid
                             .row
                                 .col-md-5
-                                    label(for='searchByName') Filter by Subject Name:
+                                    label.mb-4(for='searchByName') Filter by Anything:
                                 .col-md-7
-                                    form.ml-auto(action="/users", method="GET", class="d-flex")
-                                        input(type="text", name="q", class="form-control", placeholder="Any", id='searchByName')
-                                        button.btn.btn-primary.ml-2(type='submit', data-toggle='tooltip', data-placement='top', title='Search by the input keyword') &#128270;
+                                    input(type="text", name="q", class="form-control", placeholder="Any", id='searchByName', onkeyup="showResult();")
+                                    div#liveSearch
+                                        //button.btn.btn-primary.ml-2(type='submit', data-toggle='tooltip', data-placement='top', title='Search by the input keyword') &#128270;
                     div
                         .container-fluid
                             .row
                                 .col-md-5
-                                    label() Filter by Department:
+                                    label Filter by Department:
                                 .col-md-7
                                     if (departments)
                                         .dropdown(style='float: left;')
-                                            button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button',
+                                            button#dropdownMenuButton.btn.btn-primary.dropdown-toggle(type='button',
                                                 data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Department
                                             - var countDe = 0
                                             .dropdown-menu.p-2(aria-labelledby='dropdownMenuButton')
@@ -115,7 +137,8 @@ block content
                               input(type='hidden', name='hiddenLoginID', value=userInfo.loginId)
 
                               each subject in subjects
-                                  tr(class=!subject.room ? 'not-ready-subject': '', data-toggle='tooltip', data-placement='right', title=!subject.room ? 'This subject is being updated...': '')
+
+                                  tr#oops(class=!subject.room ? 'not-ready-subject': '', data-toggle='tooltip', data-placement='right', title=!subject.room ? 'This subject is being updated...': '')
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
                                           .form-check
                                               input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=subject.id_sub, onchange="document.SelectThis.submit()", disabled=!subject.room || (subject.checked === true))
@@ -172,7 +195,7 @@ block content
                                   input(type='hidden', name='hiddenLoginID', value=userInfo.loginId)
 
                                   each subject in eachFal
-                                      tr(class=!subject.room ? 'not-ready-subject': '', data-toggle='tooltip', data-placement='right', title=!subject.room ? 'This subject is being updated...': '')
+                                      tr#oops(class=!subject.room ? 'not-ready-subject': '', data-toggle='tooltip', data-placement='right', title=!subject.room ? 'This subject is being updated...': '')
                                           td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
                                               .form-check
                                                   input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=subject.id_sub, onchange="document.SelectThis"+ fal +".submit()", disabled=!subject.room || (subject.checked === true))
