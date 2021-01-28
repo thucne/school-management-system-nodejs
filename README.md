@@ -5,8 +5,8 @@ Hi there!
 
 [For a better instruction README.md, please let me know: *katyperrycbt@gmail.com*]
 
-# Prerequisite Knowledge
-HTML, CSS, JavaScript, Bootstrap and ofc Expressjs (Nodejs)
+# Knowledge required
+HTML, CSS, JavaScript, Bootstrap, jQuery and Expressjs (Nodejs)
 
 # How to clone and stay updated
 
@@ -63,3 +63,10 @@ Activate auto-opening browser:
 ```bash
 npm start
 ```
+
+### **Account:** See lowdb/db.json
+
+Can be used immediately:
+1. Admin account:     ADMIN18125    123456
+2. Teacher account:   TCTCIU060     OrYmLe
+3. Student account:   BAFNIU17028   ID8wPEFK
