@@ -1,0 +1,115 @@
+extends ../layouts/common
+
+block content
+    if book_mark
+        script(type='text/javascript').
+          function scroll() {
+            location.href = location.href + '#here'
+          }
+          scroll();
+    if (reloadPage)
+        script(type='text/javascript').
+          location.reload();
+    - var isAdmin = userInfo.role === 10;
+        if (!isAdmin)
+            script(type='text/javascript').
+                 swal("Your are not allowed to visit this page.", {
+                  icon: "warning",
+                  timer: 3000,
+                  }).then(() => {
+                      document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                      location.reload();
+                      userInfo.name = " ";
+                  });
+    .p-3
+        h1.hide.text-primary Batch create by Excel file
+        hr(style="background-color: lightgray;")
+        .container-fluid.mt-5.hide
+            .row
+                .col-sm-6
+                    div
+                        h3.text-danger Some requirements in the excel file:
+                        .text-success
+                            span
+                              h5 1.   Has 6 exactly headings: "name", "first_name", "gender", "birthday", "email", "faculty".
+                                br
+                                small.bg-success.text-white.mt-2(style='border: 2px solid green; border-radius: 5px;') Example:
+                                br
+                                img.mt-2(src='/images/ExcelExample.png' alt='Example of a valid Excel file', style='width: 100%; height: auto;')
+                            h5 2.   Ensure there are no redundancies in rows and columns.
+                            h5 3.   Ensure consistency across the file.
+                            h5 4.   It must be an&nbsp;
+                                span.bg-danger.text-warning(style='border: 2px solid blue; border-radius: 5px;') EXCEL
+                                |&nbsp;file.
+                .col-sm-6
+                    div
+                        if (errs)
+                          each pErrs in errs
+                            .alert.alert-danger= pErrs
+                        script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+                        script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js')
+                        script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js')
+                        script.
+                          var ExcelToJSON = function () {
+                            this.parseExcel = function (file) {
+                              var reader = new FileReader();
+                              reader.onload = function (e) {
+                                var data = e.target.result;
+                                var workbook = XLSX.read(data, {
+                                  type: 'binary'
+                                });
+                                workbook.SheetNames.forEach(function (sheetName) {
+                                  // Here is your object
+                                  var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+                                  var json_object = JSON.stringify(XL_row_object);
+                                  // console.log(JSON.parse(json_object));
+                                  $('#importExcel').val(json_object);
+                                })
+                              };
+                              reader.onerror = function (ex) {
+                                console.log(ex);
+                              };
+                              reader.readAsBinaryString(file);
+                            };
+                          };
+                          function handleFileSelect(evt) {
+                            var files = evt.target.files; // FileList object
+                            var xl2json = new ExcelToJSON();
+                            xl2json.parseExcel(files[0]);
+                          }
+                        form(enctype='multipart/form-data')
+                            label(for='upload') Browse file (.xls)
+                            input#upload.form-control-file(type='file', name='files[]' required)
+                        //textarea#xlx_json.form-control(rows='35', cols='120')
+                        script.
+                          document.getElementById('upload').addEventListener('change', handleFileSelect, false);
+
+                        form(action="/users/create/createByExcel?_csrf=" + csrfToken, method="POST")
+                            .form-group
+                                //input(type="hidden", name="_csrf", value=csrfToken)
+                                label(for='importExcel') Review
+                                input.form-control(type="text", name="inEx", id="importExcel" readonly required)
+
+                                p.mb-1#here Role
+                                    .container-fluid.avt
+                                        .row
+                                            .col-sm-3
+                                            .col-sm-9
+                                                .form-group
+                                                    .custom-control.custom-radio.custom-control-inline
+                                                        input#student.custom-control-input(type='radio', name='role', value='Student', checked=values ? (values.role === 'Student'): 'false')
+                                                        label.custom-control-label(for='student') Student
+                                                    .custom-control.custom-radio.custom-control-inline
+                                                        input#teacher.custom-control-input(type='radio', name='role', value='Teacher', checked=values ? (values.role === 'Teacher'): 'false')
+                                                        label.custom-control-label(for='teacher') Teacher
+                                                    .custom-control.custom-radio.custom-control-inline
+                                                        input#admin.custom-control-input(type='radio', name='role', value='Admin', checked=values ? (values.role === 'Admin'): 'false')
+                                                        label.custom-control-label(for='admin') Admin
+                                label(for='accessCode') Access Code
+                                input#accessCode.form-control(name="accessCode", style='width: 150px;', type="text", value=values ? values.accessCode: '',
+                                        pattern="^[0-9]{6}$",
+                                        title="******", class=values ? (values.accessCode ? 'is-valid' : 'is-invalid'): '', required)
+                                .valid-feedback(class=values ? (values.accessCode ? 'valid-feedback' : 'invalid-feedback'): '')= values ? (values.accessCode ? 'Looks good!' : 'Please provide a valid access code!') : ''
+
+                            button.btn.btn-primary= 'Create'
+                    div

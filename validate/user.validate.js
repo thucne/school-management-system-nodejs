@@ -62,6 +62,53 @@ module.exports.postCreate = function (req, res, next) {
   next();
 };
 
+module.exports.postCreateByExcel = function (req, res, next) {
+  var errs = [];
+  console.log(req.csrfToken());
+
+  if (!req.body.accessCode) {
+    errs.push('Access code is required.');
+  } else {
+    var accessCode = parseInt(req.body.accessCode);
+    var thisAdmin = db.get('users').find({id: res.locals.userInfo.loginId}).value();
+    if (thisAdmin.role !== 10) {
+      console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+      let token = req.csrfToken();
+      res.clearCookie("userID");
+      res.render('users/createByExcel', {
+        csrfToken: token,
+        values: req.body,
+        reloadPage: 'yes',
+        book_mark: '#here'
+      });
+      return;
+    } else {
+      if (thisAdmin.accessCode !== accessCode) {
+        errs.push('Invalid Access Code!')
+      }
+    }
+  }
+
+  if (!req.body.inEx) {
+    errs.push('An Excel file is required!');
+  }
+
+  if (errs.length) {
+    let token = req.csrfToken();
+    // console.log("Error create " + errs);
+    // console.log("Error create " + errs.length);
+    res.render('users/createByExcel', {
+      csrfToken: token,
+      errs: errs,
+      values: req.body,
+      book_mark: '#here'
+    });
+    return;
+  }
+
+  next();
+}
+
 module.exports.postUpdate =  function (req, res, next) {
   var errs = [];
   var warnings = [];
