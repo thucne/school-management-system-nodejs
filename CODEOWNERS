@@ -20,4 +20,6 @@ validate/       @katyperrycbt
 
 *.js            @katyperrycbt
 
+.gitignore      @katyperrycbt
+
 CODEOWNERS      @katyperrycbt
