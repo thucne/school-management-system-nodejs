@@ -91,19 +91,20 @@ module.exports.postCreateByExcel = function (req, res, next) {
 
   if (!req.body.inEx) {
     errs.push('An Excel file is required!');
-  }
-  var receivedExcelFile = JSON.parse(req.body.inEx);
+  } else {
+    var receivedExcelFile = JSON.parse(req.body.inEx);
 
-  for (let i = 0; i < receivedExcelFile.length; i++) {
-    var c1 = receivedExcelFile[i]['name'];
-    var c2 = receivedExcelFile[i]['first_name'];
-    var c3 = receivedExcelFile[i]['gender'];
-    var c4 = receivedExcelFile[i]['birthday'];
-    var c5 = receivedExcelFile[i]['faculty'];
+    for (let i = 0; i < receivedExcelFile.length; i++) {
+      var c1 = receivedExcelFile[i]['name'];
+      var c2 = receivedExcelFile[i]['first_name'];
+      var c3 = receivedExcelFile[i]['gender'];
+      var c4 = receivedExcelFile[i]['birthday'];
+      var c5 = receivedExcelFile[i]['faculty'];
 
-    if (!(c1 && c2 && c3 && c4 && c5) || (c1 || c2 || c3 || c4 || c5) === undefined) {
-      errs.push('Errors in the content of file. Check and try again!');
-      break;
+      if (!(c1 && c2 && c3 && c4 && c5) || (c1 || c2 || c3 || c4 || c5) === undefined) {
+        errs.push('Errors in the content of file. Check and try again!');
+        break;
+      }
     }
   }
 

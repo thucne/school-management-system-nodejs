@@ -14634,6 +14634,71 @@
       "teacherSchedule": 303,
       "universityID": "SESEIU10083",
       "email": "SESEIU10083@teacher.myschool.edu.vn"
+    },
+    {
+      "id": "a75e0c32-53a4-417e-b88c-90992676291d",
+      "name": "Elbert",
+      "first_name": "Clemensen",
+      "gender": "Male",
+      "birthday": "12/12/2002",
+      "ip_address": "104.79.151.74",
+      "password": "ILco6sIl4r",
+      "role": 1,
+      "teacherSchedule": 304,
+      "universityID": "BTBTIU9088",
+      "email": "BTBTIU9088@teacher.myschool.edu.vn"
+    },
+    {
+      "id": "aafb43b3-473d-471e-97e1-86182ec6cb0a",
+      "name": "Eb",
+      "first_name": "Noirel",
+      "gender": "Male",
+      "birthday": "02/10/2000",
+      "ip_address": "63.54.26.248",
+      "password": "_RFvEfDfmh",
+      "role": 1,
+      "teacherSchedule": 305,
+      "universityID": "BTBTIU10864",
+      "email": "BTBTIU10864@teacher.myschool.edu.vn"
+    },
+    {
+      "id": "aa44fb85-0695-460b-a7df-2d3f682ab0e7",
+      "name": "Faye",
+      "first_name": "Pinchen",
+      "gender": "Male",
+      "birthday": "07/13/1998",
+      "ip_address": "136.50.24.195",
+      "password": "RWw-gTtXCX",
+      "role": 1,
+      "teacherSchedule": 306,
+      "universityID": "CECEIU5716",
+      "email": "CECEIU5716@teacher.myschool.edu.vn"
+    },
+    {
+      "id": "f33e32bb-9852-4f51-8dca-2b843fd810c9",
+      "name": "Maurita",
+      "first_name": "Gentsch",
+      "gender": "Male",
+      "birthday": "05/26/1998",
+      "ip_address": "210.84.198.216",
+      "password": "o5Gp8hKTh9",
+      "role": 1,
+      "teacherSchedule": 307,
+      "universityID": "BABAIU7997",
+      "email": "BABAIU7997@teacher.myschool.edu.vn"
+    },
+    {
+      "id": "8d6b3f9a-d080-421a-9759-6f4c10fa61ab",
+      "name": "Darrin",
+      "first_name": "Calcut",
+      "gender": "Male",
+      "birthday": "02/05/2001",
+      "ip_address": "171.33.208.241",
+      "password": "7p2bEsaIq4",
+      "role": 1,
+      "teacherSchedule": 308,
+      "universityID": "BTBTIU4703",
+      "email": "BTBTIU4703@teacher.myschool.edu.vn"
     }
   ],
   "sessions": [
