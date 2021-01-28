@@ -1,0 +1,21 @@
+views/          @katyperrycbt
+
+controllers/    @katyperrycbt
+
+lowdb/          @katyperrycbt
+
+middleware/     @katyperrycbt
+
+public/         @katyperrycbt
+
+routes/         @katyperrycbt
+
+validate/       @katyperrycbt
+
+*.md            @katyperrycbt
+
+*.json          @katyperrycbt
+
+*.pug           @katyperrycbt
+
+*.js            @katyperrycbt
