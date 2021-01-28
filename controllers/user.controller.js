@@ -9,7 +9,6 @@ const shortid = require('shortid');
 var aguid = require('aguid');
 const range = require('ip-range-generator');
 
-
 module.exports.index = function (req, res) {
   var nPPage = 7;
   var currentPage = parseInt(req.query.page);
@@ -164,6 +163,13 @@ module.exports.create = function (req, res) {
   }
 };
 
+module.exports.createByExcel = function (req, res) {
+  var token = req.csrfToken();
+  res.render('users/createByExcel', {
+    csrfToken: token
+  });
+}
+
 module.exports.id = function (req, res) {
   var id = req.params.id;
 
@@ -289,6 +295,68 @@ module.exports.postCreate = function (req, res) {
   db.get('users').push(newUser).write();
   res.redirect('/users');
 };
+
+module.exports.postCreateByExcel = function (req, res) {
+  // console.log('OK');
+  var receivedExcelFile = JSON.parse(req.body.inEx);
+
+  req.body.id = aguid(req.body.email);
+  req.body.ip_address = (Math.floor(Math.random() * 255) + 1) + "." + (Math.floor(Math.random() * 255)) + "." +
+      (Math.floor(Math.random() * 255)) + "." + (Math.floor(Math.random() * 255));
+  req.body.password = shortid.generate();
+
+  // console.log(receivedExcelFile[0]);
+  function process () {
+    for (let i = 0; i < receivedExcelFile.length; i++) {
+      let id = aguid(req.body.email);
+      let ip_address= (Math.floor(Math.random() * 255) + 1) + "." + (Math.floor(Math.random() * 255)) + "." +
+          (Math.floor(Math.random() * 255)) + "." + (Math.floor(Math.random() * 255));
+      let password = shortid.generate();
+
+      let thisUser = {
+        id: id,
+        name: receivedExcelFile[i]['name'],
+        first_name: receivedExcelFile[i]['first_name'],
+        gender: receivedExcelFile[i]['gender'],
+        birthday: receivedExcelFile[i]['birthday'],
+        ip_address: ip_address,
+        password: password,
+        role: req.body.role === 'Student' ? 0 : (req.body.role === 'Teacher' ? 1 : 10)
+      };
+
+      var Students = db.get('users').value().filter(function (us) {
+        return us.role === 0;
+      });
+      var Teachers = db.get('users').value().filter(function (us) {
+        return us.role === 1;
+      });
+
+      if (req.body.role === 'Student') {
+        thisUser.studentSchedule = parseInt(Students[Students.length-1]['studentSchedule']) + 1;
+        thisUser.universityID = receivedExcelFile[i]['faculty'] + receivedExcelFile[i]['faculty'] + 'IU' + (Math.floor(Math.random() * 9999) + 1000).toString();
+        thisUser.email = thisUser.universityID + '@student.myschool.edu.vn';
+      } else if (req.body.role === 'Teacher') {
+        thisUser.teacherSchedule = parseInt(Teachers[Teachers.length-1]['teacherSchedule']) + 1;
+        thisUser.universityID = receivedExcelFile[i]['faculty'] + receivedExcelFile[i]['faculty'] + 'IU' + (Math.floor(Math.random() * 9999) + 1000).toString();
+        thisUser.email = thisUser.universityID + '@teacher.myschool.edu.vn';
+      } else {
+        thisUser.accessCode = parseInt((Math.floor(Math.random() * 1000000) + 1000000).toString().substring(1));
+        thisUser.universityID = 'ADMIN' + (Math.floor(Math.random() * 99999) + 10000).toString();
+        thisUser.email = thisUser.universityID + '@admin.myschool.edu.vn';
+      }
+
+      // console.log(thisUser);
+      db.get('users').push(thisUser).write();
+    }
+  }
+
+  async function run() {
+    await process();
+  }
+
+  run().then(res.redirect('/users/create/createByExcel'));
+  // res.redirect('/users/create/createByExcel');
+}
 
 module.exports.registrationMenuDisplaying = function (req, res) {
   var id = res.locals.userInfo.loginId;

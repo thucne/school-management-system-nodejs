@@ -26,6 +26,8 @@ router.post('/changePassword', csrfProtection, validate.postChangePassword ,cont
 
 router.get('/create', csrfProtection, controller.create);
 
+router.get('/create/createByExcel', csrfProtection, controller.createByExcel);
+
 router.get('/schedule', csrfProtection, controller.schedule);
 
 router.get('/register', csrfProtection, controller.registrationMenuDisplaying);
@@ -37,6 +39,8 @@ router.post('/register/delete', csrfProtection, controller.deleteTheseSubjects);
 router.post('/register/save', csrfProtection, controller.saveRegistrations);
 
 router.post('/create', upload.single('avatar'), csrfProtection, validate.postCreate, controller.postCreate);
+
+router.post('/create/createByExcel', csrfProtection, validate.postCreateByExcel, controller.postCreateByExcel);
 
 router.get('/delete/:id', csrfProtection, controller.deleteUser);
 
