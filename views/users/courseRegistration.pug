@@ -33,25 +33,36 @@ block content
 
     script(type='text/javascript').
       var vl = 0;
+      var bt = 0;
       function fil(myRadio) {
-        $("#default").hide();
+        $("#df").hide();
         $(".faculty").hide();
+        $("table").removeClass('oke');
+
 
         vl = myRadio.getAttribute('value');
+        bt = myRadio.getAttribute('id');
 
-        $("#faculty" + vl).show();
-
-        $(".falName" + vl).html(myRadio.innerHTML);
-        $("#dropdownMenuButton").html(myRadio.innerHTML);
+        if (vl !== '100') {
+          $("#faculty" + vl).show();
+          $("#faculti" + vl).addClass('oke');
+          $(".falName" + vl).html(myRadio.innerHTML);
+          $("#dropdownMenuButton").html(myRadio.innerHTML);
+        } else {
+          $("#df").show();
+          $("#defaultOK").addClass('oke');
+          $("#dropdownMenuButton").html('All');
+        }
+        $("#Avai").html('Found: ' + bt + ' subjects');
+        $("#Avai").attr('value', bt);
       }
+
       function showResult() {
+        var count = 0;
         var str = $("#searchByName").val();
         // alert(str);
 
-        var count = 0;
-
-        $("table tr#oops").each(function () {
-
+        $("table.oke tr#oops").each(function () {
           if ($(this).text().search(new RegExp(str, "i")) < 0) {
             $(this).fadeOut();
           } else {
@@ -59,7 +70,10 @@ block content
             count++;
           }
         });
-
+        // alert($("#Avai").attr('value'));
+        // var current = parseInt($("#Avai").attr('value')) - count;
+        $("#Avai").html('Found: ' + count + ' subjects');
+        $("#Avai").attr('value', count);
       }
 
     .px-3.pt-3.hide
@@ -93,20 +107,36 @@ block content
                                             button#dropdownMenuButton.btn.btn-primary.dropdown-toggle(type='button',
                                                 data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Department
                                             - var countDe = 0
+                                            - var countRe = 0
                                             .dropdown-menu.p-2(aria-labelledby='dropdownMenuButton')
+                                              if (subjects)
+                                                - countRe = subjects.length
+                                              a.dropdown-item(data-toggle='tooltip', data-placement='right', title='All', onclick="fil(this);", value='100', id=countRe) All
                                               each department in departments
-                                                  a.dropdown-item(data-toggle='tooltip', data-placement='right', title=department.department_name, onclick="fil(this);", value=countDe++) #{department.department_name}
+                                                  if (subjectsByDepartment)
+                                                      - countRe = subjectsByDepartment[countDe].length
+                                                  a.dropdown-item(data-toggle='tooltip', data-placement='right', title=department.department_name, onclick="fil(this);", value=countDe, id=countRe) #{department.department_name}
+                                                  - countDe++
+                    div.mb-0
+                        .container-fluid
+                            .row
+                                .col-md-5
+                                    - var def = 0
+                                    if (subjects)
+                                      - def = subjects.length
+                                    label#Avai.bg-success(value=def) Found: #{def} subjects
+                                .col-md-7
                 .col-md-2
             - var listOfSelectedSubjects = []
             - var corresDepart = []
             hr(style="background-color: red;")
-            div#default
+            div#df
               form(action='/users/register/select', method="POST", name='SelectThis')
                 // - var listOfSelectedSubjects = [1,2,3,4]
                 //input(type='hidden', name='listOfSelectedSubjects', value=[0, 1, 2, 3])
                 .table-responsive.mt-4(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
                     .table-wrapper-scroll-y.my-custom-scrollbar.ui-table-header-row
-                        table.table.table-hover.table-striped
+                        table(class='oke' id='defaultOK').table.table-hover.table-striped
                             tr.table-secondary.blue
                                 th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select This Subject') Select
                                 th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Department ID') Department ID
@@ -164,7 +194,7 @@ block content
                     //input(type='hidden', name='listOfSelectedSubjects', value=[0, 1, 2, 3])
                     .table-responsive.mt-4(style='background-color: white; border: 3px solid gray; border-radius: 5px;')
                         .table-wrapper-scroll-y.my-custom-scrollbar.ui-table-header-row
-                            table.table.table-hover.table-striped
+                            table(id='faculti' + fal).table.table-hover.table-striped
                                 tr.table-secondary.blue
                                     th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select This Subject') Select
                                     th.ui-table-header-cell(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Department ID') Department ID
