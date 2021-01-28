@@ -1,4 +1,4 @@
-# School Management System [![Version](https://img.shields.io/badge/version-6.0.0-green.svg)](https://github.com/katyperrycbt/sms/releases/tag/v6.0.0)
+# School Management System [![Version](https://img.shields.io/badge/version-7.5.0-green.svg)](https://github.com/katyperrycbt/sms/releases/tag/v7.5.0)
 
 ## [Using ExpressJS]
 Hi there! 

@@ -14634,19 +14634,6 @@
       "teacherSchedule": 303,
       "universityID": "SESEIU10083",
       "email": "SESEIU10083@teacher.myschool.edu.vn"
-    },
-    {
-      "id": "1b0463c4-9a2a-4efd-aa1c-cdd343b6a4fe",
-      "name": "Danice",
-      "first_name": "Hanscom",
-      "gender": "Male",
-      "birthday": "04/26/2020",
-      "ip_address": "217.4.227.41",
-      "password": "r5XGElGbcbx",
-      "role": 1,
-      "teacherSchedule": 304,
-      "universityID": "BTBTIU6169",
-      "email": "BTBTIU6169@teacher.myschool.edu.vn"
     }
   ],
   "sessions": [
@@ -14655,24 +14642,6 @@
       "list": {
         "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3": 1
       }
-    },
-    {
-      "id": "eaVoX085t"
-    },
-    {
-      "id": "Rkvq0D6Pw"
-    },
-    {
-      "id": "Lh6Scxvbw"
-    },
-    {
-      "id": "SJOIphnw-"
-    },
-    {
-      "id": "YVbUW1-SZ"
-    },
-    {
-      "id": "lqUgxTbOx"
     }
   ]
 }

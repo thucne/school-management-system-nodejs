@@ -354,7 +354,11 @@ module.exports.postCreateByExcel = function (req, res) {
     await process();
   }
 
-  run().then(res.redirect('/users/create/createByExcel'));
+  run().then(res.render('users/createByExcel', {
+    csrfToken: req.csrfToken(),
+    saved: 'yes',
+    book_mark: '#here'
+  }));
   // res.redirect('/users/create/createByExcel');
 }
 

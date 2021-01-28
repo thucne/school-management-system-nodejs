@@ -31,7 +31,7 @@ block content
                         h3.text-danger Some requirements in the excel file:
                         .text-success
                             span
-                              h5 1.   Has 6 exactly headings: "name", "first_name", "gender", "birthday", "email", "faculty".
+                              h5 1.   Has 6 exactly headings: "name", "first_name", "gender", "birthday" (mm/dd/YYYY), "email", "faculty".
                                 br
                                 small.bg-success.text-white.mt-2(style='border: 2px solid green; border-radius: 5px;') Example:
                                 br
@@ -46,6 +46,8 @@ block content
                         if (errs)
                           each pErrs in errs
                             .alert.alert-danger= pErrs
+                        if (saved)
+                          .alert.alert-success Create successfully!
                         script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
                         script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js')
                         script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js')
@@ -77,14 +79,67 @@ block content
                             var xl2json = new ExcelToJSON();
                             xl2json.parseExcel(files[0]);
                           }
+
+                          function checkExtension(){
+                            $("#incorrectExtension").hide();
+                            $("#incorrectExtension").html("");
+                            $("#incorrectExtension").attr("value", 'false');
+
+                            var fileExtension = ['xls', 'xlsx'];
+                            if ($.inArray($("#upload").val().split('.').pop().toLowerCase(), fileExtension) === -1) {
+                              $("#incorrectExtension").html("Incorrect file. Only "+fileExtension.join(', ') + " are allowed.");
+                              $("#incorrectExtension").attr("value", 'true');
+                              $("#incorrectExtension").show();
+                            }
+                          }
+
+                          function checkValid(){
+                            $("#incorrectExtension").hide();
+
+                            if ($("#incorrectExtension").attr("value") === 'true') {
+                              $("#incorrectExtension").html("You cannot create new accounts by this file!");
+                              $("#incorrectExtension").show();
+                            } else {
+                              confirmSave();
+                              // document.getElementById('Yeah').submit();
+                            }
+                          }
+
+                          function confirmSave() {
+                            swal({
+                              title: "Are you sure?",
+                              text: "You are about creating these accounts...",
+                              icon: "warning",
+                              buttons: true,
+                              dangerMode: true,
+                            }).then((willSave) => {
+                              if (willSave) {
+                                swal("OK! Accounts created!", {
+                                  icon: "success",
+                                  timer: 1000,
+                                }).then(() => {
+                                  document.getElementById('Yeah').submit();
+                                });
+                              } else {
+                                swal("Let's reconsider!", {
+                                  icon: 'error',
+                                  timer: 1000
+                                });
+                              }
+                            });
+                            return false;
+                          }
+
+                        .alert.alert-warning#incorrectExtension(style='display: none;')
+
                         form(enctype='multipart/form-data')
-                            label(for='upload') Browse file (.xls)
-                            input#upload.form-control-file(type='file', name='files[]' required)
+                            label(for='upload') Browse file (.xls, .xlsx...)
+                            input#upload.form-control-file(type='file', name='files[]', onchange="checkExtension();" required)
                         //textarea#xlx_json.form-control(rows='35', cols='120')
                         script.
                           document.getElementById('upload').addEventListener('change', handleFileSelect, false);
 
-                        form(action="/users/create/createByExcel?_csrf=" + csrfToken, method="POST")
+                        form(action="/users/create/createByExcel?_csrf=" + csrfToken, method="POST", id='Yeah')
                             .form-group
                                 //input(type="hidden", name="_csrf", value=csrfToken)
                                 label(for='importExcel') Review
@@ -111,5 +166,5 @@ block content
                                         title="******", class=values ? (values.accessCode ? 'is-valid' : 'is-invalid'): '', required)
                                 .valid-feedback(class=values ? (values.accessCode ? 'valid-feedback' : 'invalid-feedback'): '')= values ? (values.accessCode ? 'Looks good!' : 'Please provide a valid access code!') : ''
 
-                            button.btn.btn-primary= 'Create'
+                            a.btn.btn-primary(onclick="checkValid();")= 'Create'
                     div
