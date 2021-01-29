@@ -6,6 +6,7 @@ block content
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
+      // $('.alert').alert();
     - var isAdmin = userInfo.role === 10;
     if (!isAdmin)
          script(type='text/javascript').
@@ -17,9 +18,50 @@ block content
              location.reload();
              userInfo.name = " ";
            });
+    script(type='text/javascript').
+      function checkEnglish() {
+        // $("#z").removeAttr('disabled');
+        $("#t").hide();
+
+        var isNull = $("#content").val();
+        if (isNull === null || !isNull || isNull === "" || isNull === undefined) {
+          $("#z").attr('disabled', 'true');
+          $("#t").hide();
+        } else if (/^[^àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ]+$/.test($("#content").val())) {
+          $("#z").removeAttr('disabled');
+          $("#t").hide();
+        } else {
+          $("#z").attr('disabled', 'true');
+          $("#t").show();
+        }
+
+        // var text = $("#content").val().replace(/\s/g); //read input value, and remove "space" by replace \s
+        // //Dictionary for Unicode range of the languages
+        // var langdic = {
+        //   "Arabic": /[\u0600-\u06FF]/,
+        //   "Persian": /[\u0750-\u077F]/,
+        //   "Hebrew": /[\u0590-\u05FF]/,
+        //   "Syriac": /[\u0700-\u074F]/,
+        //   "Bengali": /[\u0980-\u09FF]/,
+        //   "Ethiopic": /[\u1200-\u137F]/,
+        //   "Greek and Coptic": /[\u0370-\u03FF]/,
+        //   "Georgian": /[\u10A0-\u10FF]/,
+        //   "Thai": /[\u0E00-\u0E7F]/,
+        //   "English": /^[a-zA-Z]+$/
+        //   //add other languages her
+        // }
+        // //const keys = Object.keys(langdic); //read  keys
+        // //const keys = Object.values(langdic); //read  values
+        // const keys = Object.entries(langdic); // read  keys and values from the dictionary
+        // Object.entries(langdic).forEach(([key, value]) => {  // loop to read all the dictionary items if not true
+        //   if (value.test(text) == true) {   //Check Unicode to see which one is true
+        //     return document.getElementById("j").innerHTML = key; //print language name if unicode true
+        //   }
+        // });
+      };
 
     .px-3.pt-3.hide
-        h1(style='color: blue;') New announcement
+        h1#j(style='color: blue;') New announcement
         .container-fluid.my-5.hide
             .row
                 .col-md-12
@@ -75,8 +117,12 @@ block content
                             "                            2.      For students who do not complete tuition on time:\n" +
                             "                            \n" +
                             "                            -       Students who pay tuition later than January 4, 2021 must present the tuition fee receipt or confirm that they have paid tuition from MySchool.io web system when entering the examination room.",
-                                    class=values ? (values.content ? 'is-valid' : 'is-invalid'): '')
+                                    class=values ? (values.content ? 'is-valid' : 'is-invalid'): '', onkeyup="checkEnglish();")
                             .valid-feedback(class=values ? (values.content ? 'valid-feedback' : 'invalid-feedback'): '')= values ? (values.content ? 'Looks good!' : 'Please provide the content of announcement!') : ''
 
-                        button.btn.btn-primary(type='button' onclick='confirmSave()')= 'Post'
+                        button.alert.btn.btn-primary#z(type='button' onclick='confirmSave()' disabled style='float:left; vertical-align : middle;')= 'POST'
+                        .alert.alert-danger.ml-2.alert-dismissible.fade.show#t(style='display: none; float: left;')
+                            strong Only English content are allowed!
+                            button.close(type='button', data-dismiss='alert', aria-label='Close')
+                                span(aria-hidden='true') &times;
 

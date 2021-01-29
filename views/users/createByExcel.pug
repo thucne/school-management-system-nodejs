@@ -45,9 +45,9 @@ block content
                     div
                         if (errs)
                           each pErrs in errs
-                            .alert.alert-danger= pErrs
+                            .alert.alert-danger.err= pErrs
                         if (saved)
-                          .alert.alert-success Create successfully!
+                          .alert.alert-success.suc Create successfully!
                         script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
                         script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js')
                         script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js')
@@ -82,6 +82,7 @@ block content
 
                           function checkExtension(){
                             $("#incorrectExtension").hide();
+                            $(".suc .err").hide();
                             $("#incorrectExtension").html("");
                             $("#incorrectExtension").attr("value", 'false');
 
@@ -114,7 +115,7 @@ block content
                               dangerMode: true,
                             }).then((willSave) => {
                               if (willSave) {
-                                swal("OK! Accounts created!", {
+                                swal("Request sent!", {
                                   icon: "success",
                                   timer: 1000,
                                 }).then(() => {
