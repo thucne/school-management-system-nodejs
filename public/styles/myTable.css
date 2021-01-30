@@ -9,6 +9,13 @@
     height: 300px;
     overflow: auto;
 }
+
+.my-custom-scrollbar-index {
+    position: relative;
+    height: 550px;
+    overflow: auto;
+}
+
 .table-wrapper-scroll-y {
     display: block;
 }
@@ -71,6 +78,10 @@ th {
 .isNotOK {
     color: red;
     font-weight: bold;
+}
+
+.af {
+    background-color: #2b7de9;
 }
 
 /*footer {*/

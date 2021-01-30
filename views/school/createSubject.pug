@@ -13,23 +13,64 @@ block content
                 document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                 location.reload();
                 userInfo.name = " ";});
+    script(type='text/javascript').
+      function showResult() {
+        var count = 0;
+        var str = $("#search").val();
+        // alert(str);
+
+        $("form.oke select option").each(function () {
+          if ($(this).text().search(new RegExp(str, "i")) < 0) {
+            $(this).fadeOut();
+          } else {
+            $(this).show();
+            count++;
+          }
+        });
+        // alert($("#Avai").attr('value'));
+        // var current = parseInt($("#Avai").attr('value')) - count;
+        $("#Avai").html('Found: ' + count + ' subjects');
+        $("#Avai").attr('value', count);
+      }
+      function showResult2() {
+        var count = 0;
+        var str = $("#search2").val();
+        // alert(str);
+
+        $("form.oke2 select option").each(function () {
+          if ($(this).text().search(new RegExp(str, "i")) < 0) {
+            $(this).fadeOut();
+          } else {
+            $(this).show();
+            count++;
+          }
+        });
+        // alert($("#Avai").attr('value'));
+        // var current = parseInt($("#Avai").attr('value')) - count;
+        $("#Avai2").html('Found: ' + count + ' subjects');
+        $("#Avai2").attr('value', count);
+      }
+
     .px-3.pt-3.hide
-        h1 Set subject's time
+        h1 Set subject's room/periods
         hr(style="background-color: lightgray;")
         .container-fluid.my-5
             .row
                 .col-md-3(style='border-right: 1px solid gray;')
                     h2 Select subject
-                    form(action="/school/searchForRoom", method="POST", hidden=!!selectedSubject)
+                    label(for='search') Search:
+                    input(type="text", name="q", class="form-control", placeholder="Any", id='search', onkeyup="showResult();")
+
+                    form.oke(action="/school/searchForRoom", method="POST", hidden=!!selectedSubject)
                         .form-group
                             input(type='hidden', name='_csrf', value=csrfToken)
-                            label.text-success(for='exampleFormControlSelect1', data-toggle='tooltip', data-placement='right', title=subjects.length + ' subjects found!') Available: #{subjects.length}
+                            label#Avai.text-success(for='exampleFormControlSelect1', data-toggle='tooltip', data-placement='right', title=subjects.length + ' subjects found!') Available: #{subjects.length}
                             select#exampleFormControlSelect1.form-control(size='5', style='overflow-x: scroll;', name='sub')
                                 - var isChecked = 0
                                 each subject in subjects
                                     option(value=subject, selected=selectedSubject ? (selectedSubject['id_sub'] === subject.id_sub): (isChecked === 0))= 'ID: '+ subject.id_sub + '; Name: ' + subject.name_sub
                                     - isChecked = 1
-                        button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
+                        button.btn.btn-primary.form-inline(type='submit', style='float: right;') Next
                     if selectedSubject
                         span
                             small.text-success.font-weight-bold(style='font-size: large;') #{selectedSubject.name_sub}.
@@ -55,15 +96,17 @@ block content
                             small.text-danger(style='font-size: medium') Period: #{selectedSubject.whichPeriod}
                 .col-md-2(style='border-right: 1px solid gray;')
                     h2 Room
+                    label(for='search2') Search:
+                    input(type="text", name="q", class="form-control", placeholder="Any", id='search2', onkeyup="showResult2();")
                     if rooms
-                        form(action="/school/searchForRoom/searchForWeek", method="POST")
+                        form.oke2(action="/school/searchForRoom/searchForWeek", method="POST")
 
                             .form-group
                                 input(type='hidden', name='_csrf', value=csrfToken)
                                 input(type='hidden', name='sub', value=selectedSubject)
                                 input(type='hidden', name='list_room', value=rooms)
                                 .text-success(data-toggle='tooltip', data-placement='right', title=rooms.length + ' rooms found!')
-                                    label(for='exampleFormControlSelect2') Available: #{rooms.length}
+                                    label#Avai2(for='exampleFormControlSelect2') Available: #{rooms.length}
 
                                 select#exampleFormControlSelect2.form-control(size='5', style='overflow-x: scroll;', name='roo')
                                   - var isRoomChecked = 0
@@ -71,7 +114,7 @@ block content
                                     option(value=room, selected=selectedRoom ? (selectedRoom['id'] === room.id): (isRoomChecked === 0))= 'ID: '+ room.id + '; Room: ' + room['room']
                                     - isRoomChecked = 1
                                 input(type='hidden', name='subject', value=selectedSubject ? selectedSubject : '')
-                            button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
+                            button.btn.btn-primary.form-inline(type='submit', style='float: right;') Next
                     else
                         .text-danger Select a subject first!
 
@@ -229,4 +272,4 @@ block content
 
                                           - count = count + weekDay.length
                                           - whatPeriod++
-                            button.btn.btn-danger.form-inline(type='submit', style='float: right;', data-toggle='tooltip', data-placement='left', title='Submit request.') ➤
+                            button.btn.btn-danger.form-inline(type='submit', style='float: right;', data-toggle='tooltip', data-placement='left', title='Submit request.') Save

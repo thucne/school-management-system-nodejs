@@ -32,6 +32,7 @@ module.exports.index = function (req, res) {
   res.render('users/index', {
     csrfToken: token,
     users: isAdmin === true ? db.get('users').value().slice(start, end) : thisUser,
+    fullUsers: db.get('users').value(),
     page: {
       max: max,
       num: isAdmin === true ? db.get('users').value().length : 1,
@@ -39,7 +40,8 @@ module.exports.index = function (req, res) {
       x: --page,
       y: ++page,
       z: ++page
-    }
+    },
+
   });
   // console.log('User is ' + db.get('users').value());
 };

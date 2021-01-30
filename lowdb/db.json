@@ -4,19 +4,20 @@
       "id": "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3",
       "name": "Haselwood Oo",
       "first_name": "Cloris Hey",
-      "gender": "Female",
+      "gender": "Other",
       "ip_address": "162.186.26.22",
       "email": "chaselwood3@miibeian.com",
       "password": "Thuckaty20",
-      "avatar": "uploads/a288e6fc90db805e918014cc02197b85",
+      "avatar": "../uploads/a288e6fc90db805e918014cc02197b85",
       "errs": [],
       "warnings": [
         "Avatar is kept unchanged."
       ],
-      "_csrf": "B9c0H2ld-VwmZQL_h5TuEPQTp9x6_OZEh-RI",
+      "_csrf": "3xdAB7IQ-C2mgadz9CrqutPBGMSo5m9qKAcg",
       "role": 1,
       "teacherSchedule": 1,
-      "universityID": "TCTCIU000"
+      "universityID": "TCTCIU000",
+      "birthday": "2002-12-03"
     },
     {
       "id": "9e007f2b-c9ba-464f-a937-c01493f4a1a1",
@@ -26,12 +27,12 @@
       "ip_address": "199.229.25.247",
       "email": "mconkay4@google.com",
       "password": "123456",
-      "avatar": "../../uploads/407084fcd318d51a5603bb4afd286977",
+      "avatar": "../../../uploads/407084fcd318d51a5603bb4afd286977",
       "errs": [],
       "warnings": [
         "Avatar is kept unchanged."
       ],
-      "_csrf": "eAVmV227-WH9kMZOTM9J9_EiEvtzHJ9q3Tc8",
+      "_csrf": "Iebkt2w1-UKraaZf03Q9NjaA2P25jQFJg_Pg",
       "role": 0,
       "studentSchedule": 1,
       "savedSubjects": [
@@ -39,7 +40,8 @@
         2,
         3
       ],
-      "universityID": "CECEIU19000"
+      "universityID": "CECEIU19000",
+      "birthday": "1998-01-06"
     },
     {
       "id": "a585b731-0527-4a30-941d-92d78bea7c43",

@@ -1,6 +1,49 @@
 extends ../layouts/common
 
 block content
+  link(rel="stylesheet", href="/styles/myTable.css")
+
+  script(type='text/javascript').
+    // var idx = location.href.indexOf('#Yess');
+    // while (idx > 0) {
+    //   location.href.splice(idx, 5);
+    //   idx = location.href.indexOf('#Yess');
+    // }
+    //
+    // location.href = location.href + '#Yess';
+
+    function showResult() {
+      var count = 0;
+      var str = $("#sea").val();
+      // alert(str);
+      // $("#search").show();
+      if (str.length > 0) {
+        $(".notSearch").hide();
+        $("#search").show();
+        $("table.search tr.oops").each(function () {
+          if ($(this).text().search(new RegExp(str, "i")) < 0) {
+            $(this).fadeOut();
+          } else {
+            $(this).show();
+            count++;
+          }
+        });
+      } else {
+        $(".notSearch").show();
+        $("#search").hide();
+      }
+      var idx = location.href.indexOf('#Yes');
+      while (idx > 0) {
+        location.href.splice(idx, 5);
+        idx = location.href.indexOf('#Yes');
+      }
+
+      location.href = location.href + '#Yes';
+      // alert($("#Avai").attr('value'));
+      // var current = parseInt($("#Avai").attr('value')) - count;
+      $("#Avai").html(count.toString());
+      $("#Avai").attr('value', count);
+    }
 
   .px-3.pt-4.hide
     h1
@@ -11,78 +54,109 @@ block content
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
-    .d-flex.align-items-center
-      button.btn.btn-success.mb-2(type='button', data-toggle='tooltip', data-placement='right', title=page.num + ' students found!') Result: &nbsp;
-        span.badge.badge-light #{page.num}
-        span.sr-only unread messages
+    div.align-items-center
+      div(style='float: left;')
+        button.btn.btn-success.mb-2(type='button', data-toggle='tooltip', data-placement='right', title=page.num + ' students found!') Result: &nbsp;
+          span.badge.badge-light#Avai #{page.num}
+          span.sr-only unread messages
       if (userInfo.role === 10)
-        form.ml-auto(action="/users/search", method="GET", class="d-flex")
-          input(type="text", name="q", class="form-control", value=page.searchString, placeholder="Any")
-          button.btn.btn-primary.ml-2(type='submit', data-toggle='tooltip', data-placement='top', title='Search by the input keyword') &#128270;
+        div(style='float: right;')
+          .container-fluid(style='text-align: center; align-items: center; vertical-align : middle; justify-content: center;')
+            .row
+              .col-md-2
+                //p(for='sea') Search
+                .btn.btn-primary(data-toggle='tooltip', data-placement='top', title='Search by the input keyword') &#128270;
+              .col-md-10
+                input(type="text", name="q", class="form-control", placeholder="Any", id='sea', onkeyup="showResult();")
+          //button.btn.btn-primary.ml-2(type='submit', data-toggle='tooltip', data-placement='top', title='Search by the input keyword') &#128270;
+    div.notSearch
+      .table-responsive
+        table.table.mt-3.table-hover.table-striped
+          tr.table-secondary
+            th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
+            th(data-toggle='tooltip', data-placement='top', title='Role') Role
+            th(data-toggle='tooltip', data-placement='top', title='First Name') First Name
+            th(data-toggle='tooltip', data-placement='top', title='Last Name') Last Name
+            th(data-toggle='tooltip', data-placement='top', title='Gender') Gender
+            th(data-toggle='tooltip', data-placement='top', title='Gender') Birthday
+            th(data-toggle='tooltip', data-placement='top', title='Email') Email
+            //th(data-toggle='tooltip', data-placement='top', title='Students IP Address') IP Address
+            th(data-toggle='tooltip', data-placement='top', title='Avatars') Avatar
+            th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Some functionalities') Edit
+            if (userInfo.role === 10)
+              th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete a student') Delete
+              th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select a student') Select
+          - var the = 1
+          each user in users
+            if (user.role !== 10)
+              tr(id=the === 1 ? 'Yess': '')
+                td= users.indexOf(user) + (7 * (page.y - 1)) + 1
+                td= user.role !== null ? (user.role === 1 ? 'Teacher': (user.role === 0 ? 'Student': 'Admin')) : 'Unknown'
+                td= user.name !== null ? user.name: 'Unknown'
+                td= user.first_name !== null ? user.first_name: 'Unknown'
+                td= user.gender !== null ? user.gender : 'Unknown'
+                td= user.birthday ? user.birthday : 'Unknown'
+                td= user.email !== null ? user.email: 'Unknown'
+                //td= user.ip_address !== null ? user.ip_address: 'Unknown'
+                td
+                  if user.avatar
+                    img(src= (user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '/' + user.avatar: user.avatar, width="40", alt=!user.avatar ? 'Not Found': '')
+                  else
+                    span Not Found
+                td(style='text-align:center;')
+                  a.btn.btn-outline-info.rounded-circle(href="/users/" + user.id, data-toggle='tooltip', data-placement='top', title='Click to see the user information') &#128194;
+                if (userInfo.role === 10)
+                  td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete this student from the database')
+                    a.btn.btn-outline-danger.rounded-circle(href="/users/delete/" + user.id) &#10060;
+                  td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select this user')
+                    a.btn.btn-outline-success.rounded-circle(href="/school/select/" + user.id) &#10004;
+            - the++
 
-    #mySchool.carousel.slide.avt(data-ride='carousel')
-      ol.carousel-indicators
-        li.active(data-target='#mySchool', data-slide-to='0')
-        li(data-target='#mySchool', data-slide-to='1')
-        li(data-target='#mySchool', data-slide-to='2')
-        li(data-target='#mySchool', data-slide-to='3')
-        li(data-target='#mySchool', data-slide-to='4')
-      .carousel-inner
-        .carousel-item.active
-          img.d-block.w-100(src='/images/carousel_5.jpg', alt='First slide')
-        .carousel-item
-          img.d-block.w-100(src='/images/cr1.jpg', alt='Fifth slide')
-        .carousel-item
-          img.d-block.w-100(src='/images/cr2.jpg', alt='Second slide')
-        .carousel-item
-          img.d-block.w-100(src='/images/cr3.jpg', alt='Third slide')
-        .carousel-item
-          img.d-block.w-100(src='/images/cr4.jpg', alt='Fourth slide')
-      a.carousel-control-prev(href='#mySchool', role='button', data-slide='prev')
-        span.carousel-control-prev-icon(aria-hidden='true')
-        span.sr-only Previous
-      a.carousel-control-next(href='#mySchool', role='button', data-slide='next')
-        span.carousel-control-next-icon(aria-hidden='true')
-        span.sr-only Next
-    .table-responsive
-      table.table.mt-3.table-hover.table-striped
-        tr.table-secondary
-          th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
-          th(data-toggle='tooltip', data-placement='top', title='Role') Role
-          th(data-toggle='tooltip', data-placement='top', title='First Name') First Name
-          th(data-toggle='tooltip', data-placement='top', title='Last Name') Last Name
-          th(data-toggle='tooltip', data-placement='top', title='Gender') Gender
-          th(data-toggle='tooltip', data-placement='top', title='Email') Email
-          th(data-toggle='tooltip', data-placement='top', title='Students IP Address') IP Address
-          th(data-toggle='tooltip', data-placement='top', title='Avatars') Avatar
-          th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Some functionalities') Edit
-          if (userInfo.role === 10)
-            th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete a student') Delete
-            th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select a student') Select
-        each user in users
-          if (user.role !== 10)
-            tr
-              td= users.indexOf(user) + (7 * (page.y - 1)) + 1
-              td= user.role !== null ? (user.role === 1 ? 'Teacher': (user.role === 0 ? 'Student': 'Admin')) : 'Unknown'
-              td= user.name !== null ? user.name: 'Unknown'
-              td= user.first_name !== null ? user.first_name: 'Unknown'
-              td= user.gender !== null ? user.gender : 'Unknown'
-              td= user.email !== null ? user.email: 'Unknown'
-              td= user.ip_address !== null ? user.ip_address: 'Unknown'
-              td
-                if user.avatar
-                  img(src= (user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '/' + user.avatar: user.avatar, width="40", alt=!user.avatar ? 'Not Found': '')
-                else
-                  span Not Found
-              td(style='text-align:center;')
-                a.btn.btn-outline-info.rounded-circle(href="/users/" + user.id, data-toggle='tooltip', data-placement='top', title='Click to see the user information') &#128194;
-              if (userInfo.role === 10)
-                td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete this student from the database')
-                  a.btn.btn-outline-danger.rounded-circle(href="/users/delete/" + user.id) &#10060;
-                td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select this user')
-                  a.btn.btn-outline-success.rounded-circle(href="/school/select/" + user.id) &#10004;
+    div#search(style='display: none;')
+      if(fullUsers)
+        .table-responsive.my-4(style='background-color: white;')
+          .table-wrapper-scroll-y.my-custom-scrollbar-index.ui-table-header-row
+            table.table.mt-3.table-hover.table-striped.search
+              tr.table-secondary
+                th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No
+                th(data-toggle='tooltip', data-placement='top', title='Role') Role
+                th(data-toggle='tooltip', data-placement='top', title='First Name') First Name
+                th(data-toggle='tooltip', data-placement='top', title='Last Name') Last Name
+                th(data-toggle='tooltip', data-placement='top', title='Gender') Gender
+                th(data-toggle='tooltip', data-placement='top', title='Gender') Birthday
+                th(data-toggle='tooltip', data-placement='top', title='Email') Email
+                //th(data-toggle='tooltip', data-placement='top', title='Students IP Address') IP Address
+                th(data-toggle='tooltip', data-placement='top', title='Avatars') Avatar
+                th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Some functionalities') Edit
+                if (userInfo.role === 10)
+                  th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete a student') Delete
+                  th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select a student') Select
+              - var theCount = 1
+              each user in fullUsers
+                if (user.role !== 10)
+                  tr.oops(id=theCount === 3 ? 'Yes': '')
+                    td= theCount++
+                    td= user.role !== null ? (user.role === 1 ? 'Teacher' : (user.role === 0 ? 'Student' : 'Admin')) : 'Unknown'
+                    td= user.name !== null ? user.name : 'Unknown'
+                    td= user.first_name !== null ? user.first_name : 'Unknown'
+                    td= user.gender !== null ? user.gender : 'Unknown'
+                    td= user.birthday ? user.birthday : 'Unknown'
+                    td= user.email !== null ? user.email : 'Unknown'
+                    //td= user.ip_address !== null ? user.ip_address: 'Unknown'
+                    td
+                      if user.avatar
+                        img(src= (user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '/' + user.avatar : user.avatar, width="40", alt=!user.avatar ? 'Not Found' : '')
+                      else
+                        span Not Found
+                    td(style='text-align:center;')
+                      a.btn.btn-outline-info.rounded-circle(href="/users/" + user.id, data-toggle='tooltip', data-placement='top', title='Click to see the user information') &#128194;
+                    if (userInfo.role === 10)
+                      td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete this student from the database')
+                        a.btn.btn-outline-danger.rounded-circle(href="/users/delete/" + user.id) &#10060;
+                      td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select this user')
+                        a.btn.btn-outline-success.rounded-circle(href="/school/select/" + user.id) &#10004;
 
-    ul.pagination.justify-content-center.pagination
+    ul.pagination.justify-content-center.pagination.notSearch
       li.page-item
         a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + (page.y - 3),
           data-toggle='tooltip', data-placement='left', title='Previous 3 pages') Previous
