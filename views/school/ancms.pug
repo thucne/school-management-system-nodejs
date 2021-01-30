@@ -41,6 +41,6 @@ block content
                 }
             - var thisKindOfAlert = Math.floor(Math.random() * 8);
             .alert(class=listOfAlertName[thisKindOfAlert])
-                a(href='/school/showThisANCM/' + ancm.id)= ancm.title + ' [' + ancm.when + ']'
+                a(href='/school/showThisANCM/' + ancm.id)= ancm.title + ' [' + ancm.when.toLocaleString() + ']'
                 if (userInfo.role === 10)
                   button.close(type='button', onclick='del("'+ ancm.id + '")') &times;

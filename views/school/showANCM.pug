@@ -9,7 +9,8 @@ block content
     script(src='https://cdn.jsdelivr.net/npm/marked/marked.min.js')
 
     .px-3.pt-3.mb-5.hide
-        h3(style='color: green;') Details
+        h3(style='color: green;') <details><summary>Details</summary><small style='color: red;'>If you have trouble reading the message,
+            |&nbsp;please contact the admin: katyperry@admin.myschool.edu.vn</small></details>
         if (thisANCM && whoPost && content)
               h4(style='color: blue;')= thisANCM.title
               hr
@@ -19,4 +20,4 @@ block content
                     br
                     hr
                     //object(data='C:\\Users\\PC\\WebstormProjects\\LearningJS\\sms\\README.pug')
-                    small= 'Posted by ' + whoPost + ' on ' + thisANCM.when
+                    small= 'Posted by ' + whoPost + ' on ' + thisANCM.when.toLocaleString()
