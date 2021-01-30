@@ -38,14 +38,14 @@ block content
             label(for="name", id='here') Last Name
             input#name.form-control(name="name", type="text", value=values ? values.name : '', placeholder="Katy",
               pattern="^[a-zA-Z]{1,15}\\s{0,1}[a-zA-Z]{1,15}\\s*$",
-              title="In word, less than 30 letters.", class=values ? (values.name ? 'is-valid': 'is-invalid'): '')
+              title="In word, less than 30 letters.", class=values ? (values.name ? 'is-valid': 'is-invalid'): '' required)
             .valid-feedback(class=values ? (values.name ? 'valid-feedback': 'invalid-feedback'): '')= values ? (values.name ? 'Looks good!': 'Please provide a valid last name!') : ''
 
             label(for="first_name") First Name
             input#first_name.form-control(name="first_name", type="text",
                 value=values ? values.first_name: '', placeholder="Perry",
               pattern="^[a-zA-Z]{1,15}\\s{0,1}[a-zA-Z]{1,15}\\s*$",
-              title="In word, less than 30 letters.", class=values ? (values.first_name ? 'is-valid': 'is-invalid'): '')
+              title="In word, less than 30 letters.", class=values ? (values.first_name ? 'is-valid': 'is-invalid'): '' required)
             .valid-feedback(class=values ? (values.first_name ? 'valid-feedback': 'invalid-feedback'): '')= values ? (values.first_name ? 'Looks good!': 'Please provide a valid first name!') : ''
 
             script(type='text/javascript').
@@ -74,11 +74,15 @@ block content
                     label.custom-control-label(for='other') Other
             //, onclick="document.Create.submit()"
             br
+            .form-group.row
+              label.col-2.col-form-label(for='example-date-input') Birthday
+              .col-10
+                input#example-date-input.form-control(type='date', name='birthday', min=((new Date()).getFullYear()-23)+"-01-01" max=((new Date()).getFullYear()-19)+"-12-31" required)
 
             label(for="email") Email
             input#email.form-control(name="email", type="text", value=values ? values.email : '', placeholder="katyperry@gmail.com",
               pattern="^\\w+@[a-zA-Z]+\\.com$",
-              title="any@inWords.com", class=values ? (values.email ? 'is-valid': 'is-invalid'): '')
+              title="any@inWords.com", class=values ? (values.email ? 'is-valid': 'is-invalid'): '' required)
             .valid-feedback(class=values ? (values.email ? 'valid-feedback': 'invalid-feedback'):'')= values ? (values.email ? 'Looks good!': 'Please provide a valid email!') : ''
 
             script(type='text/javascript').
@@ -129,7 +133,7 @@ block content
             label(for='accessCode') Access Code
             input#accessCode.form-control(name="accessCode", style='width: 150px;', type="text", value=values ? values.accessCode: '',
                 pattern="^[0-9]{6}$",
-                title="******", class=values ? (values.accessCode ? 'is-valid' : 'is-invalid'): '')
+                title="******", class=values ? (values.accessCode ? 'is-valid' : 'is-invalid'): '' required)
             .valid-feedback(class=values ? (values.accessCode ? 'valid-feedback' : 'invalid-feedback'): '')= values ? (values.accessCode ? 'Looks good!' : 'Please provide a valid access code!') : ''
 
             label(for="avatar") Avatar
@@ -138,16 +142,16 @@ block content
           //button.btn.btn-primary= values ? (values.gender === 'Male' ? '👨‍🎓' : (values.gender === 'Female' ? '👩‍🎓' : '🏳️‍🌈')) : '👾'
 
           div#Males(style="display: none;")
-            button.btn.btn-primary= '👨‍🎓'
+            button.btn.btn-primary= 'Create 👨‍🎓'
 
           div#Females(style="display: none;")
-            button.btn.btn-primary= '👩‍🎓'
+            button.btn.btn-primary= 'Create 👩‍🎓'
 
           div#Others(style="display: none;")
-            button.btn.btn-primary= '🏳️‍🌈'
+            button.btn.btn-primary= 'Create 🏳️‍🌈'
 
           div#Nones()
-            button.btn.btn-primary= '👾'
+            button.btn.btn-primary= 'Create'
 
       .col-md-5
         img.mb-5.p-2(src='/images/createlogo_auto_x1_colored_toned.png', alt='Create', width='100%', style='box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);')

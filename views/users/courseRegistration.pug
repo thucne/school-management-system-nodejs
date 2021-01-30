@@ -39,7 +39,6 @@ block content
         $(".faculty").hide();
         $("table").removeClass('oke');
 
-
         vl = myRadio.getAttribute('value');
         bt = myRadio.getAttribute('id');
 
@@ -57,21 +56,32 @@ block content
         $("#Avai").attr('value', bt);
       }
 
+      $.expr[":"].contains = $.expr.createPseudo(function (arg) {
+        return function (elem) {
+          return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+        };
+      });
+
       function showResult() {
         var count = 0;
         var str = $("#searchByName").val();
-        // alert(str);
+
+        $("*").removeClass('af');
 
         $("table.oke tr#oops").each(function () {
+          // $(this).removeAttr('style');
           if ($(this).text().search(new RegExp(str, "i")) < 0) {
             $(this).fadeOut();
           } else {
+            if (str.length > 0) {
+              $(this).find(`td:contains('${str}')`).addClass('af');
+            }
+            // $(this).find(`:contains('${str}')`).addClass('af');
             $(this).show();
             count++;
           }
         });
-        // alert($("#Avai").attr('value'));
-        // var current = parseInt($("#Avai").attr('value')) - count;
+
         $("#Avai").html('Found: ' + count + ' subjects');
         $("#Avai").attr('value', count);
       }

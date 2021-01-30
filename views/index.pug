@@ -11,3 +11,27 @@ block content
                         var snackbar = document.getElementById("snackbar");
                         snackbar.className="show";
                         setTimeout(()=>{snackbar.className=snackbar.className.replace("show","")},2000);
+                #mySchool.carousel.slide.avt.mt-3(data-ride='carousel')
+                    ol.carousel-indicators
+                        li.active(data-target='#mySchool', data-slide-to='0')
+                        li(data-target='#mySchool', data-slide-to='1')
+                        li(data-target='#mySchool', data-slide-to='2')
+                        li(data-target='#mySchool', data-slide-to='3')
+                        li(data-target='#mySchool', data-slide-to='4')
+                    .carousel-inner(style='border: 2px; border-radius: 20px;')
+                        .carousel-item.active
+                            img.d-block.w-100(src='/images/carousel_5.jpg', alt='First slide')
+                        .carousel-item
+                            img.d-block.w-100(src='/images/cr1.jpg', alt='Fifth slide')
+                        .carousel-item
+                            img.d-block.w-100(src='/images/cr2.jpg', alt='Second slide')
+                        .carousel-item
+                            img.d-block.w-100(src='/images/cr3.jpg', alt='Third slide')
+                        .carousel-item
+                            img.d-block.w-100(src='/images/cr4.jpg', alt='Fourth slide')
+                    a.carousel-control-prev(href='#mySchool', role='button', data-slide='prev')
+                        span.carousel-control-prev-icon(aria-hidden='true')
+                        span.sr-only Previous
+                    a.carousel-control-next(href='#mySchool', role='button', data-slide='next')
+                        span.carousel-control-next-icon(aria-hidden='true')
+                        span.sr-only Next

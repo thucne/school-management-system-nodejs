@@ -41,7 +41,13 @@ module.exports.postCreate = function (req, res, next) {
   if (!req.body.role) {
     errs.push('Role is required.');
   }
+  if (!req.body.universityIDa && !req.body.universityIDb && !req.body.universityIDc) {
+    errs.push('Please choose role.')
+  }
 
+  if (!req.body.birthday) {
+    errs.push('Please choose birthday.')
+  }
   // req.body.avatar = (req.file.path.length !== 0) ? req.file.path.split('\\').slice(1).join('/'): 'nope';
   if (!req.file) {
     errs.push('Avatar is required.');
@@ -140,6 +146,10 @@ module.exports.postUpdate =  function (req, res, next) {
   }
   if (!req.body.email) {
     errs.push('Email is required.');
+  }
+
+  if (!req.body.birthday) {
+    errs.push('Birthday is required.')
   }
 
   // req.body.avatar = (req.file.path.length !== 0) ? req.file.path.split('\\').slice(1).join('/'): 'nope';
