@@ -1,0 +1,98 @@
+extends ../layouts/common
+
+block content
+    link(rel="stylesheet", href="/styles/cellHover.css")
+    script.
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    - var isAdmin = userInfo.role === 10;
+    if (!isAdmin)
+        script(type='text/javascript').
+          swal("Your are not allowed to visit this page.", {icon: "warning", timer: 3000,}).then(() => {
+            document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            location.reload();
+            userInfo.name = " ";});
+    script(type='text/javascript').
+        function confirmAutoAndSave() {
+          swal({
+            title: "Are you sure?",
+            text: "You need to assign time and location for subjects manually!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          }).then((willSave) => {
+            if (willSave) {
+              swal("OK! Save successfully!", {
+                icon: "success",
+                timer: 1000,
+              }).then(() => {
+                document.getElementById('Create').submit();
+              });
+            } else {
+              swal("Let's reconsider!", {
+                icon: 'error',
+                timer: 1000
+              });
+            }
+          });
+          return false;
+        }
+    .px-3.pt-3.hide
+        h1 Create subjects
+        hr(style="background-color: lightgray;")
+        .container-fluid.my-5
+            .row
+                .col-md-6
+                    form(action="/school/createBatchSubject", method="POST", name="Create", id="Create")
+                        .form-group
+                            input(type="hidden", name="_csrf", value=csrfToken)
+
+                            label(for="name_sub", id='here') Subject's name
+                            input#name_sub.form-control(name="name", type="text", value=values ? values.name_sub: '', placeholder="Web's Applications",
+                                pattern="^[a-zA-Z ]*$",
+                                title="In word.", class=values ? (values.name_sub ? 'is-valid' : 'is-invalid'): '' required)
+                            .valid-feedback(class=values ? (values.name_sub ? 'valid-feedback' : 'invalid-feedback'): '')= values ? (values.name_sub ? 'Looks good!' : 'Please provide subject\'s name!') : ''
+
+                            - var minDate = new Date().getFullYear()+'-'+("0"+(new Date().getMonth()+1)).slice(-2)+'-'+("0"+new Date().getDate()).slice(-2)
+
+                            br
+                            .form-group.row
+                                label.col-2.col-form-label(for='start_day') Start
+                                .col-10
+                                    input#start_day.form-control(type='date', name='start', min=minDate required)
+
+                            .form-group.row
+                                label.col-2.col-form-label(for='end_day') End
+                                .col-10
+                                    input#end_day.form-control(type='date', name='end', min=minDate required)
+
+                            p.mb-1 Type
+                                .container-fluid
+                                    .row
+                                        .col-sm-3
+                                        .col-sm-9
+                                            .custom-control.custom-radio.custom-control-inline
+                                                input#laboratory.custom-control-input(type='radio', name='type', value='Laboratory', checked=values ? (values.type === 'Laboratory'): 'false')
+                                                label.custom-control-label(for='laboratory') Laboratory
+                                            .custom-control.custom-radio.custom-control-inline
+                                                input#theory.custom-control-input(type='radio', name='type', value='Lab', checked=values ? (values.type === 'Theory'): 'false')
+                                                label.custom-control-label(for='theory') Theory
+
+                            label(for='credits') Credits
+                            input#credits.form-control(type='number', name='credits', value="1", min="1", max="5" required)
+
+                            label(for='num') Number of classes
+                            input#num.form-control(type='number', name='num_class', value="5", min="1", max="10" required)
+
+                            .form-group
+                                if (departments)
+                                        label(for='dropdownMenuButton') Department
+                                        select#dropdownMenuButton.form-control(name='department' required)
+                                            each department in departments
+                                                option(data-toggle='tooltip', data-placement='right', title=department.department_name, value=department.department_id) #{department.department_name}
+
+
+                        button.btn.btn-info.mr-2(type='button' onclick='confirmAutoAndSave()') Auto assign time and location for subjects
+                        button.btn.btn-info(type='submit' formaction='/school/createBatchSubject2') Assign manually later
+

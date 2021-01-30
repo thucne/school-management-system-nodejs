@@ -1415,3 +1415,14 @@ module.exports.download = function (req, res) {
 
   res.redirect('/excels/Student List.xlsx');
 }
+
+module.exports.createBatchSubject = function (req, res) {
+  var departments = department.get('department').value();
+
+  var subjects = subject.get('subjects').value();
+  res.render('school/createBatchSubjects', {
+    csrfToken: req.csrfToken(),
+    departments: departments,
+    subjects: subjects
+  });
+}

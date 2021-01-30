@@ -13,6 +13,46 @@ block content
           document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
           location.reload();
           userInfo.name = " ";});
+
+    script(type='text/javascript').
+      function showResult() {
+        var count = 0;
+        var str = $("#search").val();
+        // alert(str);
+
+        $("form.oke select option").each(function () {
+          if ($(this).text().search(new RegExp(str, "i")) < 0) {
+            $(this).fadeOut();
+          } else {
+            $(this).show();
+            count++;
+          }
+        });
+        // alert($("#Avai").attr('value'));
+        // var current = parseInt($("#Avai").attr('value')) - count;
+        $("#Avai").html('Found: ' + count + ' subjects');
+        $("#Avai").attr('value', count);
+      }
+      function showResult2() {
+        var count = 0;
+        var str = $("#search2").val();
+        // alert(str);
+
+        $("form.oke2 select option").each(function () {
+          if ($(this).text().search(new RegExp(str, "i")) < 0) {
+            $(this).fadeOut();
+          } else {
+            $(this).show();
+            count++;
+          }
+        });
+        // alert($("#Avai").attr('value'));
+        // var current = parseInt($("#Avai").attr('value')) - count;
+        $("#Avai2").html('Found: ' + count + ' teachers');
+        $("#Avai2").attr('value', count);
+      }
+
+
     .px-3.pt-3.hide
         h1 Set subject's lecturer
         hr(style="background-color: lightgray;")
@@ -22,16 +62,20 @@ block content
             .row
                 .col-md-3(style='border-right: 1px solid gray;')
                     h2 Select subject
-                    form(action="/school/searchForTeacher", method="POST", hidden= !!selectedSubject)
+
+                    label(for='search') Search:
+                    input(type="text", name="q", class="form-control", placeholder="Any", id='search', onkeyup="showResult();")
+
+                    form.oke(action="/school/searchForTeacher", method="POST", hidden= !!selectedSubject)
                         .form-group
                             input(type='hidden', name='_csrf', value=csrfToken)
-                            label.text-success(for='exampleFormControlSelect1', data-toggle='tooltip', data-placement='right', title=subjects.length + ' subjects found!') Available: #{subjects.length}
+                            label#Avai.text-success(for='exampleFormControlSelect1', data-toggle='tooltip', data-placement='right', title=subjects.length + ' subjects found!') Available: #{subjects.length}
                             select#exampleFormControlSelect1.form-control(size='5', style='overflow-x: scroll;', name='sub')
                               - var isChecked = 0
                               each subject in subjects
                                   option(value=subject, selected=selectedSubject ? (selectedSubject['id_sub'] === subject.id_sub): (isChecked === 0) )= 'ID: '+ subject.id_sub + '; Name: ' + subject.name_sub
                                   - isChecked = 1
-                        button.btn.btn-primary.form-inline(type='submit', style='float: right;') ☕
+                        button.btn.btn-primary.form-inline(type='submit', style='float: right;') Next
                     if selectedSubject
                         span
                             small.text-success.font-weight-bold(style='font-size: large;') #{selectedSubject.name_sub}.
@@ -60,15 +104,19 @@ block content
                               small.text-danger(style='font-size: medium') Lecturer: #{selectedSubject.lecturer}
                 .col-md-2(style='border-right: 1px solid gray;')
                     h2 Teachers
+
+                    label(for='search2') Search:
+                    input(type="text", name="q", class="form-control", placeholder="Any", id='search2', onkeyup="showResult2();")
+
                     if (teachers && selectedSubject)
-                        form(action="/school/searchForTeacher/searchForWeek", method="POST")
+                        form.oke2(action="/school/searchForTeacher/searchForWeek", method="POST")
 
                             .form-group
                                 input(type='hidden', name='_csrf', value=csrfToken)
                                 input(type='hidden', name='sub', value=selectedSubject)
                                 input(type='hidden', name='list_tea', value=teachers)
                                 .text-success(data-toggle='tooltip', data-placement='right', title=teachers.length + ' teachers found!')
-                                    label(for='exampleFormControlSelect2') Available: #{teachers.length}
+                                    label#Avai2(for='exampleFormControlSelect2') Available: #{teachers.length}
 
                                 select#exampleFormControlSelect2.form-control(size='5', style='overflow-x: scroll;', name='tea')
                                   - var order = 1

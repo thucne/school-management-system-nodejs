@@ -3,6 +3,11 @@ extends ../layouts/common
 block content
   link(rel="stylesheet", href="/styles/myTable.css")
 
+  if (userInfo.role !== 10)
+    if (temp)
+      script(type='text/javascript').
+        location.href = location.href + temp
+
   script(type='text/javascript').
     // var idx = location.href.indexOf('#Yess');
     // while (idx > 0) {
@@ -55,11 +60,11 @@ block content
         $('[data-toggle="tooltip"]').tooltip();
       });
     div.align-items-center
-      div(style='float: left;')
-        button.btn.btn-success.mb-2(type='button', data-toggle='tooltip', data-placement='right', title=page.num + ' students found!') Result: &nbsp;
-          span.badge.badge-light#Avai #{page.num}
-          span.sr-only unread messages
       if (userInfo.role === 10)
+        div(style='float: left;')
+          button.btn.btn-success.mb-2(type='button', data-toggle='tooltip', data-placement='right', title=page.num + ' students found!') Result: &nbsp;
+            span.badge.badge-light#Avai #{page.num}
+            span.sr-only unread messages
         div(style='float: right;')
           .container-fluid(style='text-align: center; align-items: center; vertical-align : middle; justify-content: center;')
             .row
@@ -155,27 +160,27 @@ block content
                         a.btn.btn-outline-danger.rounded-circle(href="/users/delete/" + user.id) &#10060;
                       td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Select this user')
                         a.btn.btn-outline-success.rounded-circle(href="/school/select/" + user.id) &#10004;
-
-    ul.pagination.justify-content-center.pagination.notSearch
-      li.page-item
-        a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + (page.y - 3),
-          data-toggle='tooltip', data-placement='left', title='Previous 3 pages') Previous
-      li.page-item.ml-2
-        a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + page.x) #{page.x}
-      li.page-item.active.avt(data-toggle='tooltip', data-placement='top', title='Current page')
-        span.page-link #{page.y}
-          span.sr-only
-      li.page-item
-        a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + page.z) #{page.z}
-      //li.page-item
-      //  a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&'): '?') + 'page=' + (page.y+3)) Next
-      li.page-item
-        form.ml-auto(action="/users" + (page.searchString ? '/search' : '') , method="GET", class="d-flex")
-          input.ml-2(type="number", name="page", class="form-control", placeholder="0..." + page.max, min="0", max=page.max)
-          input(type="hidden", name="q", class="form-control", value=page.searchString)
-          input.btn.btn-primary.mx-2(type="submit", value="Page", data-toggle='tooltip', data-placement='top', title='Move to the input page')
-      li.page-item
-        a.btn.btn-outline-success.mr-2(hidden=true, href='/users/update', data-toggle='tooltip', data-placement='top', title='Update students avatar') Update Avatar
-      li.page-item
-        a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + (page.y + 3),
-          data-toggle='tooltip', data-placement='right', title='Next 3 pages') Next
+    if (userInfo.role === 10)
+      ul.pagination.justify-content-center.pagination.notSearch
+        li.page-item
+          a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + (page.y - 3),
+            data-toggle='tooltip', data-placement='left', title='Previous 3 pages') Previous
+        li.page-item.ml-2
+          a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + page.x) #{page.x}
+        li.page-item.active.avt(data-toggle='tooltip', data-placement='top', title='Current page')
+          span.page-link #{page.y}
+            span.sr-only
+        li.page-item
+          a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + page.z) #{page.z}
+        //li.page-item
+        //  a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&'): '?') + 'page=' + (page.y+3)) Next
+        li.page-item
+          form.ml-auto(action="/users" + (page.searchString ? '/search' : '') , method="GET", class="d-flex")
+            input.ml-2(type="number", name="page", class="form-control", placeholder="0..." + page.max, min="0", max=page.max)
+            input(type="hidden", name="q", class="form-control", value=page.searchString)
+            input.btn.btn-primary.mx-2(type="submit", value="Page", data-toggle='tooltip', data-placement='top', title='Move to the input page')
+        li.page-item
+          a.btn.btn-outline-success.mr-2(hidden=true, href='/users/update', data-toggle='tooltip', data-placement='top', title='Update students avatar') Update Avatar
+        li.page-item
+          a.page-link(href='/users' + (page.searchString ? ('/search?q=' + page.searchString + '&') : '?') + 'page=' + (page.y + 3),
+            data-toggle='tooltip', data-placement='right', title='Next 3 pages') Next
