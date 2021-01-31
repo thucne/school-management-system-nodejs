@@ -1420,9 +1420,30 @@ module.exports.createBatchSubject = function (req, res) {
   var departments = department.get('department').value();
 
   var subjects = subject.get('subjects').value();
+
+  var allNameSubs = [];
+  allNameSubs.push(subjects[0].name_sub);
+  for (let i = 1; i < subjects.length; i++) {
+    let isSkip = false;
+    for (let j = 0; j < allNameSubs.length; j++) {
+      if (subjects[i].name_sub === allNameSubs[j]) {
+        isSkip = true;
+        break;
+      }
+    }
+    if (!isSkip) {
+      allNameSubs.push(subjects[i].name_sub);
+    }
+  }
+
+  // for (let i = 0; i < allNameSubs.length; i++) {
+  //   console.log(allNameSubs[i]);
+  // }
+
   res.render('school/createBatchSubjects', {
     csrfToken: req.csrfToken(),
     departments: departments,
-    subjects: subjects
+    subjects: subjects,
+    allNameSubs: allNameSubs
   });
 }

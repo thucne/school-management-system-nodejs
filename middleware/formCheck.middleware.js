@@ -52,3 +52,11 @@ module.exports.checkAnnouncementCreatingForm = function (req, res, next) {
   }
   next();
 }
+
+module.exports.checkBatchSubjects = function (req, res, next) {
+
+  var errs = [];
+
+  next();
+
+}

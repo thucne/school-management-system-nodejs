@@ -38,26 +38,60 @@ block content
           });
           return false;
         }
+
+        function suggest() {
+          var str = $("#name_sub").val();
+
+          // $(".sug").hide();
+          if (str.length > 0) {
+            $("#suggest").show();
+          } else {
+            $("#suggest").hide();
+          }
+
+          $("div#suggest div.r button").each(function () {
+            if ($(this).text().search(new RegExp(str, "i")) < 0) {
+              $(this).fadeOut();
+            } else {
+              if ($("#name_sub").val().toLowerCase() === $(this).val().toLowerCase()) {
+                $(this).fadeOut();
+                return;
+              }
+              $(this).show();
+            }
+          });
+        }
+
+        function addThis(addWhat) {
+          $("#name_sub").val(addWhat.value);
+          suggest();
+        }
     .px-3.pt-3.hide
         h1 Create subjects
         hr(style="background-color: lightgray;")
         .container-fluid.my-5
             .row
-                .col-md-6
-                    form(action="/school/createBatchSubject", method="POST", name="Create", id="Create")
+                .col-md-7
+                    form.suggest(action="/school/createBatchSubject", method="POST", name="Create", id="Create")
                         .form-group
                             input(type="hidden", name="_csrf", value=csrfToken)
 
                             label(for="name_sub", id='here') Subject's name
                             input#name_sub.form-control(name="name", type="text", value=values ? values.name_sub: '', placeholder="Web's Applications",
                                 pattern="^[a-zA-Z ]*$",
-                                title="In word.", class=values ? (values.name_sub ? 'is-valid' : 'is-invalid'): '' required)
+                                title="In word.", class=values ? (values.name_sub ? 'is-valid' : 'is-invalid'): '' onkeyup='suggest();' required)
                             .valid-feedback(class=values ? (values.name_sub ? 'valid-feedback' : 'invalid-feedback'): '')= values ? (values.name_sub ? 'Looks good!' : 'Please provide subject\'s name!') : ''
+
+                            div#suggest.my-2(style='display: none;')
+                                if (allNameSubs)
+                                    each sub in allNameSubs
+                                      .r
+                                        button.btn.btn-outline-primary.btn-sm.mx-1.my-1(type='button' style='float: left; border-radius: 20px;' onclick='addThis(this);' value=sub) #{sub}
 
                             - var minDate = new Date().getFullYear()+'-'+("0"+(new Date().getMonth()+1)).slice(-2)+'-'+("0"+new Date().getDate()).slice(-2)
 
-                            br
-                            .form-group.row
+                            br(style='clear:both;')
+                            .form-group.row.mt-2
                                 label.col-2.col-form-label(for='start_day') Start
                                 .col-10
                                     input#start_day.form-control(type='date', name='start', min=minDate required)
@@ -93,6 +127,8 @@ block content
                                                 option(data-toggle='tooltip', data-placement='right', title=department.department_name, value=department.department_id) #{department.department_name}
 
 
-                        button.btn.btn-info.mr-2(type='button' onclick='confirmAutoAndSave()') Auto assign time and location for subjects
-                        button.btn.btn-info(type='submit' formaction='/school/createBatchSubject2') Assign manually later
+                        button.btn.btn-success.mr-2(type='button' onclick='confirmAutoAndSave()') Auto assign time and location for subjects
+                        button.btn.btn-danger(type='submit' formaction='/school/createBatchSubject2' style='float: right;') Save then assign manually later
+                .col-md-5
+                    img.mb-5.p-2(src='/images/MySchool03.png', alt='Create', width='100%', style='box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);')
 
