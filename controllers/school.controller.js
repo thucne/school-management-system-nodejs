@@ -1450,3 +1450,52 @@ module.exports.createBatchSubject = function (req, res) {
     allNameSubsCount: allNameSubsCount
   });
 }
+
+module.exports.postCreateBatchSubject1 = function (req, res) {
+
+  for (let i = 0; i < parseInt(req.body.num_class); i++) {
+    var subjects = subject.get('subjects').value();
+
+    var lastSub_ID = subject.get('subjects').nth(subjects.length - 1).value().id_sub;
+    var testSub_ID = parseInt(lastSub_ID) + 1;
+
+    var loop = true;
+
+    while (loop) {
+      for (let i = 0;  i < subjects.length; i++) {
+        if (subjects[i].id_sub === testSub_ID) {
+          testSub_ID++;
+          break;
+        }
+        if (i === subjects.length - 1) {
+          loop = false;
+        }
+      }
+    }
+
+    console.log('Valid ID: ' + testSub_ID);
+
+    var thisSubject = {
+      id_sub: testSub_ID,
+      name_sub: req.body.name_sub,
+      start: req.body.start,
+      end: req.body.end,
+      type: req.body.type,
+      credits: req.body.credits,
+    }
+    // console.log(req.body.department);
+    var thisDepart = department.get('department').find({department_id: parseInt(req.body.department)}).value();
+    var listSub = thisDepart.subjects;
+    listSub.push(testSub_ID);
+    department.get('department').find({department_id: parseInt(req.body.department)}).assign({subjects: listSub}).write();
+    // console.log(thisDepart['subjects'][0]);
+    subject.get('subjects').push(thisSubject).write();
+  }
+
+
+  res.redirect('/school/createBatchSubject');
+}
+
+module.exports.postCreateBatchSubject2 = function (req, res) {
+  res.redirect('/users');
+}

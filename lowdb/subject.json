@@ -9164,6 +9164,46 @@
       "type": "Theory",
       "credits": "2",
       "checked": false
+    },
+    {
+      "id_sub": 1001,
+      "name_sub": "Calculus",
+      "start": "2021-01-31",
+      "end": "2021-05-29",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 1002,
+      "name_sub": "Calculus",
+      "start": "2021-01-31",
+      "end": "2021-05-29",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 1003,
+      "name_sub": "Calculus",
+      "start": "2021-01-31",
+      "end": "2021-05-29",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 1004,
+      "name_sub": "Calculus",
+      "start": "2021-01-31",
+      "end": "2021-05-29",
+      "type": "Theory",
+      "credits": "3"
+    },
+    {
+      "id_sub": 1005,
+      "name_sub": "Calculus",
+      "start": "2021-01-31",
+      "end": "2021-05-29",
+      "type": "Theory",
+      "credits": "3"
     }
   ]
 }

@@ -23,7 +23,7 @@ block content
             dangerMode: true,
           }).then((willSave) => {
             if (willSave) {
-              swal("OK! Save successfully!", {
+              swal("OK! Request sent!", {
                 icon: "success",
                 timer: 1000,
               }).then(() => {
@@ -74,15 +74,17 @@ block content
     .px-3.pt-3.hide
         h1 Create subjects
         hr(style="background-color: lightgray;")
-        .container-fluid.my-5
+
+        .container-fluid.my-5(style='clear: both;')
             .row
                 .col-md-7
+
                     form.suggest(action="/school/createBatchSubject", method="POST", name="Create", id="Create")
                         .form-group
                             input(type="hidden", name="_csrf", value=csrfToken)
 
                             label(for="name_sub", id='here') Subject's name
-                            input#name_sub.form-control(name="name", type="text", value=values ? values.name_sub: '', placeholder="Web's Applications",
+                            input#name_sub.form-control(name="name_sub", type="text", value=values ? values.name_sub: '', placeholder="Web's Applications",
                                 pattern="^[a-zA-Z ]*$",
                                 title="In word.", class=values ? (values.name_sub ? 'is-valid' : 'is-invalid'): '' onkeyup='suggest();' required)
                             .valid-feedback(class=values ? (values.name_sub ? 'valid-feedback' : 'invalid-feedback'): '')= values ? (values.name_sub ? 'Looks good!' : 'Please provide subject\'s name!') : ''
@@ -116,7 +118,7 @@ block content
                                                 input#laboratory.custom-control-input(type='radio', name='type', value='Laboratory', checked=values ? (values.type === 'Laboratory'): 'false')
                                                 label.custom-control-label(for='laboratory') Laboratory
                                             .custom-control.custom-radio.custom-control-inline
-                                                input#theory.custom-control-input(type='radio', name='type', value='Lab', checked=values ? (values.type === 'Theory'): 'false')
+                                                input#theory.custom-control-input(type='radio', name='type', value='Theory', checked=values ? (values.type === 'Theory'): 'false')
                                                 label.custom-control-label(for='theory') Theory
 
                             label(for='credits') Credits
@@ -133,8 +135,12 @@ block content
                                                 option(data-toggle='tooltip', data-placement='right', title=department.department_name, value=department.department_id) #{department.department_name}
 
 
-                        button.btn.btn-success.mr-2(type='button' onclick='confirmAutoAndSave()') Auto assign time and location for subjects
-                        button.btn.btn-danger(type='submit' formaction='/school/createBatchSubject2' style='float: right;') Save then assign manually later
+                        button.btn.btn-danger.mr-2(type='button' onclick='confirmAutoAndSave()') Save, then assign manually later
+                        button.btn.btn-success(type='submit' formaction='/school/createBatchSubject2' style='float: right;') Auto assign time and location for subjects
                 .col-md-5
-                    img.mb-5.p-2(src='/images/MySchool03.png', alt='Create', width='100%', style='box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);')
+                    if (es)
+                      .mb-2
+                          each e in es
+                              .alert.alert-danger.mx-1.my-1(style='float: left;')= e
+                    img.my-3.p-2(src='/images/MySchool03.png', alt='Create', width='100%', style='box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);')
 

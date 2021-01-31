@@ -1,4 +1,6 @@
 const db = require('../lowdb/db');
+var department = require('../lowdb/department');
+var subject = require('../lowdb/subject');
 
 
 module.exports.checkAnnouncementCreatingForm = function (req, res, next) {
@@ -7,7 +9,7 @@ module.exports.checkAnnouncementCreatingForm = function (req, res, next) {
   var errs = [];
 
   if (!req.body.to) {
-    errs.push('The To field is required!');
+    errs.push('"To" field is required!');
   } else {
     let listOfID = req.body.to.split(', ');
     let found = false;
@@ -42,7 +44,7 @@ module.exports.checkAnnouncementCreatingForm = function (req, res, next) {
     errs.push('Content is required!');
   }
 
-  if (errs.length) {
+  if (errs.length > 0) {
     res.render('school/createAnnouncement', {
       csrfToken: req.csrfToken(),
       errs: errs,
@@ -55,7 +57,76 @@ module.exports.checkAnnouncementCreatingForm = function (req, res, next) {
 
 module.exports.checkBatchSubjects = function (req, res, next) {
 
-  var errs = [];
+  next();
+
+}
+
+module.exports.checkBatchSubjects1 = function (req, res, next) {
+
+  var es = [];
+
+  if (!req.body.name_sub) {
+    es.push("Subjects' name is required.");
+  }
+
+  if (!req.body.start) {
+    es.push("'Start' field is required.");
+  }
+
+  if (!req.body.end) {
+    es.push("'End' field is required.");
+  }
+  if (!req.body.type) {
+    es.push("Type field is required.");
+  }
+  if (!req.body.credits) {
+    es.push("Credits field is required.");
+  }
+  if (!req.body.num_class) {
+    es.push("'Number of classes' field is required.");
+  }
+
+  if (!req.body.department) {
+    es.push("Department is required.");
+  }
+
+  if (es.length > 0) {
+    var departments = department.get('department').value();
+
+    var subjects = subject.get('subjects').value();
+
+    var allNameSubs = [];
+    var allNameSubsCount = [];
+
+    allNameSubs.push(subjects[0].name_sub);
+    allNameSubsCount.push(1);
+    for (let i = 1; i < subjects.length; i++) {
+      let isSkip = false;
+      for (let j = 0; j < allNameSubs.length; j++) {
+        if (subjects[i].name_sub === allNameSubs[j]) {
+          isSkip = true;
+          let temp = allNameSubsCount[j] + 1;
+          allNameSubsCount.splice(j, 1, temp);
+          break;
+        }
+      }
+      if (!isSkip) {
+        allNameSubs.push(subjects[i].name_sub);
+        allNameSubsCount.push(1);
+      }
+    }
+
+    res.render('school/createBatchSubjects', {
+      csrfToken: req.csrfToken(),
+      departments: departments,
+      subjects: subjects,
+      allNameSubs: allNameSubs,
+      allNameSubsCount: allNameSubsCount,
+      es: es
+    });
+
+    return;
+  }
 
   next();
 

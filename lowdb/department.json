@@ -2,6 +2,7 @@
   "department": [
     {
       "department_id": 0,
+      "department_code": "BA",
       "department_name": "School of Business",
       "subjects": [
         39,
@@ -44,6 +45,7 @@
     },
     {
       "department_id": 1,
+      "department_code": "CS",
       "department_name": "School of Computer Science and Engineering",
       "subjects": [
         35,
@@ -139,6 +141,7 @@
     },
     {
       "department_id": 2,
+      "department_code": "SE",
       "department_name": "School of Electrical Engineering",
       "subjects": [
         19,
@@ -232,6 +235,7 @@
     },
     {
       "department_id": 3,
+      "department_code": "BT",
       "department_name": "School of Biotechnology",
       "subjects": [
         5,
@@ -309,6 +313,7 @@
     },
     {
       "department_id": 4,
+      "department_code": "MA",
       "department_name": "Department of Mathematics",
       "subjects": [
         11,
@@ -389,11 +394,17 @@
         948,
         975,
         976,
-        997
+        997,
+        1001,
+        1002,
+        1003,
+        1004,
+        1005
       ]
     },
     {
       "department_id": 5,
+      "department_code": "PH",
       "department_name": "Department of Physics",
       "subjects": [
         2,
@@ -491,6 +502,7 @@
     },
     {
       "department_id": 6,
+      "department_code": "BE",
       "department_name": "Department of Biomedical Engineering",
       "subjects": [
         9,
@@ -593,6 +605,7 @@
     },
     {
       "department_id": 7,
+      "department_code": "CE",
       "department_name": "Department of Civil Engineering",
       "subjects": [
         1,
@@ -701,6 +714,7 @@
     },
     {
       "department_id": 8,
+      "department_code": "IE",
       "department_name": "Department of Industrial and Systems Engineering",
       "subjects": [
         7,
@@ -818,6 +832,7 @@
     },
     {
       "department_id": 9,
+      "department_code": "EL",
       "department_name": "Department of English",
       "subjects": [
         48,
@@ -903,6 +918,7 @@
     },
     {
       "department_id": 10,
+      "department_code": "EV",
       "department_name": "Department of Environmental Engineering",
       "subjects": [
         13,
