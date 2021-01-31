@@ -1422,28 +1422,31 @@ module.exports.createBatchSubject = function (req, res) {
   var subjects = subject.get('subjects').value();
 
   var allNameSubs = [];
+  var allNameSubsCount = [];
+
   allNameSubs.push(subjects[0].name_sub);
+  allNameSubsCount.push(1);
   for (let i = 1; i < subjects.length; i++) {
     let isSkip = false;
     for (let j = 0; j < allNameSubs.length; j++) {
       if (subjects[i].name_sub === allNameSubs[j]) {
         isSkip = true;
+        let temp = allNameSubsCount[j] + 1;
+        allNameSubsCount.splice(j, 1, temp);
         break;
       }
     }
     if (!isSkip) {
       allNameSubs.push(subjects[i].name_sub);
+      allNameSubsCount.push(1);
     }
   }
-
-  // for (let i = 0; i < allNameSubs.length; i++) {
-  //   console.log(allNameSubs[i]);
-  // }
 
   res.render('school/createBatchSubjects', {
     csrfToken: req.csrfToken(),
     departments: departments,
     subjects: subjects,
-    allNameSubs: allNameSubs
+    allNameSubs: allNameSubs,
+    allNameSubsCount: allNameSubsCount
   });
 }
