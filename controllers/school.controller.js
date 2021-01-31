@@ -1880,7 +1880,7 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
 
             let to = (selectThis[1] - 1);
             console.log('COntent in What Day In Week BEFORE ' + oo);
-            for (let b = selectThis[1] - req.body.chooseThisCredit - 1; b < to; b++) {
+            for (let b = selectThis[1] - selectedSubjectCredit - 1; b < to; b++) {
               oo.splice(b, 1, 1);
             }
             console.log('COntent in What Day In Week ' + oo);
