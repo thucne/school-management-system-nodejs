@@ -65,6 +65,9 @@ block content
         .container-fluid.my-5.hide
             .row
                 .col-md-12
+                    if errs
+                      each err in errs
+                        .alert.alert-danger= err
                     form(action="/school/postThisAnnouncement", method="POST", name="Create", id='Create')
                         script(type='text/javascript').
                           function confirmSave() {
@@ -122,7 +125,7 @@ block content
 
                         button.alert.btn.btn-primary#z(type='button' onclick='confirmSave()' disabled style='float:left; vertical-align : middle;')= 'POST'
                         .alert.alert-danger.ml-2.alert-dismissible.fade.show#t(style='display: none; float: left;')
-                            strong Only English content are allowed!
+                            strong Only English contents are allowed!
                             button.close(type='button', data-dismiss='alert', aria-label='Close')
                                 span(aria-hidden='true') &times;
 

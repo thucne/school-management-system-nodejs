@@ -31,5 +31,7 @@ router.get('/assignStudentAndTeacherID', controller.assignStudentAndTeacherID);
 router.get('/courseAllocation', controller.showTeacherCourse);
 router.get('/download/:id', controller.download);
 router.get('/createBatchSubject', checkForm.checkBatchSubjects, controller.createBatchSubject);
+router.post('/createBatchSubject', checkForm.checkBatchSubjects1, controller.postCreateBatchSubject1);
+router.post('/createBatchSubject2', controller.postCreateBatchSubject2);
 
 module.exports = router;
