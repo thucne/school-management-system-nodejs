@@ -173,10 +173,10 @@ block content
 
                               each subject in subjects
 
-                                  tr#oops(class=!subject.room ? 'not-ready-subject': '', data-toggle='tooltip', data-placement='right', title=!subject.room ? 'This subject is being updated...': '')
+                                  tr#oops(class=(!subject.whichDay || subject.whichDay === undefined) ? 'not-ready-subject': '', data-toggle='tooltip', data-placement='right', title=!subject.room ? 'This subject is being updated...': '')
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')
                                           .form-check
-                                              input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=subject.id_sub, onchange="document.SelectThis.submit()", disabled=!subject.room || (subject.checked === true))
+                                              input.form-check-input.position-static(id=count.toString(), type='checkbox', name='thisSubject', value=subject.id_sub, onchange="document.SelectThis.submit()", disabled=(!subject.whichDay || subject.whichDay === undefined) || (subject.checked === true))
                                               //label.custom-control-label(for=count.toString())
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= correspondingDepartmentOfSubject[count]['department_id']
                                       td(style='text-align:center; align-items: center; vertical-align : middle; justify-content: center;')= correspondingDepartmentOfSubject[count++]['department_name']
