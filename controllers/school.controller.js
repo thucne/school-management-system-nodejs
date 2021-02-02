@@ -1560,7 +1560,7 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
 
   function process() {
 
-    for (let i = 0; i < Math.floor(allIncompleteSubjects.length/15); i++) {
+    for (let i = 0; i < allIncompleteSubjects.length; i++) {
 
       let weeks;
       let rooms;
@@ -1632,41 +1632,8 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
       listRoom = listOfRoom;
       console.log('Number of available rooms ' + listRoom.length + ' For ' + selectedSubject['credits']);
       if (listRoom.length <= 0) {
-        let departmentss = department.get('department').value();
-
-        let subjectss = subject.get('subjects').value();
-
-        let allNameSubs = [];
-        let allNameSubsCount = [];
-
-        allNameSubs.push(subjectss[0].name_sub);
-        allNameSubsCount.push(1);
-        for (let i = 1; i < subjects.length; i++) {
-          let isSkip = false;
-          for (let j = 0; j < allNameSubs.length; j++) {
-            if (subjectss[i].name_sub === allNameSubs[j]) {
-              isSkip = true;
-              let temp = allNameSubsCount[j] + 1;
-              allNameSubsCount.splice(j, 1, temp);
-              break;
-            }
-          }
-          if (!isSkip) {
-            allNameSubs.push(subjectss[i].name_sub);
-            allNameSubsCount.push(1);
-          }
-        }
-
-        res.render('school/createBatchSubjects', {
-          csrfToken: req.csrfToken(),
-          departments: departmentss,
-          subjects: subjectss,
-          allNameSubs: allNameSubs,
-          allNameSubsCount: allNameSubsCount,
-          es: ['One or more subjects are not assigned due to lack of suitable rooms!'],
-        });
         isContinue = false;
-        return;
+        continue;
       }
       // for (let  i = 0; i < listRoom.length; i++) {
       //   console.log(listRoom[i].room);
@@ -2030,6 +1997,15 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
         allNameSubsCount: allNameSubsCount,
         suc2: 'yes'
       })
+    } else {
+      res.render('school/createBatchSubjects', {
+        csrfToken: req.csrfToken(),
+        departments: departmentss,
+        subjects: subjectss,
+        allNameSubs: allNameSubs,
+        allNameSubsCount: allNameSubsCount,
+        es: ['One or more subjects are not assigned due to lack of suitable rooms!'],
+      });
     }
   }
 
