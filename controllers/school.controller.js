@@ -1654,8 +1654,9 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
         subjects: subjectss,
         allNameSubs: allNameSubs,
         allNameSubsCount: allNameSubsCount,
-        suc: 'yes'
-      })
+        es: ['One or more subjects are not assigned due to lack of suitable rooms!'],
+      });
+      return;
     }
     // for (let  i = 0; i < listRoom.length; i++) {
     //   console.log(listRoom[i].room);
@@ -1982,7 +1983,7 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
   }
 
   function process() {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < Math.floor(allIncompleteSubjects.length/15); i++) {
       testF(i);
     }
   }
