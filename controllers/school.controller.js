@@ -2062,7 +2062,7 @@ module.exports.create100rooms = function (req, res) {
     //   return Math.floor(Math.random() * (max - min + 1)) + min;
     // }
 
-    let newRoom = 'A3.' + (Math.floor(Math.random() * 14)+1).toString() + (Math.floor(Math.random() * 9) + 10).toString();
+    let newRoom = 'B.' + (Math.floor(Math.random() * 14)+1).toString() + (Math.floor(Math.random() * 9) + 10).toString();
     let isDuplicate = true;
 
     while (isFound) {
@@ -2077,7 +2077,7 @@ module.exports.create100rooms = function (req, res) {
     while (isDuplicate) {
       isDuplicate = room.get('class_room').find({room: newRoom}).value();
       if (isDuplicate) {
-        newRoom = 'A3.' + (Math.floor(Math.random() * 14)+1).toString() + (Math.floor(Math.random() * 9) + 10).toString();
+        newRoom = 'B.' + (Math.floor(Math.random() * 14)+1).toString() + (Math.floor(Math.random() * 9) + 10).toString();
       } else {
         isDuplicate = false;
       }
@@ -2093,4 +2093,58 @@ module.exports.create100rooms = function (req, res) {
   }
 
   res.redirect('/users');
+}
+
+module.exports.bind100roomsWith100weeks = function (req, res) {
+  var rooms = room.get('class_room').value();
+
+  // var tempSubjects = subject.get('subjects').value();
+  var allNotConnectedRooms = [];
+
+  var first = 0;
+  var start;
+  for (let i = 0; i < rooms.length; i++) {
+    if (rooms[i].id_week === undefined) {
+      if (first === 0) {
+        first = 1;
+      }
+      allNotConnectedRooms.push(rooms[i]);
+    }
+    if (first === 0) {
+      start = rooms[i];
+    }
+  }
+
+  console.log('SIZE ' + allNotConnectedRooms.length);
+  console.log('First room ' + allNotConnectedRooms[0].room);
+
+  function assign() {
+    for (let  i = 0;  i < allNotConnectedRooms.length; i++) {
+      let thisRoom = allNotConnectedRooms[i];
+
+      let idLastStart = start['id_week'];
+
+      let nowID = parseInt(idLastStart) + 1;
+
+      let isFound = true;
+
+      while (isFound) {
+        isFound = room.get('class_room').find({id_week: nowID}).value();
+        if (isFound) {
+          nowID++;
+        } else {
+          isFound = false;
+        }
+      }
+
+      room.get('class_room').find({id: thisRoom.id}).assign({id_week: nowID}).write();
+    }
+  }
+
+  async function runAssign() {
+    await assign();
+  }
+
+  runAssign().then(res.redirect('/users'));
+
 }

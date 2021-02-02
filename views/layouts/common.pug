@@ -83,8 +83,9 @@ html
                                     a.dropdown-item(href='/school/createAnnouncement', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Post new announcement
                                     //a.dropdown-item(href='/school/assignStudentAndTeacherID', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign readable ID
                                     a.dropdown-item(href='/school/createBatchSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create subjects
-                                    a.dropdown-item(href='/school/create100weeks', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create 100 weeks
-                                    a.dropdown-item(href='/school/create100rooms', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create 100 rooms
+                                    a.dropdown-item.disabled(href='/school/create100weeks', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create 100 weeks
+                                    a.dropdown-item.disabled(href='/school/create100rooms', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create 100 rooms
+                                    a.dropdown-item.disabled(href='/school/bind100roomsWith100weeks', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Bind 100 rooms with 100 weeks
 
 
                     span.form-inline.my-2.my-lg-0=  userInfo.name
