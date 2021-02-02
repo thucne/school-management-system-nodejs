@@ -13641,6 +13641,76 @@
         1,
         2
       ]
+    },
+    {
+      "id_sub": 1001,
+      "name_sub": "Web Development",
+      "start": "2021-02-02",
+      "end": "2021-05-31",
+      "type": "Theory",
+      "credits": "2",
+      "room": "A2.517",
+      "whichDay": "mon",
+      "whichPeriod": [
+        5,
+        6
+      ]
+    },
+    {
+      "id_sub": 1002,
+      "name_sub": "Web Development",
+      "start": "2021-02-02",
+      "end": "2021-05-31",
+      "type": "Theory",
+      "credits": "2",
+      "room": "A1.605",
+      "whichDay": "thu",
+      "whichPeriod": [
+        2,
+        3
+      ]
+    },
+    {
+      "id_sub": 1003,
+      "name_sub": "Web Development",
+      "start": "2021-02-02",
+      "end": "2021-05-31",
+      "type": "Theory",
+      "credits": "2",
+      "room": "A2.719",
+      "whichDay": "fri",
+      "whichPeriod": [
+        11,
+        12
+      ]
+    },
+    {
+      "id_sub": 1004,
+      "name_sub": "Web Development",
+      "start": "2021-02-02",
+      "end": "2021-05-31",
+      "type": "Theory",
+      "credits": "2",
+      "room": "A2.517",
+      "whichDay": "mon",
+      "whichPeriod": [
+        11,
+        12
+      ]
+    },
+    {
+      "id_sub": 1005,
+      "name_sub": "Web Development",
+      "start": "2021-02-02",
+      "end": "2021-05-31",
+      "type": "Theory",
+      "credits": "2",
+      "room": "A2.606",
+      "whichDay": "wed",
+      "whichPeriod": [
+        4,
+        5
+      ]
     }
   ]
 }
