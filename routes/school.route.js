@@ -33,5 +33,7 @@ router.get('/download/:id', controller.download);
 router.get('/createBatchSubject', checkForm.checkBatchSubjects, controller.createBatchSubject);
 router.post('/createBatchSubject', checkForm.checkBatchSubjects1, controller.postCreateBatchSubject1);
 router.post('/createBatchSubject2', controller.postCreateBatchSubject2);
+router.get('/create100weeks', controller.create100weeks);
+router.get('/create100rooms', controller.create100rooms);
 
 module.exports = router;

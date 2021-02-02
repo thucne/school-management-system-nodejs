@@ -1530,7 +1530,7 @@ module.exports.postCreateBatchSubject1 = function (req, res) {
     subjects: subjectss,
     allNameSubs: allNameSubs,
     allNameSubsCount: allNameSubsCount,
-    suc2: 'yes'
+    suc1: 'yes'
   });
 
 }
@@ -2004,11 +2004,93 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
         subjects: subjectss,
         allNameSubs: allNameSubs,
         allNameSubsCount: allNameSubsCount,
-        es: ['One or more subjects are not assigned due to lack of suitable rooms!'],
+        es: ['One or more existed subjects are not assigned due to lack of suitable rooms!'],
       });
     }
   }
 
   run().then(done);
 
+}
+
+module.exports.create100weeks = function (req, res) {
+  for (let i = 0;  i < 100; i++) {
+    let weeks = week.get('weeks').value();
+
+    let lastWeek = week.get('weeks').nth(weeks.length - 1).value();
+
+    let idLastWeek = lastWeek['id_week'];
+
+    console.log(idLastWeek);
+
+    let weekModel = {
+      "id_week": (parseInt(idLastWeek) + 1),
+      "mon": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "tue": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "wed": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "thu": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "fri": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "sat": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "sun": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    }
+
+    week.get('weeks').push(weekModel).write();
+
+  }
+
+  res.redirect('/users');
+}
+
+module.exports.create100rooms = function (req, res) {
+  for (let i = 0;  i < 100; i++) {
+    let rooms = room.get('class_room').value();
+
+    let lastRoom = room.get('class_room').nth(rooms.length - 1).value();
+
+    let idLastRoom = lastRoom['id'];
+    let nameLastRoom = lastRoom['room'];
+
+    console.log(idLastRoom);
+    console.log(nameLastRoom);
+
+    let newID = idLastRoom + 1;
+    let isFound = true;
+
+    // function getRandomInt(min, max) {
+    //   min = Math.ceil(min);
+    //   max = Math.floor(max);
+    //   return Math.floor(Math.random() * (max - min + 1)) + min;
+    // }
+
+    let newRoom = 'A3.' + (Math.floor(Math.random() * 14)+1).toString() + (Math.floor(Math.random() * 9) + 10).toString();
+    let isDuplicate = true;
+
+    while (isFound) {
+      isFound = room.get('class_room').find({id: newID}).value();
+      if (isFound) {
+        newID++;
+      } else {
+        isFound = false;
+      }
+    }
+
+    while (isDuplicate) {
+      isDuplicate = room.get('class_room').find({room: newRoom}).value();
+      if (isDuplicate) {
+        newRoom = 'A3.' + (Math.floor(Math.random() * 14)+1).toString() + (Math.floor(Math.random() * 9) + 10).toString();
+      } else {
+        isDuplicate = false;
+      }
+    }
+
+    let roomModel = {
+      "id": newID,
+      "room": newRoom
+    }
+
+    room.get('class_room').push(roomModel).write();
+
+  }
+
+  res.redirect('/users');
 }
