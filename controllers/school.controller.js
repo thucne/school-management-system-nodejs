@@ -414,6 +414,10 @@ module.exports.searchWeek = function (req, res) {
 
   // console.log(displayedResult);
 
+  console.log('Where: \n' + where + '\n Length ' + where.length);
+  console.log('WhereDay: \n' + whereDay + '\n Length ' + whereDay.length + '\n');
+  console.log(displayedResult);
+
   res.render('school/createSubject', {
     subjects: subjects,
     rooms: listRoom,
@@ -1545,11 +1549,11 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
     }
   }
 
-  // console.log('Size ' + allIncompleteSubjects.length);
-  // console.log(subjects[0].room);
+  console.log('Size ' + allIncompleteSubjects.length);
+  console.log(subjects[0].room);
 
   function process() {
-    for (let i = 0; i < allIncompleteSubjects.length; i++) {
+    for (let i = 0; i < 10; i++) {
       let GV = i;
       let listOfRoom = [];
       let selectedSubject = allIncompleteSubjects[i];
@@ -1615,6 +1619,10 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
         }
         function runFirstInsideBlock2() {
           listRoom = listOfRoom;
+          console.log('Number of available rooms ' + listRoom.length);
+          // for (let  i = 0; i < listRoom.length; i++) {
+          //   console.log(listRoom[i].room);
+          // }
           let random = getRandomInt(0, listRoom.length - 1);
           selectedRoom = listOfRoom[random];
           console.log('Random number ' + random);
@@ -1821,9 +1829,6 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
 
             let tempDate = [];
 
-
-
-            let startPeriod;
             let arrayTemp = [];
 
             let whatPeriod = 1;
@@ -1840,20 +1845,24 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
               tempCount += displayedResult[tem[i]].length;
               whatPeriod++;
             }
-            startPeriod = getRandomInt(0, arrayTemp.length - 1);
-            if (GV === 0) {
-              for (let  i = 0;  i < tempDate.length; i++) {
+
+
+            for (let  i = 0;  i < tempDate.length; i++) {
                 console.log('tempDate ' + tempDate[i]);
               }
-              for (let i = 0; i < arrayTemp.length; i++) {
+            for (let i = 0; i < arrayTemp.length; i++) {
                 console.log('arrayTemp ' + arrayTemp[i]);
               }
 
-            }
             console.log(displayedResult);
             let random2 = getRandomInt(0, tempDate.length - 1);
 
+            console.log('selectThis[0] ' + tempDate[random2] + ' selectThis[2] ' + arrayTemp[random2]);
+
             let selectThis = [tempDate[random2], arrayTemp[random2]];
+
+
+
             let whichPeriod = [];
             for (let t = 0; t < selectedSubjectCredit; t++) {
               whichPeriod.push(selectThis[1]++);
@@ -1866,8 +1875,10 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
                 .assign({room: selectedRoom.room, whichDay: selectThis[0], whichPeriod: whichPeriod})
                 .write();
 
-            let selectedRoom2 = room.get('class_room').find({id: selectedRoom.id}).value();
-            let selectWeekID = selectedRoom2['id_week'];
+            // let selectedRoom2 = room.get('class_room').find({id: selectedRoom.id}).value();
+            // let selectWeekID = selectedRoom2['id_week'];
+
+            let selectWeekID = selectedRoom['id_week'];
 
             let selectedWeek = week.get('weeks').find({id_week: selectWeekID}).value();
             // console.log('Week ISSSS ' + selectedWeek.id_week);
@@ -1879,11 +1890,11 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
             // console.log('day ' + whatDayInSelectedWeek);
 
             let to = (selectThis[1] - 1);
-            console.log('COntent in What Day In Week BEFORE ' + oo);
+            console.log('Content in What Day In Week BEFORE ' + oo);
             for (let b = selectThis[1] - selectedSubjectCredit - 1; b < to; b++) {
               oo.splice(b, 1, 1);
             }
-            console.log('COntent in What Day In Week ' + oo);
+            console.log('Content in What Day In Week ' + oo);
 
             if (whatDayInSelectedWeek === 'mon') {
               week.get('weeks').find({id_week: selectWeekID}).assign({mon: oo}).write();
