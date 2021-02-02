@@ -16293,8 +16293,8 @@
     {
       "id_sub": 1001,
       "name_sub": "Web Development",
-      "start": "2021/02/02",
-      "end": "2021/05/31",
+      "start": "02/02/2021",
+      "end": "31/05/2021",
       "type": "Theory",
       "credits": "2",
       "room": "A2.517",
@@ -16307,8 +16307,8 @@
     {
       "id_sub": 1002,
       "name_sub": "Web Development",
-      "start": "2021/02/02",
-      "end": "2021/05/31",
+      "start": "02/02/2021",
+      "end": "31/05/2021",
       "type": "Theory",
       "credits": "2",
       "room": "A1.605",
@@ -16321,8 +16321,8 @@
     {
       "id_sub": 1003,
       "name_sub": "Web Development",
-      "start": "2021/02/02",
-      "end": "2021/05/31",
+      "start": "02/02/2021",
+      "end": "31/05/2021",
       "type": "Theory",
       "credits": "2",
       "room": "A2.719",
@@ -16335,8 +16335,8 @@
     {
       "id_sub": 1004,
       "name_sub": "Web Development",
-      "start": "2021/02/02",
-      "end": "2021/05/31",
+      "start": "02/02/2021",
+      "end": "31/05/2021",
       "type": "Theory",
       "credits": "2",
       "room": "A2.517",
@@ -16349,8 +16349,8 @@
     {
       "id_sub": 1005,
       "name_sub": "Web Development",
-      "start": "2021/02/02",
-      "end": "2021/05/31",
+      "start": "02/02/2021",
+      "end": "31/05/2021",
       "type": "Theory",
       "credits": "2",
       "room": "A2.606",
@@ -16358,6 +16358,71 @@
       "whichPeriod": [
         4,
         5
+      ]
+    },
+    {
+      "id_sub": 1006,
+      "name_sub": "Critical Thinking",
+      "start": "02/02/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "1",
+      "room": "A3.1217",
+      "whichDay": "fri",
+      "whichPeriod": [
+        1
+      ]
+    },
+    {
+      "id_sub": 1007,
+      "name_sub": "Critical Thinking",
+      "start": "02/02/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "1",
+      "room": "A1.516",
+      "whichDay": "fri",
+      "whichPeriod": [
+        7
+      ]
+    },
+    {
+      "id_sub": 1008,
+      "name_sub": "Critical Thinking",
+      "start": "02/02/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "1",
+      "room": "A1.605",
+      "whichDay": "tue",
+      "whichPeriod": [
+        8
+      ]
+    },
+    {
+      "id_sub": 1009,
+      "name_sub": "Critical Thinking",
+      "start": "02/02/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "1",
+      "room": "A3.517",
+      "whichDay": "thu",
+      "whichPeriod": [
+        1
+      ]
+    },
+    {
+      "id_sub": 1010,
+      "name_sub": "Critical Thinking",
+      "start": "02/02/2021",
+      "end": "06/01/2021",
+      "type": "Theory",
+      "credits": "1",
+      "room": "B.1316",
+      "whichDay": "fri",
+      "whichPeriod": [
+        1
       ]
     }
   ]
