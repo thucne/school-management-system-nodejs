@@ -1482,11 +1482,22 @@ module.exports.postCreateBatchSubject1 = function (req, res) {
 
     console.log('Valid ID: ' + testSub_ID);
 
+    function format(input) {
+      let pattern = /(\d{4})\-(\d{2})\-(\d{2})/;
+      if (!input || !input.match(pattern)) {
+        return null;
+      }
+      return input.replace(pattern, '$2/$3/$1');
+    }
+
+    let start = format(req.body.start);
+    let end = format(req.body.end);
+
     var thisSubject = {
       id_sub: testSub_ID,
       name_sub: req.body.name_sub,
-      start: req.body.start,
-      end: req.body.end,
+      start: start,
+      end: end,
       type: req.body.type,
       credits: req.body.credits,
     }
