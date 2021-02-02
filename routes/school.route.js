@@ -35,5 +35,6 @@ router.post('/createBatchSubject', checkForm.checkBatchSubjects1, controller.pos
 router.post('/createBatchSubject2', controller.postCreateBatchSubject2);
 router.get('/create100weeks', controller.create100weeks);
 router.get('/create100rooms', controller.create100rooms);
+router.get('/bind100roomsWith100weeks', controller.bind100roomsWith100weeks);
 
 module.exports = router;
