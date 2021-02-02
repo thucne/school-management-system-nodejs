@@ -840,7 +840,13 @@
       "end": "06/01/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A2.716",
+      "whichDay": "thu",
+      "whichPeriod": [
+        9,
+        10
+      ]
     },
     {
       "id_sub": 52,
@@ -849,7 +855,15 @@
       "end": "05/31/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.616",
+      "whichDay": "wed",
+      "whichPeriod": [
+        7,
+        8,
+        9,
+        10
+      ]
     },
     {
       "id_sub": 53,
@@ -858,7 +872,14 @@
       "end": "06/15/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A2.219",
+      "whichDay": "tue",
+      "whichPeriod": [
+        6,
+        7,
+        8
+      ]
     },
     {
       "id_sub": 54,
@@ -867,7 +888,13 @@
       "end": "06/14/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.315",
+      "whichDay": "sat",
+      "whichPeriod": [
+        7,
+        8
+      ]
     },
     {
       "id_sub": 55,
@@ -876,7 +903,14 @@
       "end": "06/24/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A2.611",
+      "whichDay": "wed",
+      "whichPeriod": [
+        8,
+        9,
+        10
+      ]
     },
     {
       "id_sub": 56,
@@ -885,7 +919,15 @@
       "end": "06/17/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.609",
+      "whichDay": "mon",
+      "whichPeriod": [
+        3,
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 57,
@@ -894,7 +936,15 @@
       "end": "06/03/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.418",
+      "whichDay": "tue",
+      "whichPeriod": [
+        2,
+        3,
+        4,
+        5
+      ]
     },
     {
       "id_sub": 58,
@@ -903,7 +953,15 @@
       "end": "06/22/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.614",
+      "whichDay": "wed",
+      "whichPeriod": [
+        3,
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 59,
@@ -912,7 +970,15 @@
       "end": "06/08/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.705",
+      "whichDay": "wed",
+      "whichPeriod": [
+        8,
+        9,
+        10,
+        11
+      ]
     },
     {
       "id_sub": 60,
@@ -921,7 +987,15 @@
       "end": "06/27/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.718",
+      "whichDay": "sat",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 61,
@@ -930,7 +1004,13 @@
       "end": "06/05/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A2.608",
+      "whichDay": "sun",
+      "whichPeriod": [
+        6,
+        7
+      ]
     },
     {
       "id_sub": 62,
@@ -939,7 +1019,14 @@
       "end": "06/27/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A2.607",
+      "whichDay": "thu",
+      "whichPeriod": [
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 63,
@@ -948,7 +1035,15 @@
       "end": "06/24/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.214",
+      "whichDay": "tue",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 64,
@@ -957,7 +1052,14 @@
       "end": "06/05/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A2.616",
+      "whichDay": "tue",
+      "whichPeriod": [
+        9,
+        10,
+        11
+      ]
     },
     {
       "id_sub": 65,
@@ -966,7 +1068,14 @@
       "end": "06/11/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": true
+      "checked": true,
+      "room": "A2.717",
+      "whichDay": "fri",
+      "whichPeriod": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id_sub": 66,
@@ -975,7 +1084,14 @@
       "end": "06/12/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.406",
+      "whichDay": "sat",
+      "whichPeriod": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id_sub": 67,
@@ -984,7 +1100,15 @@
       "end": "06/26/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.108",
+      "whichDay": "sun",
+      "whichPeriod": [
+        2,
+        3,
+        4,
+        5
+      ]
     },
     {
       "id_sub": 68,
@@ -993,7 +1117,15 @@
       "end": "06/01/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.711",
+      "whichDay": "sun",
+      "whichPeriod": [
+        3,
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 69,
@@ -1002,7 +1134,13 @@
       "end": "06/15/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.717",
+      "whichDay": "thu",
+      "whichPeriod": [
+        8,
+        9
+      ]
     },
     {
       "id_sub": 70,
@@ -1011,7 +1149,14 @@
       "end": "06/27/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A2.319",
+      "whichDay": "sat",
+      "whichPeriod": [
+        5,
+        6,
+        7
+      ]
     },
     {
       "id_sub": 71,
@@ -1020,7 +1165,15 @@
       "end": "06/02/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.709",
+      "whichDay": "sun",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 72,
@@ -1029,7 +1182,15 @@
       "end": "06/04/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.516",
+      "whichDay": "sat",
+      "whichPeriod": [
+        5,
+        6,
+        7,
+        8
+      ]
     },
     {
       "id_sub": 73,
@@ -1038,7 +1199,14 @@
       "end": "06/11/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.305",
+      "whichDay": "sun",
+      "whichPeriod": [
+        6,
+        7,
+        8
+      ]
     },
     {
       "id_sub": 74,
@@ -1047,7 +1215,15 @@
       "end": "05/31/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.606",
+      "whichDay": "sat",
+      "whichPeriod": [
+        8,
+        9,
+        10,
+        11
+      ]
     },
     {
       "id_sub": 75,
@@ -1056,7 +1232,14 @@
       "end": "06/03/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.605",
+      "whichDay": "wed",
+      "whichPeriod": [
+        7,
+        8,
+        9
+      ]
     },
     {
       "id_sub": 76,
@@ -1065,7 +1248,15 @@
       "type": "Laboratory",
       "credits": "4",
       "name_sub": "Critical Thinking",
-      "checked": true
+      "checked": true,
+      "room": "A2.707",
+      "whichDay": "tue",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 77,
@@ -1074,7 +1265,13 @@
       "end": "06/04/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A2.608",
+      "whichDay": "tue",
+      "whichPeriod": [
+        4,
+        5
+      ]
     },
     {
       "id_sub": 78,
@@ -1083,7 +1280,14 @@
       "end": "06/14/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A2.306",
+      "whichDay": "fri",
+      "whichPeriod": [
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 79,
@@ -1092,7 +1296,15 @@
       "end": "06/09/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.717",
+      "whichDay": "mon",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 80,
@@ -1101,7 +1313,13 @@
       "end": "06/19/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.315",
+      "whichDay": "tue",
+      "whichPeriod": [
+        6,
+        7
+      ]
     },
     {
       "id_sub": 81,
@@ -1110,7 +1328,13 @@
       "end": "06/15/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A2.614",
+      "whichDay": "wed",
+      "whichPeriod": [
+        1,
+        2
+      ]
     },
     {
       "id_sub": 82,
@@ -1119,7 +1343,15 @@
       "end": "06/15/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.713",
+      "whichDay": "wed",
+      "whichPeriod": [
+        7,
+        8,
+        9,
+        10
+      ]
     },
     {
       "id_sub": 83,
@@ -1128,7 +1360,14 @@
       "type": "Laboratory",
       "credits": "3",
       "name_sub": "Software Engineering",
-      "checked": true
+      "checked": true,
+      "room": "A2.617",
+      "whichDay": "mon",
+      "whichPeriod": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id_sub": 84,
@@ -1137,7 +1376,14 @@
       "end": "06/02/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.709",
+      "whichDay": "sat",
+      "whichPeriod": [
+        3,
+        4,
+        5
+      ]
     },
     {
       "id_sub": 85,
@@ -1146,7 +1392,14 @@
       "end": "06/20/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.708",
+      "whichDay": "sun",
+      "whichPeriod": [
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 86,
@@ -1155,7 +1408,13 @@
       "end": "06/05/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A2.609",
+      "whichDay": "sat",
+      "whichPeriod": [
+        1,
+        2
+      ]
     },
     {
       "id_sub": 87,
@@ -1164,7 +1423,14 @@
       "end": "06/05/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.712",
+      "whichDay": "sat",
+      "whichPeriod": [
+        7,
+        8,
+        9
+      ]
     },
     {
       "id_sub": 88,
@@ -1173,7 +1439,15 @@
       "end": "06/11/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.615",
+      "whichDay": "fri",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 89,
@@ -1182,7 +1456,13 @@
       "end": "06/16/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.214",
+      "whichDay": "wed",
+      "whichPeriod": [
+        9,
+        10
+      ]
     },
     {
       "id_sub": 90,
@@ -1191,7 +1471,14 @@
       "end": "06/26/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.703",
+      "whichDay": "sun",
+      "whichPeriod": [
+        3,
+        4,
+        5
+      ]
     },
     {
       "id_sub": 91,
@@ -1200,7 +1487,14 @@
       "end": "06/16/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A2.713",
+      "whichDay": "sun",
+      "whichPeriod": [
+        8,
+        9,
+        10
+      ]
     },
     {
       "id_sub": 92,
@@ -1209,7 +1503,15 @@
       "end": "06/12/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.518",
+      "whichDay": "wed",
+      "whichPeriod": [
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 93,
@@ -1218,7 +1520,14 @@
       "end": "06/07/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.609",
+      "whichDay": "wed",
+      "whichPeriod": [
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 94,
@@ -1227,7 +1536,13 @@
       "end": "06/27/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.606",
+      "whichDay": "mon",
+      "whichPeriod": [
+        10,
+        11
+      ]
     },
     {
       "id_sub": 95,
@@ -1236,7 +1551,15 @@
       "type": "Theory",
       "credits": "4",
       "name_sub": "Discrete Math",
-      "checked": false
+      "checked": false,
+      "room": "A2.518",
+      "whichDay": "sat",
+      "whichPeriod": [
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 96,
@@ -1245,7 +1568,13 @@
       "end": "06/24/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.418",
+      "whichDay": "sun",
+      "whichPeriod": [
+        4,
+        5
+      ]
     },
     {
       "id_sub": 97,
@@ -1254,7 +1583,14 @@
       "end": "06/28/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": true
+      "checked": true,
+      "room": "A2.217",
+      "whichDay": "wed",
+      "whichPeriod": [
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 98,
@@ -1263,7 +1599,15 @@
       "end": "06/17/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.704",
+      "whichDay": "tue",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 99,
@@ -1272,7 +1616,13 @@
       "end": "06/25/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.712",
+      "whichDay": "sun",
+      "whichPeriod": [
+        2,
+        3
+      ]
     },
     {
       "id_sub": 100,
@@ -1281,7 +1631,15 @@
       "end": "06/10/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.606",
+      "whichDay": "sat",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 101,
@@ -1290,7 +1648,13 @@
       "end": "06/26/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.615",
+      "whichDay": "sat",
+      "whichPeriod": [
+        1,
+        2
+      ]
     },
     {
       "id_sub": 102,
@@ -1299,7 +1663,15 @@
       "end": "06/02/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.615",
+      "whichDay": "sun",
+      "whichPeriod": [
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 103,
@@ -1308,7 +1680,15 @@
       "end": "06/21/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.608",
+      "whichDay": "wed",
+      "whichPeriod": [
+        4,
+        5,
+        6,
+        7
+      ]
     },
     {
       "id_sub": 104,
@@ -1317,7 +1697,13 @@
       "end": "06/01/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.315",
+      "whichDay": "thu",
+      "whichPeriod": [
+        1,
+        2
+      ]
     },
     {
       "id_sub": 105,
@@ -1326,7 +1712,14 @@
       "end": "06/01/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A2.118",
+      "whichDay": "mon",
+      "whichPeriod": [
+        6,
+        7,
+        8
+      ]
     },
     {
       "id_sub": 106,
@@ -1335,7 +1728,13 @@
       "end": "06/16/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.517",
+      "whichDay": "sat",
+      "whichPeriod": [
+        11,
+        12
+      ]
     },
     {
       "id_sub": 107,
@@ -1344,7 +1743,13 @@
       "end": "06/02/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A2.619",
+      "whichDay": "thu",
+      "whichPeriod": [
+        11,
+        12
+      ]
     },
     {
       "id_sub": 108,
@@ -1353,7 +1758,13 @@
       "end": "06/12/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.603",
+      "whichDay": "thu",
+      "whichPeriod": [
+        2,
+        3
+      ]
     },
     {
       "id_sub": 109,
@@ -1362,7 +1773,14 @@
       "end": "06/18/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.406",
+      "whichDay": "mon",
+      "whichPeriod": [
+        9,
+        10,
+        11
+      ]
     },
     {
       "id_sub": 110,
@@ -1371,7 +1789,14 @@
       "end": "06/28/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": true
+      "checked": true,
+      "room": "A1.315",
+      "whichDay": "tue",
+      "whichPeriod": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id_sub": 111,
@@ -1380,7 +1805,15 @@
       "end": "06/21/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.717",
+      "whichDay": "wed",
+      "whichPeriod": [
+        7,
+        8,
+        9,
+        10
+      ]
     },
     {
       "id_sub": 112,
@@ -1389,7 +1822,15 @@
       "end": "06/20/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.503",
+      "whichDay": "mon",
+      "whichPeriod": [
+        3,
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 113,
@@ -1398,7 +1839,15 @@
       "end": "06/05/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.618",
+      "whichDay": "fri",
+      "whichPeriod": [
+        7,
+        8,
+        9,
+        10
+      ]
     },
     {
       "id_sub": 114,
@@ -1407,7 +1856,15 @@
       "end": "06/23/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.209",
+      "whichDay": "mon",
+      "whichPeriod": [
+        6,
+        7,
+        8,
+        9
+      ]
     },
     {
       "id_sub": 115,
@@ -1416,7 +1873,14 @@
       "end": "06/19/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A2.419",
+      "whichDay": "wed",
+      "whichPeriod": [
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 116,
@@ -1425,7 +1889,15 @@
       "type": "Theory",
       "credits": "4",
       "name_sub": "Web Development",
-      "checked": false
+      "checked": false,
+      "room": "A2.419",
+      "whichDay": "thu",
+      "whichPeriod": [
+        5,
+        6,
+        7,
+        8
+      ]
     },
     {
       "id_sub": 117,
@@ -1434,7 +1906,13 @@
       "end": "06/20/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": true
+      "checked": true,
+      "room": "A2.119",
+      "whichDay": "tue",
+      "whichPeriod": [
+        7,
+        8
+      ]
     },
     {
       "id_sub": 118,
@@ -1443,7 +1921,14 @@
       "type": "Theory",
       "credits": "3",
       "name_sub": "Discrete Math",
-      "checked": false
+      "checked": false,
+      "room": "A1.717",
+      "whichDay": "fri",
+      "whichPeriod": [
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 119,
@@ -1452,7 +1937,15 @@
       "end": "05/31/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.717",
+      "whichDay": "thu",
+      "whichPeriod": [
+        3,
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 120,
@@ -1461,7 +1954,15 @@
       "end": "06/14/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.616",
+      "whichDay": "wed",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 121,
@@ -1470,7 +1971,14 @@
       "end": "06/29/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.719",
+      "whichDay": "sat",
+      "whichPeriod": [
+        6,
+        7,
+        8
+      ]
     },
     {
       "id_sub": 122,
@@ -1479,7 +1987,15 @@
       "end": "06/15/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.318",
+      "whichDay": "thu",
+      "whichPeriod": [
+        2,
+        3,
+        4,
+        5
+      ]
     },
     {
       "id_sub": 123,
@@ -1488,7 +2004,15 @@
       "end": "05/31/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.715",
+      "whichDay": "thu",
+      "whichPeriod": [
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 124,
@@ -1497,7 +2021,14 @@
       "end": "06/05/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.208",
+      "whichDay": "sat",
+      "whichPeriod": [
+        5,
+        6,
+        7
+      ]
     },
     {
       "id_sub": 125,
@@ -1506,7 +2037,15 @@
       "end": "06/23/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.611",
+      "whichDay": "wed",
+      "whichPeriod": [
+        3,
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 126,
@@ -1515,7 +2054,13 @@
       "end": "06/29/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": true
+      "checked": true,
+      "room": "A1.608",
+      "whichDay": "tue",
+      "whichPeriod": [
+        1,
+        2
+      ]
     },
     {
       "id_sub": 127,
@@ -1524,7 +2069,15 @@
       "end": "06/27/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A3.101",
+      "whichDay": "thu",
+      "whichPeriod": [
+        6,
+        7,
+        8,
+        9
+      ]
     },
     {
       "id_sub": 128,
@@ -1533,7 +2086,15 @@
       "end": "06/02/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.716",
+      "whichDay": "sun",
+      "whichPeriod": [
+        3,
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 129,
@@ -1542,7 +2103,15 @@
       "type": "Laboratory",
       "credits": "4",
       "name_sub": "Digital Logic Design",
-      "checked": false
+      "checked": false,
+      "room": "A2.108",
+      "whichDay": "fri",
+      "whichPeriod": [
+        3,
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 130,
@@ -1551,7 +2120,14 @@
       "type": "Laboratory",
       "credits": "3",
       "name_sub": "HCM's Thought",
-      "checked": false
+      "checked": false,
+      "room": "A2.708",
+      "whichDay": "tue",
+      "whichPeriod": [
+        7,
+        8,
+        9
+      ]
     },
     {
       "id_sub": 131,
@@ -1560,7 +2136,14 @@
       "end": "06/10/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.509",
+      "whichDay": "mon",
+      "whichPeriod": [
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 132,
@@ -1569,7 +2152,15 @@
       "type": "Theory",
       "credits": "4",
       "name_sub": "Data Mining",
-      "checked": false
+      "checked": false,
+      "room": "A2.319",
+      "whichDay": "tue",
+      "whichPeriod": [
+        2,
+        3,
+        4,
+        5
+      ]
     },
     {
       "id_sub": 133,
@@ -1578,7 +2169,15 @@
       "end": "06/21/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.606",
+      "whichDay": "sun",
+      "whichPeriod": [
+        8,
+        9,
+        10,
+        11
+      ]
     },
     {
       "id_sub": 134,
@@ -1587,7 +2186,15 @@
       "end": "06/19/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.509",
+      "whichDay": "wed",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 135,
@@ -1596,7 +2203,14 @@
       "type": "Theory",
       "credits": "3",
       "name_sub": "Software Architecture",
-      "checked": false
+      "checked": false,
+      "room": "A1.709",
+      "whichDay": "wed",
+      "whichPeriod": [
+        9,
+        10,
+        11
+      ]
     },
     {
       "id_sub": 136,
@@ -1605,7 +2219,15 @@
       "type": "Laboratory",
       "credits": "4",
       "name_sub": "Physical",
-      "checked": false
+      "checked": false,
+      "room": "A1.619",
+      "whichDay": "tue",
+      "whichPeriod": [
+        3,
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 137,
@@ -1614,7 +2236,15 @@
       "end": "06/22/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.518",
+      "whichDay": "mon",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 138,
@@ -1623,7 +2253,15 @@
       "end": "06/18/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.519",
+      "whichDay": "wed",
+      "whichPeriod": [
+        2,
+        3,
+        4,
+        5
+      ]
     },
     {
       "id_sub": 139,
@@ -1632,7 +2270,15 @@
       "type": "Laboratory",
       "credits": "4",
       "name_sub": "Software Engineering",
-      "checked": true
+      "checked": true,
+      "room": "A2.317",
+      "whichDay": "mon",
+      "whichPeriod": [
+        4,
+        5,
+        6,
+        7
+      ]
     },
     {
       "id_sub": 140,
@@ -1641,7 +2287,14 @@
       "end": "06/18/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.507",
+      "whichDay": "tue",
+      "whichPeriod": [
+        5,
+        6,
+        7
+      ]
     },
     {
       "id_sub": 141,
@@ -1650,7 +2303,15 @@
       "end": "06/24/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.315",
+      "whichDay": "sat",
+      "whichPeriod": [
+        2,
+        3,
+        4,
+        5
+      ]
     },
     {
       "id_sub": 142,
@@ -1659,7 +2320,14 @@
       "end": "06/01/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A2.607",
+      "whichDay": "fri",
+      "whichPeriod": [
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 143,
@@ -1668,7 +2336,13 @@
       "end": "06/23/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A2.509",
+      "whichDay": "fri",
+      "whichPeriod": [
+        5,
+        6
+      ]
     },
     {
       "id_sub": 144,
@@ -1677,7 +2351,14 @@
       "end": "06/29/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.219",
+      "whichDay": "wed",
+      "whichPeriod": [
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 145,
@@ -1686,7 +2367,15 @@
       "end": "06/23/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.308",
+      "whichDay": "sat",
+      "whichPeriod": [
+        7,
+        8,
+        9,
+        10
+      ]
     },
     {
       "id_sub": 146,
@@ -1695,7 +2384,15 @@
       "type": "Laboratory",
       "credits": "4",
       "name_sub": "Machine Learning",
-      "checked": false
+      "checked": false,
+      "room": "A1.607",
+      "whichDay": "wed",
+      "whichPeriod": [
+        8,
+        9,
+        10,
+        11
+      ]
     },
     {
       "id_sub": 147,
@@ -1704,7 +2401,15 @@
       "end": "06/28/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.713",
+      "whichDay": "thu",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 148,
@@ -1713,7 +2418,13 @@
       "end": "06/29/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A2.119",
+      "whichDay": "sun",
+      "whichPeriod": [
+        3,
+        4
+      ]
     },
     {
       "id_sub": 149,
@@ -1722,7 +2433,13 @@
       "end": "06/03/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.508",
+      "whichDay": "fri",
+      "whichPeriod": [
+        7,
+        8
+      ]
     },
     {
       "id_sub": 150,
@@ -1731,7 +2448,14 @@
       "end": "06/25/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.408",
+      "whichDay": "thu",
+      "whichPeriod": [
+        7,
+        8,
+        9
+      ]
     },
     {
       "id_sub": 151,
@@ -1740,7 +2464,15 @@
       "end": "06/23/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.208",
+      "whichDay": "fri",
+      "whichPeriod": [
+        5,
+        6,
+        7,
+        8
+      ]
     },
     {
       "id_sub": 152,
@@ -1749,7 +2481,15 @@
       "end": "06/08/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": true
+      "checked": true,
+      "room": "A2.607",
+      "whichDay": "wed",
+      "whichPeriod": [
+        6,
+        7,
+        8,
+        9
+      ]
     },
     {
       "id_sub": 153,
@@ -1758,7 +2498,15 @@
       "end": "06/26/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.116",
+      "whichDay": "wed",
+      "whichPeriod": [
+        4,
+        5,
+        6,
+        7
+      ]
     },
     {
       "id_sub": 154,
@@ -1767,7 +2515,15 @@
       "end": "06/17/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.718",
+      "whichDay": "sat",
+      "whichPeriod": [
+        5,
+        6,
+        7,
+        8
+      ]
     },
     {
       "id_sub": 155,
@@ -1776,7 +2532,15 @@
       "type": "Theory",
       "credits": "4",
       "name_sub": "Object-oriented Analysis and Design",
-      "checked": false
+      "checked": false,
+      "room": "A1.716",
+      "whichDay": "sun",
+      "whichPeriod": [
+        4,
+        5,
+        6,
+        7
+      ]
     },
     {
       "id_sub": 156,
@@ -1785,7 +2549,13 @@
       "end": "06/17/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A2.708",
+      "whichDay": "sun",
+      "whichPeriod": [
+        3,
+        4
+      ]
     },
     {
       "id_sub": 157,
@@ -1794,7 +2564,14 @@
       "end": "06/21/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.317",
+      "whichDay": "fri",
+      "whichPeriod": [
+        6,
+        7,
+        8
+      ]
     },
     {
       "id_sub": 158,
@@ -1803,7 +2580,15 @@
       "end": "06/09/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": true,
+      "room": "A1.608",
+      "whichDay": "tue",
+      "whichPeriod": [
+        6,
+        7,
+        8,
+        9
+      ]
     },
     {
       "id_sub": 159,
@@ -1812,7 +2597,15 @@
       "type": "Theory",
       "credits": "4",
       "name_sub": "Software Architecture",
-      "checked": false
+      "checked": false,
+      "room": "A1.309",
+      "whichDay": "fri",
+      "whichPeriod": [
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 160,
@@ -1821,7 +2614,15 @@
       "end": "06/15/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.305",
+      "whichDay": "sun",
+      "whichPeriod": [
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 161,
@@ -1830,7 +2631,15 @@
       "type": "Theory",
       "credits": "4",
       "name_sub": "Computer Networks",
-      "checked": false
+      "checked": false,
+      "room": "A2.708",
+      "whichDay": "thu",
+      "whichPeriod": [
+        8,
+        9,
+        10,
+        11
+      ]
     },
     {
       "id_sub": 162,
@@ -1839,7 +2648,15 @@
       "type": "Laboratory",
       "credits": "4",
       "name_sub": "Software Engineering",
-      "checked": true
+      "checked": true,
+      "room": "A2.617",
+      "whichDay": "sun",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 163,
@@ -1848,7 +2665,15 @@
       "type": "Theory",
       "credits": "4",
       "name_sub": "Machine Learning",
-      "checked": false
+      "checked": false,
+      "room": "A2.117",
+      "whichDay": "mon",
+      "whichPeriod": [
+        2,
+        3,
+        4,
+        5
+      ]
     },
     {
       "id_sub": 164,
@@ -1857,7 +2682,13 @@
       "end": "06/17/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.709",
+      "whichDay": "fri",
+      "whichPeriod": [
+        1,
+        2
+      ]
     },
     {
       "id_sub": 165,
@@ -1866,7 +2697,15 @@
       "end": "06/13/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.604",
+      "whichDay": "wed",
+      "whichPeriod": [
+        4,
+        5,
+        6,
+        7
+      ]
     },
     {
       "id_sub": 166,
@@ -1875,7 +2714,14 @@
       "end": "06/19/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A2.708",
+      "whichDay": "wed",
+      "whichPeriod": [
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 167,
@@ -1884,7 +2730,14 @@
       "end": "06/04/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.517",
+      "whichDay": "tue",
+      "whichPeriod": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id_sub": 168,
@@ -1893,7 +2746,13 @@
       "end": "06/23/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.616",
+      "whichDay": "tue",
+      "whichPeriod": [
+        5,
+        6
+      ]
     },
     {
       "id_sub": 169,
@@ -1902,7 +2761,14 @@
       "end": "06/09/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.516",
+      "whichDay": "thu",
+      "whichPeriod": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id_sub": 170,
@@ -1911,7 +2777,13 @@
       "end": "06/11/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A1.318",
+      "whichDay": "sun",
+      "whichPeriod": [
+        11,
+        12
+      ]
     },
     {
       "id_sub": 171,
@@ -1920,7 +2792,13 @@
       "type": "Laboratory",
       "credits": "2",
       "name_sub": "Data Structures and Algorithms",
-      "checked": false
+      "checked": false,
+      "room": "A1.116",
+      "whichDay": "wed",
+      "whichPeriod": [
+        11,
+        12
+      ]
     },
     {
       "id_sub": 172,
@@ -1929,7 +2807,14 @@
       "end": "06/05/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.616",
+      "whichDay": "fri",
+      "whichPeriod": [
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 173,
@@ -1938,7 +2823,15 @@
       "end": "06/03/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.517",
+      "whichDay": "tue",
+      "whichPeriod": [
+        5,
+        6,
+        7,
+        8
+      ]
     },
     {
       "id_sub": 174,
@@ -1947,7 +2840,15 @@
       "end": "06/03/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.519",
+      "whichDay": "thu",
+      "whichPeriod": [
+        8,
+        9,
+        10,
+        11
+      ]
     },
     {
       "id_sub": 175,
@@ -1956,7 +2857,15 @@
       "end": "06/17/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.317",
+      "whichDay": "sun",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 176,
@@ -1965,7 +2874,13 @@
       "end": "06/10/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": true
+      "checked": true,
+      "room": "A1.409",
+      "whichDay": "fri",
+      "whichPeriod": [
+        3,
+        4
+      ]
     },
     {
       "id_sub": 177,
@@ -1974,7 +2889,15 @@
       "end": "06/24/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.608",
+      "whichDay": "mon",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 178,
@@ -1983,7 +2906,15 @@
       "end": "06/01/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.406",
+      "whichDay": "wed",
+      "whichPeriod": [
+        4,
+        5,
+        6,
+        7
+      ]
     },
     {
       "id_sub": 179,
@@ -1992,7 +2923,14 @@
       "end": "06/22/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A2.517",
+      "whichDay": "mon",
+      "whichPeriod": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id_sub": 180,
@@ -2001,7 +2939,14 @@
       "end": "06/09/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A2.707",
+      "whichDay": "sun",
+      "whichPeriod": [
+        6,
+        7,
+        8
+      ]
     },
     {
       "id_sub": 181,
@@ -2010,7 +2955,14 @@
       "end": "06/17/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A2.704",
+      "whichDay": "wed",
+      "whichPeriod": [
+        8,
+        9,
+        10
+      ]
     },
     {
       "id_sub": 182,
@@ -2019,7 +2971,15 @@
       "end": "06/15/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.306",
+      "whichDay": "wed",
+      "whichPeriod": [
+        2,
+        3,
+        4,
+        5
+      ]
     },
     {
       "id_sub": 183,
@@ -2028,7 +2988,13 @@
       "end": "06/03/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A2.709",
+      "whichDay": "mon",
+      "whichPeriod": [
+        1,
+        2
+      ]
     },
     {
       "id_sub": 184,
@@ -2037,7 +3003,15 @@
       "end": "06/12/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.315",
+      "whichDay": "sun",
+      "whichPeriod": [
+        5,
+        6,
+        7,
+        8
+      ]
     },
     {
       "id_sub": 185,
@@ -2046,7 +3020,13 @@
       "end": "06/20/2021",
       "type": "Laboratory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A2.509",
+      "whichDay": "mon",
+      "whichPeriod": [
+        11,
+        12
+      ]
     },
     {
       "id_sub": 186,
@@ -2055,7 +3035,14 @@
       "type": "Theory",
       "credits": "3",
       "name_sub": "Computer Architecture",
-      "checked": false
+      "checked": false,
+      "room": "A1.214",
+      "whichDay": "sun",
+      "whichPeriod": [
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 187,
@@ -2064,7 +3051,15 @@
       "end": "06/11/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.712",
+      "whichDay": "fri",
+      "whichPeriod": [
+        4,
+        5,
+        6,
+        7
+      ]
     },
     {
       "id_sub": 188,
@@ -2073,7 +3068,15 @@
       "end": "06/15/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.118",
+      "whichDay": "wed",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 189,
@@ -2082,7 +3085,15 @@
       "end": "06/03/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.306",
+      "whichDay": "sat",
+      "whichPeriod": [
+        6,
+        7,
+        8,
+        9
+      ]
     },
     {
       "id_sub": 190,
@@ -2091,7 +3102,14 @@
       "end": "06/03/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.409",
+      "whichDay": "sat",
+      "whichPeriod": [
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 191,
@@ -2100,7 +3118,15 @@
       "end": "06/02/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.119",
+      "whichDay": "sat",
+      "whichPeriod": [
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 192,
@@ -2109,7 +3135,15 @@
       "type": "Theory",
       "credits": "4",
       "name_sub": "Discrete Math",
-      "checked": false
+      "checked": false,
+      "room": "A1.719",
+      "whichDay": "thu",
+      "whichPeriod": [
+        2,
+        3,
+        4,
+        5
+      ]
     },
     {
       "id_sub": 193,
@@ -2118,7 +3152,15 @@
       "type": "Theory",
       "credits": "4",
       "name_sub": "Thesis",
-      "checked": false
+      "checked": false,
+      "room": "A1.608",
+      "whichDay": "sat",
+      "whichPeriod": [
+        8,
+        9,
+        10,
+        11
+      ]
     },
     {
       "id_sub": 194,
@@ -2127,7 +3169,14 @@
       "end": "06/21/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.508",
+      "whichDay": "wed",
+      "whichPeriod": [
+        4,
+        5,
+        6
+      ]
     },
     {
       "id_sub": 195,
@@ -2136,7 +3185,15 @@
       "type": "Theory",
       "credits": "4",
       "name_sub": "Object-oriented Programming",
-      "checked": false
+      "checked": false,
+      "room": "A1.708",
+      "whichDay": "thu",
+      "whichPeriod": [
+        5,
+        6,
+        7,
+        8
+      ]
     },
     {
       "id_sub": 196,
@@ -2145,7 +3202,14 @@
       "end": "06/28/2021",
       "type": "Theory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.719",
+      "whichDay": "sun",
+      "whichPeriod": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id_sub": 197,
@@ -2154,7 +3218,13 @@
       "end": "06/23/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A2.418",
+      "whichDay": "mon",
+      "whichPeriod": [
+        9,
+        10
+      ]
     },
     {
       "id_sub": 198,
@@ -2163,7 +3233,14 @@
       "end": "06/04/2021",
       "type": "Laboratory",
       "credits": "3",
-      "checked": false
+      "checked": false,
+      "room": "A1.408",
+      "whichDay": "fri",
+      "whichPeriod": [
+        1,
+        2,
+        3
+      ]
     },
     {
       "id_sub": 199,
@@ -2172,7 +3249,13 @@
       "end": "06/19/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": true
+      "checked": true,
+      "room": "A3.101",
+      "whichDay": "sun",
+      "whichPeriod": [
+        7,
+        8
+      ]
     },
     {
       "id_sub": 200,
@@ -2181,7 +3264,13 @@
       "type": "Theory",
       "credits": "2",
       "name_sub": "Physical",
-      "checked": false
+      "checked": false,
+      "room": "A1.713",
+      "whichDay": "fri",
+      "whichPeriod": [
+        1,
+        2
+      ]
     },
     {
       "id_sub": 201,
@@ -2190,7 +3279,15 @@
       "end": "06/08/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.715",
+      "whichDay": "tue",
+      "whichPeriod": [
+        7,
+        8,
+        9,
+        10
+      ]
     },
     {
       "id_sub": 202,
@@ -2199,7 +3296,15 @@
       "end": "06/26/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.518",
+      "whichDay": "sun",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 203,
@@ -2208,7 +3313,15 @@
       "end": "06/05/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.516",
+      "whichDay": "mon",
+      "whichPeriod": [
+        7,
+        8,
+        9,
+        10
+      ]
     },
     {
       "id_sub": 204,
@@ -2217,7 +3330,15 @@
       "end": "06/04/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A2.317",
+      "whichDay": "thu",
+      "whichPeriod": [
+        4,
+        5,
+        6,
+        7
+      ]
     },
     {
       "id_sub": 205,
@@ -2226,7 +3347,15 @@
       "end": "06/09/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.308",
+      "whichDay": "fri",
+      "whichPeriod": [
+        2,
+        3,
+        4,
+        5
+      ]
     },
     {
       "id_sub": 206,
@@ -2235,7 +3364,15 @@
       "end": "06/22/2021",
       "type": "Laboratory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.708",
+      "whichDay": "wed",
+      "whichPeriod": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id_sub": 207,
@@ -2244,7 +3381,15 @@
       "end": "06/06/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": false
+      "checked": false,
+      "room": "A1.519",
+      "whichDay": "mon",
+      "whichPeriod": [
+        8,
+        9,
+        10,
+        11
+      ]
     },
     {
       "id_sub": 208,
@@ -2253,7 +3398,13 @@
       "end": "06/12/2021",
       "type": "Theory",
       "credits": "2",
-      "checked": false
+      "checked": false,
+      "room": "A2.719",
+      "whichDay": "thu",
+      "whichPeriod": [
+        2,
+        3
+      ]
     },
     {
       "id_sub": 209,
@@ -2262,7 +3413,15 @@
       "end": "06/14/2021",
       "type": "Theory",
       "credits": "4",
-      "checked": true
+      "checked": true,
+      "room": "A1.503",
+      "whichDay": "tue",
+      "whichPeriod": [
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id_sub": 210,
