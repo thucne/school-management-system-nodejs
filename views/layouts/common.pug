@@ -1,54 +1,54 @@
 html
 
     head
-        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
         link(rel="stylesheet", href="/styles/dropdown.css")
         link(rel="icon", type="image/jpg", href="/images/002-layers.png")
         link(rel="stylesheet", href="/styles/snackbar.css")
 
         script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js',
             integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+        script(type='text/javascript', src='http://code.jquery.com/jquery-2.0.2.js')
+        script(src='https://code.jquery.com/jquery-3.4.1.min.js')
+
+
         script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js',
             integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js',
             integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
-        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
-        //link(href='/open-iconic/font/css/open-iconic-bootstrap.css', rel='stylesheet')
+        //script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
         script(src='https://unpkg.com/sweetalert/dist/sweetalert.min.js')
 
-        script(type='text/javascript', src='http://code.jquery.com/jquery-2.0.2.js')
+        //script(type='text/javascript', src='http://code.jquery.com/jquery-2.0.2.js')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
 
         //Display Tooltip
-        script(src='https://code.jquery.com/jquery-3.4.1.min.js')
+        //script(src='https://code.jquery.com/jquery-3.4.1.min.js')
         script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js')
         script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
 
         script(src='https://cdn.jsdelivr.net/npm/marked/marked.min.js')
-        script(type='text/javascript', src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit')
 
+
+        script(type='text/javascript', src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit')
         script.
-          var $jt = jQuery.noConflict();
-          $jt(function () {
-            $jt('#google_translate_element').on("click", function () {
-              var $frame = $jt('.goog-te-menu-frame:first');
-              $frame.contents().find(".goog-te-menu2-item div")
-                  .css({
-                    'color': '#544F4B',
-                    'font-family': 'tahoma',
-                  }).hover(function () {
-                $jt(this).css("background", "#FFC0CB");
-              }, function () {
-                $jt(this).css("background", "");
-              });
+          $(function () {
+            $('body').tooltip({selector: '[data-toggle="tooltip"]'});
+          });
+          $(function () {
+            $(function () {
+              $('[data-toggle="tooltip"]').tooltip();
             });
           });
-
         //link(rel="icon", href="http://sstatic.net/stackoverflow/img/favicon.ico")
     body(style="background-image: url('/images/3563935 (1).jpg'); background-position: center; background-repeat: no-repeat; background-attachment: fixed; min-width: 100%; min-height: 100%; background-size: cover;")
 
         script.
+          // var $ar = jQuery.noConflict();
           $(function () {
             $('[data-toggle="tooltip"]').tooltip();
           });
@@ -66,25 +66,25 @@ html
                 #navbarNav.collapse.navbar-collapse
                     ul.navbar-nav.mr-auto
                         li.nav-item
-                            a.nav-link(href='/') Home
+                            a.nav-link(href='/', data-toggle='tooltip', data-placement='right', title='Home page') Home
                         li.nav-item
-                            a.nav-link(href='/school/announcements') Announcements
+                            a.nav-link(href='/school/announcements', data-toggle='tooltip', data-placement='right', title='View your announcement!') Announcements
                         li.nav-item
-                            a.nav-link(href='/users')= (userInfo.role === 10 ? 'User List': 'Your Info')
+                            a.nav-link(href='/users', data-toggle='tooltip', data-placement='right', title='View info')= (userInfo.role === 10 ? 'User List': 'Your Info')
                         li.nav-item
-                            a.nav-link(href='/auth/login', class=userInfo.name === " " ? 'nav-link': 'nav-link disabled', hidden=userInfo.name === ' ' ? false: true) Log in
+                            a.nav-link(href='/auth/login', class=userInfo.name === " " ? 'nav-link': 'nav-link disabled', hidden=userInfo.name !== ' ') Log in
                         if (userInfo.role === 10)
                             li.nav-item
-                                a.nav-link(href='/users/create') Create Account
+                                a.nav-link(href='/users/create', data-toggle='tooltip', data-placement='right', title='Create a new account') Create Account
                         if (userInfo.role === 0)
                             li.nav-item
-                                a.nav-link(href='/users/register') Course Registration
+                                a.nav-link(href='/users/register', data-toggle='tooltip', data-placement='right', title='Register for courses!') Course Registration
                         if (userInfo.role !== 10)
                             li.nav-item
-                                a.nav-link(href='/users/schedule') Schedule
+                                a.nav-link(href='/users/schedule', data-toggle='tooltip', data-placement='right', title='See your schedule!') Schedule
                         if (userInfo.role === 1)
                             li.nav-item
-                                a.nav-link(href='/school/courseAllocation') Download Student Lists
+                                a.nav-link(href='/school/courseAllocation', data-toggle='tooltip', data-placement='right', title='Download your student lists') Download Student Lists
                         if (userInfo.role === 10)
                             li.nav-item.dropdown
                                 button#dropdownMenuButton.btn.btn-primary.dropdown-toggle(type='button',
@@ -119,23 +119,29 @@ html
                         input.english(type="image" src="/images/america.png" width="40" data-lang='English' style='border-radius: 10px;')
 
                     script(type='text/javascript').
-                          $('.translation-links input').on('click',function () {
-                            var lang = $(this).data('lang');
-                            var $frame = $('.goog-te-menu-frame:first');
-                            if (!$frame.size()) {
-                              alert("Error: Could not find Google translate frame.");
-                              return false;
-                            }
-                            $frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
+                      // jQuery.noConflict();
+                      $(function () {
+                        $('.translation-links input').on('click', function () {
+                          var lang = $(this).data('lang');
+                          var $frame = $('.goog-te-menu-frame:first');
+                          if (!$frame.length) {
+                            alert("Error: Could not find Google translate frame.");
                             return false;
-                          });
-                    script(type='text/javascript').
-                          function googleTranslateElementInit() {
-                            new google.translate.TranslateElement({
-                              pageLanguage: 'en',
-                              layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                            }, 'google_translate_element');
                           }
+                          $frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
+                          return false;
+                        });
+
+                      });
+
+                    script(type='text/javascript').
+                      function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({
+                          pageLanguage: 'en',
+                          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                        }, 'google_translate_element');
+                      }
+
 
                     span.form-inline.my-2.my-lg-0=  userInfo.name
                     span &nbsp;
