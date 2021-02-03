@@ -33,21 +33,27 @@ block content
             count++;
           }
         });
+        $("#Avais").html(count.toString());
+        $("#Avais").attr('value', count);
       } else {
+        // alert($("#Const").html());
+        $("#Avais").html($("#Const").html());
+        $("#Avais").attr('value', $("#Const").html());
         $(".notSearch").show();
         $("#search").hide();
       }
+      // alert(count);
       var idx = location.href.indexOf('#Yes');
       while (idx > 0) {
         location.href.splice(idx, 5);
         idx = location.href.indexOf('#Yes');
       }
 
+
       location.href = location.href + '#Yes';
       // alert($("#Avai").attr('value'));
       // var current = parseInt($("#Avai").attr('value')) - count;
-      $("#Avai").html(count.toString());
-      $("#Avai").attr('value', count);
+
     }
 
   .px-3.pt-4.hide
@@ -63,7 +69,8 @@ block content
       if (userInfo.role === 10)
         div(style='float: left;')
           button.btn.btn-success.mb-2(type='button', data-toggle='tooltip', data-placement='right', title=page.num + ' students found!') Result: &nbsp;
-            span.badge.badge-light#Avai #{page.num}
+            span.badge.badge-light#Avais #{page.num}
+            div.badge.badge-light#Const(style='display: none;') #{page.num}
             span.sr-only unread messages
         div(style='float: right;')
           .container-fluid(style='text-align: center; align-items: center; vertical-align : middle; justify-content: center;')

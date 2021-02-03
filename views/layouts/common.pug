@@ -26,6 +26,24 @@ html
         script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
 
         script(src='https://cdn.jsdelivr.net/npm/marked/marked.min.js')
+        script(type='text/javascript', src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit')
+
+        script.
+          var $jt = jQuery.noConflict();
+          $jt(function () {
+            $jt('#google_translate_element').on("click", function () {
+              var $frame = $jt('.goog-te-menu-frame:first');
+              $frame.contents().find(".goog-te-menu2-item div")
+                  .css({
+                    'color': '#544F4B',
+                    'font-family': 'tahoma',
+                  }).hover(function () {
+                $jt(this).css("background", "#FFC0CB");
+              }, function () {
+                $jt(this).css("background", "");
+              });
+            });
+          });
 
         //link(rel="icon", href="http://sstatic.net/stackoverflow/img/favicon.ico")
     body(style="background-image: url('/images/3563935 (1).jpg'); background-position: center; background-repeat: no-repeat; background-attachment: fixed; min-width: 100%; min-height: 100%; background-size: cover;")
@@ -69,24 +87,55 @@ html
                                 a.nav-link(href='/school/courseAllocation') Download Student Lists
                         if (userInfo.role === 10)
                             li.nav-item.dropdown
-                                button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button',
+                                button#dropdownMenuButton.btn.btn-primary.dropdown-toggle(type='button',
                                     data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Admin functions
                                 .dropdown-menu(aria-labelledby='dropdownMenuButton')
-                                    //a.dropdown-item.disabled(href='/school/eliminate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Eliminate Duplicates
-                                    //a.dropdown-item.disabled(href='/school/assign', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign
-                                    //a.dropdown-item.disabled(href='/school/generate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Subject Generating
                                     a.dropdown-item(href='/school/createSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Set subject's time
-                                    //a.dropdown-item.disabled(href='/school/createDepartment', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create Department
-                                    //a.dropdown-item.disabled(href='/school/createDepartment/assignSubjectToDepartment', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign Subject to Department
-                                    //a.dropdown-item.disabled(href='/school/assignStandardSchedule', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign Standard Table
                                     a.dropdown-item(href='/school/assignTeacherToSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Set subject's lecturer
                                     a.dropdown-item(href='/school/createAnnouncement', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Post new announcement
-                                    //a.dropdown-item(href='/school/assignStudentAndTeacherID', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign readable ID
                                     a.dropdown-item(href='/school/createBatchSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create subjects
+
+                            li.nav-item.dropdown.mx-2
+                                button#dropdownMenuButton.btn.btn-danger.dropdown-toggle(type='button',
+                                    data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dev functions
+                                .dropdown-menu(aria-labelledby='dropdownMenuButton')
+                                    a.dropdown-item.disabled(href='/school/eliminate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Eliminate Duplicates
+                                    a.dropdown-item.disabled(href='/school/assign', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign
+                                    a.dropdown-item.disabled(href='/school/generate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Subject Generating
+                                    a.dropdown-item.disabled(href='/school/createDepartment', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create Department
+                                    a.dropdown-item.disabled(href='/school/createDepartment/assignSubjectToDepartment', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign Subject to Department
+                                    a.dropdown-item.disabled(href='/school/assignStandardSchedule', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign Standard Table
+                                    a.dropdown-item.disabled(href='/school/assignStudentAndTeacherID', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign readable ID
                                     a.dropdown-item.disabled(href='/school/create100weeks', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create 100 weeks
                                     a.dropdown-item.disabled(href='/school/create100rooms', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create 100 rooms
                                     a.dropdown-item.disabled(href='/school/bind100roomsWith100weeks', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Bind 100 rooms with 100 weeks
 
+
+                    #google_translate_element(style='position: relative; opacity: 1; z-index: 10;' hidden)
+                            //button.btn.btn-primary(style='position: absolute; right: 0; bottom: -6; z-index: 0; width: 157px; ') Translate
+
+                    .translation-links.mx-2
+                        input.vietnamese.mx-2(type="image" src="/images/vietnam.png" width="40" data-lang='Vietnamese' style='border-radius: 10px;')
+                        input.english(type="image" src="/images/america.png" width="40" data-lang='English' style='border-radius: 10px;')
+
+                    script(type='text/javascript').
+                          $('.translation-links input').on('click',function () {
+                            var lang = $(this).data('lang');
+                            var $frame = $('.goog-te-menu-frame:first');
+                            if (!$frame.size()) {
+                              alert("Error: Could not find Google translate frame.");
+                              return false;
+                            }
+                            $frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
+                            return false;
+                          });
+                    script(type='text/javascript').
+                          function googleTranslateElementInit() {
+                            new google.translate.TranslateElement({
+                              pageLanguage: 'en',
+                              layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                            }, 'google_translate_element');
+                          }
 
                     span.form-inline.my-2.my-lg-0=  userInfo.name
                     span &nbsp;
