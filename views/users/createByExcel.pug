@@ -48,9 +48,9 @@ block content
                             .alert.alert-danger.err= pErrs
                         if (saved)
                           .alert.alert-success.suc Create successfully!
-                        script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
-                        script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js')
-                        script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js')
+                        //script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+                        //script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js')
+                        //script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js')
                         script.
                           var ExcelToJSON = function () {
                             this.parseExcel = function (file) {
@@ -143,7 +143,7 @@ block content
                         form(action="/users/create/createByExcel?_csrf=" + csrfToken, method="POST", id='Yeah')
                             .form-group
                                 //input(type="hidden", name="_csrf", value=csrfToken)
-                                label(for='importExcel') Review
+                                label(for='importExcel') Preview
                                 input.form-control(type="text", name="inEx", id="importExcel" readonly required)
 
                                 p.mb-1#here Role

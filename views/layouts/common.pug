@@ -55,6 +55,7 @@ html
           $('.hide').on('copy paste cut drag drop', function (e) {
             e.preventDefault();
           });
+
         div
             img.cropimg(src="/images/27240 (1).jpg", alt='Navigation img', width="100%", height="auto")
         .sticky-top
@@ -66,25 +67,25 @@ html
                 #navbarNav.collapse.navbar-collapse
                     ul.navbar-nav.mr-auto
                         li.nav-item
-                            a.nav-link(href='/', data-toggle='tooltip', data-placement='right', title='Home page') Home
+                            a.nav-link(href='/', data-toggle='tooltip', data-placement='top', title='Home page') Home
                         li.nav-item
-                            a.nav-link(href='/school/announcements', data-toggle='tooltip', data-placement='right', title='View your announcement!') Announcements
+                            a.nav-link(href='/school/announcements', data-toggle='tooltip', data-placement='top', title='View your announcement!') Announcements
                         li.nav-item
-                            a.nav-link(href='/users', data-toggle='tooltip', data-placement='right', title='View info')= (userInfo.role === 10 ? 'User List': 'Your Info')
+                            a.nav-link(href='/users', data-toggle='tooltip', data-placement='top', title='View info')= (userInfo.role === 10 ? 'User List': 'Your Info')
                         li.nav-item
                             a.nav-link(href='/auth/login', class=userInfo.name === " " ? 'nav-link': 'nav-link disabled', hidden=userInfo.name !== ' ') Log in
                         if (userInfo.role === 10)
                             li.nav-item
-                                a.nav-link(href='/users/create', data-toggle='tooltip', data-placement='right', title='Create a new account') Create Account
+                                a.nav-link(href='/users/create', data-toggle='tooltip', data-placement='top', title='Create a new account') Create Account
                         if (userInfo.role === 0)
                             li.nav-item
-                                a.nav-link(href='/users/register', data-toggle='tooltip', data-placement='right', title='Register for courses!') Course Registration
+                                a.nav-link(href='/users/register', data-toggle='tooltip', data-placement='top', title='Register for courses!') Course Registration
                         if (userInfo.role !== 10)
                             li.nav-item
-                                a.nav-link(href='/users/schedule', data-toggle='tooltip', data-placement='right', title='See your schedule!') Schedule
+                                a.nav-link(href='/users/schedule', data-toggle='tooltip', data-placement='top', title='See your schedule!') Schedule
                         if (userInfo.role === 1)
                             li.nav-item
-                                a.nav-link(href='/school/courseAllocation', data-toggle='tooltip', data-placement='right', title='Download your student lists') Download Student Lists
+                                a.nav-link(href='/school/courseAllocation', data-toggle='tooltip', data-placement='top', title='Download your student lists') Download Student Lists
                         if (userInfo.role === 10)
                             li.nav-item.dropdown
                                 button#dropdownMenuButton.btn.btn-primary.dropdown-toggle(type='button',
@@ -94,6 +95,7 @@ html
                                     a.dropdown-item(href='/school/assignTeacherToSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Set subject's lecturer
                                     a.dropdown-item(href='/school/createAnnouncement', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Post new announcement
                                     a.dropdown-item(href='/school/createBatchSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create subjects
+                                    a.dropdown-item(href='/school/createBatchSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Auto assign lecturers to subjects
 
                             li.nav-item.dropdown.mx-2
                                 button#dropdownMenuButton.btn.btn-danger.dropdown-toggle(type='button',
@@ -115,8 +117,9 @@ html
                             //button.btn.btn-primary(style='position: absolute; right: 0; bottom: -6; z-index: 0; width: 157px; ') Translate
 
                     .translation-links.mx-2
-                        input.vietnamese.mx-2(type="image" src="/images/vietnam.png" width="40" data-lang='Vietnamese' style='border-radius: 10px;')
-                        input.english(type="image" src="/images/america.png" width="40" data-lang='English' style='border-radius: 10px;')
+                        input.vietnamese.mx-2(type="image" src="/images/vietnam.png" width="40" data-lang='Vietnamese' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='Vietnamese')
+                        input.english.mr-2(type="image" src="/images/america.png" width="40" data-lang='English' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='English')
+                        input.china(type="image" src="/images/china.png" width="40" data-lang='Chinese' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='Chinese')
 
                     script(type='text/javascript').
                       // jQuery.noConflict();
@@ -153,9 +156,17 @@ html
                         location.reload();
                         userInfo.name = " ";
                       }
-            //div
-            //    img.cropimg(src="/images/uni.jpg", alt='Navigation img', width="100%", height="auto", style='min-width: 100%; min-height: 100%; position: relative')
 
+            if (breadcrumb && breadLink)
+                ul.breadcrumb.mt-2.ml-2
+                  - var kout = 0
+                  each breads in breadcrumb
+                    li
+                        a(href=breadLink[kout++])= breads
+            else
+                ul.breadcrumb.mt-2.ml-2
+                    li
+                        a(href='/') Home
         .container.pt-3.my-5(style='background-color: white; border: 2px solid green; border-radius: 30px; height: auto;')
             block content
         .container.pt-3.my-5

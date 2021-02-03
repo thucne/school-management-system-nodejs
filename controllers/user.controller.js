@@ -41,7 +41,8 @@ module.exports.index = function (req, res) {
       y: ++page,
       z: ++page
     },
-
+    breadcrumb: ['Home', 'Info'],
+    breadLink: ['/', '/users']
   });
   // console.log('User is ' + db.get('users').value());
 };
@@ -158,7 +159,9 @@ module.exports.create = function (req, res) {
   var token = req.csrfToken();
   console.log("create " + token);
   res.render('users/create', {
-    csrfToken: token
+    csrfToken: token,
+    breadcrumb: ['Home', 'Create account'],
+    breadLink: ['/', '/users/create']
   });
   if (!req.cookies) {
     console.log(req.cookies);
@@ -168,7 +171,9 @@ module.exports.create = function (req, res) {
 module.exports.createByExcel = function (req, res) {
   var token = req.csrfToken();
   res.render('users/createByExcel', {
-    csrfToken: token
+    csrfToken: token,
+    breadcrumb: ['Home', 'Create account', 'Create accounts by Excel'],
+    breadLink: ['/', '/users/create', '/users/create/createByExcel']
   });
 }
 
@@ -203,13 +208,17 @@ module.exports.id = function (req, res) {
       csrfToken: token,
       user: user,
       isThisUserValid: isThisUserValid,
-      subjects: listOfThisUsersSubjects
+      subjects: listOfThisUsersSubjects,
+      breadcrumb: ['Home', 'Info', 'Edit info'],
+      breadLink: ['/', '/users', '/users/'+id]
     })
   } else if(user) {
     res.render('users/view', {
       csrfToken: token,
       user: user,
-      isThisUserValid: isThisUserValid
+      isThisUserValid: isThisUserValid,
+      breadcrumb: ['Home', 'Info', 'Edit info'],
+      breadLink: ['/', '/users', '/users/'+id]
     })
   } else {
     res.render('404');

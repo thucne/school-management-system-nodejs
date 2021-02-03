@@ -127,7 +127,9 @@ module.exports.createSubject = function (req, res) {
 
   res.render('school/createSubject', {
     subjects: subjects,
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    breadcrumb: ['Home', 'Set subjects\' time'],
+    breadLink: ['/', '/school/createSubject']
   });
 }
 
@@ -1244,7 +1246,9 @@ module.exports.showAnnouncements = function (req, res) {
 
   res.render('school/ancms', {
     csrfToken: req.csrfToken(),
-    listOfAnnouncements: listOfAnnouncements
+    listOfAnnouncements: listOfAnnouncements,
+    breadcrumb: ['Home', 'Announcements'],
+    breadLink: ['/', '/school/announcements']
   });
 }
 
@@ -1299,7 +1303,9 @@ module.exports.showThisANCM = function (req, res) {
     csrfToken: req.csrfToken(),
     thisANCM: thisANCM,
     content: pug,
-    whoPost: whoPost
+    whoPost: whoPost,
+    breadcrumb: ['Home', 'Announcements', 'See announcement'],
+    breadLink: ['/', '/school/announcements', '/school/showThisANCM/'+thisANCMid]
   })
 
 }
