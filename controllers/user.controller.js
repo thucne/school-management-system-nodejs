@@ -21,7 +21,7 @@ module.exports.index = function (req, res) {
   var end = page * nPPage
 
   var token = req.csrfToken();
-  console.log("index " + token);
+  // console.log("index " + token);
 
   var isAdmin = db.get('users').find({id: res.locals.userInfo.loginId}).value().role === 10;
   var thisUser = []
@@ -178,7 +178,7 @@ module.exports.id = function (req, res) {
   var isThisUserValid = !(id !== res.locals.userInfo.loginId && db.get('users').find({id: id}).value());
   // var isVulnerableAccountFound = db.get('users').find({id: id}).value();
   var token = req.csrfToken();
-  console.log("id " + token);
+  // console.log("id " + token);
 
   var user = db.get('users').find({id: id}).value();
   var subjects = subject.get('subjects').value();

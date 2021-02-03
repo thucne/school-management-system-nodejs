@@ -2,7 +2,7 @@ var db = require('../lowdb/db');
 
 module.exports.login = function (req, res) {
   var token = req.csrfToken();
-  console.log("Login" + token);
+  // console.log("Login" + token);
 
   res.render('auth/login', {
     users: db.get('users').value(),
@@ -18,7 +18,7 @@ module.exports.postLogin = function (req, res) {
 
   if (!user) {
     let token = req.csrfToken();
-    console.log("Wrong username" + token);
+    // console.log("Wrong username" + token);
     res.render('auth/login', {
       errs: [
           'User does not exist.'
@@ -30,7 +30,7 @@ module.exports.postLogin = function (req, res) {
   }
   if (user.password !== password) {
     let token = req.csrfToken();
-    console.log("Wrong password" + token);
+    // console.log("Wrong password" + token);
     res.render('auth/login', {
       errs: [
           'Wrong password.'

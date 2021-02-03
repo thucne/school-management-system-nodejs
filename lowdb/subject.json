@@ -16424,6 +16424,81 @@
       "whichPeriod": [
         1
       ]
+    },
+    {
+      "id_sub": 1011,
+      "name_sub": "Digital Logic Design",
+      "start": "02/03/2021",
+      "end": "05/26/2021",
+      "type": "Theory",
+      "credits": "3",
+      "room": "B.1018",
+      "whichDay": "sat",
+      "whichPeriod": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id_sub": 1012,
+      "name_sub": "Digital Logic Design",
+      "start": "02/03/2021",
+      "end": "05/26/2021",
+      "type": "Theory",
+      "credits": "3",
+      "room": "B.1010",
+      "whichDay": "fri",
+      "whichPeriod": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id_sub": 1013,
+      "name_sub": "Digital Logic Design",
+      "start": "02/03/2021",
+      "end": "05/26/2021",
+      "type": "Theory",
+      "credits": "3",
+      "room": "B.1114",
+      "whichDay": "wed",
+      "whichPeriod": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id_sub": 1014,
+      "name_sub": "Digital Logic Design",
+      "start": "02/03/2021",
+      "end": "05/26/2021",
+      "type": "Theory",
+      "credits": "3",
+      "room": "B.611",
+      "whichDay": "sun",
+      "whichPeriod": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id_sub": 1015,
+      "name_sub": "Digital Logic Design",
+      "start": "02/03/2021",
+      "end": "05/26/2021",
+      "type": "Theory",
+      "credits": "3",
+      "room": "B.712",
+      "whichDay": "wed",
+      "whichPeriod": [
+        5,
+        6,
+        7
+      ]
     }
   ]
 }
