@@ -27,6 +27,8 @@ html
 
         script(src='https://cdn.jsdelivr.net/npm/marked/marked.min.js')
         script(type='text/javascript', src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit')
+        //link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+
 
         script.
           var $jt = jQuery.noConflict();
@@ -37,9 +39,9 @@ html
                   .css({
                     'color': '#544F4B',
                     'font-family': 'tahoma',
-                  }).hover(function () {
+                  }).on('mouseenter', function () {
                 $jt(this).css("background", "#FFC0CB");
-              }, function () {
+              }).on('mouseleave', function () {
                 $jt(this).css("background", "");
               });
             });
@@ -153,7 +155,30 @@ html
         .container.pt-3.my-5(style='background-color: white; border: 2px solid green; border-radius: 30px; height: auto;')
             block content
         .container.pt-3.my-5
+
+            //script.
+            //  //Get the button
+            //  var mybutton = document.getElementById("myBtn");
+            //  // When the user scrolls down 20px from the top of the document, show the button
+            //  window.onscroll = function () {
+            //    scrollFunction()
+            //  };
+            //  function scrollFunction() {
+            //    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            //      mybutton.style.display = "block";
+            //    } else {
+            //      mybutton.style.display = "none";
+            //    }
+            //  }
+            //  // When the user clicks on the button, scroll to the top of the document
+            //  function topFunction() {
+            //    document.body.scrollTop = 0;
+            //    document.documentElement.scrollTop = 0;
+            //  }
+
         footer
+            //button.btn.btn-primary.mr-5#myBtn(onclick='topFunction()', title='Go to top', style='z-index: 10000; float: right; position: absolute; right: 0; top: -40') Top
+
             p
                 | © MySchool.io
                 br
