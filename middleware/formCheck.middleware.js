@@ -2,6 +2,33 @@ const db = require('../lowdb/db');
 var department = require('../lowdb/department');
 var subject = require('../lowdb/subject');
 
+var SpotifyWebApi = require('spotify-web-api-node');
+var accessToken = 0;
+function refreshToken() {
+  var clientId = 'a85beef0e88b4ed98881980a166ab3d7',
+      clientSecret = '2f5a5ba0d2a046ba9d84d98c17c7ca64';
+
+  var spotifyApi = new SpotifyWebApi({
+    clientId: clientId,
+    clientSecret: clientSecret
+  });
+  // var accessToken = 0;
+// Retrieve an access token.
+  spotifyApi.clientCredentialsGrant().then(
+      function (data) {
+        console.log('The access token expires in ' + data.body['expires_in']);
+        console.log('The access token is ' + data.body['access_token']);
+
+        // Save the access token so that it's used in future calls
+        spotifyApi.setAccessToken(data.body['access_token']);
+        accessToken = data.body['access_token']
+      },
+      function (err) {
+        console.log('Something went wrong when retrieving an access token', err);
+      }
+  );
+  return accessToken;
+}
 
 module.exports.checkAnnouncementCreatingForm = function (req, res, next) {
   var users = db.get('users').value();
@@ -43,12 +70,13 @@ module.exports.checkAnnouncementCreatingForm = function (req, res, next) {
   if (!req.body.content) {
     errs.push('Content is required!');
   }
-
+  refreshToken();
   if (errs.length > 0) {
     res.render('school/createAnnouncement', {
       csrfToken: req.csrfToken(),
       errs: errs,
-      values: req.body
+      values: req.body,
+      spotifyToken: accessToken
     });
     return;
   }
@@ -115,14 +143,15 @@ module.exports.checkBatchSubjects1 = function (req, res, next) {
         allNameSubsCount.push(1);
       }
     }
-
+    refreshToken();
     res.render('school/createBatchSubjects', {
       csrfToken: req.csrfToken(),
       departments: departments,
       subjects: subjects,
       allNameSubs: allNameSubs,
       allNameSubsCount: allNameSubsCount,
-      es: es
+      es: es,
+      spotifyToken: accessToken
     });
 
     return;

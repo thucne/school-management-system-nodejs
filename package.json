@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@popperjs/core": "^2.5.3",
+    "@sweetalert/with-react": "^0.1.1",
     "aguid": "^2.0.0",
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^3.1.2",
@@ -33,6 +34,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "shortid": "^2.2.15",
+    "spotify-web-api-node": "^5.0.2",
     "sweetalert": "^2.1.2"
   },
   "devDependencies": {

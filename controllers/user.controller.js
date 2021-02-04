@@ -9,6 +9,36 @@ const shortid = require('shortid');
 var aguid = require('aguid');
 const range = require('ip-range-generator');
 
+var SpotifyWebApi = require('spotify-web-api-node');
+
+var accessToken = 0;
+function refreshToken() {
+  var clientId = 'a85beef0e88b4ed98881980a166ab3d7',
+      clientSecret = '2f5a5ba0d2a046ba9d84d98c17c7ca64';
+
+  var spotifyApi = new SpotifyWebApi({
+    clientId: clientId,
+    clientSecret: clientSecret
+  });
+  // var accessToken = 0;
+// Retrieve an access token.
+  spotifyApi.clientCredentialsGrant().then(
+      function (data) {
+        console.log('The access token expires in ' + data.body['expires_in']);
+        console.log('The access token is ' + data.body['access_token']);
+
+        // Save the access token so that it's used in future calls
+        spotifyApi.setAccessToken(data.body['access_token']);
+        accessToken = data.body['access_token']
+      },
+      function (err) {
+        console.log('Something went wrong when retrieving an access token', err);
+      }
+  );
+  return accessToken;
+}
+
+
 module.exports.index = function (req, res) {
   var nPPage = 7;
   var currentPage = parseInt(req.query.page);
@@ -28,7 +58,8 @@ module.exports.index = function (req, res) {
   if (!isAdmin) {
     thisUser.push(db.get('users').find({id: res.locals.userInfo.loginId}).value());
   }
-
+  // console.log('TOKEN is' + accessToken);
+  refreshToken();
   res.render('users/index', {
     csrfToken: token,
     users: isAdmin === true ? db.get('users').value().slice(start, end) : thisUser,
@@ -42,7 +73,8 @@ module.exports.index = function (req, res) {
       z: ++page
     },
     breadcrumb: ['Home', 'Info'],
-    breadLink: ['/', '/users']
+    breadLink: ['/', '/users'],
+    spotifyToken: accessToken
   });
   // console.log('User is ' + db.get('users').value());
 };
@@ -56,7 +88,7 @@ module.exports.search = function (req, res) {
   var match2 = db.get('users').value().filter(function (user) {
     return user.first_name.toLowerCase().indexOf(q) !== -1;
   });
-
+  refreshToken();
   // console.log(match1, match2);
 
   var match3 = match1.concat(match2);
@@ -98,7 +130,10 @@ module.exports.search = function (req, res) {
       thisPage: page,
       x: --page,
       y: ++page,
-      z: ++page
+      z: ++page,
+      breadcrumb: ['Home', 'Info', 'Search'],
+      breadLink: ['/', '/users', '/users'],
+      spotifyToken: accessToken
     }
   });
   // console.log(req.query);
@@ -122,12 +157,15 @@ module.exports.updateInfo = function (req, res) {
   db.get('users').find({id: req.body.id}).assign(req.body).write();
 
   console.log(req.body);
-
+  refreshToken();
   if (req.body.warnings) {
     res.render('users/view', {
       user: req.body,
       warnings: req.body.warnings,
-      csrfToken: req.csrfToken()
+      csrfToken: req.csrfToken(),
+      breadcrumb: ['Home', 'Info', 'Edit info'],
+      breadLink: ['/', '/users', '/users/'+ req.body.id],
+      spotifyToken: accessToken
     });
   } else {
     res.redirect('/users/' + req.body.id);
@@ -146,22 +184,27 @@ module.exports.changePassword = function (req, res) {
     newPassword: req.body.newPassword,
     reNewPassword: req.body.reNewPassword
   }
-
+  refreshToken();
   res.render('users/view', {
     csrfToken: req.csrfToken(),
     user: user,
     inputValue: inputValue,
-    success: true
+    success: true,
+    breadcrumb: ['Home', 'Info', 'Edit info'],
+    breadLink: ['/', '/users', '/users/'+ req.body.id],
+    spotifyToken: accessToken
   })
 }
 
 module.exports.create = function (req, res) {
   var token = req.csrfToken();
   console.log("create " + token);
+  refreshToken();
   res.render('users/create', {
     csrfToken: token,
     breadcrumb: ['Home', 'Create account'],
-    breadLink: ['/', '/users/create']
+    breadLink: ['/', '/users/create'],
+    spotifyToken: accessToken
   });
   if (!req.cookies) {
     console.log(req.cookies);
@@ -170,10 +213,12 @@ module.exports.create = function (req, res) {
 
 module.exports.createByExcel = function (req, res) {
   var token = req.csrfToken();
+  refreshToken();
   res.render('users/createByExcel', {
     csrfToken: token,
     breadcrumb: ['Home', 'Create account', 'Create accounts by Excel'],
-    breadLink: ['/', '/users/create', '/users/create/createByExcel']
+    breadLink: ['/', '/users/create', '/users/create/createByExcel'],
+    spotifyToken: accessToken
   });
 }
 
@@ -201,7 +246,7 @@ module.exports.id = function (req, res) {
       return isTrue;
     })
   }
-
+  refreshToken();
   if (user && isOkay > 0) {
     console.log('length isssssssss' + listOfThisUsersSubjects.length);
     res.render('users/view', {
@@ -218,7 +263,8 @@ module.exports.id = function (req, res) {
       user: user,
       isThisUserValid: isThisUserValid,
       breadcrumb: ['Home', 'Info', 'Edit info'],
-      breadLink: ['/', '/users', '/users/'+id]
+      breadLink: ['/', '/users', '/users/'+id],
+      spotifyToken: accessToken
     })
   } else {
     res.render('404');
@@ -231,20 +277,6 @@ module.exports.deleteUser = function (req, res) {
   var user = db.get('users').find({id: id}).value();
 
   db.get('users').remove(user).write();
-
-  // res.render('users/deleteUser');
-  // var i = 3;
-  //
-  // var countDown = setInterval(function () {
-  //   res.render('users/deleteUser', {
-  //     user: user,
-  //     myTime: "Redirect in " + i-- + " second(s)..."
-  //   });
-  //   if (i < 3) {
-  //     clearInterval(countDown);
-  //     return res.redirect('/users');
-  //   }
-  // }, 1000);
 
   res.redirect('/users');
 };
@@ -274,11 +306,20 @@ module.exports.postCreate = function (req, res) {
   var Admin = db.get('users').value().filter(function (us) {
     return us.role === 10;
   });
+  function format(input) {
+    let pattern = /(\d{4})\-(\d{2})\-(\d{2})/;
+    if (!input || !input.match(pattern)) {
+      return null;
+    }
+    return input.replace(pattern, '$2/$3/$1');
+  }
 
+  let birthday = format(req.body.birthday);
   var newUser = {
     name: req.body.name,
     first_name: req.body.first_name,
     gender: req.body.gender,
+    birthday: birthday,
     email: req.body.email,
     id: req.body.id,
     ip_address: req.body.ip_address,
@@ -304,7 +345,14 @@ module.exports.postCreate = function (req, res) {
 
 
   db.get('users').push(newUser).write();
-  res.redirect('/users');
+  refreshToken();
+  res.render('users/create', {
+    csrfToken: req.csrfToken(),
+    breadcrumb: ['Home', 'Create account'],
+    breadLink: ['/', '/users/create'],
+    suc: 'Yes',
+    spotifyToken: accessToken
+  });
 };
 
 module.exports.postCreateByExcel = function (req, res) {
@@ -364,11 +412,14 @@ module.exports.postCreateByExcel = function (req, res) {
   async function run() {
     await process();
   }
-
+  refreshToken();
   run().then(res.render('users/createByExcel', {
     csrfToken: req.csrfToken(),
     saved: 'yes',
-    book_mark: '#here'
+    book_mark: '#here',
+    breadcrumb: ['Home', 'Create account', 'Create account by Excel'],
+    breadLink: ['/', '/users/create', '/users/create/createByExcel'],
+    spotifyToken: accessToken
   }));
   // res.redirect('/users/create/createByExcel');
 }
@@ -410,6 +461,7 @@ module.exports.registrationMenuDisplaying = function (req, res) {
   // console.log(correspondingDepartmentOfSubject);
 
   function ren() {
+    refreshToken();
     var user = db.get('users').find({id: id}).value();
 
     var isThisStudent = (user.role === 0);
@@ -423,7 +475,10 @@ module.exports.registrationMenuDisplaying = function (req, res) {
         subjects: subjects,
         correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
         isNotStudent: true,
-        csrfToken: token
+        csrfToken: token,
+        breadcrumb: ['Home', 'Course registration'],
+        breadLink: ['/', '/users/register'],
+        spotifyToken: accessToken
       });
       return;
     }
@@ -438,7 +493,10 @@ module.exports.registrationMenuDisplaying = function (req, res) {
         subjects: subjects,
         correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
         doesThisStudentHasAValidSchedule: true,
-        csrfToken: token
+        csrfToken: token,
+        breadcrumb: ['Home', 'Course registration'],
+        breadLink: ['/', '/users/register'],
+        spotifyToken: accessToken
       });
       return;
     }
@@ -509,7 +567,7 @@ module.exports.registrationMenuDisplaying = function (req, res) {
       });
     }
 
-
+    refreshToken();
     if (user && id === res.locals.userInfo.loginId) {
       res.render('users/courseRegistration', {
         loginUser: user,
@@ -518,7 +576,10 @@ module.exports.registrationMenuDisplaying = function (req, res) {
         subjectsByDepartment: listOfDepartmentSubjects,
         correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
         inputSelectedSubject: listOfSelectedSubjects,
-        csrfToken: token
+        csrfToken: token,
+        breadcrumb: ['Home', 'Course registration'],
+        breadLink: ['/', '/users/register'],
+        spotifyToken: accessToken
       });
     } else {
       res.clearCookie('userID');
@@ -567,19 +628,8 @@ module.exports.selectTheseSubjects = function (req, res) {
     listOfSelectedSubjects.push(findSelectedSubjectThisTime);
   }
 
-  // console.log(id);
-  // console.log('Existed Selected Subject ' + listOfSelectedSubjects);
-
-  // if (id === res.locals.userInfo.loginId) {
-  //   console.log('YES ' + res.locals.userInfo.loginId);
-  // } else {
-  //   console.log('NO ' + id);
-  // }
-  //
   var subjects = subject.get('subjects').value();
-  // subjects.filter(function (sub) {
-  //   return sub.id_sub === parseInt()
-  // })
+
   var correspondingDepartmentOfSubject = [];
 
   function assignCorresponding() {
@@ -626,6 +676,7 @@ module.exports.selectTheseSubjects = function (req, res) {
       }
 
     }
+    refreshToken();
     res.render('users/courseRegistration', {
       loginUser: db.get('users').find({id: id}).value(),
       departments: departments,
@@ -633,7 +684,10 @@ module.exports.selectTheseSubjects = function (req, res) {
       correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
       inputSelectedSubject: listOfSelectedSubjects,
       book_mark: '#here',
-      csrfToken: req.csrfToken()
+      csrfToken: req.csrfToken(),
+      breadcrumb: ['Home', 'Course registration'],
+      breadLink: ['/', '/users/register'],
+      spotifyToken: accessToken
     });
   }
 
@@ -710,6 +764,7 @@ module.exports.deleteTheseSubjects = function (req, res) {
         }
       }
     }
+    refreshToken();
     res.render('users/courseRegistration', {
       loginUser: db.get('users').find({id: id}).value(),
       departments: departments,
@@ -717,7 +772,10 @@ module.exports.deleteTheseSubjects = function (req, res) {
       correspondingDepartmentOfSubject: correspondingDepartmentOfSubject,
       inputSelectedSubject: listOfSelectedSubjects,
       book_mark: '#here',
-      csrfToken: req.csrfToken()
+      csrfToken: req.csrfToken(),
+      breadcrumb: ['Home', 'Course registration'],
+      breadLink: ['/', '/users/register'],
+      spotifyToken: accessToken
     });
   }
 }
@@ -826,6 +884,7 @@ module.exports.saveRegistrations = function (req, res) {
   assignNow().then(ren);
 
   function ren() {
+    refreshToken();
     if (overlappingSelection.length > 0) {
       res.render('users/courseRegistration', {
         loginUser: db.get('users').find({id: id}).value(),
@@ -835,7 +894,10 @@ module.exports.saveRegistrations = function (req, res) {
         inputSelectedSubject: listOfSelectedSubjects,
         book_mark: '#here',
         overlapping: overlappingSelection,
-        csrfToken: req.csrfToken()
+        csrfToken: req.csrfToken(),
+        breadcrumb: ['Home', 'Course registration'],
+        breadLink: ['/', '/users/register'],
+        spotifyToken: accessToken
       });
     } else {
       var notOverlappingSelectedSubjects = [];
@@ -967,7 +1029,10 @@ module.exports.saveRegistrations = function (req, res) {
           }
         }
       }
-
+      let isSaved = '';
+      if (resultColor.length <= 0) {
+        isSaved = 'Yes';
+      }
       res.render('users/courseRegistration', {
         loginUser: db.get('users').find({id: id}).value(),
         departments: departments,
@@ -977,7 +1042,11 @@ module.exports.saveRegistrations = function (req, res) {
         resultColor: resultColor,
         reloadPage: true,
         book_mark: '#here',
-        csrfToken: req.csrfToken()
+        csrfToken: req.csrfToken(),
+        breadcrumb: ['Home', 'Course registration'],
+        breadLink: ['/', '/users/register'],
+        isSaved: isSaved,
+        spotifyToken: accessToken
       });
     }
   }
@@ -1215,14 +1284,17 @@ module.exports.schedule = function (req, res) {
   }
   console.log('what are needed fields to render where >' + where);
   console.log('what are needed fields to render ' + whereDay);
-
+  refreshToken();
   res.render('users/viewSchedule', {
     thisUser: thisUser,
     weekDetails: displayedResult,
     where: where,
     whereDay: whereDay,
     savedSubjects: correspondingSubjects,
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    breadcrumb: ['Home', 'Schedule'],
+    breadLink: ['/', '/users/schedule'],
+    spotifyToken: accessToken
   });
 
 }
