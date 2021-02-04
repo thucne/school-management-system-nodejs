@@ -1,10 +1,38 @@
 var db = require('../lowdb/db');
 
+var SpotifyWebApi = require('spotify-web-api-node');
+var accessToken = 0;
+function refreshToken() {
+  var clientId = 'a85beef0e88b4ed98881980a166ab3d7',
+      clientSecret = '2f5a5ba0d2a046ba9d84d98c17c7ca64';
+
+  var spotifyApi = new SpotifyWebApi({
+    clientId: clientId,
+    clientSecret: clientSecret
+  });
+  // var accessToken = 0;
+// Retrieve an access token.
+  spotifyApi.clientCredentialsGrant().then(
+      function (data) {
+        console.log('The access token expires in ' + data.body['expires_in']);
+        console.log('The access token is ' + data.body['access_token']);
+
+        // Save the access token so that it's used in future calls
+        spotifyApi.setAccessToken(data.body['access_token']);
+        accessToken = data.body['access_token']
+      },
+      function (err) {
+        console.log('Something went wrong when retrieving an access token', err);
+      }
+  );
+  return accessToken;
+}
+
 module.exports.postCreate = function (req, res, next) {
   var errs = [];
   console.log(req.csrfToken());
-
-   if (!req.body.accessCode) {
+  refreshToken();
+  if (!req.body.accessCode) {
      errs.push('Access code is required.');
    } else {
      var accessCode = parseInt(req.body.accessCode);
@@ -60,7 +88,8 @@ module.exports.postCreate = function (req, res, next) {
       csrfToken: token,
       errs: errs,
       values: req.body,
-      book_mark: '#here'
+      book_mark: '#here',
+      spotifyToken: accessToken
     });
     return;
   }
@@ -71,7 +100,7 @@ module.exports.postCreate = function (req, res, next) {
 module.exports.postCreateByExcel = function (req, res, next) {
   var errs = [];
   console.log(req.csrfToken());
-
+  refreshToken();
   if (!req.body.accessCode) {
     errs.push('Access code is required.');
   } else {
@@ -85,7 +114,8 @@ module.exports.postCreateByExcel = function (req, res, next) {
         csrfToken: token,
         values: req.body,
         reloadPage: 'yes',
-        book_mark: '#here'
+        book_mark: '#here',
+        spotifyToken: accessToken
       });
       return;
     } else {
@@ -122,7 +152,8 @@ module.exports.postCreateByExcel = function (req, res, next) {
       csrfToken: token,
       errs: errs,
       values: req.body,
-      book_mark: '#here'
+      book_mark: '#here',
+      spotifyToken: accessToken
     });
     return;
   }
@@ -131,6 +162,7 @@ module.exports.postCreateByExcel = function (req, res, next) {
 }
 
 module.exports.postUpdate =  function (req, res, next) {
+  refreshToken();
   var errs = [];
   var warnings = [];
   var user = db.get('users').find({id: req.body.id}).value();
@@ -171,6 +203,7 @@ module.exports.postUpdate =  function (req, res, next) {
       errs: errs,
       thisSession: {PersonalInfo: 'yes', Fee: '', Back: ''},
       warnings: warnings,
+      spotifyToken: accessToken
       // values: req.body
     });
 
@@ -184,6 +217,7 @@ module.exports.postUpdate =  function (req, res, next) {
 }
 
 module.exports.postChangePassword = function (req, res ,next) {
+  refreshToken();
   var pErrs = [];
   var user = db.get('users').find({id: req.body.id}).value();
   var enteredOldPassword = req.body.oldPassword;
@@ -209,6 +243,7 @@ module.exports.postChangePassword = function (req, res ,next) {
       csrfToken: token,
       pErrs: pErrs,
       user: user,
+      spotifyToken: accessToken
 
     })
     return;

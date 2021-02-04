@@ -56,6 +56,118 @@ html
             e.preventDefault();
           });
 
+          function chill() {
+            swal({
+              text: 'Search for a movie. e.g. "La La Land".',
+              content: "input",
+              button: {
+                text: "Search!",
+                closeModal: false,
+              },
+            })
+                .then(name => {
+                  if (!name) throw null;
+
+                  return fetch(`https://itunes.apple.com/search?term=${name}&entity=movie`);
+                })
+                .then(results => {
+                  return results.json();
+                })
+                .then(json => {
+                  const movie = json.results[0];
+
+                  if (!movie) {
+                    return swal("No movie was found!");
+                  }
+
+                  const name = movie.trackName;
+                  const imageURL = movie.artworkUrl100;
+
+                  swal({
+                    title: "Top result:",
+                    text: name,
+                    icon: imageURL,
+                  });
+                })
+                .catch(err => {
+                  if (err) {
+                    swal("Oh noes!", "The AJAX request failed!", "error");
+                  } else {
+                    swal.stopLoading();
+                    swal.close();
+                  }
+                });
+          }
+
+          function chill2() {
+            var accessToken = $('#getToken').val();
+
+            // alert(typeof accessToken);
+
+            swal({
+              text: 'Search for a song. e.g. "Dynamite".',
+              content: "input",
+              button: {
+                text: "Search!",
+                closeModal: false,
+              },
+            })
+                .then(name => {
+                  if (!name) throw null;
+                  var url = 'https://api.spotify.com/v1/search?q=' + name +' &type=track&limit=1&access_token=' + accessToken
+                  return fetch(url);
+                })
+                .then(results => {
+                  return results.json();
+                })
+                .then(json => {
+                  const track = json.tracks;
+
+                  if (!track) {
+                    return swal("No song was found! [Refresh page and try again!]");
+                  }
+
+                  const name = track.items;
+                  const ob = name[0];
+                  const external_URl = ob.external_urls;
+                  const link = external_URl.spotify;
+                  const imageURL = ob.album.images[1].url;
+
+                  String.prototype.splice = function (idx, rem, str) {
+                    return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
+                  };
+
+                  var result = link.splice(25, 0, "embed/");
+                  // alert(result);
+                  swal({
+                    html: true,
+                    title: "Top result:",
+                    text: link,
+                    // icon: imageURL,
+                    content: {
+                      element: 'iframe',
+                      attributes: {
+                        src: result,
+                        width:"300",
+                        height:"380",
+                        frameborder:"0",
+                        allowtransparency: true,
+                        allow: "encrypted-media"
+                      }
+                    }
+                  });
+                })
+                .catch(err => {
+                  if (err) {
+                    swal("Oh noes!", "The AJAX request failed!", "error");
+                  } else {
+                    swal.stopLoading();
+                    swal.close();
+                  }
+                });
+          }
+        if (spotifyToken)
+            input#getToken(type='hidden', value=spotifyToken)
         div
             img.cropimg(src="/images/27240 (1).jpg", alt='Navigation img', width="100%", height="auto")
         .sticky-top
@@ -112,6 +224,10 @@ html
                                     a.dropdown-item.disabled(href='/school/create100rooms', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create 100 rooms
                                     a.dropdown-item.disabled(href='/school/bind100roomsWith100weeks', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Bind 100 rooms with 100 weeks
 
+                        li.nav-item
+                            button.btn.btn-outline-success(onclick='chill();') Tired of the schedule? Find a movie!
+                        li.nav-item.ml-2
+                            button.btn.btn-outline-success(onclick='chill2();') Or..find a song!
 
                     #google_translate_element(style='position: relative; opacity: 1; z-index: 10;' hidden)
                             //button.btn.btn-primary(style='position: absolute; right: 0; bottom: -6; z-index: 0; width: 157px; ') Translate
@@ -163,10 +279,10 @@ html
                   each breads in breadcrumb
                     li
                         a(href=breadLink[kout++])= breads
-            else
-                ul.breadcrumb.mt-2.ml-2
-                    li
-                        a(href='/') Home
+            //else
+            //    ul.breadcrumb.mt-2.ml-2
+            //        li
+            //            a(href='/') Home
         .container.pt-3.my-5(style='background-color: white; border: 2px solid green; border-radius: 30px; height: auto;')
             block content
         .container.pt-3.my-5

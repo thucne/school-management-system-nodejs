@@ -11,7 +11,36 @@ const marked = require("marked");
 const htmlPugConverter = require('html-pug-converter')
 var fs = require('fs');
 const converter = require('json-2-csv');
-var xlsx = require('json-as-xlsx')
+var xlsx = require('json-as-xlsx');
+
+var SpotifyWebApi = require('spotify-web-api-node');
+
+var accessToken = 0;
+function refreshToken() {
+  var clientId = 'a85beef0e88b4ed98881980a166ab3d7',
+      clientSecret = '2f5a5ba0d2a046ba9d84d98c17c7ca64';
+
+  var spotifyApi = new SpotifyWebApi({
+    clientId: clientId,
+    clientSecret: clientSecret
+  });
+  // var accessToken = 0;
+// Retrieve an access token.
+  spotifyApi.clientCredentialsGrant().then(
+      function (data) {
+        console.log('The access token expires in ' + data.body['expires_in']);
+        console.log('The access token is ' + data.body['access_token']);
+
+        // Save the access token so that it's used in future calls
+        spotifyApi.setAccessToken(data.body['access_token']);
+        accessToken = data.body['access_token']
+      },
+      function (err) {
+        console.log('Something went wrong when retrieving an access token', err);
+      }
+  );
+  return accessToken;
+}
 
 module.exports.week = function (req, res) {
   console.log(week.get('weeks').nth(1).value());
@@ -124,12 +153,13 @@ module.exports.generate = function (req, res) {
 
 module.exports.createSubject = function (req, res) {
   var subjects = subject.get('subjects').value();
-
+  refreshToken();
   res.render('school/createSubject', {
     subjects: subjects,
     csrfToken: req.csrfToken(),
     breadcrumb: ['Home', 'Set subjects\' time'],
-    breadLink: ['/', '/school/createSubject']
+    breadLink: ['/', '/school/createSubject'],
+    spotifyToken: accessToken
   });
 }
 
@@ -198,12 +228,13 @@ module.exports.searchRoom = function (req, res) {
   //   console.log('List of Room: ' + listOfRoom[i].room);
   // }
 
-
+  refreshToken();
   res.render('school/createSubject', {
     subjects: subjects,
     rooms: listOfRoom,
     selectedSubject: selectedSubject,
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    spotifyToken: accessToken
   })
 
   // res.redirect('/school/createSubject');
@@ -419,7 +450,7 @@ module.exports.searchWeek = function (req, res) {
   console.log('Where: \n' + where + '\n Length ' + where.length);
   console.log('WhereDay: \n' + whereDay + '\n Length ' + whereDay.length + '\n');
   console.log(displayedResult);
-
+  refreshToken();
   res.render('school/createSubject', {
     subjects: subjects,
     rooms: listRoom,
@@ -428,7 +459,8 @@ module.exports.searchWeek = function (req, res) {
     weekDetails: displayedResult,
     where: where,
     whereDay: whereDay,
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    spotifyToken: accessToken
   })
 }
 
@@ -523,12 +555,13 @@ module.exports.assignWhenAndWhereToSubject = function (req, res) {
     }
   }
 
-
+  refreshToken();
   res.render('school/createSubject', {
     subjects: subjects,
     selectedSubject: selectedSubject,
     rooms: JSON.parse(req.body.chooseTheseRooms),
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    spotifyToken: accessToken
   });
 
   // res.redirect('/users');
@@ -858,12 +891,13 @@ module.exports.searchTeacher = function (req, res) {
     //   console.log('List of Teacher: ' + listOfTeacher[i].name);
     // }
 
-
+    refreshToken();
     res.render('school/assignTeacherToSubject', {
       subjects: subjects,
       teachers: listOfTeacher,
       selectedSubject: selectedSubject,
-      csrfToken: req.csrfToken()
+      csrfToken: req.csrfToken(),
+      spotifyToken: accessToken
     })
   }
 
@@ -1096,7 +1130,7 @@ module.exports.searchTeacherWeek = function (req, res) {
   }
   console.log('what are needed fields to render ' + where);
   console.log('what are needed fields to render ' + whereDay);
-
+  refreshToken();
   res.render('school/assignTeacherToSubject', {
     subjects: subjects,
     teachers: listTeacher,
@@ -1105,7 +1139,8 @@ module.exports.searchTeacherWeek = function (req, res) {
     weekDetails: displayedResult,
     where: where,
     whereDay: whereDay,
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    spotifyToken: accessToken
   })
 }
 
@@ -1199,12 +1234,13 @@ module.exports.assignTeacherNOWToSubject = function (req, res) {
     }
   }
 
-
+  refreshToken();
   res.render('school/assignTeacherToSubject', {
     subjects: subjects,
     selectedSubject: selectedSubject,
     teachers: JSON.parse(req.body.chooseTheseTeachers),
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    spotifyToken: accessToken
   });
 }
 
@@ -1243,18 +1279,21 @@ module.exports.showAnnouncements = function (req, res) {
     listOfAnnouncements[n].when = new Date(listOfAnnouncements[n].when);
     // console.log(listOfAnnouncements[n].when);
 }
-
+  refreshToken()
   res.render('school/ancms', {
     csrfToken: req.csrfToken(),
     listOfAnnouncements: listOfAnnouncements,
     breadcrumb: ['Home', 'Announcements'],
-    breadLink: ['/', '/school/announcements']
+    breadLink: ['/', '/school/announcements'],
+    spotifyToken: accessToken
   });
 }
 
 module.exports.displayAnnouncementCreatingForm = function (req, res) {
+  refreshToken();
   res.render('school/createAnnouncement', {
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    spotifyToken: accessToken
   })
 }
 
@@ -1298,14 +1337,15 @@ module.exports.showThisANCM = function (req, res) {
   const pug = htmlPugConverter(marked(thisANCM.content), {tabs: true});
 
   fs.writeFileSync('README.pug', pug);
-
+  refreshToken();
   res.render('school/showANCM', {
     csrfToken: req.csrfToken(),
     thisANCM: thisANCM,
     content: pug,
     whoPost: whoPost,
     breadcrumb: ['Home', 'Announcements', 'See announcement'],
-    breadLink: ['/', '/school/announcements', '/school/showThisANCM/'+thisANCMid]
+    breadLink: ['/', '/school/announcements', '/school/showThisANCM/'+thisANCMid],
+    spotifyToken: accessToken
   })
 
 }
@@ -1370,10 +1410,13 @@ module.exports.showTeacherCourse = function (req, res) {
   for(let i = 0; i < listOfSubject.length; i++ ){
     console.log(listOfSubject.length);
   }
-
+  refreshToken();
   res.render('school/showTeacherCourse', {
-        csrfToken: req.csrfToken(),
-        courses: listOfSubject
+    csrfToken: req.csrfToken(),
+    courses: listOfSubject,
+    breadcrumb: ['Home', 'Your courses'],
+    breadLink: ['/', '/school/courseAllocation'],
+    spotifyToken: accessToken
       }
   )
 }
@@ -1454,13 +1497,14 @@ module.exports.createBatchSubject = function (req, res) {
       allNameSubsCount.push(1);
     }
   }
-
+  refreshToken();
   res.render('school/createBatchSubjects', {
     csrfToken: req.csrfToken(),
     departments: departments,
     subjects: subjects,
     allNameSubs: allNameSubs,
-    allNameSubsCount: allNameSubsCount
+    allNameSubsCount: allNameSubsCount,
+    spotifyToken: accessToken
   });
 }
 
@@ -1540,14 +1584,15 @@ module.exports.postCreateBatchSubject1 = function (req, res) {
       allNameSubsCount.push(1);
     }
   }
-
+  refreshToken();
   res.render('school/createBatchSubjects', {
     csrfToken: req.csrfToken(),
     departments: departmentss,
     subjects: subjectss,
     allNameSubs: allNameSubs,
     allNameSubsCount: allNameSubsCount,
-    suc1: 'yes'
+    suc1: 'yes',
+    spotifyToken: accessToken
   });
 
 }
@@ -1987,7 +2032,7 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
 
     var allNameSubs = [];
     var allNameSubsCount = [];
-
+    refreshToken();
     allNameSubs.push(subjectss[0].name_sub);
     allNameSubsCount.push(1);
     for (let i = 1; i < subjects.length; i++) {
@@ -2012,7 +2057,8 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
         subjects: subjectss,
         allNameSubs: allNameSubs,
         allNameSubsCount: allNameSubsCount,
-        suc2: 'yes'
+        suc2: 'yes',
+        spotifyToken: accessToken
       })
     } else {
       res.render('school/createBatchSubjects', {
@@ -2022,6 +2068,7 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
         allNameSubs: allNameSubs,
         allNameSubsCount: allNameSubsCount,
         es: ['One or more existed subjects are not assigned due to lack of suitable rooms!'],
+        spotifyToken: accessToken
       });
     }
   }

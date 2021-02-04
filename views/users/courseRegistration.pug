@@ -18,6 +18,11 @@ block content
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
+    //if (isSaved)
+    //  if (isSaved.length > 1)
+    //    script.
+    //      swal("One or more selected subjects overlap saved subjects!", "See your schedule and register again!", "warning");
+
     if (isNotStudent !== null)
         if (isNotStudent === true)
             script(type='text/javascript').
@@ -257,13 +262,26 @@ block content
             if (listOfSelectedSubjects.length !== 0)
                 if (reloadPage !== null)
                     if (reloadPage === true)
-                        script(type='text/javascript').
-                          swal("Please wait when we reload the server! Unsaved subjects will be removed.", {
-                            icon: "warning",
-                            timer: 3000,
-                          }).then(() => {
-                            location.href = '/users/register#here';
-                          });
+                        if (isSaved)
+                            if (isSaved.length > 1)
+                                script.
+                                  swal("One or more selected subjects overlap saved subjects!", "See your schedule and register again!", "warning",
+                                      {timer: 2000}).then(()=>{
+                                      swal("Please wait when we reload the server! Unsaved subjects will be removed.", {
+                                        icon: "warning",
+                                        timer: 3000,
+                                      }).then(() => {
+                                        location.href = '/users/register#here';
+                                      })}
+                                  )
+                        else
+                            script(type='text/javascript').
+                              swal("Please wait when we reload the server! Unsaved subjects will be removed.", {
+                                icon: "warning",
+                                timer: 3000,
+                              }).then(() => {
+                                location.href = '/users/register#here';
+                              });
 
                 h4(style='color: blue; float: left;') Selected Subjects
                 form(action='/users/register/save', method="POST", name='SaveThis', id='SaveThis')

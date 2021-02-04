@@ -2,18 +2,18 @@
   "users": [
     {
       "id": "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3",
-      "name": "Haselwood Oo",
-      "first_name": "Cloris Hey",
-      "gender": "Other",
+      "name": "Katy",
+      "first_name": "Perry",
+      "gender": "Female",
       "ip_address": "162.186.26.22",
       "email": "chaselwood3@miibeian.com",
       "password": "Thuckaty20",
-      "avatar": "../uploads/a288e6fc90db805e918014cc02197b85",
+      "avatar": "../../../uploads/a288e6fc90db805e918014cc02197b85",
       "errs": [],
       "warnings": [
         "Avatar is kept unchanged."
       ],
-      "_csrf": "3xdAB7IQ-C2mgadz9CrqutPBGMSo5m9qKAcg",
+      "_csrf": "R5tXwayn-UZDDkUh2Sw0UTy6qEZfe1zw9vXU",
       "role": 1,
       "teacherSchedule": 1,
       "universityID": "TCTCIU000",
@@ -13347,7 +13347,8 @@
         9,
         2,
         3,
-        1
+        1,
+        490
       ]
     },
     {
@@ -14701,6 +14702,19 @@
       "teacherSchedule": 308,
       "universityID": "BTBTIU4703",
       "email": "BTBTIU4703@teacher.myschool.edu.vn"
+    },
+    {
+      "name": "Micheal",
+      "first_name": "Nam",
+      "gender": "Male",
+      "email": "micheal_name@gmail.com",
+      "id": "afcf8df8-69da-4d88-80ed-0a722eb74065",
+      "ip_address": "186.43.180.93",
+      "password": "iUo4Ezpf8",
+      "avatar": "uploads/3fee6ea77ea8077f7fca95aa2f4157cf",
+      "role": 0,
+      "studentSchedule": 813,
+      "universityID": "ITITIU3249"
     }
   ],
   "sessions": [
@@ -14718,6 +14732,9 @@
     },
     {
       "id": "2uRzpmq3g"
+    },
+    {
+      "id": "-bsGLokma"
     }
   ]
 }
