@@ -30,8 +30,8 @@ const db = require('./lowdb/db');
 var SpotifyWebApi = require('spotify-web-api-node');
 var accessToken = 0;
 function refreshToken() {
-  var clientId = 'a85beef0e88b4ed98881980a166ab3d7',
-      clientSecret = '2f5a5ba0d2a046ba9d84d98c17c7ca64';
+  var clientId = process.env.clientId,
+      clientSecret = process.env.clientSecret;
 
   var spotifyApi = new SpotifyWebApi({
     clientId: clientId,
@@ -41,9 +41,6 @@ function refreshToken() {
 // Retrieve an access token.
   spotifyApi.clientCredentialsGrant().then(
       function (data) {
-        console.log('The access token expires in ' + data.body['expires_in']);
-        console.log('The access token is ' + data.body['access_token']);
-
         // Save the access token so that it's used in future calls
         spotifyApi.setAccessToken(data.body['access_token']);
         accessToken = data.body['access_token']
@@ -69,7 +66,11 @@ app.use(sessionMiddleware);
 var csrfProtection = csurf({ cookie: true });
 // app.use(csrfProtection);
 
-app.get('/', authMiddleware.default, authMiddleware.requireAuth, function (req, res) {
+
+app.get('/', csrfProtection, authMiddleware.default, authMiddleware.requireAuth, function (req, res) {
+  // $.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
+  //   console.log(data);
+  // })
   refreshToken();
   res.render('index', {
     name: req.body.username,
@@ -80,67 +81,67 @@ app.get('/', authMiddleware.default, authMiddleware.requireAuth, function (req, 
   // res.render('404');
 });
 
-app.use('/users', authMiddleware.default, authMiddleware.requireAuth, userRouter);
-app.use('/auth', authMiddleware.default, csrfProtection, authRouter);
-app.use('/school', authMiddleware.default, authMiddleware.requireAuth, csrfProtection, schoolRouter);
+app.use('/users', csrfProtection, authMiddleware.default, authMiddleware.requireAuth, userRouter);
+app.use('/auth', csrfProtection, authMiddleware.default, csrfProtection, authRouter);
+app.use('/school', csrfProtection, authMiddleware.default, authMiddleware.requireAuth, csrfProtection, schoolRouter);
 
-app.enable('verbose errors');
-
-app.get('/404', function(req, res, next){
-  // trigger a 404 since no other middleware
-  // will match /404 after this one, and we're not
-  // responding here
-  next();
-});
-
-app.get('/403', function(req, res, next){
-  // trigger a 403 error
-  var err = new Error('not allowed!');
-  err.status = 403;
-  next(err);
-});
-
-app.get('/500', function(req, res, next){
-  // trigger a generic (500) error
-  next(new Error('keyboard cat!'));
-});
-
-app.use(function(req, res, next){
-  res.status(404);
-
-  res.format({
-    html: function () {
-      res.render('404', { url: req.url })
-    },
-    json: function () {
-      res.json({ error: 'Not found' })
-    },
-    default: function () {
-      res.type('txt').send('Not found')
-    }
-  })
-});
-
-app.use(function(err, req, res, next){
-  // we may use properties of the error object
-  // here and next(err) appropriately, or if
-  // we possibly recovered from the error, simply next().
-  if (!req.signedCookies.userID) {
-    // res.locals.userInfo = {name: " "};
-    res.redirect('/auth/login');
-    return;
-  }
-  var user = db.get('users').find({ id: req.signedCookies.userID }).value();
-  res.status(err.status || 500);
-  res.render('404', {
-    userInfo: {name: "Hi " + user.name + "!"}
-  });
-});
+// app.enable('verbose errors');
+//
+// app.get('/404', function(req, res, next){
+//   // trigger a 404 since no other middleware
+//   // will match /404 after this one, and we're not
+//   // responding here
+//   next();
+// });
+//
+// app.get('/403', function(req, res, next){
+//   // trigger a 403 error
+//   var err = new Error('not allowed!');
+//   err.status = 403;
+//   next(err);
+// });
+//
+// app.get('/500', function(req, res, next){
+//   // trigger a generic (500) error
+//   next(new Error('keyboard cat!'));
+// });
+//
+// app.use(function(req, res, next){
+//   res.status(404);
+//
+//   res.format({
+//     html: function () {
+//       res.render('404', { url: req.url })
+//     },
+//     json: function () {
+//       res.json({ error: 'Not found' })
+//     },
+//     default: function () {
+//       res.type('txt').send('Not found')
+//     }
+//   })
+// });
+//
+// app.use(function(err, req, res, next){
+//   // we may use properties of the error object
+//   // here and next(err) appropriately, or if
+//   // we possibly recovered from the error, simply next().
+//   if (!req.signedCookies.userID) {
+//     // res.locals.userInfo = {name: " "};
+//     res.redirect('/auth/login');
+//     return;
+//   }
+//   var user = db.get('users').find({ id: req.signedCookies.userID }).value();
+//   res.status(err.status || 500);
+//   res.render('404', {
+//     userInfo: {name: "Hi " + user.name + "!"}
+//   });
+// });
 
 
 //Test Change
 app.listen(port, function () {
   console.log('Server at port '  + port + ' is running...!!');
-  open('http://localhost:6969/', {app: edge});
+  // open('http://localhost:6969/', {app: edge});
 });
 

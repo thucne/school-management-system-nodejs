@@ -4,6 +4,7 @@ var department = require('../lowdb/department');
 var subject = require('../lowdb/subject');
 var studentSchedule = require('../lowdb/studentStandardSchedule');
 var teacherSchedule = require('../lowdb/teacherStandardSchedule');
+require('dotenv').config();
 
 const shortid = require('shortid');
 var aguid = require('aguid');
@@ -13,8 +14,8 @@ var SpotifyWebApi = require('spotify-web-api-node');
 
 var accessToken = 0;
 function refreshToken() {
-  var clientId = 'a85beef0e88b4ed98881980a166ab3d7',
-      clientSecret = '2f5a5ba0d2a046ba9d84d98c17c7ca64';
+  var clientId = process.env.clientId,
+      clientSecret = process.env.clientSecret;
 
   var spotifyApi = new SpotifyWebApi({
     clientId: clientId,
@@ -24,9 +25,6 @@ function refreshToken() {
 // Retrieve an access token.
   spotifyApi.clientCredentialsGrant().then(
       function (data) {
-        console.log('The access token expires in ' + data.body['expires_in']);
-        console.log('The access token is ' + data.body['access_token']);
-
         // Save the access token so that it's used in future calls
         spotifyApi.setAccessToken(data.body['access_token']);
         accessToken = data.body['access_token']
@@ -255,7 +253,8 @@ module.exports.id = function (req, res) {
       isThisUserValid: isThisUserValid,
       subjects: listOfThisUsersSubjects,
       breadcrumb: ['Home', 'Info', 'Edit info'],
-      breadLink: ['/', '/users', '/users/'+id]
+      breadLink: ['/', '/users', '/users/'+id],
+      spotifyToken: accessToken
     })
   } else if(user) {
     res.render('users/view', {

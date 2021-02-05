@@ -97,9 +97,9 @@ block content
                                         var WarningSnackbar4 = document.getElementById("q");
                                         WarningSnackbar4.className = "show";
                                         setTimeout(()=>{WarningSnackbar4.className=WarningSnackbar4.className.replace("show","")},3000);
-                        form(action="/users/updateInfo/", method="POST", enctype="multipart/form-data")
+                        form(action="/users/updateInfo?_csrf=" + csrfToken, method="POST", enctype="multipart/form-data")
                             .form-group
-                                input(type="hidden", name="_csrf", value=csrfToken)
+                                //input(type="hidden", name="_csrf", value=csrfToken)
 
                                 label(for="name") Last Name
                                 input#name.form-control(name="name", type="text", value=user ? user.name : '', placeholder="Katy",
