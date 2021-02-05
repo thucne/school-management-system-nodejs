@@ -68,11 +68,11 @@
       "id": "7869a2c6-033e-4274-8ac9-16fb29139823",
       "name": "Bradmore",
       "first_name": "Desiri",
-      "gender": "Female",
+      "gender": "Other",
       "ip_address": "89.86.155.214",
       "email": "dbradmore6@smugmug.com",
       "password": "P5mDZZ3OlR",
-      "avatar": "../uploads/35dd809287b63c77d2e1bedc844011c1",
+      "avatar": "uploads/46a221fca93e59ba7d76674748d0373d",
       "errs": [],
       "warnings": [
         "Avatar is kept unchanged."
@@ -84,7 +84,8 @@
         3,
         2
       ],
-      "universityID": "BABAIU20001"
+      "universityID": "BABAIU20001",
+      "birthday": "2002-12-03"
     },
     {
       "id": "ad01abac-4921-43c1-b17d-7f72140a91d4",
@@ -14715,6 +14716,20 @@
       "role": 0,
       "studentSchedule": 813,
       "universityID": "ITITIU3249"
+    },
+    {
+      "name": "cds",
+      "first_name": "dfdsfsd",
+      "gender": "Other",
+      "birthday": "12/12/2002",
+      "email": "fff@gmail.com",
+      "id": "274ca2b8-5004-48eb-82d7-f000041af940",
+      "ip_address": "213.123.72.168",
+      "password": "714PsgRlX",
+      "avatar": "uploads/dd0172832d1ec9e0b779a2a7265eadd2",
+      "role": 0,
+      "studentSchedule": 814,
+      "universityID": "BABAIU5043"
     }
   ],
   "sessions": [
@@ -14725,16 +14740,29 @@
       }
     },
     {
-      "id": "Crd49OoEB"
+      "id": "CfumpNdXO"
     },
     {
-      "id": "4-Mt1yDwQ"
+      "id": "pZ1PWyCn6"
     },
     {
-      "id": "2uRzpmq3g"
+      "id": "xu-y4D0dG"
     },
     {
-      "id": "-bsGLokma"
+      "id": "F_5OAh7uD"
+    },
+    {
+      "id": "z7e-ezgZj"
+    }
+  ],
+  "clientIPs": [
+    {
+      "ip": "2001:ee0:5190:53b0:d0b9:ec3a:a3b4:8c94",
+      "count": 1
+    },
+    {
+      "ip": "",
+      "count": 1
     }
   ]
 }

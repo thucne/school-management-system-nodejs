@@ -35,29 +35,6 @@ block content
           $("#t").show();
         }
 
-        // var text = $("#content").val().replace(/\s/g); //read input value, and remove "space" by replace \s
-        // //Dictionary for Unicode range of the languages
-        // var langdic = {
-        //   "Arabic": /[\u0600-\u06FF]/,
-        //   "Persian": /[\u0750-\u077F]/,
-        //   "Hebrew": /[\u0590-\u05FF]/,
-        //   "Syriac": /[\u0700-\u074F]/,
-        //   "Bengali": /[\u0980-\u09FF]/,
-        //   "Ethiopic": /[\u1200-\u137F]/,
-        //   "Greek and Coptic": /[\u0370-\u03FF]/,
-        //   "Georgian": /[\u10A0-\u10FF]/,
-        //   "Thai": /[\u0E00-\u0E7F]/,
-        //   "English": /^[a-zA-Z]+$/
-        //   //add other languages her
-        // }
-        // //const keys = Object.keys(langdic); //read  keys
-        // //const keys = Object.values(langdic); //read  values
-        // const keys = Object.entries(langdic); // read  keys and values from the dictionary
-        // Object.entries(langdic).forEach(([key, value]) => {  // loop to read all the dictionary items if not true
-        //   if (value.test(text) == true) {   //Check Unicode to see which one is true
-        //     return document.getElementById("j").innerHTML = key; //print language name if unicode true
-        //   }
-        // });
       };
 
     .px-3.pt-3.hide
@@ -70,6 +47,7 @@ block content
                         .alert.alert-danger= err
                     form(action="/school/postThisAnnouncement", method="POST", name="Create", id='Create')
                         script(type='text/javascript').
+
                           function confirmSave() {
                             swal({
                               title: "Create this announcement?",

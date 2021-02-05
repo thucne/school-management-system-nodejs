@@ -1,30 +1,95 @@
 extends ../layouts/common
 
 block content
+    script(type='text/javascript').
+
+      // const Swal = require("sweetalert2");
+      $.get('https://www.cloudflare.com/cdn-cgi/trace', function (data) {
+        // alert(data);
+        var ip = getIPCloudflare(data);
+        $('#clientIP').val(ip);
+      })
+
+      function getIPCloudflare(plainText) {
+        var idx = plainText.toString().indexOf("ip");
+        var ip = "";
+        var i = 3;
+        while (plainText.toString()[idx + i] !== '\n') {
+          ip += plainText.toString()[idx + i];
+          i++;
+        }
+        // alert(ip);
+        return ip;
+      }
+    if (isBan === true)
+        script(type='text/javascript').
+          let timerInterval;
+
+          Swal.fire({
+            title: 'You have been banned for entering incorrect passwords many times!',
+            width: 600,
+            padding: '3em',
+            imageUrl: '/images/banned.jpg',
+            imageWidth: 400,
+            imageAlt: 'Custom image',
+            backdrop: `
+              rgba(0,0,123,0.4)
+              url("https://i.gifer.com/6oa.gif")
+              left top
+            `,
+            html: 'This will close in <b></b> milliseconds.',
+            timer: 10000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading()
+              timerInterval = setInterval(() => {
+                const content = Swal.getContent()
+                if (content) {
+                  const b = content.querySelector('b')
+                  if (b) {
+                    b.textContent = Swal.getTimerLeft()
+                  }
+                }
+              }, 100)
+            },
+            willClose: () => {
+              clearInterval(timerInterval)
+            }
+          }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+              console.log('I was closed by the timer')
+            }
+          })
+    if (isBan === true)
+
+        img(src='/images/banned.jpg', width="100%", height="auto", alt="Banned")
     .container-fluid.mb-3.hide
         .row
             .col-sm-4
             .col-sm-4
-                h1 Log in
+                if (isBan === false)
+                    h1 Log in
 
-                if errs
-                  each err in errs
-                    //-   .alert.alert-danger= err
-                    div(id="errsnackbar") &#10006 #{err}
-                        script(type="text/javascript").
-                            var errsnackbar = document.getElementById("errsnackbar");
-                            errsnackbar.className="show";
-                            setTimeout(()=>{errsnackbar.className=errsnackbar.className.replace("show","")},3000);
+                    if errs
+                      each err in errs
+                        //-   .alert.alert-danger= err
+                        div(id="errsnackbar") &#10006 #{err}
+                            script(type="text/javascript").
+                                var errsnackbar = document.getElementById("errsnackbar");
+                                errsnackbar.className="show";
+                                setTimeout(()=>{errsnackbar.className=errsnackbar.className.replace("show","")},3000);
 
-                form(action="/auth/login", method="POST")
-                    .form-group
-                        input(type="hidden", name="_csrf", value=csrfToken)
+                    form(action="/auth/login", method="POST")
+                        .form-group
+                            input(type="hidden", name="_csrf", value=csrfToken)
+                            input#clientIP(type="hidden", name="clientIP")
 
-                        label(for="email") Username
-                        input#email.form-control(name="email", type="text", value=values ? values.email : '')
+                            label(for="email") Username
+                            input#email.form-control(name="email", type="text", value=values ? values.email : '')
 
-                        label(for="password") Password
-                        input#password.form-control(name="password", type="password", value=values ? values.password: '')
+                            label(for="password") Password
+                            input#password.form-control(name="password", type="password", value=values ? values.password: '')
 
-                    button.btn.btn-primary Log in
+                        button.btn.btn-primary Log in
             .col-sm-4

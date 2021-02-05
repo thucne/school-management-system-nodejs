@@ -4,6 +4,7 @@ html
         link(rel="stylesheet", href="/styles/dropdown.css")
         link(rel="icon", type="image/jpg", href="/images/002-layers.png")
         link(rel="stylesheet", href="/styles/snackbar.css")
+        link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css')
 
         script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js',
             integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
@@ -21,7 +22,13 @@ html
         link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
 
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+
+        script(src='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js')
+
         script(src='https://unpkg.com/sweetalert/dist/sweetalert.min.js')
+
+        //script(src='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js')
+        //link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css')
 
         //script(type='text/javascript', src='http://code.jquery.com/jquery-2.0.2.js')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
@@ -57,114 +64,179 @@ html
           });
 
           function chill() {
-            swal({
-              text: 'Search for a movie. e.g. "La La Land".',
-              content: "input",
-              button: {
-                text: "Search!",
-                closeModal: false,
+
+            // Swal.fire('Hello');
+            Swal.fire({
+              title: 'Search for a movie. e.g. "La La Land".',
+              input: 'text',
+              inputAttributes: {
+                autocapitalize: 'off'
               },
-            })
-                .then(name => {
-                  if (!name) throw null;
+              showCancelButton: true,
+              confirmButtonText: 'Look up',
+              showLoaderOnConfirm: true,
+              preConfirm: (login) => {
+                return fetch(`https://itunes.apple.com/search?term=${login}&entity=movie`)
+                    .then(response => {
+                      if (!response.ok) {
+                        throw new Error(response.statusText)
+                      }
+                      return response.json()
+                    })
+                    .catch(error => {
+                      Swal.showValidationMessage(
+                          `Request failed: ${error}`
+                      )
+                    })
+              },
+              allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
+              // alert(result);
+              // Swal.fire(result.results[0]);
+              if (result.isConfirmed) {
+                const movie = result.value.results[0];
 
-                  return fetch(`https://itunes.apple.com/search?term=${name}&entity=movie`);
-                })
-                .then(results => {
-                  return results.json();
-                })
-                .then(json => {
-                  const movie = json.results[0];
+                if (!movie) {
+                  return Swal.fire("No movie was found!");
+                }
 
-                  if (!movie) {
-                    return swal("No movie was found!");
-                  }
+                const name = movie.trackName;
+                const imageURL = movie.artworkUrl100;
 
-                  const name = movie.trackName;
-                  const imageURL = movie.artworkUrl100;
-
-                  swal({
-                    title: "Top result:",
-                    text: name,
-                    icon: imageURL,
-                  });
-                })
-                .catch(err => {
-                  if (err) {
-                    swal("Oh noes!", "The AJAX request failed!", "error");
-                  } else {
-                    swal.stopLoading();
-                    swal.close();
-                  }
+                Swal.fire({
+                  title: "Top result:",
+                  text: name,
+                  imageUrl: imageURL,
                 });
+              } else {
+                Swal.fire('????');
+              }
+            })
           }
-
           function chill2() {
             var accessToken = $('#getToken').val();
 
+
             // alert(typeof accessToken);
-
-            swal({
-              text: 'Search for a song. e.g. "Dynamite".',
-              content: "input",
-              button: {
-                text: "Search!",
-                closeModal: false,
+            Swal.fire({
+              title: 'Search for a song. e.g. "Dynamite".',
+              input: 'text',
+              inputAttributes: {
+                autocapitalize: 'off'
               },
-            })
-                .then(name => {
-                  if (!name) throw null;
-                  var url = 'https://api.spotify.com/v1/search?q=' + name +' &type=track&limit=1&access_token=' + accessToken
-                  return fetch(url);
-                })
-                .then(results => {
-                  return results.json();
-                })
-                .then(json => {
-                  const track = json.tracks;
-
-                  if (!track) {
-                    return swal("No song was found! [Refresh page and try again!]");
-                  }
-
-                  const name = track.items;
-                  const ob = name[0];
-                  const external_URl = ob.external_urls;
-                  const link = external_URl.spotify;
-                  const imageURL = ob.album.images[1].url;
-
-                  String.prototype.splice = function (idx, rem, str) {
-                    return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
-                  };
-
-                  var result = link.splice(25, 0, "embed/");
-                  // alert(result);
-                  swal({
-                    html: true,
-                    title: "Top result:",
-                    text: link,
-                    // icon: imageURL,
-                    content: {
-                      element: 'iframe',
-                      attributes: {
-                        src: result,
-                        width:"300",
-                        height:"380",
-                        frameborder:"0",
-                        allowtransparency: true,
-                        allow: "encrypted-media"
+              showCancelButton: true,
+              confirmButtonText: 'Look up',
+              showLoaderOnConfirm: true,
+              preConfirm: (login) => {
+                var url = 'https://api.spotify.com/v1/search?q=' + login + ' &type=track&limit=1&access_token=' + accessToken;
+                return fetch(url)
+                    .then(response => {
+                      if (!response.ok) {
+                        throw new Error(response.statusText)
                       }
-                    }
-                  });
-                })
-                .catch(err => {
-                  if (err) {
-                    swal("Oh noes!", "The AJAX request failed!", "error");
-                  } else {
-                    swal.stopLoading();
-                    swal.close();
-                  }
+                      return response.json()
+                    })
+                    .catch(error => {
+                      Swal.showValidationMessage(
+                          `Request failed: ${error}`
+                      )
+                    })
+              },
+              allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
+              // alert(result);
+              // Swal.fire(result.results[0]);
+              if (result.isConfirmed) {
+                const track = result.value.tracks;
+
+                if (!track) {
+                  return swal("No song was found! [Refresh page and try again!]");
+                }
+
+                const name = track.items;
+                const ob = name[0];
+                const external_URl = ob.external_urls;
+                const link = external_URl.spotify;
+                const imageURL = ob.album.images[1].url;
+
+                String.prototype.splice = function (idx, rem, str) {
+                  return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
+                };
+
+                var result = link.splice(25, 0, "embed/");
+                // alert(result);
+                // alert(link);
+                Swal.fire({
+                  html: '<h1>Top result: <br><small>' + link
+                      +'</small></h1><br><iframe src="' + result
+                      +'" width="300" height="380" frameborder="0" ' +
+                      'allowtransparency="true" allow="encrypted-media"></iframe>',
+                  // imageUrl: imageURL,
                 });
+              }})
+
+
+            // swal({
+            //   text: 'Search for a song. e.g. "Dynamite".',
+            //   content: "input",
+            //   button: {
+            //     text: "Search!",
+            //     closeModal: false,
+            //   },
+            // })
+            //     .then(name => {
+            //       if (!name) throw null;
+            //       var url = 'https://api.spotify.com/v1/search?q=' + name +' &type=track&limit=1&access_token=' + accessToken
+            //       return fetch(url);
+            //     })
+            //     .then(results => {
+            //       return results.json();
+            //     })
+            //     .then(json => {
+            //       const track = json.tracks;
+            //
+            //       if (!track) {
+            //         return swal("No song was found! [Refresh page and try again!]");
+            //       }
+            //
+            //       const name = track.items;
+            //       const ob = name[0];
+            //       const external_URl = ob.external_urls;
+            //       const link = external_URl.spotify;
+            //       const imageURL = ob.album.images[1].url;
+            //
+            //       String.prototype.splice = function (idx, rem, str) {
+            //         return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
+            //       };
+            //
+            //       var result = link.splice(25, 0, "embed/");
+            //       // alert(result);
+            //       swal({
+            //         html: true,
+            //         title: "Top result:",
+            //         text: link,
+            //         // icon: imageURL,
+            //         content: {
+            //           element: 'iframe',
+            //           attributes: {
+            //             src: result,
+            //             width:"300",
+            //             height:"380",
+            //             frameborder:"0",
+            //             allowtransparency: true,
+            //             allow: "encrypted-media"
+            //           }
+            //         }
+            //       });
+            //     })
+            //     .catch(err => {
+            //       if (err) {
+            //         swal("Oh noes!", "The AJAX request failed!", "error");
+            //       } else {
+            //         swal.stopLoading();
+            //         swal.close();
+            //       }
+            //     });
           }
         if (spotifyToken)
             input#getToken(type='hidden', value=spotifyToken)
