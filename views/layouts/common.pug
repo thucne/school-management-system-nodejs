@@ -63,6 +63,17 @@ html
             e.preventDefault();
           });
 
+          function time() {
+
+            var d = new Date();
+            var s = d.getSeconds();
+            var m = d.getMinutes();
+            var h = d.getHours();
+            $("#www").text(("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2));
+          }
+
+          setInterval(time, 1000);
+
           function chill() {
 
             // Swal.fire('Hello');
@@ -150,7 +161,7 @@ html
                 const track = result.value.tracks;
 
                 if (!track) {
-                  return swal("No song was found! [Refresh page and try again!]");
+                  return Swal.fire("No song was found! [Refresh page and try again!]");
                 }
 
                 const name = track.items;
@@ -163,80 +174,55 @@ html
                   return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
                 };
 
-                var result = link.splice(25, 0, "embed/");
-                // alert(result);
-                // alert(link);
+                var emBed = link.splice(25, 0, "embed/");
+
                 Swal.fire({
                   html: '<h1>Top result: <br><small>' + link
-                      +'</small></h1><br><iframe src="' + result
+                      +'</small></h1><br><iframe src="' + emBed
                       +'" width="300" height="380" frameborder="0" ' +
-                      'allowtransparency="true" allow="encrypted-media"></iframe>',
+                      'allowtransparency="true" allow="encrypted-media" autoplay="true"></iframe>',
                   // imageUrl: imageURL,
+                  confirmButtonText: `Play this snippet as background song`,
+                  showCancelButton: true
+                }).then((results) => {
+                  if (results.isConfirmed) {
+                    $("#backgroundSong").prop('hidden', "true");
+                    playSong(emBed);
+                  } else {
+
+                  }
                 });
-              }})
 
+              } else {
+                Swal.fire('????');
+              }}
+            )
+          }
+          let parent
+          function playSong(song) {
+            if ($('embed#backgroundSong').parent() !== undefined) {
+              parent = $('embed#backgroundSong').parent();
+              $('embed#backgroundSong').remove();
+              $("#stop").hide();
+            }
+            var newElement = "<embed src='" +song+ "' id='backgroundSong' style='float: left; border: 3px solid yellow; border-radius: 15px;' loop='false' width='auto' height='80'>";
 
-            // swal({
-            //   text: 'Search for a song. e.g. "Dynamite".',
-            //   content: "input",
-            //   button: {
-            //     text: "Search!",
-            //     closeModal: false,
-            //   },
-            // })
-            //     .then(name => {
-            //       if (!name) throw null;
-            //       var url = 'https://api.spotify.com/v1/search?q=' + name +' &type=track&limit=1&access_token=' + accessToken
-            //       return fetch(url);
-            //     })
-            //     .then(results => {
-            //       return results.json();
-            //     })
-            //     .then(json => {
-            //       const track = json.tracks;
-            //
-            //       if (!track) {
-            //         return swal("No song was found! [Refresh page and try again!]");
-            //       }
-            //
-            //       const name = track.items;
-            //       const ob = name[0];
-            //       const external_URl = ob.external_urls;
-            //       const link = external_URl.spotify;
-            //       const imageURL = ob.album.images[1].url;
-            //
-            //       String.prototype.splice = function (idx, rem, str) {
-            //         return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
-            //       };
-            //
-            //       var result = link.splice(25, 0, "embed/");
-            //       // alert(result);
-            //       swal({
-            //         html: true,
-            //         title: "Top result:",
-            //         text: link,
-            //         // icon: imageURL,
-            //         content: {
-            //           element: 'iframe',
-            //           attributes: {
-            //             src: result,
-            //             width:"300",
-            //             height:"380",
-            //             frameborder:"0",
-            //             allowtransparency: true,
-            //             allow: "encrypted-media"
-            //           }
-            //         }
-            //       });
-            //     })
-            //     .catch(err => {
-            //       if (err) {
-            //         swal("Oh noes!", "The AJAX request failed!", "error");
-            //       } else {
-            //         swal.stopLoading();
-            //         swal.close();
-            //       }
-            //     });
+            // $('embed#backgroundSong').remove();
+            // $("#stop").hide();
+            parent.append(newElement);
+            $("#stop").show();
+            // alert('zcurrent ' + $("#backgroundSong").attr('src'))
+          }
+          function stopSong() {
+            var stopBTN = $("#stop");
+            stopBTN.on('click', () => {
+              parent = $('embed#backgroundSong').parent();
+              $('embed#backgroundSong').remove();
+              var newElement = "<embed src='' id='backgroundSong' style='float: right;' loop='false' width='auto' height='80'>";
+              parent.append(newElement);
+              stopBTN.hide();
+              // alert('parent ' + parent)
+            })
           }
         if (spotifyToken)
             input#getToken(type='hidden', value=spotifyToken)
@@ -297,10 +283,11 @@ html
                                     a.dropdown-item.disabled(href='/school/bind100roomsWith100weeks', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Bind 100 rooms with 100 weeks
 
                         li.nav-item
-                            button.btn.btn-outline-success(onclick='chill();') Tired of the schedule? Find a movie!
+                            button.btn.btn-success(onclick='chill();') Tired of the schedule? Find a movie!
                         li.nav-item.ml-2
-                            button.btn.btn-outline-success(onclick='chill2();') Or..find a song!
-
+                            button.btn.btn-success(onclick='chill2();') Or..find a song!
+                        li.nav-item.ml-2
+                            button.btn.btn-info(id='www')
                     #google_translate_element(style='position: relative; opacity: 1; z-index: 10;' hidden)
                             //button.btn.btn-primary(style='position: absolute; right: 0; bottom: -6; z-index: 0; width: 157px; ') Translate
 
@@ -346,11 +333,16 @@ html
                       }
 
             if (breadcrumb && breadLink)
-                ul.breadcrumb.mt-2.ml-2
+                ul.breadcrumb.mt-2.mx-2(style='float:left; width: 37%')
                   - var kout = 0
                   each breads in breadcrumb
                     li
                         a(href=breadLink[kout++])= breads
+            //.btn.sm-btn.btn-success(style='') &times;
+            div.mx-2
+                embed#backgroundSong(name='BackgroundSong', style='border: 2px solid yellow; border-radius: 15px;' loop='false', width="auto" height="80")
+            button.btn.btn-warning.sm-btn.ml-2.mt-3#stop(style='display:none; float: left; left: 500px;' onclick='stopSong();') Remove song &times;
+
             //else
             //    ul.breadcrumb.mt-2.ml-2
             //        li
