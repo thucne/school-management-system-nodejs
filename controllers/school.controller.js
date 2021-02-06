@@ -2210,3 +2210,96 @@ module.exports.bind100roomsWith100weeks = function (req, res) {
   runAssign().then(res.redirect('/users'));
 
 }
+
+module.exports.assignFacultyForStudentsAndTeachers = function (req, res) {
+
+  var allStudentsAndTeachers = db.get('users').value();
+
+  allStudentsAndTeachers = allStudentsAndTeachers.filter(function (user) {
+    return user.role === 0 || user.role === 1;
+  });
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function assign() {
+    for (let i = 0; i < allStudentsAndTeachers.length; i++) {
+      db.get('users').find({universityID: allStudentsAndTeachers[i]['universityID']}).assign({departmentID: getRandomInt(0,10)}).write();
+    }
+  }
+
+  async function run() {
+    await assign();
+  }
+
+  run().then(()=> {
+    res.redirect('/users');
+  })
+}
+
+module.exports.autoAssignTeacherToSubject = function (req, res) {
+
+  var listOfDepartment = department.get('department').value();
+  var teachers = db.get('users').value().filter(function (user) {
+    return user.role === 1;
+  })
+  console.log('NUM TEA ' + teachers.length);
+  var subjects = subject.get('subjects').value();
+  console.log('NUMSUB ' + subjects.length);
+  function assign() {
+    var h = 0;
+    var t = 0;
+    for (let i = 0; i < listOfDepartment.length; i++) {
+
+      let listOfSubjectIDsInThisDepartment = listOfDepartment[i]['subjects'];
+      t += listOfSubjectIDsInThisDepartment.length;
+      for (let j = 0; j < listOfSubjectIDsInThisDepartment.length; j++) {
+        let thisSubject = subject.get('subjects').find({id_sub: listOfSubjectIDsInThisDepartment[j]}).value();
+
+        if (thisSubject['lecturerID'] || thisSubject['lecturerID'] !== undefined) {
+          console.log(thisSubject['id_sub']);
+          listOfSubjectIDsInThisDepartment.splice(j, 1);
+          // t = t - 1;
+        }
+      }
+      console.log('Depart ' + listOfDepartment[i]['department_name']+ ' has UNASS ' + listOfSubjectIDsInThisDepartment.length);
+      let listOfTeacherInThisDepartment = teachers.filter(function (teacher) {
+        return teacher['departmentID'] === listOfDepartment[i]['department_id'];
+      });
+      for (let k = 0;  k < listOfTeacherInThisDepartment.length; k++) {
+        var howManySubjects = subjects.filter((sub) => {
+          if (sub['lecturerID'] === undefined) {
+            return false;
+          } else {
+            return sub['lecturerID'] === listOfTeacherInThisDepartment[k]['id'];
+          }
+        });
+        let sumCredit = 0;
+        for (let m = 0; m < howManySubjects.length; m++) {
+          sumCredit += parseInt(howManySubjects[m]['credits']);
+        }
+        // console.log('This Teacher '+ (h++) + ' '+ listOfTeacherInThisDepartment[i]['universityID'] + ' teach ' + howManySubjects.length + ' courses');
+        h++;
+        if (sumCredit <= 20) {
+          // console.log('This Teacher Under 20');
+        } else {
+          // console.log('This Teacher BIGGER 20');
+          h--;
+        }
+      }
+    }
+    console.log('UNASSIGN sub ' + t);
+    console.log('SUIT tea ' + h);
+  }
+  assign();
+  // async function runAssign() {
+  //   await assign();
+  // }
+
+  // runAssign().then(res.redirect('/'))
+
+  res.redirect('/')
+}
