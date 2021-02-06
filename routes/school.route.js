@@ -36,5 +36,7 @@ router.post('/createBatchSubject2', controller.postCreateBatchSubject2);
 router.get('/create100weeks', controller.create100weeks);
 router.get('/create100rooms', controller.create100rooms);
 router.get('/bind100roomsWith100weeks', controller.bind100roomsWith100weeks);
+router.get('/assignFacultyForStudentsAndTeachers', controller.assignFacultyForStudentsAndTeachers);
+router.get('/autoAssignTeacherToSubject', controller.autoAssignTeacherToSubject);
 
 module.exports = router;

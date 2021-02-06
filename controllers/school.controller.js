@@ -2210,3 +2210,53 @@ module.exports.bind100roomsWith100weeks = function (req, res) {
   runAssign().then(res.redirect('/users'));
 
 }
+
+module.exports.assignFacultyForStudentsAndTeachers = function (req, res) {
+
+  var allStudentsAndTeachers = db.get('users').value();
+
+  allStudentsAndTeachers = allStudentsAndTeachers.filter(function (user) {
+    return user.role === 0 || user.role === 1;
+  });
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function assign() {
+    for (let i = 0; i < allStudentsAndTeachers.length; i++) {
+      db.get('users').find({universityID: allStudentsAndTeachers[i]['universityID']}).assign({departmentID: getRandomInt(0,10)}).write();
+    }
+  }
+
+  async function run() {
+    await assign();
+  }
+
+  run().then(()=> {
+    res.redirect('/users');
+  })
+}
+
+
+module.exports.autoAssignTeacherToSubject = function (req, res) {
+
+  var listOfDepartment = department.get('department').value();
+  var teachers = db.get('users').value().filter(function (user) {
+    return user.role === 1;
+  })
+  console.log('NUM ALL TEA ' + teachers.length);
+  const subjects = subject.get('subjects').value();
+  console.log('NUM ALL SUB ' + subjects.length);
+  function assign() {
+    for (let  i = 0;  i< listOfDepartment.length; i++) {
+
+    }
+  }
+  assign();
+
+
+  res.redirect('/')
+}
