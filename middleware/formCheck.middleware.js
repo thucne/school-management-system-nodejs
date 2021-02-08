@@ -74,7 +74,8 @@ module.exports.checkAnnouncementCreatingForm = function (req, res, next) {
       csrfToken: req.csrfToken(),
       errs: errs,
       values: req.body,
-      spotifyToken: accessToken
+      spotifyToken: accessToken,
+      youtube: process.env.key
     });
     return;
   }
@@ -149,7 +150,8 @@ module.exports.checkBatchSubjects1 = function (req, res, next) {
       allNameSubs: allNameSubs,
       allNameSubsCount: allNameSubsCount,
       es: es,
-      spotifyToken: accessToken
+      spotifyToken: accessToken,
+      youtube: process.env.key
     });
 
     return;

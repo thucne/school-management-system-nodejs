@@ -1,2 +1,76 @@
-/* hello */
+#mySidenav a {
+    left: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+}
 
+#mySidenav a:hover {
+    left: 0;
+}
+
+#itunes {
+    top: 20px;
+    background-color: #4CAF50;
+}
+
+#spotify {
+    top: 80px;
+    background-color: #2196F3;
+}
+
+#youtube {
+    top: 140px;
+    background-color: #f44336;
+}
+
+#contact {
+    top: 200px;
+    background-color: #555
+}
+
+
+#mydiv {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+}
+
+#mydivheader {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+}
+/*.video-container {*/
+/*    position: relative;*/
+/*    padding-bottom: 56.25%;*/
+/*    padding-top: 30px; height: 0; overflow: hidden;*/
+/*}*/
+
+/*#mask {*/
+/*    z-index: 5;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left:0;*/
+/*    width: 100%;*/
+/*    height:100%;*/
+/*    display: none;*/
+/*}*/
+
+/*.video-container iframe,*/
+/*.video-container object,*/
+/*.video-container embed {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/

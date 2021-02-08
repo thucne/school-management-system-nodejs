@@ -157,7 +157,8 @@ module.exports.createSubject = function (req, res) {
     csrfToken: req.csrfToken(),
     breadcrumb: ['Home', 'Set subjects\' time'],
     breadLink: ['/', '/school/createSubject'],
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key
   });
 }
 
@@ -232,7 +233,10 @@ module.exports.searchRoom = function (req, res) {
     rooms: listOfRoom,
     selectedSubject: selectedSubject,
     csrfToken: req.csrfToken(),
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key,
+    breadcrumb: ['Home', 'Set subjects\' time'],
+    breadLink: ['/', '/school/createSubject']
   })
 
   // res.redirect('/school/createSubject');
@@ -458,7 +462,10 @@ module.exports.searchWeek = function (req, res) {
     where: where,
     whereDay: whereDay,
     csrfToken: req.csrfToken(),
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key,
+    breadcrumb: ['Home', 'Set subjects\' time'],
+    breadLink: ['/', '/school/createSubject']
   })
 }
 
@@ -559,7 +566,10 @@ module.exports.assignWhenAndWhereToSubject = function (req, res) {
     selectedSubject: selectedSubject,
     rooms: JSON.parse(req.body.chooseTheseRooms),
     csrfToken: req.csrfToken(),
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key,
+    breadcrumb: ['Home', 'Set subjects\' time'],
+    breadLink: ['/', '/school/createSubject']
   });
 
   // res.redirect('/users');
@@ -792,10 +802,14 @@ module.exports.assignTeacherToSubject = function (req, res) {
   var subjects = subject.get('subjects').value().filter(function (subject) {
     return subject.room;
   });
-
+  refreshToken();
   res.render('school/assignTeacherToSubject', {
     subjects: subjects,
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    spotifyToken: accessToken,
+    youtube: process.env.key,
+    breadcrumb: ['Home', 'Set subjects\' lecturer'],
+    breadLink: ['/', '/school/assignTeacherToSubject']
   });
 }
 
@@ -895,7 +909,10 @@ module.exports.searchTeacher = function (req, res) {
       teachers: listOfTeacher,
       selectedSubject: selectedSubject,
       csrfToken: req.csrfToken(),
-      spotifyToken: accessToken
+      spotifyToken: accessToken,
+      youtube: process.env.key,
+      breadcrumb: ['Home', 'Set subjects\' lecturer'],
+      breadLink: ['/', '/school/assignTeacherToSubject']
     })
   }
 
@@ -1138,7 +1155,10 @@ module.exports.searchTeacherWeek = function (req, res) {
     where: where,
     whereDay: whereDay,
     csrfToken: req.csrfToken(),
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key,
+    breadcrumb: ['Home', 'Set subjects\' lecturer'],
+    breadLink: ['/', '/school/assignTeacherToSubject']
   })
 }
 
@@ -1238,7 +1258,10 @@ module.exports.assignTeacherNOWToSubject = function (req, res) {
     selectedSubject: selectedSubject,
     teachers: JSON.parse(req.body.chooseTheseTeachers),
     csrfToken: req.csrfToken(),
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key,
+    breadcrumb: ['Home', 'Set subjects\' lecturer'],
+    breadLink: ['/', '/school/assignTeacherToSubject']
   });
 }
 
@@ -1283,7 +1306,8 @@ module.exports.showAnnouncements = function (req, res) {
     listOfAnnouncements: listOfAnnouncements,
     breadcrumb: ['Home', 'Announcements'],
     breadLink: ['/', '/school/announcements'],
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key
   });
 }
 
@@ -1291,7 +1315,10 @@ module.exports.displayAnnouncementCreatingForm = function (req, res) {
   refreshToken();
   res.render('school/createAnnouncement', {
     csrfToken: req.csrfToken(),
-    spotifyToken: accessToken
+    breadcrumb: ['Home', 'Post new announcements'],
+    breadLink: ['/', '/school/createAnnouncement'],
+    spotifyToken: accessToken,
+    youtube: process.env.key
   })
 }
 
@@ -1343,7 +1370,8 @@ module.exports.showThisANCM = function (req, res) {
     whoPost: whoPost,
     breadcrumb: ['Home', 'Announcements', 'See announcement'],
     breadLink: ['/', '/school/announcements', '/school/showThisANCM/'+thisANCMid],
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key
   })
 
 }
@@ -1414,7 +1442,8 @@ module.exports.showTeacherCourse = function (req, res) {
     courses: listOfSubject,
     breadcrumb: ['Home', 'Your courses'],
     breadLink: ['/', '/school/courseAllocation'],
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key
       }
   )
 }
@@ -1502,7 +1531,10 @@ module.exports.createBatchSubject = function (req, res) {
     subjects: subjects,
     allNameSubs: allNameSubs,
     allNameSubsCount: allNameSubsCount,
-    spotifyToken: accessToken
+    breadcrumb: ['Home', 'Create batch subjects'],
+    breadLink: ['/', '/school/createBatchSubject'],
+    spotifyToken: accessToken,
+    youtube: process.env.key
   });
 }
 
@@ -1590,7 +1622,10 @@ module.exports.postCreateBatchSubject1 = function (req, res) {
     allNameSubs: allNameSubs,
     allNameSubsCount: allNameSubsCount,
     suc1: 'yes',
-    spotifyToken: accessToken
+    breadcrumb: ['Home', 'Create batch subjects'],
+    breadLink: ['/', '/school/createBatchSubject'],
+    spotifyToken: accessToken,
+    youtube: process.env.key
   });
 
 }
@@ -2056,7 +2091,10 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
         allNameSubs: allNameSubs,
         allNameSubsCount: allNameSubsCount,
         suc2: 'yes',
-        spotifyToken: accessToken
+        breadcrumb: ['Home', 'Create batch subjects'],
+        breadLink: ['/', '/school/createBatchSubject'],
+        spotifyToken: accessToken,
+        youtube: process.env.key
       })
     } else {
       res.render('school/createBatchSubjects', {
@@ -2065,8 +2103,11 @@ module.exports.postCreateBatchSubject2 = function (req, res) {
         subjects: subjectss,
         allNameSubs: allNameSubs,
         allNameSubsCount: allNameSubsCount,
+        breadcrumb: ['Home', 'Create batch subjects'],
+        breadLink: ['/', '/school/createBatchSubject'],
         es: ['One or more existed subjects are not assigned due to lack of suitable rooms!'],
-        spotifyToken: accessToken
+        spotifyToken: accessToken,
+        youtube: process.env.key
       });
     }
   }

@@ -76,7 +76,8 @@ app.get('/', csrfProtection, authMiddleware.default, authMiddleware.requireAuth,
     name: req.body.username,
     breadcrumb: ['Home'],
     breadLink: ['/'],
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key
   });
   // res.render('404');
 });

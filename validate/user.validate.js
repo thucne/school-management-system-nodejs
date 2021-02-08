@@ -33,6 +33,7 @@ module.exports.postCreate = function (req, res, next) {
   if (!req.body.accessCode) {
      errs.push('Access code is required.');
    } else {
+    refreshToken();
      var accessCode = parseInt(req.body.accessCode);
      var thisAdmin = db.get('users').find({id: res.locals.userInfo.loginId}).value();
      if (thisAdmin.role !== 10) {
@@ -42,7 +43,9 @@ module.exports.postCreate = function (req, res, next) {
          csrfToken: token,
          values: req.body,
          reloadPage: 'yes',
-         book_mark: '#here'
+         book_mark: '#here',
+         youtube: process.env.key,
+         spotifyToken: accessToken
        });
        return;
      } else {
@@ -87,7 +90,8 @@ module.exports.postCreate = function (req, res, next) {
       errs: errs,
       values: req.body,
       book_mark: '#here',
-      spotifyToken: accessToken
+      spotifyToken: accessToken,
+      youtube: process.env.key
     });
     return;
   }
@@ -113,7 +117,8 @@ module.exports.postCreateByExcel = function (req, res, next) {
         values: req.body,
         reloadPage: 'yes',
         book_mark: '#here',
-        spotifyToken: accessToken
+        spotifyToken: accessToken,
+        youtube: process.env.key
       });
       return;
     } else {
@@ -151,7 +156,8 @@ module.exports.postCreateByExcel = function (req, res, next) {
       errs: errs,
       values: req.body,
       book_mark: '#here',
-      spotifyToken: accessToken
+      spotifyToken: accessToken,
+      youtube: process.env.key
     });
     return;
   }
@@ -201,7 +207,8 @@ module.exports.postUpdate =  function (req, res, next) {
       errs: errs,
       thisSession: {PersonalInfo: 'yes', Fee: '', Back: ''},
       warnings: warnings,
-      spotifyToken: accessToken
+      spotifyToken: accessToken,
+      youtube: process.env.key
       // values: req.body
     });
 
@@ -241,8 +248,8 @@ module.exports.postChangePassword = function (req, res ,next) {
       csrfToken: token,
       pErrs: pErrs,
       user: user,
-      spotifyToken: accessToken
-
+      spotifyToken: accessToken,
+      youtube: process.env.key
     })
     return;
   }
