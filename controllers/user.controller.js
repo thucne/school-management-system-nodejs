@@ -72,7 +72,8 @@ module.exports.index = function (req, res) {
     },
     breadcrumb: ['Home', 'Info'],
     breadLink: ['/', '/users'],
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key
   });
   // console.log('User is ' + db.get('users').value());
 };
@@ -131,7 +132,8 @@ module.exports.search = function (req, res) {
       z: ++page,
       breadcrumb: ['Home', 'Info', 'Search'],
       breadLink: ['/', '/users', '/users'],
-      spotifyToken: accessToken
+      spotifyToken: accessToken,
+      youtube: process.env.key
     }
   });
   // console.log(req.query);
@@ -163,7 +165,8 @@ module.exports.updateInfo = function (req, res) {
       csrfToken: req.csrfToken(),
       breadcrumb: ['Home', 'Info', 'Edit info'],
       breadLink: ['/', '/users', '/users/'+ req.body.id],
-      spotifyToken: accessToken
+      spotifyToken: accessToken,
+      youtube: process.env.key
     });
   } else {
     res.redirect('/users/' + req.body.id);
@@ -190,7 +193,8 @@ module.exports.changePassword = function (req, res) {
     success: true,
     breadcrumb: ['Home', 'Info', 'Edit info'],
     breadLink: ['/', '/users', '/users/'+ req.body.id],
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key
   })
 }
 
@@ -202,7 +206,8 @@ module.exports.create = function (req, res) {
     csrfToken: token,
     breadcrumb: ['Home', 'Create account'],
     breadLink: ['/', '/users/create'],
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key
   });
   if (!req.cookies) {
     console.log(req.cookies);
@@ -216,7 +221,8 @@ module.exports.createByExcel = function (req, res) {
     csrfToken: token,
     breadcrumb: ['Home', 'Create account', 'Create accounts by Excel'],
     breadLink: ['/', '/users/create', '/users/create/createByExcel'],
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key
   });
 }
 
@@ -254,7 +260,8 @@ module.exports.id = function (req, res) {
       subjects: listOfThisUsersSubjects,
       breadcrumb: ['Home', 'Info', 'Edit info'],
       breadLink: ['/', '/users', '/users/'+id],
-      spotifyToken: accessToken
+      spotifyToken: accessToken,
+      youtube: process.env.key
     })
   } else if(user) {
     res.render('users/view', {
@@ -263,7 +270,8 @@ module.exports.id = function (req, res) {
       isThisUserValid: isThisUserValid,
       breadcrumb: ['Home', 'Info', 'Edit info'],
       breadLink: ['/', '/users', '/users/'+id],
-      spotifyToken: accessToken
+      spotifyToken: accessToken,
+      youtube: process.env.key
     })
   } else {
     res.render('404');
@@ -350,7 +358,8 @@ module.exports.postCreate = function (req, res) {
     breadcrumb: ['Home', 'Create account'],
     breadLink: ['/', '/users/create'],
     suc: 'Yes',
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key
   });
 };
 
@@ -418,7 +427,8 @@ module.exports.postCreateByExcel = function (req, res) {
     book_mark: '#here',
     breadcrumb: ['Home', 'Create account', 'Create account by Excel'],
     breadLink: ['/', '/users/create', '/users/create/createByExcel'],
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key
   }));
   // res.redirect('/users/create/createByExcel');
 }
@@ -477,7 +487,8 @@ module.exports.registrationMenuDisplaying = function (req, res) {
         csrfToken: token,
         breadcrumb: ['Home', 'Course registration'],
         breadLink: ['/', '/users/register'],
-        spotifyToken: accessToken
+        spotifyToken: accessToken,
+        youtube: process.env.key
       });
       return;
     }
@@ -495,7 +506,8 @@ module.exports.registrationMenuDisplaying = function (req, res) {
         csrfToken: token,
         breadcrumb: ['Home', 'Course registration'],
         breadLink: ['/', '/users/register'],
-        spotifyToken: accessToken
+        spotifyToken: accessToken,
+        youtube: process.env.key
       });
       return;
     }
@@ -578,7 +590,8 @@ module.exports.registrationMenuDisplaying = function (req, res) {
         csrfToken: token,
         breadcrumb: ['Home', 'Course registration'],
         breadLink: ['/', '/users/register'],
-        spotifyToken: accessToken
+        spotifyToken: accessToken,
+        youtube: process.env.key
       });
     } else {
       res.clearCookie('userID');
@@ -686,7 +699,8 @@ module.exports.selectTheseSubjects = function (req, res) {
       csrfToken: req.csrfToken(),
       breadcrumb: ['Home', 'Course registration'],
       breadLink: ['/', '/users/register'],
-      spotifyToken: accessToken
+      spotifyToken: accessToken,
+      youtube: process.env.key
     });
   }
 
@@ -774,7 +788,8 @@ module.exports.deleteTheseSubjects = function (req, res) {
       csrfToken: req.csrfToken(),
       breadcrumb: ['Home', 'Course registration'],
       breadLink: ['/', '/users/register'],
-      spotifyToken: accessToken
+      spotifyToken: accessToken,
+      youtube: process.env.key
     });
   }
 }
@@ -896,7 +911,8 @@ module.exports.saveRegistrations = function (req, res) {
         csrfToken: req.csrfToken(),
         breadcrumb: ['Home', 'Course registration'],
         breadLink: ['/', '/users/register'],
-        spotifyToken: accessToken
+        spotifyToken: accessToken,
+        youtube: process.env.key
       });
     } else {
       var notOverlappingSelectedSubjects = [];
@@ -1045,7 +1061,8 @@ module.exports.saveRegistrations = function (req, res) {
         breadcrumb: ['Home', 'Course registration'],
         breadLink: ['/', '/users/register'],
         isSaved: isSaved,
-        spotifyToken: accessToken
+        spotifyToken: accessToken,
+        youtube: process.env.key
       });
     }
   }
@@ -1293,7 +1310,8 @@ module.exports.schedule = function (req, res) {
     csrfToken: req.csrfToken(),
     breadcrumb: ['Home', 'Schedule'],
     breadLink: ['/', '/users/schedule'],
-    spotifyToken: accessToken
+    spotifyToken: accessToken,
+    youtube: process.env.key
   });
 
 }

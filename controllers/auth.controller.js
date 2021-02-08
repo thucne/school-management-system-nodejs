@@ -52,7 +52,8 @@ module.exports.login = function (req, res) {
       csrfToken: token,
       spotifyToken: accessToken,
       errs: er,
-      isBan: isBan
+      isBan: isBan,
+      youtube: process.env.key
     });
     return;
   }
@@ -62,7 +63,8 @@ module.exports.login = function (req, res) {
     csrfToken: token,
     spotifyToken: accessToken,
     // tryLeft: tryLeft,
-    isBan: isBan
+    isBan: isBan,
+    youtube: process.env.key
   });
 };
 
@@ -99,7 +101,8 @@ module.exports.postLogin = function (req, res) {
       ],
       values: req.body,
       csrfToken: token,
-      spotifyToken: accessToken
+      spotifyToken: accessToken,
+      youtube: process.env.key
     });
     return;
   }
@@ -133,6 +136,7 @@ module.exports.postLogin = function (req, res) {
       csrfToken: token,
       spotifyToken: accessToken,
       isBan: isBan,
+      youtube: process.env.key
     });
     return ;
   }

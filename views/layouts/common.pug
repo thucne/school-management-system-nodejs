@@ -4,6 +4,7 @@ html
         link(rel="stylesheet", href="/styles/dropdown.css")
         link(rel="icon", type="image/jpg", href="/images/002-layers.png")
         link(rel="stylesheet", href="/styles/snackbar.css")
+        link(rel="stylesheet", href="/styles/custom.css")
         link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css')
 
         script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js',
@@ -42,6 +43,8 @@ html
 
 
         script(type='text/javascript', src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit')
+        script(src='https://apis.google.com/js/api.js')
+
         script.
           $(function () {
             $('body').tooltip({selector: '[data-toggle="tooltip"]'});
@@ -51,10 +54,11 @@ html
               $('[data-toggle="tooltip"]').tooltip();
             });
           });
+
         //link(rel="icon", href="http://sstatic.net/stackoverflow/img/favicon.ico")
     body(style="background-image: url('/images/3563935 (1).jpg'); background-position: center; background-repeat: no-repeat; background-attachment: fixed; min-width: 100%; min-height: 100%; background-size: cover;")
 
-        script.
+        script(type='text/javascript').
           // var $ar = jQuery.noConflict();
           $(function () {
             $('[data-toggle="tooltip"]').tooltip();
@@ -62,6 +66,7 @@ html
           $('.hide').on('copy paste cut drag drop', function (e) {
             e.preventDefault();
           });
+
 
           function time() {
 
@@ -120,7 +125,7 @@ html
                   imageUrl: imageURL,
                 });
               } else {
-                Swal.fire('????');
+                Swal.fire('Oops!');
               }
             })
           }
@@ -194,7 +199,7 @@ html
                 });
 
               } else {
-                Swal.fire('????');
+                Swal.fire('Oops!');
               }}
             )
           }
@@ -224,8 +229,109 @@ html
               // alert('parent ' + parent)
             })
           }
+
+          function chill3(){
+            var apiKey = $('#getApiKey').val();
+
+            Swal.fire({
+              title: 'Search for a video. e.g. "Levitating".',
+              input: 'text',
+              inputAttributes: {
+                autocapitalize: 'off'
+              },
+              showCancelButton: true,
+              confirmButtonText: 'Look up',
+              showLoaderOnConfirm: true,
+              preConfirm: (login) => {
+                var url = 'https://www.googleapis.com/youtube/v3/search?q='+login+'&maxResults=1&key=' + apiKey;
+                return fetch(url)
+                    .then(response => {
+                      if (!response.ok) {
+                        throw new Error(response.statusText)
+                      }
+                      return response.json()
+                    })
+                    .catch(error => {
+                      Swal.showValidationMessage(
+                          `Request failed: ${error}`
+                      )
+                    })
+              },
+              allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
+                  // alert(result);
+                  // Swal.fire(result.results[0]);
+                  if (result.isConfirmed) {
+                    const items = result.value.items;
+
+                    if (!items) {
+                      return Swal.fire("No video was found! [Refresh page and try again!]");
+                    }
+
+                    const video = items[0];
+                    const idVideo = video['id'];
+                    const codeVideo = idVideo['videoId'];
+                    const link = 'https://www.youtube.com/' + codeVideo;
+                    const linkEm = 'https://www.youtube.com/embed/' + codeVideo;
+
+
+                    Swal.fire({
+                      html: '<h1>Top result: <br><small>' + link
+                          + '</small></h1><br><iframe src="' + linkEm
+                          + '" width="100%" height="100%" frameborder="0" ' +
+                          'allowtransparency="true" allow="accelerometer; autoplay; clipboard-write; ' +
+                          'encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                      // imageUrl: imageURL,
+                      confirmButtonText: `Pin this video`,
+                      showCancelButton: true
+                    }).then((results) => {
+                      if (results.isConfirmed) {
+                        $("#backgroundVideo").prop('hidden', "true");
+                        playVideo(linkEm);
+                      } else {
+                      }
+                    });
+
+                  } else {
+                    Swal.fire('Oops!');
+                  }
+                }
+            )
+          }
+
+          let parentVideo
+          function playVideo(video) {
+            if ($('embed#backgroundVideo').parent() !== undefined) {
+              parentVideo = $('embed#backgroundVideo').parent();
+              $('embed#backgroundVideo').remove();
+              $("#stopVideo").hide();
+              $("#mydiv").hide();
+            }
+            var newElement = "<embed src='" + video + "'id='backgroundVideo' allowtransparency='true' style='float: right; " +
+                "border: 3px solid yellow; border-radius: 15px;' loop='false' width='auto' height='200' " +
+                "allow='accelerometer; autoplay; clipboard-write;picture-in-picture; encrypted-media; gyroscope;'>";
+            parentVideo.append(newElement);
+            $("#stopVideo").show();
+            $("#mydiv").show();
+          }
+
+          function stopVideo() {
+            // var stopBTN = $("#stopVideo");
+            // stopBTN.on('click', () => {
+              parentVideo = $('embed#backgroundVideo').parent();
+              $('embed#backgroundVideo').remove();
+              var newElement = "<embed src='' id='backgroundVideo' style='float: right;' loop='false' width='auto' height='200'>";
+              parentVideo.append(newElement);
+              // stopBTN.hide();
+              $("#mydiv").hide();
+            // })
+          }
+          // $("#backgroundVideo").resiz
+
         if (spotifyToken)
             input#getToken(type='hidden', value=spotifyToken)
+        if (youtube)
+            input#getApiKey(type='hidden', value=youtube)
         div
             img.cropimg(src="/images/27240 (1).jpg", alt='Navigation img', width="100%", height="auto")
         .sticky-top
@@ -283,15 +389,18 @@ html
                                     a.dropdown-item.disabled(href='/school/bind100roomsWith100weeks', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Bind 100 rooms with 100 weeks
                                     a.dropdown-item(href='/school/assignFacultyForStudentsAndTeachers', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign faculty for students and teachers
 
-                        li.nav-item
-                            button.btn.btn-success(onclick='chill();') Tired of the schedule? Find a movie!
                         li.nav-item.ml-2
-                            button.btn.btn-success(onclick='chill2();') Or..find a song!
+                            input(type="image" src="/images/itunes.png" width="40" onclick='chill();', data-toggle='tooltip', data-placement='top', title='Search for a movie!')
                         li.nav-item.ml-2
-                            button.btn.btn-info(id='www')
+                            input(type="image" src="/images/spotify 2.png" width="40" onclick='chill2();', data-toggle='tooltip', data-placement='top', title='Search for a song!')
+                        li.nav-item.ml-2
+                            input(type="image" src="/images/youtube.png" width="40" onclick='chill3();', data-toggle='tooltip', data-placement='top', title='Search for a video!')
+
+
                     #google_translate_element(style='position: relative; opacity: 1; z-index: 10;' hidden)
                             //button.btn.btn-primary(style='position: absolute; right: 0; bottom: -6; z-index: 0; width: 157px; ') Translate
-
+                    //li.nav-item.ml-2
+                    button.btn.btn-info(id='www')
                     .translation-links.mx-2
                         input.vietnamese.mx-2(type="image" src="/images/vietnam.png" width="40" data-lang='Vietnamese' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='Vietnamese')
                         input.english.mr-2(type="image" src="/images/america.png" width="40" data-lang='English' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='English')
@@ -344,13 +453,66 @@ html
                 embed#backgroundSong(name='BackgroundSong', style='border: 2px solid yellow; border-radius: 15px;' loop='false', width="auto" height="80")
             button.btn.btn-warning.sm-btn.ml-2.mt-3#stop(style='display:none; float: left; left: 500px;' onclick='stopSong();') Remove song &times;
 
-            //else
-            //    ul.breadcrumb.mt-2.ml-2
-            //        li
-            //            a(href='/') Home
+            //#mydiv
+            //    #mydivheader Click here to move
+            //    iframe(width='420', height='345', src='https://www.youtube.com/embed/tgbNymZ7vqY')
+            div#mydiv(style='display: none;')
+                //p#demo
+                #mydivheader Click here to move
+                    button.close#stopVideo(type='button', onclick='stopVideo();') &times;
+                //iframe(width='420', height='345', src='https://www.youtube.com/embed/tgbNymZ7vqY')
+                embed#backgroundVideo(name='BackgroundVideo', style='border: 2px solid yellow; border-radius: 15px;' loop='false', width="auto" height="80")
+            //button.btn.btn-warning.sm-btn.ml-2.mt-3#stopVideo(style='display:none; float: right; left: 500px;' onclick='stopVideo();') Remove video &times;
+
+            script.
+              dragElement(document.getElementById("mydiv"));
+
+              function dragElement(elmnt) {
+                var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+                if (document.getElementById(elmnt.id + "header")) {
+                  // if present, the header is where you move the DIV from:
+                  document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+                } else {
+                  // otherwise, move the DIV from anywhere inside the DIV:
+                  elmnt.onmousedown = dragMouseDown;
+                }
+
+                function dragMouseDown(e) {
+                  e = e || window.event;
+                  e.preventDefault();
+                  // get the mouse cursor position at startup:
+                  pos3 = e.clientX;
+                  pos4 = e.clientY;
+                  document.onmouseup = closeDragElement;
+                  // call a function whenever the cursor moves:
+                  document.onmousemove = elementDrag;
+                }
+
+                function elementDrag(e) {
+                  e = e || window.event;
+                  e.preventDefault();
+                  // calculate the new cursor position:
+                  pos1 = pos3 - e.clientX;
+                  pos2 = pos4 - e.clientY;
+                  pos3 = e.clientX;
+                  pos4 = e.clientY;
+                  // set the element's new position:
+                  elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                  elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                }
+
+                function closeDragElement() {
+                  // stop moving when mouse button is released:
+                  document.onmouseup = null;
+                  document.onmousemove = null;
+                }
+              }
+
         .container.pt-3.my-5(style='background-color: white; border: 2px solid green; border-radius: 30px; height: auto;')
             block content
         .container.pt-3.my-5
+
+
         footer
             p
                 | © MySchool.io
