@@ -6,6 +6,7 @@ html
         link(rel="stylesheet", href="/styles/snackbar.css")
         link(rel="stylesheet", href="/styles/custom.css")
         link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
 
         script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js',
             integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
@@ -118,10 +119,11 @@ html
 
                 const name = movie.trackName;
                 const imageURL = movie.artworkUrl100;
+                const movieURL = movie.trackViewUrl;
 
                 Swal.fire({
-                  title: "Top result:",
-                  text: name,
+                  html: '<h1>Top result: <h5>' + name +'</h5><small id="myInputs" style="font-size:smaller;">' + movieURL
+                      + '</small><br><button onclick="copyToClipboard(\'#myInputs\', this)" class="btn btn-outline-primary">Copy</button></h1>',
                   imageUrl: imageURL,
                 });
               } else {
@@ -182,8 +184,8 @@ html
                 var emBed = link.splice(25, 0, "embed/");
 
                 Swal.fire({
-                  html: '<h1>Top result: <br><small>' + link
-                      +'</small></h1><br><iframe src="' + emBed
+                  html: '<h1>Top result: <br><small id="myInput" style="font-size:smaller;">' + link
+                      +'</small><br><button onclick="copyToClipboard(\'#myInput\', this)" class="btn btn-outline-primary">Copy</button></h1><br><iframe src="' + emBed
                       +'" width="300" height="380" frameborder="0" ' +
                       'allowtransparency="true" allow="encrypted-media" autoplay="true"></iframe>',
                   // imageUrl: imageURL,
@@ -194,7 +196,6 @@ html
                     $("#backgroundSong").prop('hidden', "true");
                     playSong(emBed);
                   } else {
-
                   }
                 });
 
@@ -203,6 +204,16 @@ html
               }}
             )
           }
+
+          function copyToClipboard(element, root) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(element).text()).trigger('select');
+            document.execCommand("copy");
+            $temp.remove();
+            $(root).html('Copied');
+          }
+
           let parent
           function playSong(song) {
             if ($('embed#backgroundSong').parent() !== undefined) {
@@ -220,14 +231,14 @@ html
           }
           function stopSong() {
             var stopBTN = $("#stop");
-            stopBTN.on('click', () => {
-              parent = $('embed#backgroundSong').parent();
-              $('embed#backgroundSong').remove();
-              var newElement = "<embed src='' id='backgroundSong' style='float: right;' loop='false' width='auto' height='80'>";
-              parent.append(newElement);
-              stopBTN.hide();
+            // stopBTN.on('click', () => {
+            parent = $('embed#backgroundSong').parent();
+            $('embed#backgroundSong').remove();
+            var newElement = "<embed src='' id='backgroundSong' style='float: right;' loop='false' width='auto' height='80'>";
+            parent.append(newElement);
+            stopBTN.hide();
               // alert('parent ' + parent)
-            })
+            // })
           }
 
           function chill3(){
@@ -271,13 +282,13 @@ html
                     const video = items[0];
                     const idVideo = video['id'];
                     const codeVideo = idVideo['videoId'];
-                    const link = 'https://www.youtube.com/' + codeVideo;
+                    const link = 'https://youtu.be/' + codeVideo;
                     const linkEm = 'https://www.youtube.com/embed/' + codeVideo;
 
 
                     Swal.fire({
-                      html: '<h1>Top result: <br><small>' + link
-                          + '</small></h1><br><iframe src="' + linkEm
+                      html: '<h1>Top result: <br><small id="myInput3" style="font-size: smaller;">' + link
+                          + '</small><br><button onclick="copyToClipboard(\'#myInput3\', this)" class="btn btn-outline-primary">Copy</button></h1><br><iframe src="' + linkEm
                           + '" width="100%" height="100%" frameborder="0" ' +
                           'allowtransparency="true" allow="accelerometer; autoplay; clipboard-write; ' +
                           'encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
@@ -308,7 +319,7 @@ html
               $("#mydiv").hide();
             }
             var newElement = "<embed src='" + video + "'id='backgroundVideo' allowtransparency='true' style='float: right; " +
-                "border: 3px solid yellow; border-radius: 15px;' loop='false' width='auto' height='200' " +
+                "border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;' loop='false' width='auto' height='200' " +
                 "allow='accelerometer; autoplay; clipboard-write;picture-in-picture; encrypted-media; gyroscope;'>";
             parentVideo.append(newElement);
             $("#stopVideo").show();
@@ -387,7 +398,7 @@ html
                                     a.dropdown-item.disabled(href='/school/create100weeks', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create 100 weeks
                                     a.dropdown-item.disabled(href='/school/create100rooms', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create 100 rooms
                                     a.dropdown-item.disabled(href='/school/bind100roomsWith100weeks', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Bind 100 rooms with 100 weeks
-                                    a.dropdown-item(href='/school/assignFacultyForStudentsAndTeachers', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign faculty for students and teachers
+                                    a.dropdown-item.disabled(href='/school/assignFacultyForStudentsAndTeachers', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign faculty for students and teachers
 
                         li.nav-item.ml-2
                             input(type="image" src="/images/itunes.png" width="40" onclick='chill();', data-toggle='tooltip', data-placement='top', title='Search for a movie!')
@@ -441,13 +452,30 @@ html
                         location.reload();
                         userInfo.name = " ";
                       }
+            script.
+              function runTog() {
+                var isChecked = $("#tog").is(":checked");
+                if (isChecked) {
+                  $('.hideTog').show();
+                  $('#breadd').css('padding', '10px 16px 5px');
+                } else {
+                  $('.hideTog').hide();
+                  $('#breadd').css('padding', '10px 10px 2px 3px');
+                }
+                // alert(isChecked);
+              }
 
             if (breadcrumb && breadLink)
-                ul.breadcrumb.mt-2.mx-2(style='float:left; width: 37%')
+                ul.breadcrumb.mt-2.mx-2#breadd(style='float:left; display: inline-block; width: fit-content;')
                   - var kout = 0
                   each breads in breadcrumb
-                    li
+                    li.hideTog
                         a(href=breadLink[kout++])= breads
+
+                  div.ml-2.p-0.ct(style='float: right; position: relative;')
+                       label.switch
+                          input#tog(type='checkbox' onclick='runTog();' checked)
+                          span.slider.round
             //.btn.sm-btn.btn-success(style='') &times;
             div.mx-2
                 embed#backgroundSong(name='BackgroundSong', style='border: 2px solid yellow; border-radius: 15px;' loop='false', width="auto" height="80")
@@ -456,10 +484,10 @@ html
             //#mydiv
             //    #mydivheader Click here to move
             //    iframe(width='420', height='345', src='https://www.youtube.com/embed/tgbNymZ7vqY')
-            div#mydiv(style='display: none;')
+            div#mydiv(style='display: none; border: 2px solid yellow; border-radius: 15px; top: 60%; left: 42%;')
                 //p#demo
-                #mydivheader Click here to move
-                    button.close#stopVideo(type='button', onclick='stopVideo();') &times;
+                #mydivheader(style='border-top-left-radius: 15px; border-top-right-radius: 15px;') Click here to move
+                    button.close#stopVideo(type='button', onclick='stopVideo();' data-toggle='tooltip', data-placement='right', title='Close') &times;
                 //iframe(width='420', height='345', src='https://www.youtube.com/embed/tgbNymZ7vqY')
                 embed#backgroundVideo(name='BackgroundVideo', style='border: 2px solid yellow; border-radius: 15px;' loop='false', width="auto" height="80")
             //button.btn.btn-warning.sm-btn.ml-2.mt-3#stopVideo(style='display:none; float: right; left: 500px;' onclick='stopVideo();') Remove video &times;
@@ -512,6 +540,17 @@ html
             block content
         .container.pt-3.my-5
 
+        .icon-bar
+            a.facebook(href='https://www.facebook.com/thuc.katy')
+                i.fa.fa-facebook
+            a.twitter(href='#')
+                i.fa.fa-twitter
+            a.google(href='#')
+                i.fa.fa-google
+            a.linkedin(href='https://www.linkedin.com/in/trần-thức-b82a24146')
+                i.fa.fa-linkedin
+            a.youtube(href='https://www.youtube.com/channel/UClyA28-01x4z60eWQ2kiNbA')
+                i.fa.fa-youtube
 
         footer
             p
