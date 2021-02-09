@@ -25,3 +25,11 @@ td[rowspan]:not([rowspan="1"]) {
     vertical-align : middle;
     justify-content: center;
 }
+
+.ct {
+    font-size: large;
+    text-align: left;
+    align-items: center;
+    vertical-align : middle;
+    justify-content: center;
+}
