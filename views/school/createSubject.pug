@@ -104,7 +104,7 @@ block content
                             .form-group
                                 input(type='hidden', name='_csrf', value=csrfToken)
                                 input(type='hidden', name='sub', value=selectedSubject)
-                                input(type='hidden', name='list_room', value=rooms)
+                                //input(type='hidden', name='list_room', value=rooms)
                                 .text-success(data-toggle='tooltip', data-placement='right', title=rooms.length + ' rooms found!')
                                     label#Avai2(for='exampleFormControlSelect2') Available: #{rooms.length}
 
@@ -134,7 +134,7 @@ block content
                                 input(type='hidden', name='chooseThisRoomID', value=parseInt(selectedRoom['id']))
                                 input(type='hidden', name='chooseThisRoomName', value=selectedRoom['room'])
                                 input(type='hidden', name='chooseThisCredit', value=parseInt(selectedSubject['credits']))
-                                input(type='hidden', name='chooseTheseRooms', value=rooms)
+                                //input(type='hidden', name='chooseTheseRooms', value=rooms)
                                 if (selectedSubject['room'] && selectedSubject['whichDay'] && selectedSubject['whichPeriod'])
                                   input(type='hidden', name='existedRoom', value=selectedSubject['room'])
                                   input(type='hidden', name='existedDay', value=selectedSubject['whichDay'])
