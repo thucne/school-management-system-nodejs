@@ -411,6 +411,14 @@ html
                     #google_translate_element(style='position: relative; opacity: 1; z-index: 10;' hidden)
                             //button.btn.btn-primary(style='position: absolute; right: 0; bottom: -6; z-index: 0; width: 157px; ') Translate
                     //li.nav-item.ml-2
+                    label.switch(data-toggle='tooltip', data-placement='left', title='Night mode')
+                          input#darkMode(type='checkbox' onclick='darkMode();')
+                          span.slider
+                    //.position-fixed.py-2.px-3.bg-dark.text-white.rounded-pill(style='bottom:1rem;left:1rem;')
+                    //    .form-check.form-switch.pull-right
+                    //        input#darkMode.form-check-input(type='checkbox' onclick='runDarkMode();')
+                    //        label#darkModeLabel(for='darkMode') Light
+                    img.mx-2(src='/images/night-mode.png' alt='Night mode' width='40')
                     button.btn.btn-info(id='www')
                     .translation-links.mx-2
                         input.vietnamese.mx-2(type="image" src="/images/vietnam.png" width="40" data-lang='Vietnamese' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='Vietnamese')
@@ -440,6 +448,73 @@ html
                           layout: google.translate.TranslateElement.InlineLayout.SIMPLE
                         }, 'google_translate_element');
                       }
+                      function darkMode() {
+                        var isChecked = $("#darkMode").is(":checked");
+                        var element = document.body;
+                        // element.setAttribute('data-theme', 'dark');
+                        if (isChecked) {
+                          element.setAttribute('data-theme', 'dark');
+                          // $("*").each(function (){
+                          //
+                          //   var temp = subDarkMode($(this).css('color'));
+                          //   var temp1 = subDM($(this).css('background-color'));
+                          //   var temp2 = invertHex(temp);
+                          //   var temp3 = invertHex(temp1);
+                          //   // alert(temp);
+                          //   // alert(temp3);
+                          //   $(this).css('color', '#' + temp2);
+                          //   $(this).css('background-color', '#' + temp3);
+                          // })
+                        } else {
+                          // darkMode(oops);
+                          element.removeAttribute('data-theme');
+
+                        }
+                      }
+
+                      function subDM(orig){
+                        var a, isPercent,
+                            rgb = orig.replace(/\s/g, '').match(/^rgba?\((\d+),(\d+),(\d+),?([^,\s)]+)?/i),
+                            alpha = (rgb && rgb[4] || "").trim(),
+                            hex = rgb ?
+                                (rgb[1] | 1 << 8).toString(16).slice(1) +
+                                (rgb[2] | 1 << 8).toString(16).slice(1) +
+                                (rgb[3] | 1 << 8).toString(16).slice(1) : orig;
+                        if (alpha !== "") {
+                          a = alpha;
+                        } else {
+                          a = 0o1;
+                        }
+
+                        a = Math.round(a * 100) / 100;
+                        var alpha = Math.round(a * 255);
+                        var hexAlpha = (alpha + 0x10000).toString(16).substr(-2).toUpperCase();
+                        hex = hex + hexAlpha;
+
+                        return hex;
+                      }
+
+                      function subDarkMode(what) {
+                        var hexDigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+
+                        //Function to convert rgb color to hex format
+                        function rgb2hex(rgb) {
+                          rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+                          return hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+                        }
+
+                        function hex(x) {
+                          return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
+                        }
+
+                        return rgb2hex(what);
+                      }
+
+                      function invertHex(hex) {
+                        return (Number(`0x1${hex}`) ^ 0xFFFFFF).toString(16).substr(1).toUpperCase()
+                      }
+
+
 
 
                     span.form-inline.my-2.my-lg-0=  userInfo.name
@@ -457,10 +532,17 @@ html
                 var isChecked = $("#tog").is(":checked");
                 if (isChecked) {
                   $('.hideTog').show();
-                  $('#breadd').css('padding', '10px 16px 5px');
+                  $('#breadd').css('padding', '10px 12px 2px');
+                  $('.icon-bar').css('left', '0px');
+                  $('.icon-bar').css('opacity', '1');
+                  // $('#breadd').css('background-color', '#eee');
                 } else {
                   $('.hideTog').hide();
                   $('#breadd').css('padding', '10px 10px 2px 3px');
+                  // $('.icon-bar').hide();
+                  $('.icon-bar').css('left', '-80px');
+                  $('.icon-bar').css('opacity', '0');
+                  // $('#breadd').css('background-color', 'white');
                 }
                 // alert(isChecked);
               }
@@ -473,7 +555,7 @@ html
                         a(href=breadLink[kout++])= breads
 
                   div.ml-2.p-0.ct(style='float: right; position: relative;')
-                       label.switch
+                       label.switch(data-toggle='tooltip', data-placement='right', title='Open/Close extensions')
                           input#tog(type='checkbox' onclick='runTog();' checked)
                           span.slider.round
             //.btn.sm-btn.btn-success(style='') &times;

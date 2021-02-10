@@ -114,7 +114,7 @@ block content
                             .form-group
                                 input(type='hidden', name='_csrf', value=csrfToken)
                                 input(type='hidden', name='sub', value=selectedSubject)
-                                input(type='hidden', name='list_tea', value=teachers)
+                                //input(type='hidden', name='list_tea', value=teachers)
                                 .text-success(data-toggle='tooltip', data-placement='right', title=teachers.length + ' teachers found!')
                                     label#Avai2(for='exampleFormControlSelect2') Available: #{teachers.length}
 
@@ -145,7 +145,7 @@ block content
                                 input(type='hidden', name='chooseThisTeacherID', value=selectedTeacher['id'])
                                 input(type='hidden', name='chooseThisTeacherName', value=selectedTeacher['name'])
                                 input(type='hidden', name='chooseThisCredit', value=parseInt(selectedSubject['credits']))
-                                input(type='hidden', name='chooseTheseTeachers', value=teachers)
+                                //input(type='hidden', name='chooseTheseTeachers', value=teachers)
                                 if (selectedSubject['lecturer'] && selectedSubject['lecturerID'] && selectedSubject['whichDay'] && selectedSubject['whichPeriod'])
                                     input(type='hidden', name='existedTeacher', value=selectedSubject['lecturer'])
                                     input(type='hidden', name='existedTeacherID', value=selectedSubject['lecturerID'])

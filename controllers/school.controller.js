@@ -162,6 +162,8 @@ module.exports.createSubject = function (req, res) {
   });
 }
 
+var W = [];
+
 module.exports.searchRoom = function (req, res) {
   var rooms = room.get('class_room').value();
   var weeks = week.get('weeks').value();
@@ -227,6 +229,8 @@ module.exports.searchRoom = function (req, res) {
   //   console.log('List of Room: ' + listOfRoom[i].room);
   // }
 
+  W = listOfRoom;
+
   refreshToken();
   res.render('school/createSubject', {
     subjects: subjects,
@@ -248,7 +252,7 @@ module.exports.searchWeek = function (req, res) {
 
   var selectedSubject = JSON.parse(req.body.sub);
   var selectedRoom = JSON.parse(req.body.roo);
-  var listRoom = JSON.parse(req.body.list_room);
+  var listRoom = W.length > 0 ? W : room.get('class_room').value();
 
   var selectedSubjectCredit = selectedSubject['credits'];
   var selectedWeek = week.get('weeks').find({id_week: selectedRoom['id_week']}).value();
@@ -564,7 +568,7 @@ module.exports.assignWhenAndWhereToSubject = function (req, res) {
   res.render('school/createSubject', {
     subjects: subjects,
     selectedSubject: selectedSubject,
-    rooms: JSON.parse(req.body.chooseTheseRooms),
+    rooms: W.length > 0 ? W : room.get('class_room').value(),
     csrfToken: req.csrfToken(),
     spotifyToken: accessToken,
     youtube: process.env.key,
@@ -813,6 +817,8 @@ module.exports.assignTeacherToSubject = function (req, res) {
   });
 }
 
+var Q = [];
+
 module.exports.searchTeacher = function (req, res) {
   var teachers = db.get('users').value().filter(function (user) {
     return user.role === 1;
@@ -902,7 +908,7 @@ module.exports.searchTeacher = function (req, res) {
     // for (let i = 0; i < listOfTeacher.length; i++) {
     //   console.log('List of Teacher: ' + listOfTeacher[i].name);
     // }
-
+    Q = listOfTeacher;
     refreshToken();
     res.render('school/assignTeacherToSubject', {
       subjects: subjects,
@@ -927,7 +933,9 @@ module.exports.searchTeacherWeek = function (req, res) {
 
   var selectedSubject = JSON.parse(req.body.sub);
   var selectedTeacher = JSON.parse(req.body.tea);
-  var listTeacher = JSON.parse(req.body.list_tea);
+  var listTeacher = Q.length > 0 ? Q : db.get('users').value().filter(function (user) {
+    return user.role === 1;
+  });
 
   var selectedSubjectCredit = selectedSubject['credits'];
   var selectedWeek = teacherSchedule.get('teacherSchedule').find({id: selectedTeacher['teacherSchedule']}).value();
@@ -1256,7 +1264,9 @@ module.exports.assignTeacherNOWToSubject = function (req, res) {
   res.render('school/assignTeacherToSubject', {
     subjects: subjects,
     selectedSubject: selectedSubject,
-    teachers: JSON.parse(req.body.chooseTheseTeachers),
+    teachers: Q.length > 0 ? Q : db.get('users').value().filter(function (user) {
+      return user.role === 1;
+    }),
     csrfToken: req.csrfToken(),
     spotifyToken: accessToken,
     youtube: process.env.key,

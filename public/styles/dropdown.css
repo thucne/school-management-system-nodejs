@@ -52,11 +52,14 @@ body {
 
 ul.breadcrumb {
     /*padding: 10px 10px 10px 10px;*/
-    padding: 10px 16px 5px;
+    padding: 10px 12px 2px;
     list-style: none;
     background-color: #eee;
     width: 30%;
     border-radius: 30px;
+    transition-property: background-color;
+    transition: 2s;
+    transition-duration: 1s;
 }
 ul.breadcrumb li {
     display: inline;
