@@ -466,17 +466,6 @@ html
                           element.setAttribute('data-theme', 'dark');
                           localStorage.setItem('darkMode', 'dark');
                           $("#NMicon").attr('src', '/images/night-mode (1).png')
-                          // $("*").each(function (){
-                          //
-                          //   var temp = subDarkMode($(this).css('color'));
-                          //   var temp1 = subDM($(this).css('background-color'));
-                          //   var temp2 = invertHex(temp);
-                          //   var temp3 = invertHex(temp1);
-                          //   // alert(temp);
-                          //   // alert(temp3);
-                          //   $(this).css('color', '#' + temp2);
-                          //   $(this).css('background-color', '#' + temp3);
-                          // })
                         } else {
                           // darkMode(oops);
                           element.removeAttribute('data-theme');
@@ -484,93 +473,6 @@ html
                           $("#NMicon").attr('src', '/images/night-mode.png')
                         }
                       }
-
-                      function subDM(orig){
-                        var a, isPercent,
-                            rgb = orig.replace(/\s/g, '').match(/^rgba?\((\d+),(\d+),(\d+),?([^,\s)]+)?/i),
-                            alpha = (rgb && rgb[4] || "").trim(),
-                            hex = rgb ?
-                                (rgb[1] | 1 << 8).toString(16).slice(1) +
-                                (rgb[2] | 1 << 8).toString(16).slice(1) +
-                                (rgb[3] | 1 << 8).toString(16).slice(1) : orig;
-                        if (alpha !== "") {
-                          a = alpha;
-                        } else {
-                          a = 0o1;
-                        }
-
-                        a = Math.round(a * 100) / 100;
-                        var alpha = Math.round(a * 255);
-                        var hexAlpha = (alpha + 0x10000).toString(16).substr(-2).toUpperCase();
-                        hex = hex + hexAlpha;
-
-                        return hex;
-                      }
-
-                      function subDarkMode(what) {
-                        var hexDigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
-
-                        //Function to convert rgb color to hex format
-                        function rgb2hex(rgb) {
-                          rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-                          return hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
-                        }
-
-                        function hex(x) {
-                          return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
-                        }
-
-                        return rgb2hex(what);
-                      }
-
-                      function invertHex(hex) {
-                        return (Number(`0x1${hex}`) ^ 0xFFFFFF).toString(16).substr(1).toUpperCase()
-                      }
-
-                      function kkk() {
-                        var darkMode = document.getElementById('darkMode');
-
-                        var darkLabel = "darkModeLabel";
-                        var darkLang = "Dark";
-                        var lightLang = "Light";
-
-                        var imgID = "logo";
-                        var darkImg = "./dark.png";
-                        var lightImg = "./light.png";
-
-                        window.addEventListener('load', function () {
-                          if (darkMode) {
-                            initTheme();
-                            darkMode.addEventListener('change', function () {
-                              resetTheme();
-                            });
-                          }
-                        });
-
-                        function initTheme() {
-                          var darkThemeSelected = localStorage.getItem('darkMode') !== null && localStorage.getItem('darkMode') === 'dark';
-                          darkMode.checked = darkThemeSelected;
-                          darkThemeSelected ? document.body.setAttribute('data-theme', 'dark') : document.body.removeAttribute('data-theme');
-                          darkThemeSelected ? document.getElementById(imgID).src = darkImg : document.getElementById(imgID).src = lightImg;
-                          darkThemeSelected ? document.getElementById(darkLabel).innerHTML = darkLang : document.getElementById(darkLabel).innerHTML = lightLang;
-                        }
-
-                        function resetTheme() {
-                          if (darkMode.checked) {
-                            document.body.setAttribute('data-theme', 'dark');
-                            localStorage.setItem('darkMode', 'dark');
-                            document.getElementById(imgID).src = darkImg;
-                            document.getElementById(darkLabel).innerHTML = darkLang;
-                          } else {
-                            document.body.removeAttribute('data-theme');
-                            localStorage.removeItem('darkMode');
-                            document.getElementById(imgID).src = lightImg;
-                            document.getElementById(darkLabel).innerHTML = lightLang;
-                          }
-                        }
-                      }
-
-
 
 
                     span.form-inline.my-2.my-lg-0=  userInfo.name

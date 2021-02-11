@@ -45,8 +45,15 @@ footer {
     z-index: 0;
 }
 
+* {
+    transition: 2s;
+    transition-duration: 0.5s;
+}
+
 body {
     cursor: url(../images/006-cursor-1.cur), auto;
+    /*transition: 5s;*/
+    /*transition-duration: 5s;*/
     /*cursor: url("006-cursor-1.cur"), wait;*/
 }
 
