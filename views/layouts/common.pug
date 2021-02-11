@@ -411,14 +411,12 @@ html
                     #google_translate_element(style='position: relative; opacity: 1; z-index: 10;' hidden)
                             //button.btn.btn-primary(style='position: absolute; right: 0; bottom: -6; z-index: 0; width: 157px; ') Translate
                     //li.nav-item.ml-2
-                    label.switch(data-toggle='tooltip', data-placement='left', title='Night mode')
+
+                    label.switch(data-toggle='tooltip', data-placement='top', title='Night mode')
                           input#darkMode(type='checkbox' onclick='darkMode();')
                           span.slider
-                    //.position-fixed.py-2.px-3.bg-dark.text-white.rounded-pill(style='bottom:1rem;left:1rem;')
-                    //    .form-check.form-switch.pull-right
-                    //        input#darkMode.form-check-input(type='checkbox' onclick='runDarkMode();')
-                    //        label#darkModeLabel(for='darkMode') Light
-                    img.mx-2(src='/images/night-mode.png' alt='Night mode' width='40')
+                    img.mx-2#NMicon(src='/images/night-mode.png' alt='Night mode' width='40')
+
                     button.btn.btn-info(id='www')
                     .translation-links.mx-2
                         input.vietnamese.mx-2(type="image" src="/images/vietnam.png" width="40" data-lang='Vietnamese' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='Vietnamese')
@@ -448,12 +446,26 @@ html
                           layout: google.translate.TranslateElement.InlineLayout.SIMPLE
                         }, 'google_translate_element');
                       }
-                      function darkMode() {
+
+                      var darkMode = document.getElementById('darkMode');
+                      window.addEventListener('load', function () {
+                        if (darkMode) {
+                          var darkThemeSelected = localStorage.getItem('darkMode') !== null && localStorage.getItem('darkMode') === 'dark';
+                          darkMode.checked = darkThemeSelected;
+                          darkThemeSelected ? document.body.setAttribute('data-theme', 'dark') : document.body.removeAttribute('data-theme');
+                          darkThemeSelected ? $("#NMicon").attr('src', '/images/night-mode (1).png') : $("#NMicon").attr('src', '/images/night-mode.png');
+                          $("#darkMode").on('change', ()=>{
+                            darkModeNow();
+                          })
+                        }
+                      });
+                      function darkModeNow() {
                         var isChecked = $("#darkMode").is(":checked");
                         var element = document.body;
-                        // element.setAttribute('data-theme', 'dark');
                         if (isChecked) {
                           element.setAttribute('data-theme', 'dark');
+                          localStorage.setItem('darkMode', 'dark');
+                          $("#NMicon").attr('src', '/images/night-mode (1).png')
                           // $("*").each(function (){
                           //
                           //   var temp = subDarkMode($(this).css('color'));
@@ -468,7 +480,8 @@ html
                         } else {
                           // darkMode(oops);
                           element.removeAttribute('data-theme');
-
+                          localStorage.removeItem('darkMode');
+                          $("#NMicon").attr('src', '/images/night-mode.png')
                         }
                       }
 
@@ -512,6 +525,49 @@ html
 
                       function invertHex(hex) {
                         return (Number(`0x1${hex}`) ^ 0xFFFFFF).toString(16).substr(1).toUpperCase()
+                      }
+
+                      function kkk() {
+                        var darkMode = document.getElementById('darkMode');
+
+                        var darkLabel = "darkModeLabel";
+                        var darkLang = "Dark";
+                        var lightLang = "Light";
+
+                        var imgID = "logo";
+                        var darkImg = "./dark.png";
+                        var lightImg = "./light.png";
+
+                        window.addEventListener('load', function () {
+                          if (darkMode) {
+                            initTheme();
+                            darkMode.addEventListener('change', function () {
+                              resetTheme();
+                            });
+                          }
+                        });
+
+                        function initTheme() {
+                          var darkThemeSelected = localStorage.getItem('darkMode') !== null && localStorage.getItem('darkMode') === 'dark';
+                          darkMode.checked = darkThemeSelected;
+                          darkThemeSelected ? document.body.setAttribute('data-theme', 'dark') : document.body.removeAttribute('data-theme');
+                          darkThemeSelected ? document.getElementById(imgID).src = darkImg : document.getElementById(imgID).src = lightImg;
+                          darkThemeSelected ? document.getElementById(darkLabel).innerHTML = darkLang : document.getElementById(darkLabel).innerHTML = lightLang;
+                        }
+
+                        function resetTheme() {
+                          if (darkMode.checked) {
+                            document.body.setAttribute('data-theme', 'dark');
+                            localStorage.setItem('darkMode', 'dark');
+                            document.getElementById(imgID).src = darkImg;
+                            document.getElementById(darkLabel).innerHTML = darkLang;
+                          } else {
+                            document.body.removeAttribute('data-theme');
+                            localStorage.removeItem('darkMode');
+                            document.getElementById(imgID).src = lightImg;
+                            document.getElementById(darkLabel).innerHTML = lightLang;
+                          }
+                        }
                       }
 
 
@@ -618,8 +674,8 @@ html
                 }
               }
 
-        .container.pt-3.my-5(style='background-color: white; border: 2px solid green; border-radius: 30px; height: auto;')
-            block content
+        .container.pt-3.my-5#ddd(style='border: 2px solid green; border-radius: 30px; height: auto;')
+                block content
         .container.pt-3.my-5
 
         .icon-bar
