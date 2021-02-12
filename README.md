@@ -1,6 +1,6 @@
-# School Management System [![Version](https://img.shields.io/badge/version-11.0.0-blue.svg)](https://github.com/katyperrycbt/sms/releases/tag/v11.0.0)
+# School Management System [![Version](https://img.shields.io/badge/version-12.0.0-blue.svg)](https://github.com/katyperrycbt/sms/releases/tag/v12.0.0)
 
-## [Using ExpressJS]
+## [Using ExpressJS/NodeJS]
 Hi there! 
 
 [For a better instruction README.md, please let me know: *katyperrycbt@gmail.com*]
@@ -8,7 +8,7 @@ Hi there!
 # Knowledge required
 HTML, CSS, JavaScript, Bootstrap, jQuery and Expressjs (Nodejs)
 
-# How to clone and stay updated
+# Clone and keep updated
 
 **Clone:**
 ```bash
@@ -18,24 +18,17 @@ npm install
 ```
 *See: [Before you run]*
 
-**Stay updated:**
+**Keep updated:**
 ```bash
 git pull origin main
 ```
 
-# Before you run
+Make sure you have already installed [Nodejs](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), [Expressjs](http://expressjs.com/) and other needed modules/packages.
 
-Make sure you have already installed [Nodejs](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), [Expressjs](http://expressjs.com/).
-
-## In the cmd prompt, powershell
+## In the Command Prompt or Window Powershell
 ### First 
 ```bash
-npm install express --save
 npm install
-```
-*Further module-errors handling:*
-```bash
-npm install module_name --save
 ```
 ### Next 
 [**Important**] 
@@ -43,14 +36,18 @@ npm install module_name --save
 Create a file named `.env` with the content: 
 ```javascript
 cookie_secret=anything
+clientId=?
+clientSecret=?
+key=?
 ```
 
-(Note: 'anything' means any string you prefer. Learn more: [cookie-parser](https://www.npmjs.com/package/cookie-parser))
+Note: 
+  1. 'anything' means any string you prefer. Learn more: [cookie-parser](https://www.npmjs.com/package/cookie-parser)
+  2. '?': contact me for the information.
 
 ### Start the server
-Activate auto-opening browser:
 * Open file: `sms.js`
-* Scroll down to the end, change this:
+* Scroll down to the end, change this (if any):
 ```javascript
   // open('http://localhost:6969/', {app: edge});
 ```
@@ -58,7 +55,7 @@ Activate auto-opening browser:
 ```javascript
   open('http://localhost:6969/', {app: edge});
 ```
-(Note: Maybe you need to change the value of `edge` into your exactly directory of your browser `.exe` file)
+(Note: You may need to change the value of `edge` into your exactly directory of your browser `.exe` file)
 * Finally:
 ```bash
 npm start
