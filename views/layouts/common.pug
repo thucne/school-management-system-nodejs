@@ -347,7 +347,9 @@ html
             img.cropimg(src="/images/27240 (1).jpg", alt='Navigation img', width="100%", height="auto")
         .sticky-top
             nav.navbar.navbar-expand-lg.navbar-light.bg-light
-                a.navbar-brand(href='/') MySchool.io
+                a.navbar-brand(href='/')
+                    img.d-inline-block.align-top.mr-2(src='/images/002-layers.png', width='30', height='30', alt='')
+                    |MySchool.io
                 button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav',
                     aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon
@@ -383,7 +385,7 @@ html
                                     a.dropdown-item(href='/school/createAnnouncement', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Post new announcement
                                     a.dropdown-item(href='/school/createBatchSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create subjects
                                     a.dropdown-item(href='/school/autoAssignTeacherToSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Auto assign lecturers to subjects
-
+                        if (userInfo.role === 10 && userInfo.dev === true)
                             li.nav-item.dropdown.mx-2
                                 button#dropdownMenuButton.btn.btn-danger.dropdown-toggle(type='button',
                                     data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dev functions
@@ -412,16 +414,20 @@ html
                             //button.btn.btn-primary(style='position: absolute; right: 0; bottom: -6; z-index: 0; width: 157px; ') Translate
                     //li.nav-item.ml-2
 
-                    label.switch(data-toggle='tooltip', data-placement='top', title='Night mode')
-                          input#darkMode(type='checkbox' onclick='darkMode();')
-                          span.slider
-                    img.mx-2#NMicon(src='/images/night-mode.png' alt='Night mode' width='40')
+                    //label.switch.ml-2(data-toggle='tooltip', data-placement='top', title='Night mode')
+                    //      input#darkMode(type='checkbox' onclick='darkMode();')
+                    //      span.slider
 
-                    button.btn.btn-info(id='www')
-                    .translation-links.mx-2
-                        input.vietnamese.mx-2(type="image" src="/images/vietnam.png" width="40" data-lang='Vietnamese' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='Vietnamese')
-                        input.english.mr-2(type="image" src="/images/america.png" width="40" data-lang='English' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='English')
-                        input.china(type="image" src="/images/china.png" width="40" data-lang='Chinese' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='Chinese')
+                    ul.navbar-nav
+                        li.nav-item
+                            input.mx-2.zx#NMicon(type='image' src='/images/night-mode.png' alt='Night mode' width='40' style='clear: both;' data-toggle='tooltip', data-placement='top', title='Night mode')
+                        li.nav-item
+                            button.btn.btn-info(id='www')
+                        li.nav-item
+                          .translation-links
+                            input.vietnamese.mx-2(type="image" src="/images/vietnam.png" width="40" data-lang='Vietnamese' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='Vietnamese')
+                            input.english.mr-2(type="image" src="/images/america.png" width="40" data-lang='English' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='English')
+                            input.china.mr-2(type="image" src="/images/china.png" width="40" data-lang='Chinese' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='Chinese')
 
                     script(type='text/javascript').
                       // jQuery.noConflict();
@@ -447,22 +453,21 @@ html
                         }, 'google_translate_element');
                       }
 
-                      var darkMode = document.getElementById('darkMode');
+                      var darkMode = $('#NMicon');
                       window.addEventListener('load', function () {
                         if (darkMode) {
                           var darkThemeSelected = localStorage.getItem('darkMode') !== null && localStorage.getItem('darkMode') === 'dark';
-                          darkMode.checked = darkThemeSelected;
                           darkThemeSelected ? document.body.setAttribute('data-theme', 'dark') : document.body.removeAttribute('data-theme');
                           darkThemeSelected ? $("#NMicon").attr('src', '/images/night-mode (1).png') : $("#NMicon").attr('src', '/images/night-mode.png');
-                          $("#darkMode").on('change', ()=>{
+                          $("#NMicon").on('click', ()=>{
                             darkModeNow();
                           })
                         }
                       });
                       function darkModeNow() {
-                        var isChecked = $("#darkMode").is(":checked");
+                        var isChecked = $("#NMicon").attr('src');
                         var element = document.body;
-                        if (isChecked) {
+                        if (isChecked === '/images/night-mode.png') {
                           element.setAttribute('data-theme', 'dark');
                           localStorage.setItem('darkMode', 'dark');
                           $("#NMicon").attr('src', '/images/night-mode (1).png')
@@ -475,9 +480,10 @@ html
                       }
 
 
-                    span.form-inline.my-2.my-lg-0=  userInfo.name
-                    span &nbsp;
-                    button.btn.btn-outline-secondary.form-inline.my-2.my-lg-0(type='button', onclick='logout()', hidden=userInfo.name === " ", disabled=userInfo.name === " ") Log out
+                    span.form-inline.my-2.mr-2.my-lg-0.zx=  userInfo.name
+                    //span.zx &nbsp;
+                    ul.navbar-nav
+                        li.nav-item.button.btn.btn-outline-secondary.form-inline#kl(type='button', onclick='logout()', hidden=userInfo.name === " ", disabled=userInfo.name === " ") Log out
                     script(type='text/javascript').
                       function logout() {
                         document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";

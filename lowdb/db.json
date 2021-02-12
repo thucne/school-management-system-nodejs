@@ -14325,7 +14325,8 @@
       "password": "123456",
       "role": 10,
       "accessCode": 849433,
-      "universityID": "ADMIN18125"
+      "universityID": "ADMIN18125",
+      "dev": "Main developer"
     },
     {
       "name": "khuong",
@@ -15854,50 +15855,7 @@
       "departmentID": 0
     }
   ],
-  "sessions": [
-    {
-      "id": "c1rC7DYrA",
-      "list": {
-        "8cb7d86d-ca43-4815-bd57-9fca0d11ccf3": 1
-      }
-    },
-    {
-      "id": "CfumpNdXO"
-    },
-    {
-      "id": "pZ1PWyCn6"
-    },
-    {
-      "id": "xu-y4D0dG"
-    },
-    {
-      "id": "F_5OAh7uD"
-    },
-    {
-      "id": "z7e-ezgZj"
-    },
-    {
-      "id": "_Szw2rBhN"
-    },
-    {
-      "id": "ZHmVXGc1J"
-    },
-    {
-      "id": "_YnfIQHaX"
-    },
-    {
-      "id": "3PVQiW49d"
-    },
-    {
-      "id": "icr2a14mo"
-    },
-    {
-      "id": "U6CUdWoMB"
-    },
-    {
-      "id": "R9a9GVZl0"
-    }
-  ],
+  "sessions": [],
   "clientIPs": [
     {
       "ip": "2001:ee0:5190:53b0:d0b9:ec3a:a3b4:8c94",
