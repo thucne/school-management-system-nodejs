@@ -197,11 +197,16 @@ input:checked + .slider:before {
 [data-theme="dark"] .slider:before { background-color: #111; }
 
 [data-theme="dark"]  .icon-bar a { color: #fff; }
-[data-theme="dark"]  .icon-bar a.facebook:hover { color: #3B5998; border: 1px solid #3B5998; }
-[data-theme="dark"]  .icon-bar a.twitter:hover { color: #55ACEE; border: 1px solid #55ACEE;}
-[data-theme="dark"]  .icon-bar a.google:hover { color: #dd4b39; border: 1px solid #dd4b39;}
-[data-theme="dark"]  .icon-bar a.linkedin:hover { color: #007bb5; border: 1px solid #007bb5;}
-[data-theme="dark"]  .icon-bar a.youtube:hover { color: #bb0000; border: 1px solid #bb0000;}
+[data-theme="dark"]  .icon-bar a.facebook { color: #3B5998; border: 1px dotted #3B5998;}
+[data-theme="dark"]  .icon-bar a.facebook:hover { color: #fff; border: 1px dotted #3B5998; filter: brightness(3.0);}
+[data-theme="dark"]  .icon-bar a.twitter { color: #55ACEE; border: 1px dotted #55ACEE;}
+[data-theme="dark"]  .icon-bar a.twitter:hover { color: #fff; border: 1px dotted #55ACEE; filter: brightness(3.0);}
+[data-theme="dark"]  .icon-bar a.google { color: #dd4b39; border: 1px dotted #dd4b39;}
+[data-theme="dark"]  .icon-bar a.google:hover { color: #fff; border: 1px dotted #dd4b39; filter: brightness(3.0);}
+[data-theme="dark"]  .icon-bar a.linkedin { color: #007bb5; border: 1px dotted #007bb5;}
+[data-theme="dark"]  .icon-bar a.linkedin:hover { color: #fff; border: 1px dotted #007bb5; filter: brightness(3.0);}
+[data-theme="dark"]  .icon-bar a.youtube { color: #bb0000; border: 1px dotted #bb0000;}
+[data-theme="dark"]  .icon-bar a.youtube:hover { color: #fff; border: 1px dotted #bb0000; filter: brightness(3.0);}
 [data-theme="dark"]  .icon-bar a { background-color: #111; }
 
 [data-theme="dark"]  #ddd { color: #fff; }

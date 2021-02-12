@@ -216,12 +216,12 @@ html
 
           let parent
           function playSong(song) {
-            if ($('embed#backgroundSong').parent() !== undefined) {
-              parent = $('embed#backgroundSong').parent();
-              $('embed#backgroundSong').remove();
+            if ($('iframe#backgroundSong').parent() !== undefined) {
+              parent = $('iframe#backgroundSong').parent();
+              $('iframe#backgroundSong').remove();
               $("#stop").hide();
             }
-            var newElement = "<embed src='" +song+ "' id='backgroundSong' style='float: left; border: 3px solid yellow; border-radius: 15px;' loop='false' width='auto' height='80'>";
+            var newElement = "<iframe src='" +song+ "' id='backgroundSong' style='float: left; border: 3px solid yellow; border-radius: 15px;' loop='false' width='auto' height='80'></iframe>";
 
             // $('embed#backgroundSong').remove();
             // $("#stop").hide();
@@ -232,9 +232,9 @@ html
           function stopSong() {
             var stopBTN = $("#stop");
             // stopBTN.on('click', () => {
-            parent = $('embed#backgroundSong').parent();
-            $('embed#backgroundSong').remove();
-            var newElement = "<embed src='' id='backgroundSong' style='float: right;' loop='false' width='auto' height='80'>";
+            parent = $('iframe#backgroundSong').parent();
+            $('iframe#backgroundSong').remove();
+            var newElement = "<iframe src='' id='backgroundSong' style='float: right;' loop='false' width='auto' height='80'></iframe>";
             parent.append(newElement);
             stopBTN.hide();
               // alert('parent ' + parent)
@@ -312,15 +312,15 @@ html
 
           let parentVideo
           function playVideo(video) {
-            if ($('embed#backgroundVideo').parent() !== undefined) {
-              parentVideo = $('embed#backgroundVideo').parent();
-              $('embed#backgroundVideo').remove();
+            if ($('iframe#backgroundVideo').parent() !== undefined) {
+              parentVideo = $('iframe#backgroundVideo').parent();
+              $('iframe#backgroundVideo').remove();
               $("#stopVideo").hide();
               $("#mydiv").hide();
             }
-            var newElement = "<embed src='" + video + "'id='backgroundVideo' allowtransparency='true' style='float: right; " +
+            var newElement = "<iframe src='" + video + "'id='backgroundVideo' allowtransparency='true' style='float: right; " +
                 "border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;' loop='false' width='auto' height='200' " +
-                "allow='accelerometer; autoplay; clipboard-write;picture-in-picture; encrypted-media; gyroscope;'>";
+                "allow='accelerometer; autoplay; clipboard-write;picture-in-picture; encrypted-media; gyroscope;' allowfullscreen></iframe>";
             parentVideo.append(newElement);
             $("#stopVideo").show();
             $("#mydiv").show();
@@ -329,9 +329,9 @@ html
           function stopVideo() {
             // var stopBTN = $("#stopVideo");
             // stopBTN.on('click', () => {
-              parentVideo = $('embed#backgroundVideo').parent();
-              $('embed#backgroundVideo').remove();
-              var newElement = "<embed src='' id='backgroundVideo' style='float: right;' loop='false' width='auto' height='200'>";
+              parentVideo = $('iframe#backgroundVideo').parent();
+              $('iframe#backgroundVideo').remove();
+              var newElement = "<iframe src='' id='backgroundVideo' style='float: right;' loop='false' width='auto' height='200'></iframe>";
               parentVideo.append(newElement);
               // stopBTN.hide();
               $("#mydiv").hide();
@@ -518,7 +518,7 @@ html
                           span.slider.round
             //.btn.sm-btn.btn-success(style='') &times;
             div.mx-2
-                embed#backgroundSong(name='BackgroundSong', style='border: 2px solid yellow; border-radius: 15px;' loop='false', width="auto" height="80")
+                iframe#backgroundSong(name='BackgroundSong', style='border: 2px solid yellow; border-radius: 15px;' loop='false', width="auto" height="80" hidden=true)
             button.btn.btn-warning.sm-btn.ml-2.mt-3#stop(style='display:none; float: left; left: 500px;' onclick='stopSong();') Remove song &times;
 
             //#mydiv
@@ -529,7 +529,7 @@ html
                 #mydivheader(style='border-top-left-radius: 15px; border-top-right-radius: 15px;') Click here to move
                     button.close#stopVideo(type='button', onclick='stopVideo();' data-toggle='tooltip', data-placement='right', title='Close') &times;
                 //iframe(width='420', height='345', src='https://www.youtube.com/embed/tgbNymZ7vqY')
-                embed#backgroundVideo(name='BackgroundVideo', style='border: 2px solid yellow; border-radius: 15px;' loop='false', width="auto" height="80")
+                iframe#backgroundVideo(name='BackgroundVideo', style='border: 2px solid yellow; border-radius: 15px;' loop='false', width="auto" height="80" hidden=true)
             //button.btn.btn-warning.sm-btn.ml-2.mt-3#stopVideo(style='display:none; float: right; left: 500px;' onclick='stopVideo();') Remove video &times;
 
             script.
