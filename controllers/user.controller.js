@@ -200,7 +200,7 @@ module.exports.changePassword = function (req, res) {
 
 module.exports.create = function (req, res) {
   var token = req.csrfToken();
-  console.log("create " + token);
+  // console.log("create " + token);
   refreshToken();
   res.render('users/create', {
     csrfToken: token,

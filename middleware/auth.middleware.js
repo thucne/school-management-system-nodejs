@@ -31,7 +31,8 @@ module.exports.default = function (req, res, next) {
   res.locals.userInfo = {
     name: " ",
     loginId: " ",
-    role: " "
+    role: " ",
+    dev: " "
   };
 
   next();
@@ -109,6 +110,7 @@ module.exports.requireAuth = function (req, res, next) {
     res.locals.userInfo.name =  "Hi " + user.name + "!"
     res.locals.userInfo.loginId = user.id;
     res.locals.userInfo.role = user.role;
+    res.locals.userInfo.dev = user.dev !== undefined;
     // res.locals.isServerRS = { count: res.locals.count + 1 }
     req.body.username = user.name + ' ' + user.first_name;
   }

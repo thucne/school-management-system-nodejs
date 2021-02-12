@@ -171,6 +171,13 @@ input:checked + .slider:before {
     background-color: white;
 }
 
+ul.navbar-nav.mr-auto, .zx, button.btn.btn-outline-secondary.form-inline#kl, ul.navbar-nav{
+    align-items: center;
+    vertical-align : middle;
+    justify-content: center;
+    text-align: center;
+}
+
 /*body.dark-theme {*/
 /*    color: #eee;*/
 /*    background: #121212;*/
