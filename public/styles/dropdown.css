@@ -45,9 +45,9 @@ footer {
     z-index: 0;
 }
 
-* {
-    transition: 2s;
-    transition-duration: 0.5s;
+#ddd, .sticky-top>nav, .icon-bar a{
+    transition: 1s;
+    transition-duration: 1s;
 }
 
 body {
