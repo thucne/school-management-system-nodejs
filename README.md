@@ -41,7 +41,7 @@ key=?
 ```
 
 Note: 
-  1. 'anything' means any string you prefer. Learn more: [cookie-parser](https://www.npmjs.com/package/cookie-parser)
+  1. 'anything' means any string you prefer. Learn more: [cookie-parser](https://www.npmjs.com/package/cookie-parser).
   2. '?': [contact me](mailto:katyperrycbt@gmail.com) for the information.
 
 ### Start the server
