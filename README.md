@@ -1,9 +1,8 @@
-# School Management System [![Version](https://img.shields.io/badge/version-12.0.0-blue.svg)](https://github.com/katyperrycbt/sms/releases/tag/v12.0.0)
+# School Management System [![Version](https://img.shields.io/badge/version-12.1.0-blue.svg)](https://github.com/katyperrycbt/sms/releases/tag/v12.1.0)
 
 ## [Using ExpressJS/NodeJS]
-Hi there! 
 
-[For a better instruction README.md, please let me know: *katyperrycbt@gmail.com*]
+[Contact: *katyperrycbt@gmail.com*]
 
 # Knowledge required
 HTML, CSS, JavaScript, Bootstrap, jQuery and Expressjs (Nodejs)
