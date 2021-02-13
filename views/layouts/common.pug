@@ -8,6 +8,9 @@ html
         link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css')
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
 
+        script(src='https://kit.fontawesome.com/c6f5524848.js', crossorigin='anonymous')
+
+
         script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js',
             integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
@@ -402,13 +405,13 @@ html
                                     a.dropdown-item.disabled(href='/school/bind100roomsWith100weeks', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Bind 100 rooms with 100 weeks
                                     a.dropdown-item.disabled(href='/school/assignFacultyForStudentsAndTeachers', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign faculty for students and teachers
 
-                        li.nav-item.ml-2
-                            input(type="image" src="/images/itunes.png" width="40" onclick='chill();', data-toggle='tooltip', data-placement='top', title='Search for a movie!')
-                        li.nav-item.ml-2
-                            input(type="image" src="/images/spotify 2.png" width="40" onclick='chill2();', data-toggle='tooltip', data-placement='top', title='Search for a song!')
-                        li.nav-item.ml-2
-                            input(type="image" src="/images/youtube.png" width="40" onclick='chill3();', data-toggle='tooltip', data-placement='top', title='Search for a video!')
-
+                        //li.nav-item.ml-2
+                        //    input(type="image" src="/images/itunes.png" width="40" onclick='chill();', data-toggle='tooltip', data-placement='top', title='Search for a movie!')
+                        //li.nav-item.ml-2
+                        //    input(type="image" src="/images/spotify 2.png" width="40" onclick='chill2();', data-toggle='tooltip', data-placement='top', title='Search for a song!')
+                        //li.nav-item.ml-2
+                        //    input(type="image" src="/images/youtube.png" width="40" onclick='chill3();', data-toggle='tooltip', data-placement='top', title='Search for a video!')
+                        //
 
                     #google_translate_element(style='position: relative; opacity: 1; z-index: 10;' hidden)
                             //button.btn.btn-primary(style='position: absolute; right: 0; bottom: -6; z-index: 0; width: 157px; ') Translate
@@ -499,6 +502,8 @@ html
                   $('#breadd').css('padding', '10px 12px 2px');
                   $('.icon-bar').css('left', '0px');
                   $('.icon-bar').css('opacity', '1');
+                  $('.iconBar').css('right', '0px');
+                  $('.iconBar').css('opacity', '1');
                   // $('#breadd').css('background-color', '#eee');
                 } else {
                   $('.hideTog').hide();
@@ -506,6 +511,8 @@ html
                   // $('.icon-bar').hide();
                   $('.icon-bar').css('left', '-80px');
                   $('.icon-bar').css('opacity', '0');
+                  $('.iconBar').css('right', '-80px');
+                  $('.iconBar').css('opacity', '0');
                   // $('#breadd').css('background-color', 'white');
                 }
                 // alert(isChecked);
@@ -588,15 +595,27 @@ html
 
         .icon-bar
             a.facebook(href='https://www.facebook.com/thuc.katy')
-                i.fa.fa-facebook
+                i.fab.fa-facebook
             a.twitter(href='#')
-                i.fa.fa-twitter
+                i.fab.fa-twitter
             a.google(href='#')
-                i.fa.fa-google
+                i.fab.fa-google
             a.linkedin(href='https://www.linkedin.com/in/trần-thức-b82a24146')
-                i.fa.fa-linkedin
+                i.fab.fa-linkedin
             a.youtube(href='https://www.youtube.com/channel/UClyA28-01x4z60eWQ2kiNbA')
-                i.fa.fa-youtube
+                i.fab.fa-youtube
+
+        .iconBar
+            a.itunes(type='button' onclick='chill();', data-toggle='tooltip', data-placement='left', title='Search for a movie!')
+                i.fab.fa-apple
+                //input(type="image" src="/images/itunes.png" width="40" onclick='chill();', data-toggle='tooltip', data-placement='top', title='Search for a movie!')
+            a.spotify(type='button' onclick='chill2();', data-toggle='tooltip', data-placement='left', title='Search for a song!')
+                i.fab.fa-spotify
+                //input(type="image" src="/images/spotify 2.png" width="40" onclick='chill2();', data-toggle='tooltip', data-placement='top', title='Search for a song!')
+            a.youtube(type='button' onclick='chill3();', data-toggle='tooltip', data-placement='left', title='Search for a video!')
+                i.fab.fa-youtube
+                //input(type="image" src="/images/youtube.png" width="40" onclick='chill3();', data-toggle='tooltip', data-placement='top', title='Search for a video!')
+
 
         footer
             p
