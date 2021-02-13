@@ -15855,7 +15855,11 @@
       "departmentID": 0
     }
   ],
-  "sessions": [],
+  "sessions": [
+    {
+      "id": "8rPm2cQLF"
+    }
+  ],
   "clientIPs": [
     {
       "ip": "2001:ee0:5190:53b0:d0b9:ec3a:a3b4:8c94",
@@ -15895,6 +15899,10 @@
     },
     {
       "ip": "2001:ee0:5190:aa40:48e4:ebe1:73e0:fe53",
+      "count": 1
+    },
+    {
+      "ip": "2001:ee0:5190:aa40:b5e4:b86e:8276:892b",
       "count": 1
     }
   ]
