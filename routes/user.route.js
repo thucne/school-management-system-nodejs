@@ -44,6 +44,6 @@ router.post('/create/createByExcel', csrfProtection, validate.postCreateByExcel,
 
 router.get('/delete/:id', csrfProtection, controller.deleteUser);
 
-router.get('/:id', csrfProtection, controller.id);
+router.get('/:id', csrfProtection, controller.ids);
 
 module.exports = router;

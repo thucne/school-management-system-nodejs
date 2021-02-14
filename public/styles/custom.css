@@ -230,7 +230,7 @@ ul.navbar-nav.mr-auto, .zx, button.btn.btn-outline-secondary.form-inline#kl, ul.
 [data-theme="dark"] a.navbar-brand:hover { color: yellow; }
 
 [data-theme="dark"] .btn { color: #fff; }
-[data-theme="dark"] .btn { background-color: #111; }
+[data-theme="dark"] .btn { background-color: #212529; }
 
 [data-theme="dark"] #breadd { color: #fff; }
 [data-theme="dark"] button.navbar-toggler>span.navbar-toggler-icon{ background-color: bisque; }

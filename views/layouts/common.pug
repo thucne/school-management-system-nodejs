@@ -17,6 +17,9 @@ html
         script(type='text/javascript', src='http://code.jquery.com/jquery-2.0.2.js')
         script(src='https://code.jquery.com/jquery-3.4.1.min.js')
 
+        script(src='http://code.jquery.com/ui/1.8.17/jquery-ui.min.js')
+        //script(src='jquery.ui.touch-punch.min.js')
+
 
         script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js',
             integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
@@ -237,7 +240,7 @@ html
             // stopBTN.on('click', () => {
             parent = $('iframe#backgroundSong').parent();
             $('iframe#backgroundSong').remove();
-            var newElement = "<iframe src='' id='backgroundSong' style='float: right;' loop='false' width='auto' height='80'></iframe>";
+            var newElement = "<iframe src='' id='backgroundSong' style='float: right;' loop='false' width='auto' height='80' hidden=true></iframe>";
             parent.append(newElement);
             stopBTN.hide();
               // alert('parent ' + parent)
@@ -358,30 +361,39 @@ html
                     span.navbar-toggler-icon
                 #navbarNav.collapse.navbar-collapse
                     ul.navbar-nav.mr-auto
-                        li.nav-item
-                            a.nav-link(href='/', data-toggle='tooltip', data-placement='top', title='Home page') Home
-                        li.nav-item
-                            a.nav-link(href='/school/announcements', data-toggle='tooltip', data-placement='top', title='View your announcement!') Announcements
-                        li.nav-item
-                            a.nav-link(href='/users', data-toggle='tooltip', data-placement='top', title='View info')= (userInfo.role === 10 ? 'User List': 'Your Info')
-                        li.nav-item
-                            a.nav-link(href='/auth/login', class=userInfo.name === " " ? 'nav-link': 'nav-link disabled', hidden=userInfo.name !== ' ') Log in
+                        li.nav-item.mx-2
+                            a.nav-link(href='/', data-toggle='tooltip', data-placement='top', title='Home page')
+                                img(src='/images/home (1).png' width="40" alt='Home')
+                        li.nav-item.mr-2
+                            a.nav-link(href='/school/announcements', data-toggle='tooltip', data-placement='top', title='View your announcement!')
+                                img(src='/images/envelope (1).png' width="40" alt='Announcements')
+                        li.nav-item.mr-0
+                            a.nav-link(href='/users', data-toggle='tooltip', data-placement='top', title='View info')
+                                img(src='/images/skills (1).png' width="40" alt='View/Edit info')
+                        li.nav-item.mr-2
+                            a.nav-link(href='/auth/login', class=userInfo.name === " " ? 'nav-link': 'nav-link disabled', hidden=userInfo.name !== ' ')
+                                img(src='/images/log-in.png' width="40" alt='Log in')
                         if (userInfo.role === 10)
-                            li.nav-item
-                                a.nav-link(href='/users/create', data-toggle='tooltip', data-placement='top', title='Create a new account') Create Account
+                            li.nav-item.mr-2
+                                a.nav-link(href='/users/create', data-toggle='tooltip', data-placement='top', title='Create a new account')
+                                    img(src='/images/contract (1).png' width="40" alt='New account')
                         if (userInfo.role === 0)
-                            li.nav-item
-                                a.nav-link(href='/users/register', data-toggle='tooltip', data-placement='top', title='Register for courses!') Course Registration
-                        if (userInfo.role !== 10)
-                            li.nav-item
-                                a.nav-link(href='/users/schedule', data-toggle='tooltip', data-placement='top', title='See your schedule!') Schedule
+                            li.nav-item.mr-2
+                                a.nav-link(href='/users/register', data-toggle='tooltip', data-placement='top', title='Register for courses!')
+                                    img(src='/images/registration (1).png' width="40" alt='Course registration')
+                        if (userInfo.role !== 10 && userInfo.role !== " ")
+                            li.nav-item.mr-2
+                                a.nav-link(href='/users/schedule', data-toggle='tooltip', data-placement='top', title='See your schedule!')
+                                    img(src='/images/calendar (1).png' width="40" alt='Schedule')
                         if (userInfo.role === 1)
-                            li.nav-item
-                                a.nav-link(href='/school/courseAllocation', data-toggle='tooltip', data-placement='top', title='Download your student lists') Download Student Lists
+                            li.nav-item.mr-2
+                                a.nav-link(href='/school/courseAllocation', data-toggle='tooltip', data-placement='top', title='Download your student lists')
+                                    img(src='/images/education.png' width="40" alt='View/Edit info')
                         if (userInfo.role === 10)
-                            li.nav-item.dropdown
+                            li.nav-item.dropdown.mr-2
                                 button#dropdownMenuButton.btn.btn-primary.dropdown-toggle(type='button',
-                                    data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Admin functions
+                                    data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                                    img(src='/images/unauthorized-person (1).png' width="40" alt="Admin's functions" data-toggle='tooltip', data-placement='top', title="Admin board")
                                 .dropdown-menu(aria-labelledby='dropdownMenuButton')
                                     a.dropdown-item(href='/school/createSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Set subject's time
                                     a.dropdown-item(href='/school/assignTeacherToSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Set subject's lecturer
@@ -389,9 +401,10 @@ html
                                     a.dropdown-item(href='/school/createBatchSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create subjects
                                     a.dropdown-item(href='/school/autoAssignTeacherToSubject', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Auto assign lecturers to subjects
                         if (userInfo.role === 10 && userInfo.dev === true)
-                            li.nav-item.dropdown.mx-2
+                            li.nav-item.dropdown.mr-2
                                 button#dropdownMenuButton.btn.btn-danger.dropdown-toggle(type='button',
-                                    data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dev functions
+                                    data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                                    img(src='/images/web-development.png' width="40" alt="Developer's functions" data-toggle='tooltip', data-placement='top', title="Developer board")
                                 .dropdown-menu(aria-labelledby='dropdownMenuButton')
                                     a.dropdown-item.disabled(href='/school/eliminate', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Eliminate Duplicates
                                     a.dropdown-item.disabled(href='/school/assign', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign
