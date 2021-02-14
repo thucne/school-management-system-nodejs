@@ -226,24 +226,27 @@ module.exports.createByExcel = function (req, res) {
   });
 }
 
-module.exports.id = function (req, res) {
+module.exports.ids = function (req, res) {
   var id = req.params.id;
 
   var isThisUserValid = !(id !== res.locals.userInfo.loginId && db.get('users').find({id: id}).value());
   // var isVulnerableAccountFound = db.get('users').find({id: id}).value();
   var token = req.csrfToken();
   // console.log("id " + token);
-
+  // console.log('id ' + id);
   var user = db.get('users').find({id: id}).value();
+  // console.log('user');
+  // console.log(user);
   var subjects = subject.get('subjects').value();
   var listOfThisUsersSubjects;
-  var isOkay = false
-  if (user.savedSubjects !== null && user.savedSubjects !== undefined && user.savedSubjects) {
+  var isOkay = false;
+  var savedSubjects = user ? user['savedSubjects'] : undefined;
+  if (savedSubjects !== undefined && savedSubjects.length > 0) {
     isOkay = true;
     listOfThisUsersSubjects = subjects.filter(function (sub) {
       let isTrue = false;
-      for (let i = 0; i < user.savedSubjects.length; i++) {
-        isTrue = sub.id_sub === user.savedSubjects[i];
+      for (let i = 0; i < user['savedSubjects'].length; i++) {
+        isTrue = sub.id_sub === user['savedSubjects'][i];
         if (isTrue === true)
           break;
       }
@@ -251,7 +254,7 @@ module.exports.id = function (req, res) {
     })
   }
   refreshToken();
-  if (user && isOkay > 0) {
+  if (user && isOkay === true) {
     console.log('length isssssssss' + listOfThisUsersSubjects.length);
     res.render('users/view', {
       csrfToken: token,
