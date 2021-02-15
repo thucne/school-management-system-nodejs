@@ -214,7 +214,7 @@ module.exports.postUpdate =  function (req, res, next) {
 
     return;
   }
-
+  req.body.avatar = (user.avatar.toLowerCase().indexOf('uploads') !== -1) ? '../' + user.avatar : user.avatar;
   req.body.errs = errs;
   // req.body.user = user;
 

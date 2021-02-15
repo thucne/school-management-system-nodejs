@@ -232,11 +232,9 @@ module.exports.ids = function (req, res) {
   var isThisUserValid = !(id !== res.locals.userInfo.loginId && db.get('users').find({id: id}).value());
   // var isVulnerableAccountFound = db.get('users').find({id: id}).value();
   var token = req.csrfToken();
-  // console.log("id " + token);
-  // console.log('id ' + id);
+
   var user = db.get('users').find({id: id}).value();
-  // console.log('user');
-  // console.log(user);
+
   var subjects = subject.get('subjects').value();
   var listOfThisUsersSubjects;
   var isOkay = false;
@@ -348,7 +346,7 @@ module.exports.postCreate = function (req, res) {
     newUser.universityID = req.body.universityIDb + req.body.universityIDb + 'IU' + (Math.floor(Math.random() * 9999) + 1000).toString();
 
   } else {
-    newUser.accessCode = parseInt((Math.floor(Math.random() * 1000000) + 1000000).toString().substring(1));
+    newUser.accessCode = parseInt((Math.floor(Math.random() * 999999) + 1000000).toString().substring(1));
     newUser.universityID = 'ADMIN' + (Math.floor(Math.random() * 99999) + 10000).toString();
 
   }

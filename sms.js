@@ -17,6 +17,7 @@ var csurf = require('csurf');
 var userRouter = require('./routes/user.route');
 var authRouter = require('./routes/auth.route');
 var schoolRouter = require('./routes/school.route');
+var dataRouter = require('./routes/data.route');
 
 var authMiddleware = require('./middleware/auth.middleware');
 var sessionMiddleware = require('./middleware/session.middleware');
@@ -85,6 +86,7 @@ app.get('/', csrfProtection, authMiddleware.default, authMiddleware.requireAuth,
 app.use('/users', csrfProtection, authMiddleware.default, authMiddleware.requireAuth, userRouter);
 app.use('/auth', csrfProtection, authMiddleware.default, csrfProtection, authRouter);
 app.use('/school', csrfProtection, authMiddleware.default, authMiddleware.requireAuth, csrfProtection, schoolRouter);
+app.use('/data', csrfProtection, authMiddleware.default, authMiddleware.requireAuth, csrfProtection, dataRouter);
 
 // app.enable('verbose errors');
 //
