@@ -216,20 +216,6 @@
       "departmentID": 8
     },
     {
-      "id": "7e1b5e43-1b59-4390-a1cb-dcaebb5aeb3c",
-      "name": "Cyples",
-      "first_name": "Noreen",
-      "gender": "Female",
-      "ip_address": "125.88.250.66",
-      "email": "ncyplesf@mysql.com",
-      "password": "v21X76Mvs",
-      "avatar": "https://robohash.org/maioresullamest.bmp?size=50x50&set=set1",
-      "role": 0,
-      "studentSchedule": 10,
-      "universityID": "SESEIU20001",
-      "departmentID": 10
-    },
-    {
       "id": "db9d7aa6-3dbe-499c-ace3-8986ccced35d",
       "name": "Derell",
       "first_name": "Quinta",
@@ -15853,6 +15839,48 @@
       "studentSchedule": 814,
       "universityID": "BABAIU5043",
       "departmentID": 0
+    },
+    {
+      "name": "Admin",
+      "first_name": "Admin ",
+      "gender": "Male",
+      "birthday": "12/01/2002",
+      "email": "admin1@gmail.com",
+      "id": "2927c4fc-1994-4f55-8f3f-2fe50f9a72ab",
+      "ip_address": "197.9.58.83",
+      "password": "L4fAakrqc",
+      "avatar": "uploads/7d7e415e720b5c6fd24d3c286bb7b7e5",
+      "role": 10,
+      "accessCode": 865485,
+      "universityID": "ADMIN39651"
+    },
+    {
+      "name": "Admin",
+      "first_name": "Admins",
+      "gender": "Male",
+      "birthday": "12/01/2002",
+      "email": "admin2@gmail.com",
+      "id": "81af6824-d53b-4ae3-8c55-024093b68de6",
+      "ip_address": "225.250.206.37",
+      "password": "I5egb7_g9",
+      "avatar": "uploads/4e8df237850bef89bc0798f5d9b0fbfb",
+      "role": 10,
+      "accessCode": 438821,
+      "universityID": "ADMIN45417"
+    },
+    {
+      "name": "Admin",
+      "first_name": "Adminn",
+      "gender": "Female",
+      "birthday": "12/14/2002",
+      "email": "admin3@gmail.com",
+      "id": "76a6bd26-8620-40df-867f-3bde6e54f690",
+      "ip_address": "225.107.144.39",
+      "password": "5uTHp2CWm",
+      "avatar": "uploads/6b9c91163eaa2710ae3839a3d3fd5b51",
+      "role": 10,
+      "accessCode": 466644,
+      "universityID": "ADMIN79117"
     }
   ],
   "sessions": [
@@ -15861,6 +15889,9 @@
     },
     {
       "id": "KH7s0oVtB"
+    },
+    {
+      "id": "tmK_dVnru"
     }
   ],
   "clientIPs": [
@@ -15910,6 +15941,10 @@
     },
     {
       "ip": "2001:ee0:5190:aa40:584a:cd02:6a57:16f1",
+      "count": 1
+    },
+    {
+      "ip": "2001:ee0:5190:aa40:611a:786f:a53d:d200",
       "count": 1
     }
   ]

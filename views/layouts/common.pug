@@ -5,8 +5,35 @@ html
         link(rel="icon", type="image/jpg", href="/images/002-layers.png")
         link(rel="stylesheet", href="/styles/snackbar.css")
         link(rel="stylesheet", href="/styles/custom.css")
+        link(rel="stylesheet", href="/styles/editableTable.css")
+
+        link(href="css/addons/datatables.min.css" rel="stylesheet")
+
         link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css')
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css')
+        link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.5.0/css/perfect-scrollbar.css')
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.2.0/mdb.min.css', rel='stylesheet')
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css')
+
+        link(rel='icon', href='img/mdb-favicon.ico', type='image/x-icon')
+        // Font Awesome
+        link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.11.2/css/all.css')
+        // Google Fonts Roboto
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap')
+        // MDB
+        link(rel='stylesheet', href='css/mdb.min.css')
+
+        //bbboostrap
+        link(href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+        script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+
+
+        script(type='text/javascript', src='js/addons/datatables.min.js')
 
         script(src='https://kit.fontawesome.com/c6f5524848.js', crossorigin='anonymous')
 
@@ -371,7 +398,7 @@ html
                             a.nav-link(href='/users', data-toggle='tooltip', data-placement='top', title='View info')
                                 img(src='/images/skills (1).png' width="40" alt='View/Edit info')
                         li.nav-item.mr-2
-                            a.nav-link(href='/auth/login', class=userInfo.name === " " ? 'nav-link': 'nav-link disabled', hidden=userInfo.name !== ' ')
+                            a.nav-link(href='/auth/login', class=userInfo.name === " " ? 'nav-link': 'nav-link disabled', hidden=userInfo.name !== ' ', data-toggle='tooltip', data-placement='top', title='Log in')
                                 img(src='/images/log-in.png' width="40" alt='Log in')
                         if (userInfo.role === 10)
                             li.nav-item.mr-2
@@ -417,28 +444,16 @@ html
                                     a.dropdown-item.disabled(href='/school/create100rooms', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Create 100 rooms
                                     a.dropdown-item.disabled(href='/school/bind100roomsWith100weeks', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Bind 100 rooms with 100 weeks
                                     a.dropdown-item.disabled(href='/school/assignFacultyForStudentsAndTeachers', data-toggle='tooltip', data-placement='right', title='Be careful before clicking!') Assign faculty for students and teachers
-
-                        //li.nav-item.ml-2
-                        //    input(type="image" src="/images/itunes.png" width="40" onclick='chill();', data-toggle='tooltip', data-placement='top', title='Search for a movie!')
-                        //li.nav-item.ml-2
-                        //    input(type="image" src="/images/spotify 2.png" width="40" onclick='chill2();', data-toggle='tooltip', data-placement='top', title='Search for a song!')
-                        //li.nav-item.ml-2
-                        //    input(type="image" src="/images/youtube.png" width="40" onclick='chill3();', data-toggle='tooltip', data-placement='top', title='Search for a video!')
-                        //
-
+                            li.nav-item.mr-2
+                                a.btn.btn-success.nav-link(href='/data', data-toggle='tooltip', data-placement='top', title='Database board' style='padding: 6px')
+                                    img(src='/images/database.png' width="40" alt='Database board')
                     #google_translate_element(style='position: relative; opacity: 1; z-index: 10;' hidden)
-                            //button.btn.btn-primary(style='position: absolute; right: 0; bottom: -6; z-index: 0; width: 157px; ') Translate
-                    //li.nav-item.ml-2
-
-                    //label.switch.ml-2(data-toggle='tooltip', data-placement='top', title='Night mode')
-                    //      input#darkMode(type='checkbox' onclick='darkMode();')
-                    //      span.slider
 
                     ul.navbar-nav
                         li.nav-item
                             input.mx-2.zx#NMicon(type='image' src='/images/night-mode.png' alt='Night mode' width='40' style='clear: both;' data-toggle='tooltip', data-placement='top', title='Night mode')
                         li.nav-item
-                            button.btn.btn-info(id='www')
+                            button.btn.btn-info(id='www', data-toggle='tooltip', data-placement='top', title='Time')
                         li.nav-item
                           .translation-links
                             input.vietnamese.mx-2(type="image" src="/images/vietnam.png" width="40" data-lang='Vietnamese' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='Vietnamese')
@@ -446,7 +461,6 @@ html
                             input.china.mr-2(type="image" src="/images/china.png" width="40" data-lang='Chinese' style='border-radius: 10px;', data-toggle='tooltip', data-placement='top', title='Chinese')
 
                     script(type='text/javascript').
-                      // jQuery.noConflict();
                       $(function () {
                         $('.translation-links input').on('click', function () {
                           var lang = $(this).data('lang');
