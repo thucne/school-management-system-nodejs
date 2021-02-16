@@ -206,11 +206,41 @@ input:checked + .slider:before {
     background-color: white;
 }
 
-ul.navbar-nav.mr-auto, .zx, button.btn.btn-outline-secondary.form-inline#kl, ul.navbar-nav{
+ul.navbar-nav.mr-auto, .zx, button.btn.btn-outline-secondary.form-inline#kl, ul.navbar-nav, #loading.loader{
     align-items: center;
     vertical-align : middle;
     justify-content: center;
     text-align: center;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    /*border: 3px solid green;*/
+    padding: 10px;
+}
+
+
+.loader {
+    border-radius: 50%;
+    border: 16px solid blue;
+    border-right-color: green;
+    border-bottom-color: red;
+    border-left-color: pink;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /*body.dark-theme {*/
