@@ -2,6 +2,10 @@ extends ../layouts/common
 
 block content
     link(rel="stylesheet", href="/styles/myTable.css")
+    link(rel='stylesheet', href='fabric.min.css')
+    link(rel='stylesheet', href='fabric.components.min.css')
+    script(src='fabric.min.js')
+
     script(src='/plugins/jquery.tabledit.js')
 
     script(type='text/javascript').
@@ -13,17 +17,18 @@ block content
         $('#loading').show();
       }).on('load', ()=> {
         $('#loading').hide();
-        $('#example-1').show();
+        $('#showdb0').show();
+
       });
 
-      let pre;
       function edit(what) {
         reset();
         let content = $(what).children('span').html();
         $(what).children('span').hide();
         $(what).children('input').show();
         $(what).children('input').html(content);
-        $(what).children('input').css('width', 'max-content');
+        $(what).children('input').css('width', '100%');
+        $(what).children('input').css('height', '100%');
         $(what).children('input').on('keyup', (e)=>{
           if (e.key === 'Enter') {
             // alert('YEs');
@@ -36,49 +41,191 @@ block content
         $('td>span').show();
         $('td>input').hide();
       }
+
+      function showUp(what) {
+        $("table").hide();
+        $(".bhu").fadeIn();
+
+        let temp = $(what);
+        $('#show' + temp.attr('id')).show();
+        $('#dbName').html('Database: ' + temp.attr('name'));
+        temp.fadeOut();
+      }
     .p-2.hide
         h1 Database board
         hr
+        h4(style='float: left;') Choose database's name:
+        button.btn.btn-outline-primary.ml-2.bhu#db0(style='position: relative; border-radius: 20px; display: none;' onclick='showUp(this);', name="USER") User
+        button.btn.btn-outline-primary.ml-2.bhu#db1(style='position: relative; border-radius: 20px;' onclick='showUp(this);', name='ANNOUNCEMENT') Announcement
+        button.btn.btn-outline-primary.ml-2.bhu#db2(style='position: relative; border-radius: 20px;' onclick='showUp(this);', name='DEPARTMENT') Department
+        button.btn.btn-outline-primary.ml-2.bhu#db3(style='position: relative; border-radius: 20px;' onclick='showUp(this);', name='ROOM') Room
+        button.btn.btn-outline-primary.ml-2.bhu#db4(style='position: relative; border-radius: 20px;' onclick='showUp(this);', name="STUDENT's SCHEDULE") Student's schedule
+        button.btn.btn-outline-primary.ml-2.bhu#db5(style='position: relative; border-radius: 20px;' onclick='showUp(this);', name="TEACHER's SCHEDULE") Teacher's schedule
+        button.btn.btn-outline-primary.ml-2.bhu#db6(style='position: relative; border-radius: 20px;' onclick='showUp(this);', name="SUBJECT") Subject
+        button.btn.btn-outline-primary.ml-2.bhu#db7(style='position: relative; border-radius: 20px;' onclick='showUp(this);', name="ROOM's SCHEDULE") Room's schedule
+
+        hr(style='clear:both;')
         script(type='text/javascript', src='https://res.cloudinary.com/dxfq3iotg/raw/upload/v1567487539/jquery.tabledit.js')
         .container.mb-5
             .row
                 .col-md-12
                     .card
                         .card-header
-                            h5 Database: USER
+                            h5#dbName Database: USER
+                            h5#loaded
                             span Click on row to perform edit action then Enter for save
                         #loading.loader.center(style='position: inherit; top: 100pt;')
-                        .card-block
-                            .table-responsive
-                              .table-wrapper-scroll-y.my-custom-scrollbar.ui-table-header-row
-                                table#example-1.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
+                        if (users)
+                            .card-block
+                                .table-responsive
+                                  .table-wrapper-scroll-y.my-custom-scrollbar.ui-table-header-row
+                                    table#showdb0.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
 
-                                    tr.table-secondary.blue
-                                        if (keys)
-                                          th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
-                                          each key in keys
-                                            th(data-toggle='tooltip', data-placement='top', title=key)= key
-                                    if (users && keys)
-                                        each user in users
+                                        tr.table-secondary.blue
+                                            th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
+                                            each key in users[1]
+                                                th(data-toggle='tooltip', data-placement='top', title=key)= key
+
+                                        each user in users[0]
                                             tr
                                                 td.tabledit-view-mode#not
-                                                    span= users.indexOf(user) + 1
+                                                    span= users[0].indexOf(user) + 1
                                                 - var iter = 0
-                                                each key in keys
-                                                    td.tabledit-view-mode(id=iter, onclick=iter++ === 0 ? '' :'edit(this);')
+                                                each key in users[1]
+                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' :'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit': 'ID cannot be edited!')
                                                         span.tabledit-span= user[key] !== undefined ? user[key] : '#'
                                                         input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key]: null, value=user[key] !== undefined ? user[key]: null, style='display: none;')
 
-                            nav.m-2(aria-label='Page navigation example')
-                                ul.pagination.justify-content-end
-                                    li.page-item
-                                        a.page-link(href='#', tabindex='-1', aria-disabled='true') Previous
-                                    li.page-item
-                                        a.page-link(href='#') 1
-                                    li.page-item
-                                        a.page-link(href='#') 2
-                                    li.page-item
-                                        a.page-link(href='#') 3
-                                    li.page-item
-                                        a.page-link(href='#') Next
+                                    table#showdb1.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
+
+                                        tr.table-secondary.blue
+                                            th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
+                                            each key in announcements[1]
+                                                th(data-toggle='tooltip', data-placement='top', title=key)= key
+
+                                        each user in announcements[0]
+                                            tr
+                                                td.tabledit-view-mode#not
+                                                    span= announcements[0].indexOf(user) + 1
+                                                - var iter = 0
+                                                each key in announcements[1]
+                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit': 'ID cannot be edited!')
+                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
+
+                                    table#showdb2.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
+
+                                        tr.table-secondary.blue
+                                            th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
+                                            each key in departments[1]
+                                                th(data-toggle='tooltip', data-placement='top', title=key)= key
+
+                                        each user in departments[0]
+                                            tr
+                                                td.tabledit-view-mode#not
+                                                    span= departments[0].indexOf(user) + 1
+                                                - var iter = 0
+                                                each key in departments[1]
+                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit': 'ID cannot be edited!')
+                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
+
+                                    table#showdb3.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
+
+                                        tr.table-secondary.blue
+                                            th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
+                                            each key in rooms[1]
+                                                th(data-toggle='tooltip', data-placement='top', title=key)= key
+
+                                        each user in rooms[0]
+                                            tr
+                                                td.tabledit-view-mode#not
+                                                    span= rooms[0].indexOf(user) + 1
+                                                - var iter = 0
+                                                each key in rooms[1]
+                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
+                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
+
+
+                                    table#showdb4.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
+
+                                        tr.table-secondary.blue
+                                            th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
+                                            each key in SDTSchedules[1]
+                                                th(data-toggle='tooltip', data-placement='top', title=key)= key
+
+                                        each user in SDTSchedules[0]
+                                            tr
+                                                td.tabledit-view-mode#not
+                                                    span= SDTSchedules[0].indexOf(user) + 1
+                                                - var iter = 0
+                                                each key in SDTSchedules[1]
+                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
+                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
+
+                                    table#showdb5.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
+
+                                        tr.table-secondary.blue
+                                            th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
+                                            each key in TCSchedules[1]
+                                                th(data-toggle='tooltip', data-placement='top', title=key)= key
+
+                                        each user in TCSchedules[0]
+                                            tr
+                                                td.tabledit-view-mode#not
+                                                    span= TCSchedules[0].indexOf(user) + 1
+                                                - var iter = 0
+                                                each key in TCSchedules[1]
+                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
+                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
+
+                                    table#showdb6.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
+
+                                        tr.table-secondary.blue
+                                            th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
+                                            each key in subjects[1]
+                                                th(data-toggle='tooltip', data-placement='top', title=key)= key
+
+                                        each user in subjects[0]
+                                            tr
+                                                td.tabledit-view-mode#not
+                                                    span= subjects[0].indexOf(user) + 1
+                                                - var iter = 0
+                                                each key in subjects[1]
+                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
+                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
+
+                                    table#showdb7.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
+
+                                        tr.table-secondary.blue
+                                            th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
+                                            each key in RSchedules[1]
+                                                th(data-toggle='tooltip', data-placement='top', title=key)= key
+
+                                        each user in RSchedules[0]
+                                            tr
+                                                td.tabledit-view-mode#not
+                                                    span= RSchedules[0].indexOf(user) + 1
+                                                - var iter = 0
+                                                each key in RSchedules[1]
+                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
+                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
+
+                                nav.m-2(aria-label='Page navigation example')
+                                    ul.pagination.justify-content-end
+                                        li.page-item
+                                            a.page-link(href='#', tabindex='-1', aria-disabled='true') Previous
+                                        li.page-item
+                                            a.page-link(href='#') 1
+                                        li.page-item
+                                            a.page-link(href='#') 2
+                                        li.page-item
+                                            a.page-link(href='#') 3
+                                        li.page-item
+                                            a.page-link(href='#') Next
 
