@@ -12,13 +12,37 @@ block content
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
+      var rere;
+      function re() {
+        var temp = (Math.floor(Date.now() - timerStart) * 100 / EstimatedTime) < 100 ? (Math.floor(Date.now() - timerStart) * 100 / EstimatedTime) : 99
+        $("#loaded").html("Loaded: " + temp + "%...");
+        $("#loadedBar").css('width', temp+'%');
+      }
 
+      rere = setInterval(re, 10);
+
+      function stopRE(){
+        clearInterval(rere);
+        $("#loaded").html("Load completed!...");
+        $("#loadedBar").css('width', '100%');
+        setTimeout(function () {
+          $("#loaded").fadeOut(100);
+          $("#loadedBar").fadeOut(100);
+          $(".progress").fadeOut(100);
+        }, 2000);
+      }
       $(window).on('DOMContentLoaded', function (){
+
         $('#loading').show();
+        $('#loaded').show();
+        $('#loadedBar').show();
+        $('.progress').show();
+
       }).on('load', ()=> {
         $('#loading').hide();
         $('#showdb0').show();
-
+        stopRE();
+        // $('#loaded').hide();
       });
 
       function edit(what) {
@@ -47,6 +71,7 @@ block content
         $(".bhu").fadeIn();
 
         let temp = $(what);
+
         $('#show' + temp.attr('id')).show();
         $('#dbName').html('Database: ' + temp.attr('name'));
         temp.fadeOut();
@@ -73,7 +98,10 @@ block content
                         .card-header
                             h5#dbName Database: USER
                             h5#loaded
+                            .progress
+                                #loadedBar.progress-bar.progress-bar-striped.progress-bar-animated
                             span Click on row to perform edit action then Enter for save
+
                         #loading.loader.center(style='position: inherit; top: 100pt;')
                         if (users)
                             .card-block
@@ -109,7 +137,8 @@ block content
                                                     span= announcements[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in announcements[1]
-                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit': 'ID cannot be edited!')
+                                                  - var isEditable = iter !== 0 && iter !== 4
+                                                  td.tabledit-view-mode(id=iter++, onclick=!isEditable ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=isEditable ? 'Click to edit': 'ID cannot be edited!')
                                                         span.tabledit-span= user[key] !== undefined ? user[key] : '#'
                                                         input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
@@ -161,7 +190,7 @@ block content
                                                     span= SDTSchedules[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in SDTSchedules[1]
-                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
+                                                    td.tabledit-view-mode(id=iter, onclick=iter === 7 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 7 ? 'Click to edit': 'ID cannot be edited!')
                                                         span.tabledit-span= user[key] !== undefined ? user[key] : '#'
                                                         input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
@@ -178,7 +207,7 @@ block content
                                                     span= TCSchedules[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in TCSchedules[1]
-                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
+                                                    td.tabledit-view-mode(id=iter, onclick=iter === 7 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 7 ? 'Click to edit': 'ID cannot be edited!')
                                                         span.tabledit-span= user[key] !== undefined ? user[key] : '#'
                                                         input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
