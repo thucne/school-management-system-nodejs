@@ -2,163 +2,83 @@ extends ../layouts/common
 
 block content
     link(rel="stylesheet", href="/styles/myTable.css")
+    script(src='/plugins/jquery.tabledit.js')
 
     script(type='text/javascript').
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
-      $(document).ready(function () {
-        // example.php will be used to send the data to the sever database
-        $('#example-1').Tabledit({
-          // url: 'example.php',
-          editButton: false,
-          deleteButton: false,
-          hideIdentifier: true,
-          columns: {
-            identifier: [0, 'id'],
-            editable: [[2, 'first'], [3, 'last'], [3, 'nickname']]
-          }
-        });
 
+      $(window).on('DOMContentLoaded', function (){
+        $('#loading').show();
+      }).on('load', ()=> {
+        $('#loading').hide();
+        $('#example-1').show();
       });
-      var faqs_row = 0;
-      function addfaqs() {
-        html = '<tr id="faqs-row' + faqs_row + '">';
-        html += '<td><input type="text" class="form-control" placeholder="User name"></td>';
-        html += '<td><input type="text" placeholder="Product name" class="form-control"></td>';
-        html += '<td class="text-danger mt-10"> 18.76% <i class="fa fa-arrow-down"></i></td>';
-        html += '<td class="mt-10"><button class="badge badge-danger" onclick="$(\'#faqs-row' + faqs_row + '\').remove();"><i class="fa fa-trash"></i> Delete</button></td>';
 
-        html += '</tr>';
-
-        $('#faqs tbody').append(html);
-
-        faqs_row++;
+      let pre;
+      function edit(what) {
+        reset();
+        let content = $(what).children('span').html();
+        $(what).children('span').hide();
+        $(what).children('input').show();
+        $(what).children('input').html(content);
+        $(what).children('input').css('width', 'max-content');
+        $(what).children('input').on('keyup', (e)=>{
+          if (e.key === 'Enter') {
+            // alert('YEs');
+            $(what).children('span').html($(what).children('input').val());
+            reset();
+          }
+        })
+      }
+      function reset() {
+        $('td>span').show();
+        $('td>input').hide();
       }
     .p-2.hide
         h1 Database board
         hr
         script(type='text/javascript', src='https://res.cloudinary.com/dxfq3iotg/raw/upload/v1567487539/jquery.tabledit.js')
-        .container.mt-5
+        .container.mb-5
             .row
                 .col-md-12
                     .card
                         .card-header
                             h5 Database: USER
                             span Click on row to perform edit action then Enter for save
+                        #loading.loader.center(style='position: inherit; top: 100pt;')
                         .card-block
                             .table-responsive
                               .table-wrapper-scroll-y.my-custom-scrollbar.ui-table-header-row
-                                table#example-1.table.table-striped.table-bordered.table-hover
-                                    thead
-                                        tr.table-secondary.blue
-                                            th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
-                                            th(data-toggle='tooltip', data-placement='top', title='Role') Role
-                                            th(data-toggle='tooltip', data-placement='top', title='First Name') First Name
-                                            th(data-toggle='tooltip', data-placement='top', title='Last Name') Last Name
-                                            th(data-toggle='tooltip', data-placement='top', title='Gender') Gender
-                                            th(data-toggle='tooltip', data-placement='top', title='Gender') Birthday
-                                            th(data-toggle='tooltip', data-placement='top', title='Email') Email
-                                                //th(data-toggle='tooltip', data-placement='top', title='Students IP Address') IP Address
-                                            //th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Some functionalities') Edit
-                                            //th(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete a student') Delete
-                                    tbody
-                                      if (users)
+                                table#example-1.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
+
+                                    tr.table-secondary.blue
+                                        if (keys)
+                                          th(data-toggle='tooltip', data-placement='top', title='The orders in the database') No.
+                                          each key in keys
+                                            th(data-toggle='tooltip', data-placement='top', title=key)= key
+                                    if (users && keys)
                                         each user in users
                                             tr
-                                                td.tabledit-view-mode(style='cursor: pointer;')
-                                                    span.tabledit-span= users.indexOf(user) + 1
-                                                    input.tabledit-input.form-control.input-sm(type='text', name='First Name', value='Mark', style='display: none;', disabled='')
-                                                td.tabledit-view-mode(style='cursor: pointer;')
-                                                    span.tabledit-span= user.role !== null ? (user.role === 1 ? 'Teacher' : (user.role === 0 ? 'Student' : 'Admin')) : 'Unknown'
-                                                    input.tabledit-input.form-control.input-sm(type='text', name='First Name', value='Mark', style='display: none;', disabled='')
-                                                td.tabledit-view-mode(style='cursor: pointer;')
-                                                    span.tabledit-span= user.name !== null ? user.name : 'Unknown'
-                                                    input.tabledit-input.form-control.input-sm(type='text', name='First Name', value='Mark', style='display: none;', disabled='')
-                                                td.tabledit-view-mode(style='cursor: pointer;')
-                                                    span.tabledit-span= user.first_name !== null ? user.first_name : 'Unknown'
-                                                    input.tabledit-input.form-control.input-sm(type='text', name='First Name', value='Mark', style='display: none;', disabled='')
-                                                td.tabledit-view-mode(style='cursor: pointer;')
-                                                    span.tabledit-span= user.gender !== null ? user.gender : 'Unknown'
-                                                    input.tabledit-input.form-control.input-sm(type='text', name='First Name', value='Mark', style='display: none;', disabled='')
-                                                td.tabledit-view-mode(style='cursor: pointer;')
-                                                    span.tabledit-span= user.birthday ? user.birthday : 'Unknown'
-                                                    input.tabledit-input.form-control.input-sm(type='text', name='First Name', value='Mark', style='display: none;', disabled='')
-                                                td.tabledit-view-mode(style='cursor: pointer;')
-                                                    span.tabledit-span= user.email !== null ? user.email : 'Unknown'
-                                                    input.tabledit-input.form-control.input-sm(type='text', name='First Name', value='Mark', style='display: none;', disabled='')
-                                                //td(style='text-align:center;')
-                                                //    a.btn.btn-outline-info.rounded-circle(href="/users/" + user.id, data-toggle='tooltip', data-placement='top', title='Click to see the user information') &#128194;
-                                                //td(style='text-align:center;', data-toggle='tooltip', data-placement='top', title='Delete this student from the database')
-                                                //      a.btn.btn-outline-danger.rounded-circle(href="/users/delete/" + user.id) &#10060;
-                                            //tr
-                                            //    th(scope='row', style='display: none;') 1
-                                            //    td.tabledit-view-mode(style='cursor: pointer;')
-                                            //        span.tabledit-span
-                                            //            | Sam
-                                            //        input.tabledit-input.form-control.input-sm(type='text', name='First Name', value='Mark', style='display: none;', disabled='')
-                                            //    td.tabledit-view-mode(style='cursor: pointer;')
-                                            //        span.tabledit-span(style='')
-                                            //            | Motto
-                                            //        input.tabledit-input.form-control.input-sm.fill(type='text', name='Last Name', value='Otto', style='display: none;', disabled='')
-                                            //    td.tabledit-view-mode
-                                            //        span.tabledit-span Android Developer
-                                            //tr
-                                            //    th(scope='row', style='display: none;') 2
-                                            //    td.tabledit-view-mode(style='cursor: pointer;')
-                                            //        span.tabledit-span
-                                            //            | Mark
-                                            //        input.tabledit-input.form-control.input-sm(type='text', name='First Name', value='Jacob', style='display: none;', disabled='')
-                                            //    td.tabledit-view-mode(style='cursor: pointer;')
-                                            //        span.tabledit-span
-                                            //            | Henry
-                                            //        input.tabledit-input.form-control.input-sm(type='text', name='Last Name', value='Thorntonkk', style='display: none;', disabled='')
-                                            //    td.tabledit-view-mode
-                                            //        span.tabledit-span Java Developer
-                                            //tr
-                                            //    th(scope='row', style='display: none;') 3
-                                            //    td.tabledit-view-mode(style='cursor: pointer;')
-                                            //        span.tabledit-span
-                                            //            | Larry
-                                            //        input.tabledit-input.form-control.input-sm(type='text', name='First Name', value='Larry', style='display: none;', disabled='')
-                                            //    td.tabledit-view-mode(style='cursor: pointer;')
-                                            //        span.tabledit-span
-                                            //            | Pingor
-                                            //        input.tabledit-input.form-control.input-sm(type='text', name='Last Name', value='the Bird', style='display: none;', disabled='')
-                                            //    td.tabledit-view-mode
-                                            //        span.tabledit-span Hybris Developer
+                                                td.tabledit-view-mode#not
+                                                    span= users.indexOf(user) + 1
+                                                - var iter = 0
+                                                each key in keys
+                                                    td.tabledit-view-mode(id=iter, onclick=iter++ === 0 ? '' :'edit(this);')
+                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key]: null, value=user[key] !== undefined ? user[key]: null, style='display: none;')
 
+                            nav.m-2(aria-label='Page navigation example')
+                                ul.pagination.justify-content-end
+                                    li.page-item
+                                        a.page-link(href='#', tabindex='-1', aria-disabled='true') Previous
+                                    li.page-item
+                                        a.page-link(href='#') 1
+                                    li.page-item
+                                        a.page-link(href='#') 2
+                                    li.page-item
+                                        a.page-link(href='#') 3
+                                    li.page-item
+                                        a.page-link(href='#') Next
 
-        #page-content.page-content.page-container
-            .padding
-                .row.container.d-flex.justify-content-center
-                    .col-lg-8.grid-margin.stretch-card
-                        .card
-                            .card-body
-                                h4.card-title.text-center Add and remove row in table using jquery
-                                hr
-                                .table-responsive
-                                    table#faqs.table.table-hover
-                                        thead
-                                            tr
-                                                th User
-                                                th Product
-                                                th Sale
-                                                th Status
-                                        tbody
-                                            tr
-                                                td
-                                                    input.form-control(type='text', placeholder='User name')
-                                                td
-                                                    input.form-control(type='text', placeholder='Product name')
-                                                td.text-warning.mt-10
-                                                    | 18.76%
-                                                    i.fa.fa-arrow-up
-                                                td.mt-10
-                                                    button.badge.badge-danger
-                                                        i.fa.fa-trash
-                                                        |  Delete
-                                .text-center
-                                    button.badge.badge-success(onclick='addfaqs();')
-                                        i.fa.fa-plus
-                                        |  ADD NEW

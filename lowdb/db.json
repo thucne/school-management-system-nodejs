@@ -17,7 +17,7 @@
       "role": 1,
       "teacherSchedule": 1,
       "universityID": "TCTCIU000",
-      "birthday": "2002-12-03",
+      "birthday": "12/03/2002",
       "departmentID": 8
     },
     {
@@ -42,7 +42,7 @@
         3
       ],
       "universityID": "CECEIU19000",
-      "birthday": "1998-01-06",
+      "birthday": "01/06/1998",
       "departmentID": 0
     },
     {
@@ -88,7 +88,7 @@
         2
       ],
       "universityID": "BABAIU20001",
-      "birthday": "2002-12-03",
+      "birthday": "12/03/2002",
       "departmentID": 1
     },
     {
@@ -214,6 +214,20 @@
       "studentSchedule": 9,
       "universityID": "ELELIU19000",
       "departmentID": 8
+    },
+    {
+      "id": "7e1b5e43-1b59-4390-a1cb-dcaebb5aeb3c",
+      "name": "Cyples",
+      "first_name": "Noreen",
+      "gender": "Female",
+      "ip_address": "125.88.250.66",
+      "email": "ncyplesf@mysql.com",
+      "password": "v21X76Mvs",
+      "avatar": "https://robohash.org/maioresullamest.bmp?size=50x50&set=set1",
+      "role": 0,
+      "studentSchedule": 10,
+      "universityID": "SESEIU20001",
+      "departmentID": 10
     },
     {
       "id": "db9d7aa6-3dbe-499c-ace3-8986ccced35d",
@@ -15892,6 +15906,9 @@
     },
     {
       "id": "tmK_dVnru"
+    },
+    {
+      "id": "VqkFTt1eW"
     }
   ],
   "clientIPs": [
@@ -15945,6 +15962,10 @@
     },
     {
       "ip": "2001:ee0:5190:aa40:611a:786f:a53d:d200",
+      "count": 1
+    },
+    {
+      "ip": "2001:ee0:5190:aa40:1dd8:8f6d:df0c:46b",
       "count": 1
     }
   ]

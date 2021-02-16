@@ -52,6 +52,8 @@ footer {
 
 body {
     cursor: url(../images/006-cursor-1.cur), auto;
+    font-family: "Sofia", sans-serif;
+
     /*transition: 5s;*/
     /*transition-duration: 5s;*/
     /*cursor: url("006-cursor-1.cur"), wait;*/

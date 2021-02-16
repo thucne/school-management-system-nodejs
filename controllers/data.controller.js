@@ -40,10 +40,34 @@ function refreshToken() {
   return accessToken;
 }
 
+function getKeys(obj){
+  var keys = [];
+  for(var key in obj){
+    keys.push(key);
+  }
+  return keys;
+}
+
 module.exports.display = function (req, res) {
   var user = db.get('users').value();
+  var maxKeys = [];
+  for (let i = 0;  i < user.length; i++) {
+    let temp = getKeys(user[i]);
+    for (let i = 0; i < temp.length; i++) {
+      let isNew = maxKeys.indexOf(temp[i]) < 0;
+      if (isNew) {
+        maxKeys.push(temp[i]);
+      }
+    }
+    // maxKeys = maxKeys.length < getKeys(user[i]).length ? getKeys(user[i]) : maxKeys;
+  }
+  // for (let i = 0;  i < maxKeys.length; i++) {
+  //   console.log(maxKeys[i]);
+  // }
+
   res.render('data/dataBoard', {
-    users: user
+    users: user,
+    keys: maxKeys
   });
 }
 
