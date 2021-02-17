@@ -1,0 +1,27 @@
+extends ../layouts/common
+
+block content
+    link(rel="stylesheet", href="/styles/myTable.css")
+    script(type='text/javascript').
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+
+
+    .px-3.pt-3.mb-5.hide
+        h1 Policy & Terms Of Use
+        span
+            h5 Policy and Terms of Service reflect the way MySchool’s system works, the laws that apply to our company, and certain things we’ve always believed to be true. As a result, these Terms of Service help define MySchool’s relationship with you as you interact with our services. For example, these terms include the following topic headings:
+            span
+                h5 1. What you can expect from us, which describes how we provide and develop our services
+                h5 2. What we expect from you, which establishes certain rules for using our services
+                h5 3. Content in MySchool services, which describes the intellectual property rights to the content you find in our services — whether that content belongs to you, MySchool, or others
+                h5 4. In case of problems or disagreements, which describes other legal rights you have, and what to expect in case someone violates these terms
+        hr
+        h3 I. Policy
+        hr
+        //div
+        //    h5 1.
+        //    p
+        hr
+        h3 II. Terms Of Use

@@ -2,9 +2,6 @@ extends ../layouts/common
 
 block content
     link(rel="stylesheet", href="/styles/myTable.css")
-    link(rel='stylesheet', href='fabric.min.css')
-    link(rel='stylesheet', href='fabric.components.min.css')
-    script(src='fabric.min.js')
 
     script(src='/plugins/jquery.tabledit.js')
 
@@ -12,29 +9,37 @@ block content
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
+
       var rere;
       function re() {
-        var temp = (Math.floor(Date.now() - timerStart) * 100 / EstimatedTime) < 100 ? (Math.floor(Date.now() - timerStart) * 100 / EstimatedTime) : 99
+        pageSize = $('html').html().length;
+        kBytes = pageSize / 1024;
+        var temp = (Math.floor(Date.now() - timerStart) * 100 / EstimatedTime) < 100 ? (Math.floor((Date.now() - timerStart) * 100 / EstimatedTime)): Math.floor(99)
         $("#loaded").html("Loaded: " + temp + "%...");
         $("#loadedBar").css('width', temp+'%');
+        $("#pageWeight").html('Page weight: ' + kBytes.toString() + ' KB');
       }
 
-      rere = setInterval(re, 10);
+      rere = setInterval(re, 100);
 
       function stopRE(){
         clearInterval(rere);
         $("#loaded").html("Load completed!...");
+        $("#pageWeight").html('Page weight: ' + kBytes.toString() + ' KB');
         $("#loadedBar").css('width', '100%');
         setTimeout(function () {
           $("#loaded").fadeOut(100);
+          $("#pageWeight").fadeOut(100);
           $("#loadedBar").fadeOut(100);
           $(".progress").fadeOut(100);
         }, 2000);
       }
       $(window).on('DOMContentLoaded', function (){
-
+        pageSize = $('html').html().length;
+        kBytes = pageSize / 1024;
         $('#loading').show();
         $('#loaded').show();
+        $('#pageWeight').show();
         $('#loadedBar').show();
         $('.progress').show();
 
@@ -67,7 +72,7 @@ block content
       }
 
       function showUp(what) {
-        $("table").hide();
+        $("table").fadeOut();
         $(".bhu").fadeIn();
 
         let temp = $(what);
@@ -76,7 +81,12 @@ block content
         $('#dbName').html('Database: ' + temp.attr('name'));
         temp.fadeOut();
       }
-    .p-2.hide
+
+      function showModal() {
+        $("#exampleModalCenter").modal();
+      }
+
+    .px-3.pt-3.mb-5.hide
         h1 Database board
         hr
         h4(style='float: left;') Choose database's name:
@@ -98,15 +108,19 @@ block content
                         .card-header
                             h5#dbName Database: USER
                             h5#loaded
+                            h5#pageWeight
                             .progress
                                 #loadedBar.progress-bar.progress-bar-striped.progress-bar-animated
                             span Click on row to perform edit action then Enter for save
 
                         #loading.loader.center(style='position: inherit; top: 100pt;')
+                        - var pageStart = pageAt !== undefined ? parseInt(pageAt) : 0
+                        - var longPage = pageLong !== undefined ? parseInt(pageLong) : 10
+                        - var pageEnd = pageStart + longPage;
                         if (users)
                             .card-block
                                 .table-responsive
-                                  .table-wrapper-scroll-y.my-custom-scrollbar.ui-table-header-row
+                                  .table-wrapper-scroll-y.my-custom-scrollbar-data.ui-table-header-row
                                     table#showdb0.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
 
                                         tr.table-secondary.blue
@@ -114,7 +128,9 @@ block content
                                             each key in users[1]
                                                 th(data-toggle='tooltip', data-placement='top', title=key)= key
 
-                                        each user in users[0]
+                                        // each user in users[0]
+                                        - var us = users[0].slice(pageStart, pageEnd)
+                                        each user in us
                                             tr
                                                 td.tabledit-view-mode#not
                                                     span= users[0].indexOf(user) + 1
@@ -131,7 +147,8 @@ block content
                                             each key in announcements[1]
                                                 th(data-toggle='tooltip', data-placement='top', title=key)= key
 
-                                        each user in announcements[0]
+                                        - var us = announcements[0].slice(pageStart, pageEnd)
+                                        each user in us
                                             tr
                                                 td.tabledit-view-mode#not
                                                     span= announcements[0].indexOf(user) + 1
@@ -149,7 +166,8 @@ block content
                                             each key in departments[1]
                                                 th(data-toggle='tooltip', data-placement='top', title=key)= key
 
-                                        each user in departments[0]
+                                        - var us = departments[0].slice(pageStart, pageEnd)
+                                        each user in us
                                             tr
                                                 td.tabledit-view-mode#not
                                                     span= departments[0].indexOf(user) + 1
@@ -166,7 +184,8 @@ block content
                                             each key in rooms[1]
                                                 th(data-toggle='tooltip', data-placement='top', title=key)= key
 
-                                        each user in rooms[0]
+                                        - var us = rooms[0].slice(pageStart, pageEnd)
+                                        each user in us
                                             tr
                                                 td.tabledit-view-mode#not
                                                     span= rooms[0].indexOf(user) + 1
@@ -184,7 +203,8 @@ block content
                                             each key in SDTSchedules[1]
                                                 th(data-toggle='tooltip', data-placement='top', title=key)= key
 
-                                        each user in SDTSchedules[0]
+                                        - var us = SDTSchedules[0].slice(pageStart, pageEnd)
+                                        each user in us
                                             tr
                                                 td.tabledit-view-mode#not
                                                     span= SDTSchedules[0].indexOf(user) + 1
@@ -201,7 +221,8 @@ block content
                                             each key in TCSchedules[1]
                                                 th(data-toggle='tooltip', data-placement='top', title=key)= key
 
-                                        each user in TCSchedules[0]
+                                        - var us = TCSchedules[0].slice(pageStart, pageEnd)
+                                        each user in us
                                             tr
                                                 td.tabledit-view-mode#not
                                                     span= TCSchedules[0].indexOf(user) + 1
@@ -218,7 +239,8 @@ block content
                                             each key in subjects[1]
                                                 th(data-toggle='tooltip', data-placement='top', title=key)= key
 
-                                        each user in subjects[0]
+                                        - var us = subjects[0].slice(pageStart, pageEnd)
+                                        each user in us
                                             tr
                                                 td.tabledit-view-mode#not
                                                     span= subjects[0].indexOf(user) + 1
@@ -235,7 +257,8 @@ block content
                                             each key in RSchedules[1]
                                                 th(data-toggle='tooltip', data-placement='top', title=key)= key
 
-                                        each user in RSchedules[0]
+                                        - var us = RSchedules[0].slice(pageStart, pageEnd)
+                                        each user in us
                                             tr
                                                 td.tabledit-view-mode#not
                                                     span= RSchedules[0].indexOf(user) + 1
@@ -247,14 +270,17 @@ block content
 
                                 nav.m-2(aria-label='Page navigation example')
                                     ul.pagination.justify-content-end
+                                        - var cal = calb !== undefined ? parseInt(calb) : 1
+                                        - var isBack = cal < 2 || (cal - 4) < 2
+                                        - var isBack2 = (cal - 2) < -1
                                         li.page-item
-                                            a.page-link(href='#', tabindex='-1', aria-disabled='true') Previous
+                                            a.page-link(href='data?page=' + (cal - 4) + '&pageLong='+ longPage, tabindex='-1', aria-disabled='true', class=isBack ? 'disabled': '') Previous
                                         li.page-item
-                                            a.page-link(href='#') 1
+                                            a.page-link(href='data?page=' + (cal - 1) + '&pageLong=' + longPage, class=isBack2 ? 'disabled': '')= cal - 1
                                         li.page-item
-                                            a.page-link(href='#') 2
+                                            a.page-link.activePage(href='data?page=' + (cal) + '&pageLong=' + longPage)= cal
                                         li.page-item
-                                            a.page-link(href='#') 3
+                                            a.page-link(href='data?page=' + (cal + 1) + '&pageLong=' + longPage)= cal + 1
                                         li.page-item
-                                            a.page-link(href='#') Next
+                                            a.page-link(href='data?page=' + (cal + 4) + '&pageLong=' + longPage) Next
 
