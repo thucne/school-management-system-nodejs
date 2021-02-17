@@ -9,12 +9,13 @@ block content
         location.href = location.href + temp
 
   script(type='text/javascript').
-
+    var estimateWeight = 1335;
     var reree;
     function ree() {
       pageSize = $('html').html().length;
       kBytes = pageSize / 1024;
-      var temp = (Math.floor(Date.now() - timerStart) * 100 / EstimatedTime) < 100 ? (Math.floor((Date.now() - timerStart) * 100 / EstimatedTime)) : Math.floor(99)
+      // var temp = (Math.floor(Date.now() - timerStart) * 100 / EstimatedTime) < 100 ? (Math.floor((Date.now() - timerStart) * 100 / EstimatedTime)) : Math.floor(99)
+      var temp = (Math.floor(kBytes) * 100 / estimateWeight) < 100 ? (Math.floor(kBytes * 100 / estimateWeight)): Math.floor(99)
       $("#loaded").html("Loaded: " + temp + "%...");
       $("#pageWeight").html('Page weight: ' + kBytes.toString() + ' KB');
       $("#loadedBar").css('width', temp + '%');
@@ -25,6 +26,8 @@ block content
 
     function stopREE() {
       clearInterval(rere);
+      pageSize = $('html').html().length;
+      kBytes = pageSize / 1024;
       $("#loaded").html("Load completed!...");
       $("#loadedBar").css('width', '100%');
       setTimeout(function () {

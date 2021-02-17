@@ -9,12 +9,13 @@ block content
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
-
+      var estimateWeight = 415;
       var rere;
       function re() {
         pageSize = $('html').html().length;
         kBytes = pageSize / 1024;
-        var temp = (Math.floor(Date.now() - timerStart) * 100 / EstimatedTime) < 100 ? (Math.floor((Date.now() - timerStart) * 100 / EstimatedTime)): Math.floor(99)
+        // var temp = (Math.floor(Date.now() - timerStart) * 100 / EstimatedTime) < 100 ? (Math.floor((Date.now() - timerStart) * 100 / EstimatedTime)): Math.floor(99)
+        var temp = (Math.floor(kBytes) * 100 / estimateWeight) < 100 ? (Math.floor(kBytes * 100 / estimateWeight)): Math.floor(99)
         $("#loaded").html("Loaded: " + temp + "%...");
         $("#loadedBar").css('width', temp+'%');
         $("#pageWeight").html('Page weight: ' + kBytes.toString() + ' KB');
@@ -25,6 +26,8 @@ block content
       function stopRE(){
         clearInterval(rere);
         $("#loaded").html("Load completed!...");
+        pageSize = $('html').html().length;
+        kBytes = pageSize / 1024;
         $("#pageWeight").html('Page weight: ' + kBytes.toString() + ' KB');
         $("#loadedBar").css('width', '100%');
         setTimeout(function () {
@@ -61,8 +64,22 @@ block content
         $(what).children('input').on('keyup', (e)=>{
           if (e.key === 'Enter') {
             // alert('YEs');
-            $(what).children('span').html($(what).children('input').val());
-            reset();
+            Swal.fire({
+              title: 'Do you want to save the changes?',
+              showDenyButton: true,
+              showCancelButton: true,
+              confirmButtonText: `Save`,
+              denyButtonText: `Don't save`,
+            }).then((result) => {
+              /* Read more about isConfirmed, isDenied below */
+              if (result.isConfirmed) {
+                $(what).children('span').html($(what).children('input').val());
+                reset();
+                Swal.fire('Saved!', '', 'success');
+              } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+              }
+            })
           }
         })
       }

@@ -96,6 +96,25 @@ html
 
           var pageSize = $('html').html().length;
           var kBytes = pageSize / 1024;
+
+          var idleTime = 0;
+          $(function () {
+            var idleInterval = setInterval(timerIncrement, 1000); // 1 minute
+            //Zero the idle timer on mouse movement.
+            $(document).on('mousemove',function (e) {
+              idleTime = 0;
+            });
+            $(document).on('keypress',function (e) {
+              idleTime = 0;
+            });
+          });
+
+          function timerIncrement() {
+            idleTime = idleTime + 1;
+            if (idleTime > 60) { // 20 minutes
+              window.location.reload();
+            }
+          }
         style.
             body {
                 font-family: 'Newsreader', serif;
@@ -483,9 +502,9 @@ html
                             li.nav-item.mr-2
                                 a.btn.btn-success.nav-link(href='/data', data-toggle='tooltip', data-placement='top', title='Database board' style='padding: 6px')
                                     img(src='/images/database.png' width="40" alt='Database board')
-                            li.nav-item.mr-2
-                                a.btn.btn-warning.nav-link(href='/policy', data-toggle='tooltip', data-placement='top', title='Policy' style='padding: 6px')
-                                    img(src='/images/policy.png' width="40" alt='Policy')
+                        li.nav-item.mr-2
+                            a.btn.btn-warning.nav-link(href='/policy', data-toggle='tooltip', data-placement='top', title='Policy' style='padding: 6px')
+                                img(src='/images/policy.png' width="40" alt='Policy')
                     #google_translate_element(style='position: relative; opacity: 1; z-index: 10;' hidden)
 
                     ul.navbar-nav
