@@ -61,7 +61,7 @@ body {
 
 ul.breadcrumb {
     /*padding: 10px 10px 10px 10px;*/
-    padding: 10px 12px 2px;
+    padding: 10px 12px 2px ;
     list-style: none;
     background-color: #eee;
     width: 30%;
@@ -71,7 +71,8 @@ ul.breadcrumb {
     transition-duration: 1s;
 }
 ul.breadcrumb li {
-    display: inline;
+    margin-top: 3px;
+    display: inline-table;
     font-size: 18px;
 }
 ul.breadcrumb li+li:before {

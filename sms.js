@@ -18,6 +18,7 @@ var userRouter = require('./routes/user.route');
 var authRouter = require('./routes/auth.route');
 var schoolRouter = require('./routes/school.route');
 var dataRouter = require('./routes/data.route');
+var policyRouter = require('./routes/policy.route');
 
 var authMiddleware = require('./middleware/auth.middleware');
 var sessionMiddleware = require('./middleware/session.middleware');
@@ -87,6 +88,7 @@ app.use('/users', csrfProtection, authMiddleware.default, authMiddleware.require
 app.use('/auth', csrfProtection, authMiddleware.default, csrfProtection, authRouter);
 app.use('/school', csrfProtection, authMiddleware.default, authMiddleware.requireAuth, csrfProtection, schoolRouter);
 app.use('/data', csrfProtection, authMiddleware.default, authMiddleware.requireAuth, csrfProtection, dataRouter);
+app.use('/policy', csrfProtection, authMiddleware.default, authMiddleware.requireAuth, csrfProtection, policyRouter);
 
 // app.enable('verbose errors');
 //

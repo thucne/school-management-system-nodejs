@@ -17,10 +17,12 @@ html
         link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css')
 
 
-        script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js')
+
         ///
-        script(src='https://kit.fontawesome.com/c6f5524848.js', crossorigin='anonymous')
+        script(src='/plugins/kit.fontawesome.js', crossorigin='anonymous')
+        //script(src='https://kit.fontawesome.com/c6f5524848.js', crossorigin='anonymous')
 
 
         script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js',
@@ -42,7 +44,7 @@ html
 
         script(src='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js')
 
-        script(src='https://unpkg.com/sweetalert/dist/sweetalert.min.js')
+        //script(src='/plugins/sweetalert.js')
 
         //script(src='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js')
         //link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css')
@@ -70,15 +72,61 @@ html
             });
           });
           var timerStart = Date.now();
-          var EstimatedTime = 20000;
+          var EstimatedTime = 3000;
+          if (document.addEventListener) {
+            document.addEventListener('contextmenu', function (e) {
+              showModal();
+              e.preventDefault();
+            }, false);
+          }
+          function showModal() {
+            $("#exampleModalCenter").modal();
+          }
+          var darkMode = $('#NMicon');
+          $(window).on('DOMContentLoaded', function () {
+            if (darkMode) {
+              var darkThemeSelected = localStorage.getItem('darkMode') !== null && localStorage.getItem('darkMode') === 'dark';
+              darkThemeSelected ? document.body.setAttribute('data-theme', 'dark') : document.body.removeAttribute('data-theme');
+              darkThemeSelected ? $("#NMicon").attr('src', '/images/night-mode (1).png') : $("#NMicon").attr('src', '/images/night-mode.png');
+              $("#NMicon").on('click', () => {
+                darkModeNow();
+              })
+            }
+          });
+
+          var pageSize = $('html').html().length;
+          var kBytes = pageSize / 1024;
         style.
             body {
                 font-family: 'Newsreader', serif;
-
-                /*font-family: "Sofia", sans-serif;*/
             }
         //link(rel="icon", href="http://sstatic.net/stackoverflow/img/favicon.ico")
     body(style="background-image: url('/images/3563935 (1).jpg'); background-position: center; background-repeat: no-repeat; background-attachment: fixed; min-width: 100%; min-height: 100%; background-size: cover;")
+        #exampleModalCenter.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+            .modal-dialog.modal-dialog-centered(role='document')
+                .modal-content
+                    .modal-header
+                        h3#exampleModalLongTitle.modal-title Context menu
+                        button.close.btn-close(type='button', data-dismiss='modal', aria-label='Close')
+                    .modal-body
+                        a.btn.btn-primary.btn-lg.btn-block(href='mailto:katyperrycbt@gmail.com', style='color: white;') Contact admin
+                        a.btn.btn-primary.btn-lg.btn-block(href='mailto:MySchool@school.edu.com', style='color: white;') Contact my school
+                        a.btn.btn-primary.btn-lg.btn-block(href='/users/' + userInfo.loginId, style='color: white;', onclick='') Change password
+                    .modal-footer
+                        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+        if (serverAlert)
+            input#noty(value=serverAlert, style='display:none;')
+            if (linkServerAlert)
+                input#linkNoty(value=linkServerAlert, style='display:none;')
+            script(type = 'text/javascript').
+              var noti = $("#noty").val();
+              var linkNoti = $("#linkNoty").val() ? $("#linkNoty").val(): '#';
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: noti,
+                footer: '<a href='+linkNoti+'>Why do I have this issue?</a>'
+              })
 
         script(type='text/javascript').
           // var $ar = jQuery.noConflict();
@@ -99,7 +147,7 @@ html
             $("#www").text(("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2));
           }
 
-          setInterval(time, 1000);
+          setInterval(time, 10);
 
           function chill() {
 
@@ -435,6 +483,9 @@ html
                             li.nav-item.mr-2
                                 a.btn.btn-success.nav-link(href='/data', data-toggle='tooltip', data-placement='top', title='Database board' style='padding: 6px')
                                     img(src='/images/database.png' width="40" alt='Database board')
+                            li.nav-item.mr-2
+                                a.btn.btn-warning.nav-link(href='/policy', data-toggle='tooltip', data-placement='top', title='Policy' style='padding: 6px')
+                                    img(src='/images/policy.png' width="40" alt='Policy')
                     #google_translate_element(style='position: relative; opacity: 1; z-index: 10;' hidden)
 
                     ul.navbar-nav
@@ -471,17 +522,17 @@ html
                         }, 'google_translate_element');
                       }
 
-                      var darkMode = $('#NMicon');
-                      window.addEventListener('load', function () {
-                        if (darkMode) {
-                          var darkThemeSelected = localStorage.getItem('darkMode') !== null && localStorage.getItem('darkMode') === 'dark';
-                          darkThemeSelected ? document.body.setAttribute('data-theme', 'dark') : document.body.removeAttribute('data-theme');
-                          darkThemeSelected ? $("#NMicon").attr('src', '/images/night-mode (1).png') : $("#NMicon").attr('src', '/images/night-mode.png');
-                          $("#NMicon").on('click', ()=>{
-                            darkModeNow();
-                          })
-                        }
-                      });
+                      // var darkMode = $('#NMicon');
+                      // window.addEventListener('load', function () {
+                      //   if (darkMode) {
+                      //     var darkThemeSelected = localStorage.getItem('darkMode') !== null && localStorage.getItem('darkMode') === 'dark';
+                      //     darkThemeSelected ? document.body.setAttribute('data-theme', 'dark') : document.body.removeAttribute('data-theme');
+                      //     darkThemeSelected ? $("#NMicon").attr('src', '/images/night-mode (1).png') : $("#NMicon").attr('src', '/images/night-mode.png');
+                      //     $("#NMicon").on('click', ()=>{
+                      //       darkModeNow();
+                      //     })
+                      //   }
+                      // });
                       function darkModeNow() {
                         var isChecked = $("#NMicon").attr('src');
                         var element = document.body;

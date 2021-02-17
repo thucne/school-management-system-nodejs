@@ -12,7 +12,13 @@
 
 .my-custom-scrollbar-index {
     position: relative;
-    height: 550px;
+    height: auto;
+    overflow: auto;
+}
+
+.my-custom-scrollbar-data {
+    position: relative;
+    height: 700px;
     overflow: auto;
 }
 
