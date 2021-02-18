@@ -434,7 +434,7 @@ html
         div
             img.cropimg(src="/images/27240 (1).jpg", alt='Navigation img', width="100%", height="auto")
         .sticky-top
-            nav.navbar.navbar-expand-lg.navbar-light.bg-light
+            nav.navbar.navbar-expand-lg.navbar-light.bg-light(style='border-bottom: 1px solid gray;')
                 a.navbar-brand(href='/')
                     img.d-inline-block.align-top.mr-2(src='/images/002-layers.png', width='30', height='30', alt='')
                     |MySchool.io
@@ -604,7 +604,7 @@ html
               }
 
             if (breadcrumb && breadLink)
-                ul.breadcrumb.mt-2.mx-2#breadd(style='float:left; display: inline-block; width: fit-content;')
+                ul.breadcrumb.mt-2.mx-2#breadd(style='float:left; display: inline-block; width: fit-content; border: 1px solid gray;')
                   - var kout = 0
                   each breads in breadcrumb
                     li.hideTog
