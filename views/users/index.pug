@@ -16,10 +16,9 @@ block content
       kBytes = pageSize / 1024;
       // var temp = (Math.floor(Date.now() - timerStart) * 100 / EstimatedTime) < 100 ? (Math.floor((Date.now() - timerStart) * 100 / EstimatedTime)) : Math.floor(99)
       var temp = (Math.floor(kBytes) * 100 / estimateWeight) < 100 ? (Math.floor(kBytes * 100 / estimateWeight)): Math.floor(99)
+      $("#loadedBar").css('width', temp + '%');
       $("#loaded").html("Loaded: " + temp + "%...");
       $("#pageWeight").html('Page weight: ' + kBytes.toString() + ' KB');
-      $("#loadedBar").css('width', temp + '%');
-
     }
 
     rere = setInterval(ree, 100);
@@ -28,8 +27,8 @@ block content
       clearInterval(rere);
       pageSize = $('html').html().length;
       kBytes = pageSize / 1024;
-      $("#loaded").html("Load completed!...");
       $("#loadedBar").css('width', '100%');
+      $("#loaded").html("Load completed!...");
       setTimeout(function () {
         $("#loaded").fadeOut(100);
         $("#pageWeight").fadeOut(100);
@@ -38,8 +37,8 @@ block content
       }, 2000);
     }
     $(window).on('DOMContentLoaded', function () {
-      pageSize = $('html').html().length;
-      kBytes = pageSize / 1024;
+      // pageSize = $('html').html().length;
+      // kBytes = pageSize / 1024;
       $('#loading').show();
       $('#loaded').show();
       $('#pageWeight').show();

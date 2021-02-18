@@ -18,6 +18,7 @@ require('dotenv').config();
 var SpotifyWebApi = require('spotify-web-api-node');
 
 var accessToken = 0;
+
 function refreshToken() {
   var clientId = process.env.clientId,
       clientSecret = process.env.clientSecret;
@@ -41,9 +42,9 @@ function refreshToken() {
   return accessToken;
 }
 
-function getKeys(obj){
+function getKeys(obj) {
   var keys = [];
-  for(var key in obj){
+  for (var key in obj) {
     keys.push(key);
   }
   return keys;
@@ -80,7 +81,7 @@ module.exports.display = function (req, res) {
   var maxKeyRSchedule = [];
 
   function searchKeys() {
-    for (let i = 0;  i < user.length; i++) {
+    for (let i = 0; i < user.length; i++) {
       let temp = getKeys(user[i]);
       for (let i = 0; i < temp.length; i++) {
         let isNew = maxKeyUser.indexOf(temp[i]) < 0;
@@ -90,7 +91,7 @@ module.exports.display = function (req, res) {
       }
     }
 
-    for (let i = 0;  i < announcements.length; i++) {
+    for (let i = 0; i < announcements.length; i++) {
       let temp = getKeys(announcements[i]);
       for (let i = 0; i < temp.length; i++) {
         let isNew = maxKeyANCM.indexOf(temp[i]) < 0;
@@ -100,7 +101,7 @@ module.exports.display = function (req, res) {
       }
     }
 
-    for (let i = 0;  i < departments.length; i++) {
+    for (let i = 0; i < departments.length; i++) {
       let temp = getKeys(departments[i]);
       for (let i = 0; i < temp.length; i++) {
         let isNew = maxKeyDepartment.indexOf(temp[i]) < 0;
@@ -110,7 +111,7 @@ module.exports.display = function (req, res) {
       }
     }
 
-    for (let i = 0;  i < rooms.length; i++) {
+    for (let i = 0; i < rooms.length; i++) {
       let temp = getKeys(rooms[i]);
       for (let i = 0; i < temp.length; i++) {
         let isNew = maxKeyRoom.indexOf(temp[i]) < 0;
@@ -120,7 +121,7 @@ module.exports.display = function (req, res) {
       }
     }
 
-    for (let i = 0;  i < studentSchedules.length; i++) {
+    for (let i = 0; i < studentSchedules.length; i++) {
       let temp = getKeys(studentSchedules[i]);
       for (let i = 0; i < temp.length; i++) {
         let isNew = maxKeySDTSchedule.indexOf(temp[i]) < 0;
@@ -130,7 +131,7 @@ module.exports.display = function (req, res) {
       }
     }
 
-    for (let i = 0;  i < teacherSchedules.length; i++) {
+    for (let i = 0; i < teacherSchedules.length; i++) {
       let temp = getKeys(teacherSchedules[i]);
       for (let i = 0; i < temp.length; i++) {
         let isNew = maxKeyTCSchedule.indexOf(temp[i]) < 0;
@@ -140,7 +141,7 @@ module.exports.display = function (req, res) {
       }
     }
 
-    for (let i = 0;  i < subjects.length; i++) {
+    for (let i = 0; i < subjects.length; i++) {
       let temp = getKeys(subjects[i]);
       for (let i = 0; i < temp.length; i++) {
         let isNew = maxKeySubject.indexOf(temp[i]) < 0;
@@ -150,7 +151,7 @@ module.exports.display = function (req, res) {
       }
     }
 
-    for (let i = 0;  i < roomSchedules.length; i++) {
+    for (let i = 0; i < roomSchedules.length; i++) {
       let temp = getKeys(roomSchedules[i]);
       for (let i = 0; i < temp.length; i++) {
         let isNew = maxKeyRSchedule.indexOf(temp[i]) < 0;
@@ -168,7 +169,7 @@ module.exports.display = function (req, res) {
   }
 
   runSearch().then(res.render('data/dataBoard', {
-    csrf: req.csrfToken(),
+    csrfToken: req.csrfToken(),
     users: [user, maxKeyUser],
     announcements: [announcements, maxKeyANCM],
     departments: [departments, maxKeyDepartment],
@@ -181,12 +182,134 @@ module.exports.display = function (req, res) {
     breadLink: ['/', '/data'],
     spotifyToken: accessToken,
     youtube: process.env.key,
-    pageAt: req.query.page !== undefined ? parseInt(req.query.page)*10: 0,
+    pageAt: req.query.page !== undefined ? parseInt(req.query.page) * 10 : 0,
     pageLong: req.query.pageLong !== undefined ? parseInt(req.query.pageLong) : 10,
-    calb: req.query.page !== undefined ? parseInt(req.query.page): 1,
+    calb: req.query.page !== undefined ? parseInt(req.query.page) : 1,
   }));
 }
 
 module.exports.getCategory = function (req, res) {
   res.redirect('/users');
+}
+
+module.exports.getNotification = function (req, res) {
+  console.log('Okay');
+  res.status(200).send({msg: "Ananas"});
+}
+
+module.exports.ajaxUpdate = function (req, res) {
+  // var requestBody = JSON.parse(req.body);
+  var temp = req.body;
+  // console.log(temp);
+  var status = 200;
+
+  if (temp.nameDB === 'userDB') {
+    let beforeChange = db.get('users').find({[temp.nameOfIdField]: temp.id}).value();
+    if (beforeChange !== undefined) {
+      let before = beforeChange[temp.field];
+      let whatChange = { [temp.field]: temp.value };
+      db.get('users').find({[temp.nameOfIdField]: temp.id}).assign(whatChange).write();
+      let afterChange = db.get('users').find({[temp.nameOfIdField]: temp.id}).value();
+      let after = afterChange[temp.field];
+      res.status(200).send({msg: "Updated!", whatChanged: '<strong>From</strong> ' + before + ' <strong>to</strong> ' + after});
+      return;
+    } else {
+      status = 400;
+    }
+  } else if (temp.nameDB === 'ancmDB') {
+    let beforeChange = announcement.get('ancm').find({[temp.nameOfIdField]: parseInt(temp.id)}).value();
+    if (beforeChange !== undefined) {
+      let before = beforeChange[temp.field];
+      let whatChange = { [temp.field]: temp.value };
+      announcement.get('ancm').find({[temp.nameOfIdField]: parseInt(temp.id)}).assign(whatChange).write();
+      let afterChange = announcement.get('ancm').find({[temp.nameOfIdField]: parseInt(temp.id)}).value();
+      let after = afterChange[temp.field];
+      res.status(200).send({msg: "Updated!", whatChanged: '<strong>From</strong> ' + before + ' <strong>to</strong> ' + after});
+      return;
+    } else {
+      status = 400;
+    }
+  } else if (temp.nameDB === 'departmentDB') {
+    let beforeChange = department.get('department').find({[temp.nameOfIdField]: parseInt(temp.id)}).value();
+    if (beforeChange !== undefined) {
+      let before = beforeChange[temp.field];
+      let whatChange = { [temp.field]: temp.value };
+      department.get('department').find({[temp.nameOfIdField]: parseInt(temp.id)}).assign(whatChange).write();
+      let afterChange = department.get('department').find({[temp.nameOfIdField]: parseInt(temp.id)}).value();
+      let after = afterChange[temp.field];
+      res.status(200).send({msg: "Updated!", whatChanged: '<strong>From</strong> ' + before + ' <strong>to</strong> ' + after});
+      return;
+    } else {
+      status = 400;
+    }
+  } else if (temp.nameDB === 'roomDB') {
+    let beforeChange = room.get('class_room').find({[temp.nameOfIdField]: parseInt(temp.id)}).value();
+    if (beforeChange !== undefined) {
+      let before = beforeChange[temp.field];
+      let whatChange = { [temp.field]: temp.value };
+      room.get('class_room').find({[temp.nameOfIdField]: parseInt(temp.id)}).assign(whatChange).write();
+      let afterChange = room.get('class_room').find({[temp.nameOfIdField]: parseInt(temp.id)}).value();
+      let after = afterChange[temp.field];
+      res.status(200).send({msg: "Updated!", whatChanged: '<strong>From</strong> ' + before + ' <strong>to</strong> ' + after});
+      return;
+    } else {
+      status = 400;
+    }
+  } else if (temp.nameDB === 'SDTScheduleDB') {
+    let beforeChange = studentSchedule.get('studentSchedule').find({[temp.nameOfIdField]: parseInt(temp.id)}).value();
+    if (beforeChange !== undefined) {
+      let before = beforeChange[temp.field];
+      let whatChange = { [temp.field]: JSON.parse(temp.value) };
+      studentSchedule.get('studentSchedule').find({[temp.nameOfIdField]: parseInt(temp.id)}).assign(whatChange).write();
+      let afterChange = studentSchedule.get('studentSchedule').find({[temp.nameOfIdField]: parseInt(temp.id)}).value();
+      let after = afterChange[temp.field];
+      res.status(200).send({msg: "Updated!", whatChanged: '<strong>From</strong> ' + before + ' <strong>to</strong> ' + after});
+      return;
+    } else {
+      status = 400;
+    }
+  } else if (temp.nameDB === 'TCScheduleDB') {
+    let beforeChange = teacherSchedule.get('teacherSchedule').find({[temp.nameOfIdField]: parseInt(temp.id)}).value();
+    if (beforeChange !== undefined) {
+      let before = beforeChange[temp.field];
+      let whatChange = { [temp.field]: JSON.parse(temp.value) };
+      teacherSchedule.get('teacherSchedule').find({[temp.nameOfIdField]: parseInt(temp.id)}).assign(whatChange).write();
+      let afterChange = teacherSchedule.get('teacherSchedule').find({[temp.nameOfIdField]: parseInt(temp.id)}).value();
+      let after = afterChange[temp.field];
+      res.status(200).send({msg: "Updated!", whatChanged: '<strong>From</strong> ' + before + ' <strong>to</strong> ' + after});
+      return;
+    } else {
+      status = 400;
+    }
+  } else if (temp.nameDB === 'subjectDB') {
+    let beforeChange = subject.get('subjects').find({[temp.nameOfIdField]: parseInt(temp.id)}).value();
+    if (beforeChange !== undefined) {
+      let before = beforeChange[temp.field];
+      let whatChange = { [temp.field]: temp.value };
+      subject.get('subjects').find({[temp.nameOfIdField]: parseInt(temp.id)}).assign(whatChange).write();
+      let afterChange = subject.get('subjects').find({[temp.nameOfIdField]: parseInt(temp.id)}).value();
+      let after = afterChange[temp.field];
+      res.status(200).send({msg: "Updated!", whatChanged: '<strong>From</strong> ' + before + ' <strong>to</strong> ' + after});
+      return;
+    } else {
+      status = 400;
+    }
+  } else if (temp.nameDB === 'RScheduleDB') {
+    let beforeChange = week.get('weeks').find({[temp.nameOfIdField]: parseInt(temp.id)}).value();
+    if (beforeChange !== undefined) {
+      let before = beforeChange[temp.field];
+      let whatChange = { [temp.field]: JSON.parse(temp.value) };
+      week.get('weeks').find({[temp.nameOfIdField]: parseInt(temp.id)}).assign(whatChange).write();
+      let afterChange = week.get('weeks').find({[temp.nameOfIdField]: parseInt(temp.id)}).value();
+      let after = afterChange[temp.field];
+      res.status(200).send({msg: "Updated!", whatChanged: '<strong>From</strong> ' + before + ' <strong>to</strong> ' + after});
+      return;
+    } else {
+      status = 400;
+    }
+  }
+
+  if (status === 200) {
+    res.status(200).send({msg: "Received!!!"});
+  }
 }

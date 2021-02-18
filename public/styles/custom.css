@@ -213,6 +213,13 @@ ul.navbar-nav.mr-auto, .zx, button.btn.btn-outline-secondary.form-inline#kl, ul.
     text-align: center;
 }
 
+.mid {
+    align-items: center;
+    vertical-align : middle;
+    justify-content: center;
+    text-align: center;
+}
+
 .center {
     margin: auto;
     width: 50%;

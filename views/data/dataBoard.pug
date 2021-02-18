@@ -38,8 +38,8 @@ block content
         }, 2000);
       }
       $(window).on('DOMContentLoaded', function (){
-        pageSize = $('html').html().length;
-        kBytes = pageSize / 1024;
+        // pageSize = $('html').html().length;
+        // kBytes = pageSize / 1024;
         $('#loading').show();
         $('#loaded').show();
         $('#pageWeight').show();
@@ -66,6 +66,7 @@ block content
             // alert('YEs');
             Swal.fire({
               title: 'Do you want to save the changes?',
+              icon: 'question',
               showDenyButton: true,
               showCancelButton: true,
               confirmButtonText: `Save`,
@@ -73,10 +74,19 @@ block content
             }).then((result) => {
               /* Read more about isConfirmed, isDenied below */
               if (result.isConfirmed) {
-                $(what).children('span').html($(what).children('input').val());
+                let isArray = $(what).children('input').val().indexOf('[') >= 0 || $(what).children('input').val().indexOf(']') >= 0
+                let tempo = isArray ? $(what).children('input').val().slice(1,-1) : $(what).children('input').val();
+                $(what).children('span').html(tempo);
                 reset();
-                Swal.fire('Saved!', '', 'success');
+                // alert($(what).attr('name') + '\n' + $(what).children('span').attr('value') + '\n' + $(what).children('span').attr('name') + '\n' + $(what).children('input').attr('name') + '\n' + $(what).children('input').val());
+                sendAjaxUpdate(
+                    $(what).attr('name'),
+                    $(what).children('span').attr('value'),
+                    $(what).children('span').attr('name'),
+                    $(what).children('input').attr('name'),
+                    $(what).children('input').val());
               } else if (result.isDenied) {
+                $(what).children('input').val($(what).children('span').html());
                 Swal.fire('Changes are not saved', '', 'info')
               }
             })
@@ -103,6 +113,55 @@ block content
         $("#exampleModalCenter").modal();
       }
 
+      function sendAjaxUpdate(nameDB, nameOfIdField, id, field, value) {
+        var csrfToken = $('#csrfTok').val();
+        $.ajax({
+          type: 'POST',
+          url: '/data/update?_csrf=' + csrfToken,
+          data: {
+            "nameDB": nameDB,
+            "nameOfIdField": nameOfIdField,
+            "id": id,
+            "field": field,
+            "value": value
+          },
+          dataType: 'json',
+          success: function (data) {
+            // var ret = JSON.parse(data);
+            var lengthMSG = (data.whatChanged).length < 100 ? (data.whatChanged): 'Change are not shown due to big content length.'
+            $('#lblResponse').html(data.msg + ' ' + lengthMSG + '<button class="close btn-close btn-sm" type="button" aria-label="Close" onclick="klose();" ></button>');
+            $('#lblResponse').show();
+            // alert(ret.msg);
+            Swal.fire(data.msg, lengthMSG, 'success');
+          },
+          error: function (xhr, status, error) {
+            // console.log('Error: ' + error.message);
+            // $('#lblResponse').html('Error connecting to the server.');
+          }
+        });
+      }
+
+      function klose() {
+        $('#lblResponse').fadeOut();
+      }
+      // function sendAjax() {
+      //   var csrfToken = $('#csrfTok').val();
+      //   $.ajax({
+      //     type: 'POST',
+      //     url: '/data/getNotification?_csrf=' + csrfToken,
+      //     data: '{"data": "TEST"}',
+      //     dataType: 'json',
+      //     success: function (data) {
+      //       // var ret = JSON.parse(data);
+      //       $('#lblResponse').html(data.msg);
+      //       // alert(ret.msg);
+      //     },
+      //     error: function (xhr, status, error) {
+      //       // console.log('Error: ' + error.message);
+      //       // $('#lblResponse').html('Error connecting to the server.');
+      //     }
+      //   });
+      // }
     .px-3.pt-3.mb-5.hide
         h1 Database board
         hr
@@ -115,7 +174,6 @@ block content
         button.btn.btn-outline-primary.ml-2.bhu#db5(style='position: relative; border-radius: 20px;' onclick='showUp(this);', name="TEACHER's SCHEDULE") Teacher's schedule
         button.btn.btn-outline-primary.ml-2.bhu#db6(style='position: relative; border-radius: 20px;' onclick='showUp(this);', name="SUBJECT") Subject
         button.btn.btn-outline-primary.ml-2.bhu#db7(style='position: relative; border-radius: 20px;' onclick='showUp(this);', name="ROOM's SCHEDULE") Room's schedule
-
         hr(style='clear:both;')
         script(type='text/javascript', src='https://res.cloudinary.com/dxfq3iotg/raw/upload/v1567487539/jquery.tabledit.js')
         .container.mb-5
@@ -129,7 +187,8 @@ block content
                             .progress
                                 #loadedBar.progress-bar.progress-bar-striped.progress-bar-animated
                             span Click on row to perform edit action then Enter for save
-
+                        input#csrfTok(type='hidden' value=csrfToken)
+                        h1#lblResponse.mid(style='display: none;')
                         #loading.loader.center(style='position: inherit; top: 100pt;')
                         - var pageStart = pageAt !== undefined ? parseInt(pageAt) : 0
                         - var longPage = pageLong !== undefined ? parseInt(pageLong) : 10
@@ -153,9 +212,9 @@ block content
                                                     span= users[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in users[1]
-                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' :'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit': 'ID cannot be edited!')
-                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
-                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key]: null, value=user[key] !== undefined ? user[key]: null, style='display: none;')
+                                                    td.tabledit-view-mode(id=iter, name='userDB', onclick=iter === 0 ? '' :'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit': 'ID cannot be edited!')
+                                                        span.tabledit-span(name=user[users[1][0]], value=users[1][0])= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=key !== undefined ? key: null, value=user[key] !== undefined ? user[key]: null, style='display: none;')
 
                                     table#showdb1.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
 
@@ -172,9 +231,9 @@ block content
                                                 - var iter = 0
                                                 each key in announcements[1]
                                                   - var isEditable = iter !== 0 && iter !== 4
-                                                  td.tabledit-view-mode(id=iter++, onclick=!isEditable ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=isEditable ? 'Click to edit': 'ID cannot be edited!')
-                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
-                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
+                                                  td.tabledit-view-mode(id=iter++, name='ancmDB', onclick=!isEditable ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=isEditable ? 'Click to edit': 'ID cannot be edited!')
+                                                        span.tabledit-span(name=user[announcements[1][0]], value=announcements[1][0])= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=key !== undefined ? key : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
                                     table#showdb2.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
 
@@ -190,9 +249,9 @@ block content
                                                     span= departments[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in departments[1]
-                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit': 'ID cannot be edited!')
-                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
-                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
+                                                    td.tabledit-view-mode(id=iter, name='departmentDB', onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit': 'ID cannot be edited!')
+                                                        span.tabledit-span(name=user[departments[1][0]], value=departments[1][0])= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=key !== undefined ? key : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
                                     table#showdb3.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
 
@@ -208,9 +267,9 @@ block content
                                                     span= rooms[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in rooms[1]
-                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
-                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
-                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
+                                                    td.tabledit-view-mode(id=iter, name='roomDB', onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
+                                                        span.tabledit-span(name=user[rooms[1][0]], value=rooms[1][0])= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=key !== undefined ? key : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
 
                                     table#showdb4.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
@@ -227,9 +286,9 @@ block content
                                                     span= SDTSchedules[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in SDTSchedules[1]
-                                                    td.tabledit-view-mode(id=iter, onclick=iter === 7 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 7 ? 'Click to edit': 'ID cannot be edited!')
-                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
-                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
+                                                    td.tabledit-view-mode(id=iter, name='SDTScheduleDB', onclick=iter === 7 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 7 ? 'Click to edit': 'ID cannot be edited!')
+                                                        span.tabledit-span(name=user[SDTSchedules[1][7]], value=SDTSchedules[1][7])= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=key !== undefined ? key : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
                                     table#showdb5.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
 
@@ -245,9 +304,9 @@ block content
                                                     span= TCSchedules[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in TCSchedules[1]
-                                                    td.tabledit-view-mode(id=iter, onclick=iter === 7 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 7 ? 'Click to edit': 'ID cannot be edited!')
-                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
-                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
+                                                    td.tabledit-view-mode(id=iter, name='TCScheduleDB', onclick=iter === 7 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 7 ? 'Click to edit': 'ID cannot be edited!')
+                                                        span.tabledit-span(name=user[TCSchedules[1][7]], value=TCSchedules[1][7])= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=key !== undefined ? key : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
                                     table#showdb6.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
 
@@ -263,9 +322,9 @@ block content
                                                     span= subjects[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in subjects[1]
-                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
-                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
-                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
+                                                    td.tabledit-view-mode(id=iter, name='subjectDB', onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
+                                                        span.tabledit-span(name=user[subjects[1][0]], value=subjects[1][0])= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name= key !== undefined ? key : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
                                     table#showdb7.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; display:none;')
 
@@ -281,9 +340,9 @@ block content
                                                     span= RSchedules[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in RSchedules[1]
-                                                    td.tabledit-view-mode(id=iter, onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
-                                                        span.tabledit-span= user[key] !== undefined ? user[key] : '#'
-                                                        input.tabledit-input.form-control.input-sm(type='text', name=user[key] !== undefined ? user[key] : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
+                                                    td.tabledit-view-mode(id=iter, name='RScheduleDB', onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
+                                                        span.tabledit-span(name=user[RSchedules[1][0]], value=RSchedules[1][0])= user[key] !== undefined ? user[key] : '#'
+                                                        input.tabledit-input.form-control.input-sm(type='text', name=key !== undefined ? key : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
                                 nav.m-2(aria-label='Page navigation example')
                                     ul.pagination.justify-content-end

@@ -87,7 +87,7 @@ app.get('/', csrfProtection, authMiddleware.default, authMiddleware.requireAuth,
 app.use('/users', csrfProtection, authMiddleware.default, authMiddleware.requireAuth, userRouter);
 app.use('/auth', csrfProtection, authMiddleware.default, csrfProtection, authRouter);
 app.use('/school', csrfProtection, authMiddleware.default, authMiddleware.requireAuth, csrfProtection, schoolRouter);
-app.use('/data', csrfProtection, authMiddleware.default, authMiddleware.requireAuth, csrfProtection, dataRouter);
+app.use('/data', csrfProtection, authMiddleware.default, authMiddleware.requireAuth,csrfProtection, dataRouter);
 app.use('/policy', csrfProtection, authMiddleware.default, authMiddleware.requireAuth, csrfProtection, policyRouter);
 
 // app.enable('verbose errors');

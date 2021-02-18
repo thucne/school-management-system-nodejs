@@ -5,10 +5,10 @@
       "name": "Katy",
       "first_name": "Perry",
       "gender": "Female",
-      "ip_address": "162.186.26.22",
+      "ip_address": "1.1.1.1",
       "email": "chaselwood3@miibeian.com",
       "password": "Thuckaty20",
-      "avatar": "../../../uploads/a288e6fc90db805e918014cc02197b85",
+      "avatar": "../../../../uploads/a288e6fc90db805e918014cc02197b85",
       "errs": [],
       "warnings": [
         "Avatar is kept unchanged."
@@ -17,17 +17,17 @@
       "role": 1,
       "teacherSchedule": 1,
       "universityID": "TCTCIU000",
-      "birthday": "12/03/2002",
+      "birthday": "2002-12-05",
       "departmentID": 8
     },
     {
       "id": "9e007f2b-c9ba-464f-a937-c01493f4a1a1",
       "name": "Conkay Hiss ",
       "first_name": "Moise Up",
-      "gender": "Other",
+      "gender": "Male",
       "ip_address": "199.229.25.247",
       "email": "mconkay4@google.com",
-      "password": "123456",
+      "password": "123456789",
       "avatar": "../../../uploads/407084fcd318d51a5603bb4afd286977",
       "errs": [],
       "warnings": [
@@ -15915,6 +15915,9 @@
     },
     {
       "id": "biunLJfpK"
+    },
+    {
+      "id": "wfaiqnrb7"
     }
   ],
   "clientIPs": [
