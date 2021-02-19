@@ -9,17 +9,6 @@
       "when": "2020-12-21T17:00:00.000Z"
     },
     {
-      "id": 2,
-      "to": [
-        "TCTCIU000",
-        "BABAIU19000"
-      ],
-      "title": "Announcement from your supervisor",
-      "content": "This is an announcement for Haselwood Oo and Foat",
-      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
-      "when": "2020-12-21T17:00:00.000Z"
-    },
-    {
       "id": 5,
       "to": "BAFNIU19086",
       "title": "ANNOUNCEMENT FROM YOUR SUPERVISOR",

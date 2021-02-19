@@ -1310,7 +1310,7 @@ module.exports.showAnnouncements = function (req, res) {
     listOfAnnouncements[n].when = new Date(listOfAnnouncements[n].when);
     // console.log(listOfAnnouncements[n].when);
 }
-  refreshToken()
+  refreshToken();
   res.render('school/ancms', {
     csrfToken: req.csrfToken(),
     listOfAnnouncements: listOfAnnouncements,
@@ -1355,7 +1355,7 @@ module.exports.postThisAnnouncement = function (req, res) {
     postBy: req.body.postBy,
     when: req.body.when
   }
-  console.log(newANCM);
+  // console.log(newANCM);
 
   announcement.get('ancm').push(newANCM).write();
 
@@ -1388,9 +1388,9 @@ module.exports.showThisANCM = function (req, res) {
 
 module.exports.deleteThisANCM = function (req, res) {
   var thisANCMid = parseInt(req.params.id);
-  console.log(thisANCMid);
+  // console.log(thisANCMid);
   var thisANCM = announcement.get('ancm').find({id: thisANCMid}).value();
-  console.log(thisANCM);
+  // console.log(thisANCM);
   announcement.get('ancm').remove(thisANCM).write();
 
   res.redirect('/school/announcements');

@@ -1,0 +1,14 @@
+extends ../layouts/common
+
+block content
+    link(rel="stylesheet", href="/styles/myTable.css")
+
+    script(src='/plugins/jquery.tabledit.js')
+
+    script(type='text/javascript').
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+
+    .px-3.pt-3.mb-5.hide
+        h1 Give access key

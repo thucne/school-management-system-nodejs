@@ -2,45 +2,89 @@ extends ../layouts/common
 
 block content
     link(rel="stylesheet", href="/styles/cellHover.css")
+
     script.
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
+      function getUpdate() {
+        var csrfToken = $('#csrfTokk').val();
+        // alert(csrfToken)
+        if (csrfToken !== undefined) {
+          $.ajax({
+            type: 'POST',
+            url: '/data/getNotification',
+            data: {
+              "myPage": "ancm",
+              "_csrf": csrfToken,
+              "old": $('#old').val()
+            },
+            dataType: 'json',
+            success: function (data) {
+              // $("html").html(data);
+              $('#csrfTokk').val(data.csrfToken);
+              if (data.listOfAnnouncements !== undefined) {
+                var html = '';
+                $('#old').val(JSON.stringify(data.listOfAnnouncements));
+                data.listOfAnnouncements.forEach(item => {
+                  var thisKindOfAlert = Math.floor(Math.random() * 8);
+                  // alert($("#rrr").val());
+                  // alert(typeof $("#rrr").val());
+                  var listOfAlertName = ['alert-primary', 'alert-secondary', 'alert-success', 'alert-danger', 'alert-warning', 'alert-info', 'alert-light', 'alert-dark'];
+                  var role = $("#rrr").val() === '10' ? '': 'display: none; hidden: true; disabled: true;';
+                  var tempDate = new Date(item.when).toLocaleString();
+                  html += '<div class="alert ' + listOfAlertName[thisKindOfAlert] + '"><a href="/school/showThisANCM/' + item.id + '">' + item.title + ' [' + tempDate + ']</a><button type="button" onclick="del('+ item.id +');" class="close delBTN" style="'+ role +'"> &times;</button></div>';
+                });
+                $('#ancmBlock').html(html);
+              }
+            },
+            error: function (xhr, status, error) {
+            }
+          });
+        }
+      }
+      setInterval(getUpdate, 1000);
+
+      function del(id) {
+        swal({
+          title: "Are you sure?",
+          text: "Once deleted, you will not be able to undo!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willSave) => {
+          if (willSave) {
+            swal("OK! The announcement has been deleted!", {
+              icon: "success",
+              timer: 1000,
+            }).then(() => {
+              location.href = '/school/deleteANCM/' + id
+            });
+          } else {
+            swal("Let's reconsider!", {
+              icon: 'error',
+              timer: 1000
+            });
+          }
+        });
+        return false;
+        // location.reload();
+
+      }
 
     .px-3.pt-3.mb-5.hide
+        input#csrfTokk(type='hidden' value=csrfToken)
+        input#old(type='hidden' value=listOfAnnouncements)
+        input#rrr(type='hidden' value=userInfo.role)
         h1 Announcements
-        if (listOfAnnouncements)
-          - var listOfAlertName = ['alert-primary', 'alert-secondary', 'alert-success', 'alert-danger', 'alert-warning', 'alert-info',  'alert-light', 'alert-dark']
-          each ancm in listOfAnnouncements
-            script(type='text/javascript').
-                function del(id) {
-                  swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to undo!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                  }).then((willSave) => {
-                    if (willSave) {
-                      swal("OK! The announcement has been deleted!", {
-                        icon: "success",
-                        timer: 1000,
-                      }).then(() => {
-                        location.href = '/school/deleteANCM/' + id
-                      });
-                    } else {
-                      swal("Let's reconsider!", {
-                        icon: 'error',
-                        timer: 1000
-                      });
-                    }
-                  });
-                  return false;
-                  // location.reload();
+        #ancmBlock
+            if (listOfAnnouncements)
+                - var listOfAlertName = ['alert-primary', 'alert-secondary', 'alert-success', 'alert-danger', 'alert-warning', 'alert-info',  'alert-light', 'alert-dark']
+                each ancm in listOfAnnouncements
+                    - var thisKindOfAlert = Math.floor(Math.random() * 8);
 
-                }
-            - var thisKindOfAlert = Math.floor(Math.random() * 8);
-            .alert(class=listOfAlertName[thisKindOfAlert])
-                a(href='/school/showThisANCM/' + ancm.id)= ancm.title + ' [' + ancm.when.toLocaleString() + ']'
-                if (userInfo.role === 10)
-                  button.close(type='button', onclick='del("'+ ancm.id + '")') &times;
+
+                    .alert(class=listOfAlertName[thisKindOfAlert])
+                        a(href='/school/showThisANCM/' + ancm.id)= ancm.title + ' [' + ancm.when.toLocaleString() + ']'
+                        if (userInfo.role === 10)
+                            button.close(type='button', onclick='del("'+ ancm.id + '")') &times;

@@ -8,7 +8,7 @@
       "ip_address": "1.1.1.1",
       "email": "chaselwood3@miibeian.com",
       "password": "Thuckaty20",
-      "avatar": "../../../../uploads/a288e6fc90db805e918014cc02197b85",
+      "avatar": "../uploads/a288e6fc90db805e918014cc02197b85",
       "errs": [],
       "warnings": [
         "Avatar is kept unchanged."
@@ -28,7 +28,7 @@
       "ip_address": "199.229.25.247",
       "email": "mconkay4@google.com",
       "password": "123456789",
-      "avatar": "../../../uploads/407084fcd318d51a5603bb4afd286977",
+      "avatar": "../uploads/407084fcd318d51a5603bb4afd286977",
       "errs": [],
       "warnings": [
         "Avatar is kept unchanged."
@@ -15895,6 +15895,20 @@
       "role": 10,
       "accessCode": 466644,
       "universityID": "ADMIN79117"
+    },
+    {
+      "name": "KAA",
+      "first_name": "perr",
+      "gender": "Female",
+      "birthday": "12/24/2002",
+      "email": "sabi@gmail.com",
+      "id": "b392704c-fe33-411c-86ce-2da0de4bbd4a",
+      "ip_address": "153.103.254.158",
+      "password": "JwZsK890c",
+      "avatar": "uploads/84d8b6f5c19ff13dcdd013811bdc0ce7",
+      "role": 0,
+      "studentSchedule": 815,
+      "universityID": "BABAIU2715"
     }
   ],
   "sessions": [
@@ -15918,6 +15932,18 @@
     },
     {
       "id": "wfaiqnrb7"
+    },
+    {
+      "id": "ZG_O33lad"
+    },
+    {
+      "id": "ZHkb9KVYe"
+    },
+    {
+      "id": "pHB98k349"
+    },
+    {
+      "id": "LviEKAId5"
     }
   ],
   "clientIPs": [
