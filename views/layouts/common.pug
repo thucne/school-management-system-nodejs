@@ -11,13 +11,16 @@ html
         link(rel='preconnect', href='https://fonts.gstatic.com')
         link(href='https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400&display=swap', rel='stylesheet')
 
-
         ///bbb
         link(href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
         link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css')
 
 
         script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+
+        script(src='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js')
+
+
         script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js')
 
         ///
@@ -42,9 +45,9 @@ html
 
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
 
-        script(src='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js')
+        //script(src='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js')
 
-        //script(src='/plugins/sweetalert.js')
+        script(src='/plugins/sweetalert.js')
 
         //script(src='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js')
         //link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css')
@@ -108,11 +111,39 @@ html
               idleTime = 0;
             });
           });
-
+          let timerInterval;
           function timerIncrement() {
             idleTime = idleTime + 1;
-            if (idleTime > 60) { // 20 minutes
-              window.location.reload();
+            if (idleTime > 60) {
+              idleTime = 0;
+              Swal.fire({
+                title: 'Reload due to inactive detected!',
+                html: 'Reload in <b></b> seconds.',
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: () => {
+                  Swal.showLoading()
+                  timerInterval = setInterval(() => {
+                    const content = Swal.getContent()
+                    if (content) {
+                      const b = content.querySelector('b')
+                      if (b) {
+                        b.textContent = Math.floor(parseInt(Swal.getTimerLeft())/1000 + 1);
+                      }
+                    }
+                  }, 100)
+                },
+                willClose: () => {
+                  window.location.reload();
+                  clearInterval(timerInterval);
+                  // window.location.reload();
+                }
+              }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                  // window.location.reload();
+                }
+              })
             }
           }
         style.
@@ -502,6 +533,9 @@ html
                             li.nav-item.mr-2
                                 a.btn.btn-success.nav-link(href='/data', data-toggle='tooltip', data-placement='top', title='Database board' style='padding: 6px')
                                     img(src='/images/database.png' width="40" alt='Database board')
+                            li.nav-item.mr-2
+                                a.btn.btn-info.nav-link(href='/data/giveAccessKey', data-toggle='tooltip', data-placement='top', title='Give access key' style='padding: 6px')
+                                    img(src='/images/key.png' width="40" alt='Give access key')
                         li.nav-item.mr-2
                             a.btn.btn-warning.nav-link(href='/policy', data-toggle='tooltip', data-placement='top', title='Policy' style='padding: 6px')
                                 img(src='/images/policy.png' width="40" alt='Policy')

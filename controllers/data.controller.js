@@ -193,8 +193,54 @@ module.exports.getCategory = function (req, res) {
 }
 
 module.exports.getNotification = function (req, res) {
-  console.log('Okay');
-  res.status(200).send({msg: "Ananas"});
+  var thisUserID = res.locals.userInfo.loginId;
+  var universityID = db.get('users').find({id: thisUserID}).value()['universityID'];
+  // var who = db.get('users').find({id: thisUserID}).value()['name'];
+  var listOfAnnouncements = announcement.get('ancm').value().filter(function (annc) {
+    if (res.locals.userInfo.role === 10) {
+      return true;
+    }
+    if (annc.to === 'all') {
+      return true;
+    } else {
+      let listOfIdAnnc = annc.to;
+      if (listOfIdAnnc === universityID) {
+        return true;
+      }
+      // console.log(typeof listOfIdAnnc);
+      // if (typeof listOfIdAnnc === 'string') {
+      // listOfIdAnnc.split(" ");
+      // }
+      for (let k = 0; k < listOfIdAnnc.length; k++) {
+        if (listOfIdAnnc[k] === universityID || listOfIdAnnc[k] === 'all') {
+          return true;
+        }
+      }
+      return false;
+    }
+  });
+  var old = req.body.old;
+
+  listOfAnnouncements.sort(function (a, b) {
+    return new Date(b.when) - new Date(a.when);
+  });
+
+  for (let n = 0; n < listOfAnnouncements.length; n++) {
+    listOfAnnouncements[n].when = new Date(listOfAnnouncements[n].when);
+    // console.log(listOfAnnouncements[n].when);
+  }
+  // refreshToken();
+  // console.log('---');
+  // console.log(who);
+  // console.log(listOfAnnouncements.length);
+  // console.log('---');
+
+  if (old !== JSON.stringify(listOfAnnouncements)) {
+    res.send({csrfToken: req.csrfToken(), listOfAnnouncements: listOfAnnouncements});
+  } else {
+    res.send({csrfToken: req.csrfToken()});
+  }
+
 }
 
 module.exports.ajaxUpdate = function (req, res) {
@@ -310,6 +356,20 @@ module.exports.ajaxUpdate = function (req, res) {
   }
 
   if (status === 200) {
-    res.status(200).send({msg: "Received!!!"});
+    res.status(200).send({msg: "Received!"});
+  } else {
+    res.status(400).send({msg: "Error update request due to wrong inputs!"});
   }
+}
+
+module.exports.giveAccessKey = function (req, res) {
+  refreshToken();
+
+  res.render('data/giveAccessKey', {
+    csrfToken: req.csrfToken(),
+    breadcrumb: ['Home', 'Access key'],
+    breadLink: ['/', '/data/giveAccessKey'],
+    spotifyToken: accessToken,
+    youtube: process.env.key,
+  });
 }

@@ -86,3 +86,29 @@ module.exports.authorizeAccess = function (req, res, next) {
   }
   next();
 }
+
+module.exports.authorizeDev = function (req, res, next) {
+  var loginId = res.locals.userInfo.loginId;
+  var whoAccesses = db.get('users').find({id: loginId}).value();
+
+  if (whoAccesses) {
+    let role = whoAccesses['role'];
+    let dev = whoAccesses['dev'];
+    if (role === 10 && dev !== undefined) {
+    } else {
+      res.render('index', {
+        serverAlert: 'Unauthorized access, you are reported!',
+        linkServerAlert: '/policy'
+      });
+      return;
+    }
+  } else {
+    res.render('index', {
+      serverAlert: 'Invalid access!',
+      linkServerAlert: '/policy'
+    });
+    return;
+  }
+
+  next();
+}
