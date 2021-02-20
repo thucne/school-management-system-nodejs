@@ -6,6 +6,8 @@ var department = require('../lowdb/department');
 var studentSchedule = require('../lowdb/studentStandardSchedule');
 var teacherSchedule = require('../lowdb/teacherStandardSchedule');
 var announcement = require('../lowdb/announcements');
+var log = require('../lowdb/log');
+
 
 const marked = require("marked");
 const htmlPugConverter = require('html-pug-converter')
@@ -1358,6 +1360,8 @@ module.exports.postThisAnnouncement = function (req, res) {
   // console.log(newANCM);
 
   announcement.get('ancm').push(newANCM).write();
+
+  log.get('logs').push({name: 'ancm', createAt: Date.now()}).write();
 
   res.redirect('/school/announcements');
 }

@@ -9,6 +9,7 @@ router.get('/retrieve/:category', middleware.authorizeAccess, controller.getCate
 router.post('/update', controller.ajaxUpdate);
 router.get('/giveAccessKey', middleware.authorizeDev, controller.giveAccessKey);
 router.post('/getNotification', controller.getNotification);
+router.post('/getNotiIfAny', controller.getNotiIfAny);
 
 
 module.exports = router;

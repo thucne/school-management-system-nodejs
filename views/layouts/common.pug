@@ -101,6 +101,7 @@ html
           var kBytes = pageSize / 1024;
 
           var idleTime = 0;
+          var whatTimeInit = true;
           $(function () {
             var idleInterval = setInterval(timerIncrement, 1000); // 1 minute
             //Zero the idle timer on mouse movement.
@@ -110,10 +111,63 @@ html
             $(document).on('keypress',function (e) {
               idleTime = 0;
             });
+            if (whatTimeInit) {
+              $('#whatTime').val(Date.now());
+              // $('#whatTime').html(Date.now().toString());
+              whatTimeInit = false;
+            }
           });
+
+          $(window).on('load', () => {
+            setInterval(getNotiIfAny, 100);
+          });
+
+
+          function getNotiIfAny() {
+            // var token = $('input[name="_csrf"]').val();
+            var token = "#{csrfToken}";
+            if (token !== undefined) {
+              $.ajax({
+                type: 'POST',
+                url: '/data/getNotiIfAny',
+                data: {
+                  "myPage": location.href,
+                  "myPageTime": $('#whatTime').val(),
+                  "_csrf": token
+                },
+                dataType: 'json',
+                success: function (data) {
+                  // $('#csrfTokk').val(data.csrfToken);
+                  if (data.whatsNew) {
+                    // $('#ajaxNotiIfAny').html(data.myPage + ', its been ' + data.itsBeen + ', whatsNew in ' + data.whatsNew[0]['name']);
+                    var isAncmNew = false;
+                    data.whatsNew.forEach(news => {
+                      if (news['name'] === 'ancm') {
+                        isAncmNew = true;
+                        return true;
+                      } else {
+                        return false;
+                      }
+                    });
+                    if (isAncmNew) {
+                      $('#ancmBagde').show();
+                      $('#ancmBagde').attr('name', 'dontReload');
+                    }
+                  } else {
+                    // $('#ajaxNotiIfAny').html(data.myPage + ', its been ' + data.itsBeen + ', and no whatsNew ');
+                  }
+                },
+                error: function (xhr, status, error) {
+                }
+              });
+            }
+          }
+
           let timerInterval;
           function timerIncrement() {
-            idleTime = idleTime + 1;
+            if (!$('#ancmBagde').attr('name')) {
+              idleTime = idleTime + 1;
+            }
             if (idleTime > 60) {
               idleTime = 0;
               Swal.fire({
@@ -134,14 +188,13 @@ html
                   }, 100)
                 },
                 willClose: () => {
-                  window.location.reload();
                   clearInterval(timerInterval);
                   // window.location.reload();
                 }
               }).then((result) => {
                 /* Read more about handling dismissals below */
                 if (result.dismiss === Swal.DismissReason.timer) {
-                  // window.location.reload();
+                  window.location.reload();
                 }
               })
             }
@@ -152,6 +205,8 @@ html
             }
         //link(rel="icon", href="http://sstatic.net/stackoverflow/img/favicon.ico")
     body(style="background-image: url('/images/3563935 (1).jpg'); background-position: center; background-repeat: no-repeat; background-attachment: fixed; min-width: 100%; min-height: 100%; background-size: cover;")
+        input#whatTime(type='hidden')
+        input#csurf(type='hidden' value=csrfToken)
         #exampleModalCenter.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
             .modal-dialog.modal-dialog-centered(role='document')
                 .modal-content
@@ -464,6 +519,7 @@ html
             input#getApiKey(type='hidden', value=youtube)
         div
             img.cropimg(src="/images/27240 (1).jpg", alt='Navigation img', width="100%", height="auto")
+        //div.alert.alert-info#ajaxNotiIfAny
         .sticky-top
             nav.navbar.navbar-expand-lg.navbar-light.bg-light(style='border-bottom: 1px solid gray;')
                 a.navbar-brand(href='/')
@@ -478,8 +534,9 @@ html
                             a.nav-link(href='/', data-toggle='tooltip', data-placement='top', title='Home page')
                                 img(src='/images/home (1).png' width="40" alt='Home')
                         li.nav-item.mr-2
-                            a.nav-link(href='/school/announcements', data-toggle='tooltip', data-placement='top', title='View your announcement!')
+                            a.nav-link.notification(href='/school/announcements', data-toggle='tooltip', data-placement='top', title='View your announcement!')
                                 img(src='/images/envelope (1).png' width="40" alt='Announcements')
+                                span.myBadge#ancmBagde(style='display: none;')
                         li.nav-item.mr-0
                             a.nav-link(href='/users', data-toggle='tooltip', data-placement='top', title='View info')
                                 img(src='/images/skills (1).png' width="40" alt='View/Edit info')
