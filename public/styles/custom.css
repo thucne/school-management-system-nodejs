@@ -326,6 +326,25 @@ button.close.btn-close {
     padding: .5rem .5rem;
     margin: -.5rem -.5rem -.5rem auto;
 }
+
+.notification {
+    text-decoration: none;
+    /*padding: 15px 26px;*/
+    position: relative;
+    display: inline-block;
+    /*border-radius: 2px;*/
+}
+
+.myBadge {
+    position: absolute;
+    top:5px;
+    right: 10px;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    color: white;
+}
 /**
 
 HERE

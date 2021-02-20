@@ -28,8 +28,6 @@ block content
                 $('#old').val(JSON.stringify(data.listOfAnnouncements));
                 data.listOfAnnouncements.forEach(item => {
                   var thisKindOfAlert = Math.floor(Math.random() * 8);
-                  // alert($("#rrr").val());
-                  // alert(typeof $("#rrr").val());
                   var listOfAlertName = ['alert-primary', 'alert-secondary', 'alert-success', 'alert-danger', 'alert-warning', 'alert-info', 'alert-light', 'alert-dark'];
                   var role = $("#rrr").val() === '10' ? '': 'display: none; hidden: true; disabled: true;';
                   var tempDate = new Date(item.when).toLocaleString();
@@ -68,8 +66,6 @@ block content
           }
         });
         return false;
-        // location.reload();
-
       }
 
     .px-3.pt-3.mb-5.hide

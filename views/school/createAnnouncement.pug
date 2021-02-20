@@ -101,7 +101,7 @@ block content
                                     class=values ? (values.content ? 'is-valid' : 'is-invalid'): '', onkeyup="checkEnglish();")
                             .valid-feedback(class=values ? (values.content ? 'valid-feedback' : 'invalid-feedback'): '')= values ? (values.content ? 'Looks good!' : 'Please provide the content of announcement!') : ''
 
-                        button.alert.btn.btn-primary#z(type='button' onclick='confirmSave()' disabled style='float:left; vertical-align : middle;')= 'POST'
+                        button.alert.btn.btn-primary#z(type='button' onclick='confirmSave()' disabled style='float:left; vertical-align : middle;' accesskey='p')= 'POST'
                         .alert.alert-danger.ml-2.alert-dismissible.fade.show#t(style='display: none; float: left;')
                             strong Only English contents are allowed!
                             button.close(type='button', data-dismiss='alert', aria-label='Close')

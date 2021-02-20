@@ -7,6 +7,8 @@ var studentSchedule = require('../lowdb/studentStandardSchedule');
 var teacherSchedule = require('../lowdb/teacherStandardSchedule');
 var announcement = require('../lowdb/announcements');
 var accessKey = require('../lowdb/accessKey');
+var log = require('../lowdb/log');
+
 
 const marked = require("marked");
 const htmlPugConverter = require('html-pug-converter')
@@ -364,7 +366,6 @@ module.exports.ajaxUpdate = function (req, res) {
 
 module.exports.giveAccessKey = function (req, res) {
   refreshToken();
-
   res.render('data/giveAccessKey', {
     csrfToken: req.csrfToken(),
     breadcrumb: ['Home', 'Access key'],
@@ -372,4 +373,20 @@ module.exports.giveAccessKey = function (req, res) {
     spotifyToken: accessToken,
     youtube: process.env.key,
   });
+}
+
+module.exports.getNotiIfAny = function (req, res) {
+  let myPage = req.body.myPage;
+  let dateWEB = parseInt(req.body.myPageTime);
+  let dateSERVER = Date.now();
+
+  let allNewNoti = log.get('logs').value().filter((log) => {
+    return parseInt(log['createAt']) > dateWEB;
+  })
+
+  if (allNewNoti.length > 0) {
+    res.send({csrfToken: req.csrfToken(), myPage: myPage, itsBeen: (dateSERVER - dateWEB), whatsNew: allNewNoti});
+  } else {
+    res.send({csrfToken: req.csrfToken(), myPage: myPage, itsBeen: (dateSERVER - dateWEB)});
+  }
 }

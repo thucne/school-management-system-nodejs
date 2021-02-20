@@ -75,6 +75,7 @@ app.get('/', csrfProtection, authMiddleware.default, authMiddleware.requireAuth,
   // })
   refreshToken();
   res.render('index', {
+    csrfToken: req.csrfToken(),
     name: req.body.username,
     breadcrumb: ['Home'],
     breadLink: ['/'],
