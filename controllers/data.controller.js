@@ -365,8 +365,10 @@ module.exports.ajaxUpdate = function (req, res) {
 }
 
 module.exports.giveAccessKey = function (req, res) {
+  var users = db.get('users').value();
   refreshToken();
   res.render('data/giveAccessKey', {
+    users: users,
     csrfToken: req.csrfToken(),
     breadcrumb: ['Home', 'Access key'],
     breadLink: ['/', '/data/giveAccessKey'],
@@ -382,7 +384,7 @@ module.exports.getNotiIfAny = function (req, res) {
 
   let allNewNoti = log.get('logs').value().filter((log) => {
     return parseInt(log['createAt']) > dateWEB;
-  })
+  });
 
   if (allNewNoti.length > 0) {
     res.send({csrfToken: req.csrfToken(), myPage: myPage, itsBeen: (dateSERVER - dateWEB), whatsNew: allNewNoti});
