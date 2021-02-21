@@ -68,7 +68,8 @@ block content
                 var tempDate = new Date(key.when).toLocaleString();
                 html += '<tr><td>' + key.for + '</td><td>'+ tempDate +'</td><td>'+ key.keyIs +'</td></tr>';
               });
-              $('#draw').html(html);
+              $('#accessKeyTable').append(html);
+              $('#draw').hide();
             },
             error: function (xhr, status, error) {
             }
@@ -111,7 +112,7 @@ block content
                                             th(data-toggle='tooltip', data-placement='top', title='Who can use the code') Username
                                             th(data-toggle='tooltip', data-placement='top', title='Key is create at') Create at
                                             th(data-toggle='tooltip', data-placement='top', title='The code is') Access code
-                                        #draw
+                                        div#draw
                                             if (accessKeys)
                                                 each key in accessKeys
                                                     tr

@@ -199,9 +199,17 @@ module.exports.getNotification = function (req, res) {
   var thisUserID = res.locals.userInfo.loginId;
   var universityID = db.get('users').find({id: thisUserID}).value()['universityID'];
   // var who = db.get('users').find({id: thisUserID}).value()['name'];
+  var isDev = db.get('users').find({id: thisUserID}).value()['dev'] !== undefined;
+
   var listOfAnnouncements = announcement.get('ancm').value().filter(function (annc) {
-    if (res.locals.userInfo.role === 10) {
-      return true;
+    if (annc.special !== undefined) {
+      if (isDev) {
+        return true;
+      }
+    } else {
+      if (res.locals.userInfo.role === 10) {
+        return true;
+      }
     }
     if (annc.to === 'all') {
       return true;
@@ -436,11 +444,12 @@ module.exports.createAccessKey = function (req, res) {
 
     let newANCM = {
       id: latestANCM.id + 1,
-      to: [req.body.createFor],
+      to: [db.get('users').find({id: req.body.createFor}).value()['universityID']],
       title: 'From admin, this is your one-time access code',
       content: content,
       postBy: res.locals.userInfo.loginId,
-      when: new Date()
+      when: new Date(),
+      special: 'accessCode'
     }
     // console.log(newANCM);
 
