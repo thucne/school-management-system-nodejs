@@ -10,6 +10,7 @@ router.post('/update', controller.ajaxUpdate);
 router.get('/giveAccessKey', middleware.authorizeDev, controller.giveAccessKey);
 router.post('/getNotification', controller.getNotification);
 router.post('/getNotiIfAny', controller.getNotiIfAny);
+router.post('/createAccessKey', middleware.authorizeDev, controller.createAccessKey);
 
 
 module.exports = router;
