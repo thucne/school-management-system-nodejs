@@ -9,6 +9,59 @@ block content
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
+      function suggestUsername() {
+        var str = $("#giveAccessKeyFor").val();
 
+        if (str.length > 0) {
+          $("#suggestUniversityID").fadeIn();
+        } else {
+          $("#suggestUniversityID").fadeOut();
+        }
+
+        $("div#suggestUniversityID div.r button").each(function () {
+          if ($(this).text().search(new RegExp(str, "i")) < 0) {
+            $(this).fadeOut();
+          } else {
+            if ($("#giveAccessKeyFor").val().toLowerCase() === $(this).val().toLowerCase()) {
+              $(this).fadeOut();
+              return;
+            }
+            // $("#here").html('Subject\'s name');
+            $(this).show();
+          }
+        });
+      }
+      function addThisUniversityID(addWhat) {
+        $('#giveAccessKeyFor').fadeOut();
+        $('#giveAccessKeyFor').val($(addWhat).html());
+        $('#suggestUniversityID').fadeOut();
+        $('div#myChoice').children('#myChoiceChild').html($(addWhat).html());
+        $('div#myChoice').fadeIn();
+      }
+      function clearChoice() {
+        $('#giveAccessKeyFor').val('');
+        $('#giveAccessKeyFor').fadeIn();
+        $('div#myChoice').fadeOut();
+      }
     .px-3.pt-3.mb-5.hide
         h1 Give access key
+        hr(style="background-color: lightgray;")
+
+        .container-fluid.my-5(style='clear: both;')
+            .row
+                .col-md-6
+                    form.suggest(action="#", method="POST", name="CreateAccessKey", id="CreateAccessKey")
+                        .form-group
+                            input(type="hidden", name="_csrf", value=csrfToken)
+
+                            label(for="giveAccessKeyFor", id='here') Username
+                            input#giveAccessKeyFor.form-control(name="giveAccessKeyFor", type="text", onkeyup='suggestUsername();' required)
+                            div.btn.btn-outline-primary.btn-sm.mx-1#myChoice(style='border-radius: 20px; display: none;')
+                                span#myChoiceChild
+                                span.ml-2(style='float: right;' onclick='clearChoice();') &#10005
+                            div#suggestUniversityID.my-2(style='display: none; max-height: 200px; overflow: auto;')
+                                if (users)
+                                    - var tempCount = 0
+                                    each user in users
+                                        .r
+                                            button.btn.btn-outline-primary.btn-sm.mx-1.my-1(type='button' style='float: left; border-radius: 20px;' onclick='addThisUniversityID(this);')= user['universityID']

@@ -1369,25 +1369,86 @@ module.exports.postThisAnnouncement = function (req, res) {
 module.exports.showThisANCM = function (req, res) {
   var thisANCMid = parseInt(req.params.id);
 
-  var thisANCM = announcement.get('ancm').find({id: thisANCMid}).value();
-  var whoPost = db.get('users').find({id: thisANCM.postBy}).value()['name'] + ' '
-      + db.get('users').find({id: thisANCM.postBy}).value()['first_name'];
+  /**
+   * Check
+   */
+  var thisUserID = res.locals.userInfo.loginId;
+  var universityID = db.get('users').find({id: thisUserID}).value()['universityID'];
+  var listOfAnnouncements = announcement.get('ancm').value().filter(function (annc) {
+    if (res.locals.userInfo.role === 10) {
+      return true;
+    }
+    if (annc.to === 'all') {
+      return true;
+    } else {
+      let listOfIdAnnc = annc.to;
+      if (listOfIdAnnc === universityID) {
+        return true;
+      }
+      // console.log(typeof listOfIdAnnc);
+      // if (typeof listOfIdAnnc === 'string') {
+      // listOfIdAnnc.split(" ");
+      // }
+      for (let k = 0; k < listOfIdAnnc.length; k++) {
+        if (listOfIdAnnc[k] === universityID || listOfIdAnnc[k] === 'all') {
+          return true;
+        }
+      }
+      return false;
+    }
+  });
 
-  const pug = htmlPugConverter(marked(thisANCM.content), {tabs: true});
+  listOfAnnouncements.sort(function (a, b) {
+    return new Date(b.when) - new Date(a.when);
+  });
 
-  fs.writeFileSync('README.pug', pug);
+  for (let n = 0; n < listOfAnnouncements.length; n++) {
+    listOfAnnouncements[n].when = new Date(listOfAnnouncements[n].when);
+    // console.log(listOfAnnouncements[n].when);
+  }
+
+  /**
+   * End check
+   */
+  var display = false;
+
+  for (let i = 0; i < listOfAnnouncements.length; i++) {
+    if (listOfAnnouncements[i]['id'] === thisANCMid) {
+      display = true;
+      break;
+    }
+  }
   refreshToken();
-  res.render('school/showANCM', {
-    csrfToken: req.csrfToken(),
-    thisANCM: thisANCM,
-    content: pug,
-    whoPost: whoPost,
-    breadcrumb: ['Home', 'Announcements', 'See announcement'],
-    breadLink: ['/', '/school/announcements', '/school/showThisANCM/'+thisANCMid],
-    spotifyToken: accessToken,
-    youtube: process.env.key
-  })
+  if (display) {
+    var thisANCM = announcement.get('ancm').find({id: thisANCMid}).value();
+    var whoPost = db.get('users').find({id: thisANCM.postBy}).value()['name'] + ' '
+        + db.get('users').find({id: thisANCM.postBy}).value()['first_name'];
 
+    const pug = htmlPugConverter(marked(thisANCM.content), {tabs: true});
+
+    fs.writeFileSync('README.pug', pug);
+    res.render('school/showANCM', {
+      csrfToken: req.csrfToken(),
+      thisANCM: thisANCM,
+      content: pug,
+      whoPost: whoPost,
+      breadcrumb: ['Home', 'Announcements', 'See announcement'],
+      breadLink: ['/', '/school/announcements', '/school/showThisANCM/'+thisANCMid],
+      spotifyToken: accessToken,
+      youtube: process.env.key
+    });
+  } else {
+    res.render('index', {
+      csrfToken: req.csrfToken(),
+      serverAlert: 'Announcements not found!',
+      name: req.body.username,
+      linkServerAlert: '/policy',
+      breadcrumb: ['Home'],
+      breadLink: ['/'],
+      spotifyToken: accessToken,
+      youtube: process.env.key
+    });
+  }
 }
 
 module.exports.deleteThisANCM = function (req, res) {

@@ -45,7 +45,13 @@ module.exports.authorizeAccess = function (req, res, next) {
       if (grantKey === undefined) {
         res.render('index', {
           serverAlert: 'Access key is required',
-          linkServerAlert: '/policy'
+          linkServerAlert: '/policy',
+          csrfToken: req.csrfToken(),
+          name: req.body.username,
+          breadcrumb: ['Home'],
+          breadLink: ['/'],
+          spotifyToken: accessToken,
+          youtube: process.env.key
         });
         return;
       } else {
@@ -58,14 +64,26 @@ module.exports.authorizeAccess = function (req, res, next) {
           } else {
             res.render('index', {
               serverAlert: 'Access granted but invalid key!',
-              linkServerAlert: '/policy'
+              linkServerAlert: '/policy',
+              csrfToken: req.csrfToken(),
+              name: req.body.username,
+              breadcrumb: ['Home'],
+              breadLink: ['/'],
+              spotifyToken: accessToken,
+              youtube: process.env.key
             });
             return;
           }
         } else {
           res.render('index', {
             serverAlert: 'You are not granted!',
-            linkServerAlert: '/policy'
+            linkServerAlert: '/policy',
+            csrfToken: req.csrfToken(),
+            name: req.body.username,
+            breadcrumb: ['Home'],
+            breadLink: ['/'],
+            spotifyToken: accessToken,
+            youtube: process.env.key
           });
           return;
         }
@@ -73,14 +91,26 @@ module.exports.authorizeAccess = function (req, res, next) {
     } else {
       res.render('index', {
         serverAlert: 'Unauthorized access, you are reported!',
-        linkServerAlert: '/policy'
+        linkServerAlert: '/policy',
+        csrfToken: req.csrfToken(),
+        name: req.body.username,
+        breadcrumb: ['Home'],
+        breadLink: ['/'],
+        spotifyToken: accessToken,
+        youtube: process.env.key
       });
       return;
     }
   } else {
     res.render('index', {
       serverAlert: 'Invalid access!',
-      linkServerAlert: '/policy'
+      linkServerAlert: '/policy',
+      csrfToken: req.csrfToken(),
+      name: req.body.username,
+      breadcrumb: ['Home'],
+      breadLink: ['/'],
+      spotifyToken: accessToken,
+      youtube: process.env.key
     });
     return;
   }
@@ -98,14 +128,26 @@ module.exports.authorizeDev = function (req, res, next) {
     } else {
       res.render('index', {
         serverAlert: 'Unauthorized access, you are reported!',
-        linkServerAlert: '/policy'
+        linkServerAlert: '/policy',
+        csrfToken: req.csrfToken(),
+        name: req.body.username,
+        breadcrumb: ['Home'],
+        breadLink: ['/'],
+        spotifyToken: accessToken,
+        youtube: process.env.key
       });
       return;
     }
   } else {
     res.render('index', {
       serverAlert: 'Invalid access!',
-      linkServerAlert: '/policy'
+      linkServerAlert: '/policy',
+      csrfToken: req.csrfToken(),
+      name: req.body.username,
+      breadcrumb: ['Home'],
+      breadLink: ['/'],
+      spotifyToken: accessToken,
+      youtube: process.env.key
     });
     return;
   }
