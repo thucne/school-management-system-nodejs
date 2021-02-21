@@ -1280,9 +1280,16 @@ module.exports.assignTeacherNOWToSubject = function (req, res) {
 module.exports.showAnnouncements = function (req, res) {
   var thisUserID = res.locals.userInfo.loginId;
   var universityID = db.get('users').find({id: thisUserID}).value()['universityID'];
+  var isDev = db.get('users').find({id: thisUserID}).value()['dev'] !== undefined;
   var listOfAnnouncements = announcement.get('ancm').value().filter(function (annc) {
-    if (res.locals.userInfo.role === 10) {
-      return true;
+    if (annc.special !== undefined) {
+      if (isDev) {
+        return true;
+      }
+    } else {
+      if (res.locals.userInfo.role === 10) {
+        return true;
+      }
     }
     if (annc.to === 'all') {
       return true;
@@ -1374,9 +1381,17 @@ module.exports.showThisANCM = function (req, res) {
    */
   var thisUserID = res.locals.userInfo.loginId;
   var universityID = db.get('users').find({id: thisUserID}).value()['universityID'];
+  var isDev = db.get('users').find({id: thisUserID}).value()['dev'] !== undefined;
+
   var listOfAnnouncements = announcement.get('ancm').value().filter(function (annc) {
-    if (res.locals.userInfo.role === 10) {
-      return true;
+    if (annc.special !== undefined) {
+      if (isDev) {
+        return true;
+      }
+    } else {
+      if (res.locals.userInfo.role === 10) {
+        return true;
+      }
     }
     if (annc.to === 'all') {
       return true;
