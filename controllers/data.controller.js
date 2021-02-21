@@ -9,6 +9,7 @@ var announcement = require('../lowdb/announcements');
 var accessKey = require('../lowdb/accessKey');
 var log = require('../lowdb/log');
 
+var aguid = require('aguid');
 
 const marked = require("marked");
 const htmlPugConverter = require('html-pug-converter')
@@ -365,10 +366,15 @@ module.exports.ajaxUpdate = function (req, res) {
 }
 
 module.exports.giveAccessKey = function (req, res) {
-  var users = db.get('users').value();
+  var users = db.get('users').value().filter((user) => {
+    return user['role'] === 10;
+  });
+  var accessKeys = accessKey.get('key').value() !== undefined ? accessKey.get('key').value(): [];
+
   refreshToken();
   res.render('data/giveAccessKey', {
     users: users,
+    accessKeys: accessKeys,
     csrfToken: req.csrfToken(),
     breadcrumb: ['Home', 'Access key'],
     breadLink: ['/', '/data/giveAccessKey'],
@@ -391,4 +397,68 @@ module.exports.getNotiIfAny = function (req, res) {
   } else {
     res.send({csrfToken: req.csrfToken(), myPage: myPage, itsBeen: (dateSERVER - dateWEB)});
   }
+}
+
+module.exports.createAccessKey = function (req, res) {
+
+  function createFirst() {
+    let generateAccessKey = aguid(Date.now().toString());
+
+    let newAccessKey = {
+      for: req.body.createFor,
+      keyIs: generateAccessKey,
+      when: Date.now()
+    }
+
+    accessKey.get('key').push(newAccessKey).write();
+
+    /**
+     * Send it to the user
+     */
+    var latestANCM = announcement.get('ancm').value();
+
+    latestANCM = announcement.get('ancm').nth(latestANCM.length - 1).value();
+
+    var content = '### Announcement\n' +
+        '\n' +
+        '## Dear, below is your one-time access code to the database, here are some important notes:\n' +
+        '\n' +
+        '1. **Do not**  give this code to anyone other but you, in addition, it is necessary to change your password regularly to avoid accidental or intentional damage to the database.\n' +
+        '2. This is a  **one-time**  access code, so during the usage, you must  **continuously interact**  with the screen (to avoid auto-reload) and never  **reload**  the web page.\n' +
+        '3. When making changes to the data in the database, it is  **your responsibility**  to ensure the integrity of the entire system.\n' +
+        '4. Any damages caused by careless correction will be handled according to school regulations.\n' +
+        '\n' +
+        'Code: ' + generateAccessKey +'.\n ' +
+        '\n' +
+        'Link: http://localhost:6969/data?keyAccess=' + generateAccessKey +'.\n ' +
+        '\n' +
+        '*Message from admin, licensed by the Office of Academic Affairs.*';
+
+    let newANCM = {
+      id: latestANCM.id + 1,
+      to: [req.body.createFor],
+      title: 'From admin, this is your one-time access code',
+      content: content,
+      postBy: res.locals.userInfo.loginId,
+      when: new Date()
+    }
+    // console.log(newANCM);
+
+    announcement.get('ancm').push(newANCM).write();
+
+    log.get('logs').push({name: 'ancm', createAt: Date.now()}).write();
+
+  }
+
+  function retrieveAndResponseLater() {
+    let accessKeys = accessKey.get('key').value() !== undefined ? accessKey.get('key').value(): [];
+    refreshToken();
+    res.status(200).send({csrfToken: req.csrfToken(), accessKeys: accessKeys, createFor: req.body.createFor});
+  }
+
+  async function doProcess() {
+    await createFirst();
+  }
+
+  doProcess().then(retrieveAndResponseLater);
 }

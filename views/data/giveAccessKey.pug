@@ -33,15 +33,47 @@ block content
       }
       function addThisUniversityID(addWhat) {
         $('#giveAccessKeyFor').fadeOut();
-        $('#giveAccessKeyFor').val($(addWhat).html());
+        $('#giveAccessKeyFor').val($(addWhat).attr('myTag'));
         $('#suggestUniversityID').fadeOut();
         $('div#myChoice').children('#myChoiceChild').html($(addWhat).html());
         $('div#myChoice').fadeIn();
+        $('#giveAccessKeyForBTN').fadeIn();
       }
       function clearChoice() {
         $('#giveAccessKeyFor').val('');
         $('#giveAccessKeyFor').fadeIn();
         $('div#myChoice').fadeOut();
+        $('#giveAccessKeyForBTN').fadeOut();
+
+      }
+      function createKeyViaAJAX() {
+        let token = "#{csrfToken}";
+        if (token) {
+          $.ajax({
+            type: 'POST',
+            url: '/data/createAccessKey',
+            data: {
+              "_csrf": token,
+              "createFor": $('#giveAccessKeyFor').val(),
+            },
+            dataType: 'json',
+            success: function (data) {
+              let html = '';
+              Swal.fire(
+                'Successfully!',
+                'A key has been created and send to the designated user!',
+                'success'
+              );
+              data.accessKeys.forEach(key => {
+                var tempDate = new Date(key.when).toLocaleString();
+                html += '<tr><td>' + key.for + '</td><td>'+ tempDate +'</td><td>'+ key.keyIs +'</td></tr>';
+              });
+              $('#draw').html(html);
+            },
+            error: function (xhr, status, error) {
+            }
+          });
+        }
       }
     .px-3.pt-3.mb-5.hide
         h1 Give access key
@@ -50,7 +82,7 @@ block content
         .container-fluid.my-5(style='clear: both;')
             .row
                 .col-md-6
-                    form.suggest(action="#", method="POST", name="CreateAccessKey", id="CreateAccessKey")
+                    form.suggest
                         .form-group
                             input(type="hidden", name="_csrf", value=csrfToken)
 
@@ -64,4 +96,25 @@ block content
                                     - var tempCount = 0
                                     each user in users
                                         .r
-                                            button.btn.btn-outline-primary.btn-sm.mx-1.my-1(type='button' style='float: left; border-radius: 20px;' onclick='addThisUniversityID(this);')= user['universityID']
+                                            button.btn.btn-outline-primary.btn-sm.mx-1.my-1(type='button' style='float: left; border-radius: 20px;' onclick='addThisUniversityID(this);' myTag=user['id'])= user['universityID']
+
+                    button.btn.btn-success#giveAccessKeyForBTN(style='border-radius: 20px; display: none;' onclick='createKeyViaAJAX();') Generate
+                .col-md-6
+                    .card(style='max-height: fit-content;')
+                        .card-header
+                            h5 Access key table
+                        .card-block
+                            .table-responsive
+                                .table-wrapper-scroll-y.my-custom-scrollbar-data.ui-table-header-row
+                                    table#accessKeyTable.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px;')
+                                        tr.table-secondary.blue
+                                            th(data-toggle='tooltip', data-placement='top', title='Who can use the code') Username
+                                            th(data-toggle='tooltip', data-placement='top', title='Key is create at') Create at
+                                            th(data-toggle='tooltip', data-placement='top', title='The code is') Access code
+                                        #draw
+                                            if (accessKeys)
+                                                each key in accessKeys
+                                                    tr
+                                                        td= key.for
+                                                        td= new Date(key.when).toLocaleString()
+                                                        td= key.keyIs

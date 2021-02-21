@@ -59,7 +59,7 @@ module.exports.authorizeAccess = function (req, res, next) {
         if (isFoundKey !== undefined) {
           // console.log('found ' + isFoundKey['keyIs']);
           if (isFoundKey['keyIs'] === grantKey) {
-            // accessKey.get('key').remove(isFoundKey).write();
+            accessKey.get('key').remove(isFoundKey).write();
             next();
           } else {
             res.render('index', {

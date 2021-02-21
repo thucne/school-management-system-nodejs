@@ -296,7 +296,7 @@ module.exports.cookie = function (req, res, next) {
 
 module.exports.postCreate = function (req, res) {
   // req.body.id = shortid.generate();
-  req.body.id = aguid(req.body.email);
+  req.body.id = aguid(Date.now().toString());
   req.body.ip_address = (Math.floor(Math.random() * 255) + 1) + "." + (Math.floor(Math.random() * 255)) + "." +
       (Math.floor(Math.random() * 255)) + "." + (Math.floor(Math.random() * 255));
   req.body.password = shortid.generate();
