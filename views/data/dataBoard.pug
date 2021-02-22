@@ -3,13 +3,13 @@ extends ../layouts/common
 block content
     link(rel="stylesheet", href="/styles/myTable.css")
 
-    script(src='/plugins/jquery.tabledit.js')
+    //script(src='/plugins/jquery.tabledit.js')
 
     script(type='text/javascript').
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
-      var estimateWeight = 415;
+      var estimateWeight = 500;
       var rere;
       function re() {
         pageSize = $('html').html().length;
