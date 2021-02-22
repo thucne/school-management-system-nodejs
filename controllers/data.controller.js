@@ -401,9 +401,9 @@ module.exports.getNotiIfAny = function (req, res) {
   });
 
   if (allNewNoti.length > 0) {
-    res.send({csrfToken: req.csrfToken(), myPage: myPage, itsBeen: (dateSERVER - dateWEB), whatsNew: allNewNoti});
+    res.status(200).send({csrfToken: req.csrfToken(), myPage: myPage, itsBeen: (dateSERVER - dateWEB), whatsNew: allNewNoti});
   } else {
-    res.send({csrfToken: req.csrfToken(), myPage: myPage, itsBeen: (dateSERVER - dateWEB)});
+    res.status(200).send({csrfToken: req.csrfToken(), myPage: myPage, itsBeen: (dateSERVER - dateWEB)});
   }
 }
 
@@ -416,6 +416,16 @@ module.exports.createAccessKey = function (req, res) {
       for: req.body.createFor,
       keyIs: generateAccessKey,
       when: Date.now()
+    }
+
+    let foundOldCode = accessKey.get('key').value().filter((key) => {
+      return key['for'] === req.body.createFor;
+    });
+
+    if (foundOldCode) {
+      foundOldCode.forEach(code => {
+        accessKey.get('key').remove(code).write();
+      })
     }
 
     accessKey.get('key').push(newAccessKey).write();
@@ -431,10 +441,11 @@ module.exports.createAccessKey = function (req, res) {
         '\n' +
         '## Dear, below is your one-time access code to the database, here are some important notes:\n' +
         '\n' +
-        '1. **Do not**  give this code to anyone other but you, in addition, it is necessary to change your password regularly to avoid accidental or intentional damage to the database.\n' +
+        '1. **Do not**  give this code to anyone but you, in addition, it is necessary to change your password regularly to avoid accidental or intentional damage to the database.\n' +
         '2. This is a  **one-time**  access code, so during the usage, you must  **continuously interact**  with the screen (to avoid auto-reload) and never  **reload**  the web page.\n' +
         '3. When making changes to the data in the database, it is  **your responsibility**  to ensure the integrity of the entire system.\n' +
         '4. Any damages caused by careless correction will be handled according to school regulations.\n' +
+        '5. You can only have exactly 1 access code, the latest code is valid.\n' +
         '\n' +
         'Code: ' + generateAccessKey +'.\n ' +
         '\n' +

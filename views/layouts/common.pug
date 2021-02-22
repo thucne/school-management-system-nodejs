@@ -1,6 +1,8 @@
-html
+html(lang="en")
 
     head
+        meta(http-equiv='Cache-Control', content='public')
+
         link(rel="stylesheet", href="/styles/dropdown.css")
         link(rel="icon", type="image/jpg", href="/images/002-layers.png")
         link(rel="stylesheet", href="/styles/snackbar.css")
@@ -125,8 +127,14 @@ html
 
           function getNotiIfAny() {
             var token = "#{csrfToken}";
-            if (token !== undefined) {
+            if (token.length > 0) {
+              $.ajaxSetup({
+                headers: {"Cache-control": "max-age=31536000, immutable"}
+              });
               $.ajax({
+                headers: {
+                  'Cache-control': 'max-age=31536000, immutable'
+                },
                 type: 'POST',
                 url: '/data/getNotiIfAny',
                 data: {
@@ -167,7 +175,7 @@ html
             if (!$('#ancmBagde').attr('name')) {
               idleTime = idleTime + 1;
             }
-            if (idleTime > 60) {
+            if (idleTime > 300) {
               idleTime = 0;
               Swal.fire({
                 title: 'Reload due to inactive detected!',
@@ -517,7 +525,7 @@ html
         if (youtube)
             input#getApiKey(type='hidden', value=youtube)
         div
-            img.cropimg(src="/images/27240 (1).jpg", alt='Navigation img', width="100%", height="auto")
+            img.cropimg(src="/images/27240 (1).jpg", alt='Navigation img', width="auto", height="25%")
         //div.alert.alert-info#ajaxNotiIfAny
         .sticky-top
             nav.navbar.navbar-expand-lg.navbar-light.bg-light(style='border-bottom: 1px solid gray;')
