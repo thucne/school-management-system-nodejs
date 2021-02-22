@@ -6,7 +6,7 @@ var middleware = require('../middleware/dataAuthorize.middleware');
 
 router.get('/', middleware.authorizeAccess, controller.display);
 router.get('/retrieve/:category', middleware.authorizeAccess, controller.getCategory);
-router.post('/update', controller.ajaxUpdate);
+router.post('/update', middleware.authorizeAccess, controller.ajaxUpdate);
 router.get('/giveAccessKey', middleware.authorizeDev, controller.giveAccessKey);
 router.post('/getNotification', controller.getNotification);
 router.post('/getNotiIfAny', controller.getNotiIfAny);

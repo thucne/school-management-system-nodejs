@@ -1,5 +1,5 @@
 {
   "ignore": ["db.json", "avatar.json", "week.json", "room.json", "subject.json"
   , "department.json", "studentStandardSchedule.json", "teacherStandardSchedule.json", "announcements.json", "accessKey.json"
-  , "log.json"]
+  , "log.json", "unauthorizedAccessLog.json"]
 }

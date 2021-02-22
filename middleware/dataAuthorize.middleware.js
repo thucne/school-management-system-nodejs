@@ -1,5 +1,6 @@
 const db = require('../lowdb/db');
 const accessKey = require('../lowdb/accessKey')
+const unauthorizedAccessLog = require('../lowdb/unauthorizedAccessLog');
 
 require('dotenv').config();
 
@@ -28,6 +29,10 @@ function refreshToken() {
   return accessToken;
 }
 
+function unauthorizedPush(id, link) {
+  unauthorizedAccessLog.get('unauthorizedAccessLogs').push({idAccess: id, linkAccess: link, timeAccess: Date.now()}).write();
+}
+
 module.exports.authorizeAccess = function (req, res, next) {
   var loginId = res.locals.userInfo.loginId;
   // console.log('Log in ID is ' + loginId);
@@ -35,6 +40,7 @@ module.exports.authorizeAccess = function (req, res, next) {
   // console.log(grantKey)
   var whoAccesses = db.get('users').find({id: loginId}).value();
   var accessKeys = accessKey.get('key').value();
+  let fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 
   if (whoAccesses) {
     let role = whoAccesses['role'];
@@ -53,6 +59,7 @@ module.exports.authorizeAccess = function (req, res, next) {
           spotifyToken: accessToken,
           youtube: process.env.key
         });
+        unauthorizedPush(loginId, fullUrl);
         return;
       } else {
         var isFoundKey = accessKey.get('key').find({for: loginId}).value();
@@ -72,6 +79,7 @@ module.exports.authorizeAccess = function (req, res, next) {
               spotifyToken: accessToken,
               youtube: process.env.key
             });
+            unauthorizedPush(loginId, fullUrl);
             return;
           }
         } else {
@@ -85,6 +93,7 @@ module.exports.authorizeAccess = function (req, res, next) {
             spotifyToken: accessToken,
             youtube: process.env.key
           });
+          unauthorizedPush(loginId, fullUrl);
           return;
         }
       }
@@ -99,6 +108,7 @@ module.exports.authorizeAccess = function (req, res, next) {
         spotifyToken: accessToken,
         youtube: process.env.key
       });
+      unauthorizedPush(loginId, fullUrl);
       return;
     }
   } else {
@@ -112,6 +122,7 @@ module.exports.authorizeAccess = function (req, res, next) {
       spotifyToken: accessToken,
       youtube: process.env.key
     });
+    unauthorizedPush(loginId, fullUrl);
     return;
   }
   next();
@@ -120,6 +131,7 @@ module.exports.authorizeAccess = function (req, res, next) {
 module.exports.authorizeDev = function (req, res, next) {
   var loginId = res.locals.userInfo.loginId;
   var whoAccesses = db.get('users').find({id: loginId}).value();
+  let fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 
   if (whoAccesses) {
     let role = whoAccesses['role'];
@@ -136,6 +148,7 @@ module.exports.authorizeDev = function (req, res, next) {
         spotifyToken: accessToken,
         youtube: process.env.key
       });
+      unauthorizedPush(loginId, fullUrl);
       return;
     }
   } else {
@@ -149,6 +162,7 @@ module.exports.authorizeDev = function (req, res, next) {
       spotifyToken: accessToken,
       youtube: process.env.key
     });
+    unauthorizedPush(loginId, fullUrl);
     return;
   }
 
