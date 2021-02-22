@@ -9,44 +9,45 @@ block content
         location.href = location.href + temp
 
   script(type='text/javascript').
-    var estimateWeight = 1335;
+    var estimateWeight = 1500;
     var reree;
     function ree() {
       pageSize = $('html').html().length;
       kBytes = pageSize / 1024;
       // var temp = (Math.floor(Date.now() - timerStart) * 100 / EstimatedTime) < 100 ? (Math.floor((Date.now() - timerStart) * 100 / EstimatedTime)) : Math.floor(99)
       var temp = (Math.floor(kBytes) * 100 / estimateWeight) < 100 ? (Math.floor(kBytes * 100 / estimateWeight)): Math.floor(99)
-      $("#loadedBar").css('width', temp + '%');
-      $("#loaded").html("Loaded: " + temp + "%...");
-      $("#pageWeight").html('Page weight: ' + kBytes.toString() + ' KB');
+      $("#loadedBarr").css('width', temp + '%');
+      $("#loadedd").html("Loaded: " + temp + "%...");
+      $("#pageWeightt").html('Page weight: ' + kBytes.toString() + ' KB');
     }
 
-    rere = setInterval(ree, 100);
+    reree = setInterval(ree, 100);
 
     function stopREE() {
-      clearInterval(rere);
+      clearInterval(reree);
       pageSize = $('html').html().length;
       kBytes = pageSize / 1024;
-      $("#loadedBar").css('width', '100%');
-      $("#loaded").html("Load completed!...");
+      $("#loadedBarr").css('width', '100%');
+      $("#pageWeightt").html('Page weight: ' + kBytes.toString() + ' KB');
+      $("#loadedd").html("Load completed!...");
       setTimeout(function () {
-        $("#loaded").fadeOut(100);
-        $("#pageWeight").fadeOut(100);
-        $("#loadedBar").fadeOut(100);
+        $("#loadedd").fadeOut(100);
+        $("#pageWeightt").fadeOut(100);
+        $("#loadedBarr").fadeOut(100);
         $(".progress").fadeOut(100);
       }, 2000);
     }
     $(window).on('DOMContentLoaded', function () {
       // pageSize = $('html').html().length;
       // kBytes = pageSize / 1024;
-      $('#loading').show();
-      $('#loaded').show();
-      $('#pageWeight').show();
-      $('#loadedBar').show();
+      $('#loadingg').show();
+      $('#loadedd').show();
+      $('#pageWeightt').show();
+      $('#loadedBarr').show();
       $('.progress').show();
 
     }).on('load', () => {
-      $('#loading').hide();
+      $('#loadingg').hide();
       $('#indexTable').show();
       stopREE();
       // $('#loaded').hide();
@@ -77,18 +78,6 @@ block content
         $(".notSearch").show();
         $("#search").hide();
       }
-      // alert(count);
-      // var idx = location.href.indexOf('#Yes');
-      // while (idx > 0) {
-      //   location.href.splice(idx, 5);
-      //   idx = location.href.indexOf('#Yes');
-      // }
-      //
-      //
-      // location.href = location.href + '#Yes';
-      // alert($("#Avai").attr('value'));
-      // var current = parseInt($("#Avai").attr('value')) - count;
-
     }
 
   .px-3.pt-4.hide
@@ -117,11 +106,11 @@ block content
                 input(type="text", name="q", class="form-control", placeholder="Any", id='sea', onkeyup="showResult();")
           //button.btn.btn-primary.ml-2(type='submit', data-toggle='tooltip', data-placement='top', title='Search by the input keyword') &#128270;
     div(style='clear:both;')
-        h5#loaded
-        h5#pageWeight
+        h5#loadedd
+        h5#pageWeightt
         .progress
-            #loadedBar.progress-bar.progress-bar-striped.progress-bar-animated
-        #loading.loader.center.my-3(style='position: inherit; top: 100pt;')
+            #loadedBarr.progress-bar.progress-bar-striped.progress-bar-animated
+        #loadingg.loader.center.my-3(style='position: inherit; top: 100pt;')
     div.notSearch
       .table-responsive
         table.table.mt-3.table-hover.table-striped#indexTable(style='display:none;')
