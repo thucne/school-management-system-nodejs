@@ -101,13 +101,13 @@ block content
 
                     button.btn.btn-success#giveAccessKeyForBTN(style='border-radius: 20px; display: none;' onclick='createKeyViaAJAX();') Generate
                 .col-md-6
-                    .card(style='max-height: fit-content;')
+                    .card(style='max-height: 500px;')
                         .card-header
                             h5 Access key table
                         .card-block
                             .table-responsive
                                 .table-wrapper-scroll-y.my-custom-scrollbar-data.ui-table-header-row
-                                    table#accessKeyTable.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px;')
+                                    table#accessKeyTable.table.table-striped.table-bordered.table-hover.table-condensed(style='font-size: 15px; max-height: fit-content;')
                                         tr.table-secondary.blue
                                             th(data-toggle='tooltip', data-placement='top', title='Who can use the code') Username
                                             th(data-toggle='tooltip', data-placement='top', title='Key is create at') Create at

@@ -212,7 +212,8 @@ block content
                                                     span= users[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in users[1]
-                                                    td.tabledit-view-mode(id=iter, name='userDB', onclick=iter === 0 ? '' :'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit': 'ID cannot be edited!')
+                                                    - var isEditable = iter !== 6 && iter !== 18 && iter !== 19 && iter !== 0
+                                                    td.tabledit-view-mode(id=iter++, name='userDB', onclick=!isEditable ? '' :'edit(this);', data-toggle='tooltip', data-placement='top', title=isEditable ? 'Click to edit': 'Not allowed!')
                                                         span.tabledit-span(name=user[users[1][0]], value=users[1][0])= user[key] !== undefined ? user[key] : '#'
                                                         input.tabledit-input.form-control.input-sm(type='text', name=key !== undefined ? key: null, value=user[key] !== undefined ? user[key]: null, style='display: none;')
 
@@ -231,7 +232,7 @@ block content
                                                 - var iter = 0
                                                 each key in announcements[1]
                                                   - var isEditable = iter !== 0 && iter !== 4
-                                                  td.tabledit-view-mode(id=iter++, name='ancmDB', onclick=!isEditable ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=isEditable ? 'Click to edit': 'ID cannot be edited!')
+                                                  td.tabledit-view-mode(id=iter++, name='ancmDB', onclick=!isEditable ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=isEditable ? 'Click to edit': 'Not allowed!')
                                                         span.tabledit-span(name=user[announcements[1][0]], value=announcements[1][0])= user[key] !== undefined ? user[key] : '#'
                                                         input.tabledit-input.form-control.input-sm(type='text', name=key !== undefined ? key : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
@@ -249,7 +250,7 @@ block content
                                                     span= departments[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in departments[1]
-                                                    td.tabledit-view-mode(id=iter, name='departmentDB', onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit': 'ID cannot be edited!')
+                                                    td.tabledit-view-mode(id=iter, name='departmentDB', onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit': 'Not allowed')
                                                         span.tabledit-span(name=user[departments[1][0]], value=departments[1][0])= user[key] !== undefined ? user[key] : '#'
                                                         input.tabledit-input.form-control.input-sm(type='text', name=key !== undefined ? key : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
@@ -267,7 +268,7 @@ block content
                                                     span= rooms[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in rooms[1]
-                                                    td.tabledit-view-mode(id=iter, name='roomDB', onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
+                                                    td.tabledit-view-mode(id=iter, name='roomDB', onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit': 'Not allowed!')
                                                         span.tabledit-span(name=user[rooms[1][0]], value=rooms[1][0])= user[key] !== undefined ? user[key] : '#'
                                                         input.tabledit-input.form-control.input-sm(type='text', name=key !== undefined ? key : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
@@ -286,7 +287,7 @@ block content
                                                     span= SDTSchedules[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in SDTSchedules[1]
-                                                    td.tabledit-view-mode(id=iter, name='SDTScheduleDB', onclick=iter === 7 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 7 ? 'Click to edit': 'ID cannot be edited!')
+                                                    td.tabledit-view-mode(id=iter, name='SDTScheduleDB', onclick=iter === 7 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 7 ? 'Click to edit': 'Not allowed!')
                                                         span.tabledit-span(name=user[SDTSchedules[1][7]], value=SDTSchedules[1][7])= user[key] !== undefined ? user[key] : '#'
                                                         input.tabledit-input.form-control.input-sm(type='text', name=key !== undefined ? key : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
@@ -304,7 +305,7 @@ block content
                                                     span= TCSchedules[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in TCSchedules[1]
-                                                    td.tabledit-view-mode(id=iter, name='TCScheduleDB', onclick=iter === 7 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 7 ? 'Click to edit': 'ID cannot be edited!')
+                                                    td.tabledit-view-mode(id=iter, name='TCScheduleDB', onclick=iter === 7 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 7 ? 'Click to edit': 'Not allowed!')
                                                         span.tabledit-span(name=user[TCSchedules[1][7]], value=TCSchedules[1][7])= user[key] !== undefined ? user[key] : '#'
                                                         input.tabledit-input.form-control.input-sm(type='text', name=key !== undefined ? key : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
@@ -322,7 +323,7 @@ block content
                                                     span= subjects[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in subjects[1]
-                                                    td.tabledit-view-mode(id=iter, name='subjectDB', onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
+                                                    td.tabledit-view-mode(id=iter, name='subjectDB', onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit': 'Not allowed!')
                                                         span.tabledit-span(name=user[subjects[1][0]], value=subjects[1][0])= user[key] !== undefined ? user[key] : '#'
                                                         input.tabledit-input.form-control.input-sm(type='text', name= key !== undefined ? key : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
@@ -340,7 +341,7 @@ block content
                                                     span= RSchedules[0].indexOf(user) + 1
                                                 - var iter = 0
                                                 each key in RSchedules[1]
-                                                    td.tabledit-view-mode(id=iter, name='RScheduleDB', onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit' : 'ID cannot be edited!')
+                                                    td.tabledit-view-mode(id=iter, name='RScheduleDB', onclick=iter === 0 ? '' : 'edit(this);', data-toggle='tooltip', data-placement='top', title=iter++ !== 0 ? 'Click to edit': 'Not allowed!')
                                                         span.tabledit-span(name=user[RSchedules[1][0]], value=RSchedules[1][0])= user[key] !== undefined ? user[key] : '#'
                                                         input.tabledit-input.form-control.input-sm(type='text', name=key !== undefined ? key : null, value=user[key] !== undefined ? user[key] : null, style='display: none;')
 
