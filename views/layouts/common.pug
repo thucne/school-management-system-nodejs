@@ -673,9 +673,13 @@ html(lang="en")
                     script(type='text/javascript').
                       function logout() {
                         document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                        // document.cookie = "userID=; Max-Age=0";
                         // console.log(userInfo.name + "oops");
                         location.reload();
                         userInfo.name = " ";
+                        userInfo.loginId = " ";
+                        userInfo.role = " ";
+                        userInfo.dev = " ";
                       }
             script.
               function runTog() {

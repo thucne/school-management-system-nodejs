@@ -56,10 +56,10 @@ function refreshToken() {
 // app.use(express.static('public'));
 
 app.use((req, res, next) => {
-  res.removeHeader("x-powered-by");
+  // res.removeHeader("x-powered-by");
   // res.set('Content-Type', 'text/html');
-  res.set('x-content-type-options', 'nosniff');
-  res.set('Cache-control', 'max-age=31536000');
+  // res.set('x-content-type-options', 'nosniff');
+  // res.set('Cache-control', 'max-age=31536000');
 
   // req.headers['Cache-control'] = 'max-age=31536000, immutable';
   next();
