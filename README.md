@@ -1,15 +1,11 @@
 # School Management System [![Version](https://img.shields.io/badge/version-12.5.0-blue.svg)](https://github.com/katyperrycbt/sms/releases/tag/v12.5.0)
 
-## [Using ExpressJS/NodeJS]
+## Knowledge required
+HTML, CSS, JavaScript, Bootstrap, jQuery and Expressjs/Nodejs.
 
-[Contact: *katyperrycbt@gmail.com*]
+## Make sure you have already installed [Nodejs](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), [Git](https://git-scm.com/downloads).
 
-# Knowledge required
-HTML, CSS, JavaScript, Bootstrap, jQuery and Expressjs (Nodejs)
-
-# Make sure you have already installed [Nodejs](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), [Git](https://git-scm.com/downloads).
-
-# Clone and keep updated
+## Getting started
 
 **Clone:**
 ```bash
@@ -17,20 +13,12 @@ git clone https://github.com/katyperrycbt/sms.git
 cd sms
 npm install
 ```
-*See: [Before you run]*
-
-**Keep updated:**
-```bash
-git pull origin main
-```
-
-## In the Command Prompt or Window Powershell
-### First 
+### In the Command Prompt or Window Powershell
+**First** 
 ```bash
 npm install
 ```
-### Next 
-[**Important**] 
+**Next**
 
 Create a file named `.env` with the content: 
 ```javascript
@@ -45,19 +33,14 @@ Note:
   2. '?': [contact me](mailto:katyperrycbt@gmail.com) for the information.
 
 ### Start the server
-* Open file: `sms.js`
-* Scroll down to the end, change this (if any):
-```javascript
-  // open('http://localhost:6969/', {app: edge});
-```
-* Into this:
-```javascript
-  open('http://localhost:6969/', {app: edge});
-```
-(Note: You may need to change the value of `edge` into your exactly directory of your browser `.exe` file)
-* Finally:
+
 ```bash
 npm start
+```
+
+### Keep updated
+```bash
+git pull origin main
 ```
 
 ### **Account:** See lowdb/db.json
