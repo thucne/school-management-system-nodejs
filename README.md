@@ -1,4 +1,4 @@
-# School Management System [![Version](https://img.shields.io/badge/version-12.4.0-blue.svg)](https://github.com/katyperrycbt/sms/releases/tag/v12.4.0)
+# School Management System [![Version](https://img.shields.io/badge/version-12.5.0-blue.svg)](https://github.com/katyperrycbt/sms/releases/tag/v12.5.0)
 
 ## [Using ExpressJS/NodeJS]
 
@@ -6,6 +6,8 @@
 
 # Knowledge required
 HTML, CSS, JavaScript, Bootstrap, jQuery and Expressjs (Nodejs)
+
+# Make sure you have already installed [Nodejs](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), [Git](https://git-scm.com/downloads).
 
 # Clone and keep updated
 
@@ -21,8 +23,6 @@ npm install
 ```bash
 git pull origin main
 ```
-
-Make sure you have already installed [Nodejs](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), [Expressjs](http://expressjs.com/) and other needed modules/packages.
 
 ## In the Command Prompt or Window Powershell
 ### First 
