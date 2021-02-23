@@ -17,8 +17,8 @@ cd sms
 ```bash
 npm install
 ```
-**3. Create .env file**
-Create a file named `.env` with the content: 
+**3. Create .env file with the content**
+
 ```javascript
 cookie_secret=anything
 clientId=?
@@ -28,6 +28,7 @@ key=?
 Note: 
   1. 'anything' means any string you prefer. Learn more: [cookie-parser](https://www.npmjs.com/package/cookie-parser).
   2. '?': [contact me](mailto:katyperrycbt@gmail.com) for the information.
+  
 **4. Start server**
 ```bash
 npm start
