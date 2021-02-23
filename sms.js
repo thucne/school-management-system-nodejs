@@ -53,17 +53,15 @@ function refreshToken() {
   );
   return accessToken;
 }
-app.use(express.static('public', {setHeaders: function (res, path, stat) {
-    res.set('Cache-control', 'max-age=31536000, immutable');
-  }}));
+// app.use(express.static('public'));
 
 app.use((req, res, next) => {
   res.removeHeader("x-powered-by");
   // res.set('Content-Type', 'text/html');
   res.set('x-content-type-options', 'nosniff');
-  res.set('Cache-control', 'max-age=31536000, immutable');
+  res.set('Cache-control', 'max-age=31536000');
 
-  req.headers['Cache-control'] = 'max-age=31536000, immutable';
+  // req.headers['Cache-control'] = 'max-age=31536000, immutable';
   next();
 });
 
@@ -71,7 +69,7 @@ app.use((req, res, next) => {
 app.set('view engine', 'pug');
 app.set('views', './views');
 
-// app.use(express.static('public', {cacheControl: true, maxAge: 31536000}));
+app.use(express.static('public'));
 
 app.use(bodyParser.json()); //for parsing application/json
 app.use(bodyParser.urlencoded({ extend: true})); //for parsing application/x-www-form-urlencoded

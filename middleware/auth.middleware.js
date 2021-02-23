@@ -34,7 +34,6 @@ module.exports.default = function (req, res, next) {
     role: " ",
     dev: " "
   };
-
   next();
 }
 

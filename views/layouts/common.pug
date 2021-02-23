@@ -128,13 +128,13 @@ html(lang="en")
           function getNotiIfAny() {
             var token = "#{csrfToken}";
             if (token.length > 0) {
-              $.ajaxSetup({
-                headers: {"Cache-control": "max-age=31536000, immutable"}
-              });
+              // $.ajaxSetup({
+              //   headers: {"Cache-control": "max-age=31536000, immutable"}
+              // });
               $.ajax({
-                headers: {
-                  'Cache-control': 'max-age=31536000, immutable'
-                },
+                // headers: {
+                //   'Cache-control': 'max-age=31536000, immutable'
+                // },
                 type: 'POST',
                 url: '/data/getNotiIfAny',
                 data: {
