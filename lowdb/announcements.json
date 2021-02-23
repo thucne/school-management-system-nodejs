@@ -70,23 +70,12 @@
     {
       "id": 11,
       "to": [
-        "ADMIN39651"
-      ],
-      "title": "From admin, this is your one-time access code",
-      "content": "### Announcement\n\n## Dear, below is your one-time access code to the database, here are some important notes:\n\n1. **Do not**  give this code to anyone but you, in addition, it is necessary to change your password regularly to avoid accidental or intentional damage to the database.\n2. This is a  **one-time**  access code, so during the usage, you must  **continuously interact**  with the screen (to avoid auto-reload) and never  **reload**  the web page.\n3. When making changes to the data in the database, it is  **your responsibility**  to ensure the integrity of the entire system.\n4. Any damages caused by careless correction will be handled according to school regulations.\n5. You can only have exactly 1 access code, the latest code is valid.\n\nCode: bdd03b03-0b6c-4d83-825e-fdff0151e45b.\n \nLink: http://localhost:6969/data?keyAccess=bdd03b03-0b6c-4d83-825e-fdff0151e45b.\n \n*Message from admin, licensed by the Office of Academic Affairs.*",
-      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
-      "when": "2021-02-23T02:59:41.893Z",
-      "special": "accessCode"
-    },
-    {
-      "id": 12,
-      "to": [
         "ADMIN79117"
       ],
       "title": "From admin, this is your one-time access code",
-      "content": "### Announcement\n\n## Dear, below is your one-time access code to the database, here are some important notes:\n\n1. **Do not**  give this code to anyone but you, in addition, it is necessary to change your password regularly to avoid accidental or intentional damage to the database.\n2. This is a  **one-time**  access code, so during the usage, you must  **continuously interact**  with the screen (to avoid auto-reload) and never  **reload**  the web page.\n3. When making changes to the data in the database, it is  **your responsibility**  to ensure the integrity of the entire system.\n4. Any damages caused by careless correction will be handled according to school regulations.\n5. You can only have exactly 1 access code, the latest code is valid.\n\nCode: 8f77a204-7172-4c65-83bd-42d715aa8b64.\n \nLink: http://localhost:6969/data?keyAccess=8f77a204-7172-4c65-83bd-42d715aa8b64.\n \n*Message from admin, licensed by the Office of Academic Affairs.*",
+      "content": "### Announcement\n\n## Dear, below is your one-time access code to the database, here are some important notes:\n\n1. **Do not**  give this code to anyone but you, in addition, it is necessary to change your password regularly to avoid accidental or intentional damage to the database.\n2. This is a  **one-time**  access code, so during the usage, you must  **continuously interact**  with the screen (to avoid auto-reload) and never  **reload**  the web page.\n3. When making changes to the data in the database, it is  **your responsibility**  to ensure the integrity of the entire system.\n4. Any damages caused by careless correction will be handled according to school regulations.\n5. You can only have exactly 1 access code, the latest code is valid.\n\nCode: 1617b7d4-6970-432d-853d-edeedb2102cd.\n \nLink: http://localhost:6969/data?keyAccess=1617b7d4-6970-432d-853d-edeedb2102cd.\n \n*Message from admin, licensed by the Office of Academic Affairs.*",
       "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
-      "when": "2021-02-23T02:59:51.008Z",
+      "when": "2021-02-23T03:58:53.119Z",
       "special": "accessCode"
     }
   ]
