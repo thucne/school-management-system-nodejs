@@ -44,6 +44,16 @@
       "idAccess": "76a6bd26-8620-40df-867f-3bde6e54f690",
       "linkAccess": "http://localhost:6969/data",
       "timeAccess": 1614051067066
+    },
+    {
+      "idAccess": "76a6bd26-8620-40df-867f-3bde6e54f690",
+      "linkAccess": "http://localhost:6969/data",
+      "timeAccess": 1614052644000
+    },
+    {
+      "idAccess": "76a6bd26-8620-40df-867f-3bde6e54f690",
+      "linkAccess": "http://localhost:6969/data?keyAccess=1617b7d4-6970-432d-853d-edeedb2102cd",
+      "timeAccess": 1614052771264
     }
   ]
 }
