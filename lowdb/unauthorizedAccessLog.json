@@ -14,6 +14,11 @@
       "idAccess": "76a6bd26-8620-40df-867f-3bde6e54f690",
       "linkAccess": "http://localhost:6969/data/giveAccessKey",
       "timeAccess": 1613985517741
+    },
+    {
+      "idAccess": "76a6bd26-8620-40df-867f-3bde6e54f690",
+      "linkAccess": "http://localhost:6969/data?keyAccess=43f92516-d334-4e24-85bb-46c8acecd42e",
+      "timeAccess": 1614048336434
     }
   ]
 }
