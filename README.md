@@ -7,19 +7,17 @@ HTML, CSS, JavaScript, Bootstrap, jQuery and Expressjs/Nodejs.
 
 ## Getting started
 
-**Clone:**
+### In the Command Prompt or Window Powershell
+**1. Clone the project**
 ```bash
 git clone https://github.com/katyperrycbt/sms.git
 cd sms
-npm install
 ```
-### In the Command Prompt or Window Powershell
-**First** 
+**2. Install npm packages** 
 ```bash
 npm install
 ```
-**Next**
-
+**3. Create .env file**
 Create a file named `.env` with the content: 
 ```javascript
 cookie_secret=anything
@@ -27,18 +25,15 @@ clientId=?
 clientSecret=?
 key=?
 ```
-
 Note: 
   1. 'anything' means any string you prefer. Learn more: [cookie-parser](https://www.npmjs.com/package/cookie-parser).
   2. '?': [contact me](mailto:katyperrycbt@gmail.com) for the information.
-
-### Start the server
-
+**4. Start server**
 ```bash
 npm start
 ```
 
-### Keep updated
+**Keep updated**
 ```bash
 git pull origin main
 ```
