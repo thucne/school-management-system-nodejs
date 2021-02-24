@@ -4,7 +4,7 @@
   "description": "Hi there! \r Contact me: katyperrycbt@gmail.com",
   "main": "sms.js",
   "scripts": {
-    "start": "node sms.js",
+    "start": "nodemon --inspect sms.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
