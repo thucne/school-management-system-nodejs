@@ -8,7 +8,8 @@
   },
   "main": "sms.js",
   "scripts": {
-    "start": "nodemon --inspect sms.js",
+    "start": "node sms.js",
+    "start:dev": "nodemon sms.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
