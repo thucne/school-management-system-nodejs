@@ -1,9 +1,9 @@
 # School Management System [![Version](https://img.shields.io/badge/version-12.5.0-blue.svg)](https://github.com/katyperrycbt/sms/releases/tag/v12.5.0)
 
 ## Knowledge required
-HTML, CSS, JavaScript, Bootstrap, jQuery and Expressjs/Nodejs.
+HTML, CSS, JavaScript, Bootstrap, jQuery and Node.js.
 
-## Make sure you have already installed [Nodejs](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), [Git](https://git-scm.com/downloads).
+## Make sure you have already installed [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), [Git](https://git-scm.com/downloads).
 
 ## Getting started
 
