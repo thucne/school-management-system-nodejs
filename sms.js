@@ -159,5 +159,6 @@ app.use(function (err, req, res, next){
 app.listen(port, function () {
   console.log('Server at port '  + port + ' is running...!!');
   open('http://localhost:6969/', {app: edge});
+  //Test Hello
 });
 
