@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Hi there! \r Contact me: katyperrycbt@gmail.com",
   "engines": {
-    "node": "12.18.2",
-    "npm": "6.14.5"
+    "node": "12.18.2"
   },
   "main": "sms.js",
   "scripts": {
