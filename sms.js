@@ -25,7 +25,7 @@ var sessionMiddleware = require('./middleware/session.middleware');
 //
 const app = express();
 
-var port = 6969;
+var port = process.env.PORT || 6969;
 
 const db = require('./lowdb/db');
 
@@ -158,10 +158,6 @@ app.use(function (err, req, res, next){
 //Test Change
 app.listen(port, function () {
   console.log('Server at port '  + port + ' is running...!!');
-  open('http://localhost:6969/', {app: edge});
-  // Test Hello
-  // Test Hello
-  // Test Hello
-  // Test Hello
+  // open('http://localhost:6969/', {app: edge});
 });
 
