@@ -88,6 +88,17 @@
       "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
       "when": "2021-02-23T04:12:05.489Z",
       "special": "accessCode"
+    },
+    {
+      "id": 13,
+      "to": [
+        "ADMIN79117"
+      ],
+      "title": "From admin, this is your one-time access code",
+      "content": "### Announcement\n\n## Dear, below is your one-time access code to the database, here are some important notes:\n\n1. **Do not**  give this code to anyone but you, in addition, it is necessary to change your password regularly to avoid accidental or intentional damage to the database.\n2. This is a  **one-time**  access code, so during the usage, you must  **continuously interact**  with the screen (to avoid auto-reload) and never  **reload**  the web page.\n3. When making changes to the data in the database, it is  **your responsibility**  to ensure the integrity of the entire system.\n4. Any damages caused by careless correction will be handled according to school regulations.\n5. You can only have exactly 1 access code, the latest code is valid.\n\nCode: 90470182-073a-498c-83b5-6adf5953c516.\n \nLink: http://localhost:6969/data?keyAccess=90470182-073a-498c-83b5-6adf5953c516.\n \n*Message from admin, licensed by the Office of Academic Affairs.*",
+      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
+      "when": "2021-02-25T06:42:52.024Z",
+      "special": "accessCode"
     }
   ]
 }
