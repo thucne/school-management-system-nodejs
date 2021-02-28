@@ -23,3 +23,5 @@ validate/       @katyperrycbt
 .gitignore      @katyperrycbt
 
 CODEOWNERS      @katyperrycbt
+
+.idea/          @katyperrycbt

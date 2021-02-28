@@ -1,3 +1,5 @@
 node_modules
 .env
+.gcloudignore
+app.yaml
 npm-debug.log
