@@ -99,6 +99,38 @@
       "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
       "when": "2021-02-25T06:42:52.024Z",
       "special": "accessCode"
+    },
+    {
+      "id": 14,
+      "to": [
+        "ADMIN79117"
+      ],
+      "title": "From admin, this is your one-time access code",
+      "content": "### Announcement\n\n## Dear, below is your one-time access code to the database, here are some important notes:\n\n1. **Do not**  give this code to anyone but you, in addition, it is necessary to change your password regularly to avoid accidental or intentional damage to the database.\n2. This is a  **one-time**  access code, so during the usage, you must  **continuously interact**  with the screen (to avoid auto-reload) and never  **reload**  the web page.\n3. When making changes to the data in the database, it is  **your responsibility**  to ensure the integrity of the entire system.\n4. Any damages caused by careless correction will be handled according to school regulations.\n5. You can only have exactly 1 access code, the latest code is valid.\n\nCode: 84291036-a2eb-4594-8bb2-75742ec6db46.\n \nLink: http://localhost:6969/data?keyAccess=84291036-a2eb-4594-8bb2-75742ec6db46.\n \n*Message from admin, licensed by the Office of Academic Affairs.*",
+      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
+      "when": "2021-04-10T11:31:08.046Z",
+      "special": "accessCode"
+    },
+    {
+      "id": 15,
+      "to": [
+        "ADMIN79117"
+      ],
+      "title": "From admin, this is your one-time access code",
+      "content": "### Announcement\n\n## Dear, below is your one-time access code to the database, here are some important notes:\n\n1. **Do not**  give this code to anyone but you, in addition, it is necessary to change your password regularly to avoid accidental or intentional damage to the database.\n2. This is a  **one-time**  access code, so during the usage, you must  **continuously interact**  with the screen (to avoid auto-reload) and never  **reload**  the web page.\n3. When making changes to the data in the database, it is  **your responsibility**  to ensure the integrity of the entire system.\n4. Any damages caused by careless correction will be handled according to school regulations.\n5. You can only have exactly 1 access code, the latest code is valid.\n\nCode: 46cc4aa0-e158-47a7-808a-8d23af5c9036.\n \nLink: http://localhost:6969/data?keyAccess=46cc4aa0-e158-47a7-808a-8d23af5c9036.\n \n*Message from admin, licensed by the Office of Academic Affairs.*",
+      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
+      "when": "2021-05-22T15:13:08.993Z",
+      "special": "accessCode"
+    },
+    {
+      "id": 16,
+      "to": [
+        "all"
+      ],
+      "title": "README.md",
+      "content": "### [![Netlify Status](https://api.netlify.com/api/v1/badges/5b7e7b86-0128-4235-9b5e-ab30035cfe40/deploy-status)](https://app.netlify.com/sites/iu-dormitory/deploys)\r\n# Things To Do After Cloning\r\n\r\nRequire: Git, NodeJS (and NPM) pre-installed\r\n- After cloning the project to your pc, please run `npm install`(`npm i`) in the terminal to install important addition to run the program.\r\n- And make sure your computer has the recent version (don't be too outdated) of NodeJS and NPM software available on your computer (you can update the NodeJS/NPM version by using `nvm`)\r\n\r\n# About\r\n\r\nThe project is called 'IU's Dormitory', is the front-end part of a full-stack application of the same name.\r\n\r\n## Details\r\n\r\nA full CRUD React application of the MVC model:\r\n\r\n- Create-react-app\r\n- Material-ui\r\n- NPM packages\r\n- External APIs\r\n- Redux\r\n- Deploy\r\n\r\n## About me: please visit [my Facebook account](https://www.facebook.com/thuc.katy/), or mail to me via [my Gmail](mailto:katyperrycbt@gmail.com)\r\n",
+      "postBy": "2945b207-1df4-4f0f-868f-5c3bf2f948e7",
+      "when": "2021-05-23T05:52:57.714Z"
     }
   ]
 }

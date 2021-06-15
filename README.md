@@ -20,14 +20,15 @@ npm install
 **3. Create .env file with the content**
 
 ```javascript
-cookie_secret=anything
-clientId=?
-clientSecret=?
-key=?
+cookie_secret=1
+clientId=2
+clientSecret=3
+key=4
 ```
 Note: 
-  1. 'anything' means any string you prefer. Learn more: [cookie-parser](https://www.npmjs.com/package/cookie-parser).
-  2. '?': [contact me](mailto:katyperrycbt@gmail.com) for the information.
+  1. '1': Cookie secret. Can by any string.
+  2. '2, 3': Spotify keys
+  3. '4': Youtube API key
   
 **4. Start server**
 ```bash

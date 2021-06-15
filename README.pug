@@ -1,30 +1,35 @@
 html
 	head
 	body
-		h3#announcement Announcement
-		h2#dear-below-is-your-one-time-access-code-to-the-database-here-are-some-important-notes Dear, below is your one-time access code to the database, here are some important notes:
-		ol
+		h3#netlify-status
+			a(href="https://app.netlify.com/sites/iu-dormitory/deploys")
+				img(src="https://api.netlify.com/api/v1/badges/5b7e7b86-0128-4235-9b5e-ab30035cfe40/deploy-status", alt="Netlify Status")
+		h1#things-to-do-after-cloning Things To Do After Cloning
+		p Require: Git, NodeJS (and NPM) pre-installed
+		ul
 			li
-				strong Do not
-				| give this code to anyone but you, in addition, it is necessary to change your password regularly to avoid accidental or intentional damage to the database.
+				| After cloning the project to your pc, please run
+				code npm install
+				| (
+				code npm i
+				| ) in the terminal to install important addition to run the program.
 			li
-				| This is a
-				strong one-time
-				| access code, so during the usage, you must
-				strong continuously interact
-				| with the screen (to avoid auto-reload) and never
-				strong reload
-				| the web page.
-			li
-				| When making changes to the data in the database, it is
-				strong your responsibility
-				| to ensure the integrity of the entire system.
-			li Any damages caused by careless correction will be handled according to school regulations.
-			li You can only have exactly 1 access code, the latest code is valid.
-		p Code: 90470182-073a-498c-83b5-6adf5953c516.
-		p
-			| Link:
-			a(href="http://localhost:6969/data?keyAccess=90470182-073a-498c-83b5-6adf5953c516") http://localhost:6969/data?keyAccess=90470182-073a-498c-83b5-6adf5953c516
-			| .
-		p
-			em Message from admin, licensed by the Office of Academic Affairs.
+				| And make sure your computer has the recent version (don't be too outdated) of NodeJS and NPM software available on your computer (you can update the NodeJS/NPM version by using
+				code nvm
+				| )
+		h1#about About
+		p The project is called 'IU's Dormitory', is the front-end part of a full-stack application of the same name.
+		h2#details Details
+		p A full CRUD React application of the MVC model:
+		ul
+			li Create-react-app
+			li Material-ui
+			li NPM packages
+			li External APIs
+			li Redux
+			li Deploy
+		h2#about-me-please-visit-my-facebook-account-or-mail-to-me-via-my-gmail
+			| About me: please visit
+			a(href="https://www.facebook.com/thuc.katy/") my Facebook account
+			| , or mail to me via
+			a(href="mailto:katyperrycbt@gmail.com") my Gmail
