@@ -31,7 +31,7 @@
     "json2csv": "^5.0.6",
     "laravel-mix": "^6.0.11",
     "lowdb": "^1.0.0",
-    "marked": "^2.0.0",
+    "marked": "^4.0.10",
     "mdb-cli": "^3.2.0",
     "mdbootstrap": "^4.19.2",
     "multer": "^1.4.2",
