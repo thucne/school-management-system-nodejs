@@ -1,4 +1,5 @@
-# School Management System [![Version](https://img.shields.io/badge/version-12.5.0-blue.svg)](https://github.com/katyperrycbt/sms/releases/tag/v12.5.0)
+## Status: Old, not maintained and updated, for reference only
+# School Management System
 
 ## Knowledge required
 HTML, CSS, JavaScript, Bootstrap, jQuery and Node.js.
