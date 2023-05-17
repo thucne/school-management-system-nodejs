@@ -23,7 +23,7 @@
     "csurf": "^1.11.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "html-pug-converter": "^3.0.0",
+    "html2pug": "^4.0.0",
     "ip-range-generator": "^1.0.1",
     "jade": "^1.11.0",
     "json-2-csv": "^3.10.2",
