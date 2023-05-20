@@ -1,1 +1,1 @@
-### [Warning] This repo has been archived, not "healthy", not following best practices, coding style and anything, just a student's project..., so you might need to be carefully review before use this as a reference. 
+Warning: This repo has been archived, not "healthy", not following best practices, coding styles and anything, just a student's project..., so you might need to carefully review before use this as a reference. 
