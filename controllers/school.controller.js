@@ -10,7 +10,7 @@ var log = require('../lowdb/log');
 
 
 const marked = require("marked");
-const htmlPugConverter = require('html-pug-converter')
+const htmlPugConverter = require('html2pug')
 var fs = require('fs');
 const converter = require('json-2-csv');
 var xlsx = require('json-as-xlsx');
